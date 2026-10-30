@@ -102,6 +102,15 @@
 			<trans-unit id="fe_users.registrationconfirmedbyadmin">
 				<source>Registration confirmed by admin</source>
 			</trans-unit>
+			<trans-unit id="fe_users.confirmationRequired">
+				<source>Required confirmations</source>
+			</trans-unit>
+			<trans-unit id="fe_users.confirmationRequired.user">
+				<source>User confirmation required</source>
+			</trans-unit>
+			<trans-unit id="fe_users.confirmationRequired.admin">
+				<source>Admin confirmation required</source>
+			</trans-unit>
 			<trans-unit id="fe_users.tab">
 				<source>Registration</source>
 			</trans-unit>
@@ -131,6 +140,9 @@
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state">
 				<source>State</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.additional_properties">
+				<source>Additional Properties</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.100">
 				<source>Registration</source>
@@ -174,6 +186,12 @@
 			<trans-unit id="tx_femanager_domain_model_log.state.206">
 				<source>Image deleted</source>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.207">
+				<source>Attempted to spoof profile</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.208">
+				<source>Profile update not authorized</source>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.300">
 				<source>Delete</source>
 			</trans-unit>
@@ -197,6 +215,27 @@
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.405">
 				<source>Password changed and Profile activated</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.500">
+				<source>Backend impersonation</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.501">
+				<source>Was impersonated by Backend Admin (login as)</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.502">
+				<source>Impersonation was denied for Backend User (login as)</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.600">
+				<source>Frontend Login</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.601">
+				<source>Successful frontend login</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.602">
+				<source>Failed frontend login</source>
+			</trans-unit>
+			<trans-unit id="all">
+				<source>All</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.user">
 				<source>User</source>
@@ -343,6 +382,38 @@
 			</trans-unit>
 			<trans-unit id="noZonesForThisCountry">
 				<source>No zones available for the chosen country</source>
+			</trans-unit>
+
+			<trans-unit id="filter.filter">
+				<source>Filter</source>
+			</trans-unit>
+			<trans-unit id="filter.reset">
+				<source>Reset</source>
+			</trans-unit>
+			<trans-unit id="filter.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="filter.state">
+				<source>State</source>
+			</trans-unit>
+			<trans-unit id="filter.from">
+				<source>From</source>
+			</trans-unit>
+			<trans-unit id="filter.to">
+				<source>To</source>
+			</trans-unit>
+
+			<trans-unit id="log.headline.time">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="log.headline.state">
+				<source>State</source>
+			</trans-unit>
+			<trans-unit id="log.headline.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="log.headline.details">
+				<source>Details</source>
 			</trans-unit>
 		</body>
 	</file>

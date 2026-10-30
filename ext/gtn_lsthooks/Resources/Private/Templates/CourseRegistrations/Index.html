@@ -1,0 +1,39 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Module" />
+<f:section name="Content">
+    <h1>Schulungsanmeldungen</h1>
+    <p>Anmeldungen aus den Formularen 20 (DE) und 21 (EN), zusammengefasst nach Kurs-UID und gespeichertem Termin.</p>
+    <p>Enthalten sind auch vergangene Termine. Die Teilnehmerzahl umfasst Selbstanmeldungen und zusätzlich angemeldete Personen.</p>
+    <f:if condition="{courses}">
+        <f:then>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Kurs-UID</th>
+                            <th scope="col">Kurstitel</th>
+                            <th scope="col">Termin</th>
+                            <th scope="col">Course-ID</th>
+                            <th scope="col" class="text-end">Angemeldete Teilnehmer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <f:for each="{courses}" as="course">
+                            <tr>
+                                <td>{course.kursuid}</td>
+                                <td>{course.kurstitel}</td>
+                                <td><f:if condition="{course.termin}"><f:then>{course.termin}</f:then><f:else>Ohne Terminangabe</f:else></f:if></td>
+                                <td>{course.courseid}</td>
+                                <td class="text-end">{course.participants}</td>
+                            </tr>
+                        </f:for>
+                    </tbody>
+                </table>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="alert alert-info">Keine Schulungsanmeldungen mit Kurs-UID vorhanden.</div>
+        </f:else>
+    </f:if>
+</f:section>
+</html>

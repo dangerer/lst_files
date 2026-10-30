@@ -1,0 +1,1586 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-13T20:54:21Z" product-name="sr_feuser_register" target-language="de">
+		<header/>
+		<body>
+			<trans-unit id="invalidToken" xml:space="preserve">
+				<source>This access is not authorized.</source>
+			<target></target><alt-trans xml:space="preserve" origin="jank"><target>Anscheinend ist dieser Link nicht mehr gültig</target></alt-trans><alt-trans xml:space="preserve" origin="None"><target>Dieser Link ist nicht mehr gültig.</target></alt-trans></trans-unit>
+			<trans-unit id="unsupported" xml:space="preserve">
+				<source>unsupported</source>
+			<target>nicht unterstützt</target></trans-unit>
+			<trans-unit id="username" xml:space="preserve">
+				<source>Preferred username</source>
+			<target>Bevorzugter Benutzername</target></trans-unit>
+			<trans-unit id="tooltip_username" xml:space="preserve">
+				<source>Enter the username you want to use to login.</source>
+			<target>Geben Sie hier den Benutzernamen ein, den Sie für die Anmeldung benutzen wollen.</target></trans-unit>
+			<trans-unit id="tooltip_username_informal" xml:space="preserve">
+				<source>Enter the username you want to use to login.</source>
+			<target>Gib hier den Benutzernamen ein, den Du zur Anmeldung benutzen willst.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_username" xml:space="preserve">
+				<source>Enter a username for the invited person.</source>
+			<target>Geben Sie hier den Benutzernamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_username_informal" xml:space="preserve">
+				<source>Enter a username for the invited person.</source>
+			<target>Gib hier den Benutzernamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_login_username" xml:space="preserve">
+				<source>Enter your username.</source>
+			<target>Geben Sie hier Ihren Benutzernamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_login_username_informal" xml:space="preserve">
+				<source>Enter your username.</source>
+			<target>Gib hier Deinen Benutzernamen ein.</target></trans-unit>
+			<trans-unit id="missing_username" xml:space="preserve">
+				<source>Enter a username!</source>
+			<target>Bitte geben Sie Ihren Benutzernamen ein!</target></trans-unit>
+			<trans-unit id="missing_username_informal" xml:space="preserve">
+				<source>Enter a username!</source>
+			<target>Bitte gib Deinen Benutzernamen ein!</target></trans-unit>
+			<trans-unit id="password" xml:space="preserve">
+				<source>Password</source>
+			<target>Passwort</target></trans-unit>
+			<trans-unit id="new_password" xml:space="preserve">
+				<source>New password, if desired</source>
+			<target></target><alt-trans xml:space="preserve" origin="None"><target>Neues Passwort</target></alt-trans></trans-unit>
+			<trans-unit id="tooltip_password" xml:space="preserve">
+				<source>Enter the password you want to use to login.</source>
+			<target>Geben Sie hier das Passwort ein, das Sie für die Anmeldung benutzen wollen.</target></trans-unit>
+			<trans-unit id="tooltip_password_informal" xml:space="preserve">
+				<source>Enter the password you want to use to login.</source>
+			<target>Gib hier das Passwort ein, das Du zur Anmeldung benutzen willst.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_password" xml:space="preserve">
+				<source>Enter a password for the invited person.</source>
+			<target>Geben Sie hier ein Passwort für die einzuladende Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_password_informal" xml:space="preserve">
+				<source>Enter a password for the invited person.</source>
+			<target>Gib hier ein Passwort für die einzuladende Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_login_password" xml:space="preserve">
+				<source>Enter your password.</source>
+			<target>Geben Sie hier Ihr Passwort ein.</target></trans-unit>
+			<trans-unit id="tooltip_login_password_informal" xml:space="preserve">
+				<source>Enter your password.</source>
+			<target>Gib hier Dein Passwort ein.</target></trans-unit>
+			<trans-unit id="password_again" xml:space="preserve">
+				<source>Repeat Password</source>
+			<target>Wiederholung:</target></trans-unit>
+			<trans-unit id="tooltip_password_again" xml:space="preserve">
+				<source>Enter the same password a second time.</source>
+			<target>Geben Sie hier das gleiche Passwort ein zweites Mal ein.</target></trans-unit>
+			<trans-unit id="tooltip_password_again_informal" xml:space="preserve">
+				<source>Enter the same password a second time.</source>
+			<target>Gib hier das gleiche Passwort ein zweites Mal ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_password_again" xml:space="preserve">
+				<source>Enter the same password a second time.</source>
+			<target>Geben Sie hier das gleiche Passwort ein zweites Mal ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_password_again_informal" xml:space="preserve">
+				<source>Enter the same password a second time.</source>
+			<target>Gib hier das gleiche Passwort ein zweites Mal ein.</target></trans-unit>
+			<trans-unit id="missing_password" xml:space="preserve">
+				<source>Please enter a password!</source>
+			<target>Bitte geben Sie ein Passwort an!</target></trans-unit>
+			<trans-unit id="missing_password_informal" xml:space="preserve">
+				<source>Please enter a password!</source>
+			<target>Bitte gib ein Passwort an!</target></trans-unit>
+			<trans-unit id="usergroup" xml:space="preserve">
+				<source>User group</source>
+			<target>Benutzergruppe</target></trans-unit>
+			<trans-unit id="tooltip_usergroup" xml:space="preserve">
+				<source>Select the group(s) to which you wish to belong.</source>
+			<target>Wählen Sie die Benutzergruppe(n) aus, zu der (denen) Sie gehören möchten.</target></trans-unit>
+			<trans-unit id="tooltip_usergroup_informal" xml:space="preserve">
+				<source>Select the group(s) to which you wish to belong.</source>
+			<target>Wähle die Benutzergruppe(n) aus, zu der (denen) Du gehören möchtest.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_usergroup" xml:space="preserve">
+				<source>Select the group(s) to which the invited person will initially belong.</source>
+			<target>Wählen Sie hier die Benutzergruppe(n) aus, zu der (denen) die einzuladende Person gehören soll.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_usergroup_informal" xml:space="preserve">
+				<source>Select the group(s) to which the invited person will initially belong.</source>
+			<target>Wähle hier die Benutzergruppe(n) aus, zu der (denen) die einzuladende Person gehören soll.</target></trans-unit>
+			<trans-unit id="missing_usergroup" xml:space="preserve">
+				<source>Please select a user group!</source>
+			<target>Bitte wählen Sie eine Benutzergruppe aus!</target></trans-unit>
+			<trans-unit id="missing_usergroup_informal" xml:space="preserve">
+				<source>Please select a user group!</source>
+			<target>Bitte wähle eine Benutzergruppe aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_usergroup" xml:space="preserve">
+				<source>Please select a user group!</source>
+			<target>Bitte wählen Sie eine Benutzergruppe aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_usergroup_informal" xml:space="preserve">
+				<source>Please select a user group!</source>
+			<target>Bitte wähle eine Benutzergruppe aus!</target></trans-unit>
+			<trans-unit id="name" xml:space="preserve">
+				<source>Name</source>
+			<target>Name</target></trans-unit>
+			<trans-unit id="tooltip_name" xml:space="preserve">
+				<source>Enter your full name.</source>
+			<target>Geben Sie hier Ihren vollständigen Namen ein.</target></trans-unit>
+			<trans-unit id="tooltip_name_informal" xml:space="preserve">
+				<source>Enter your full name.</source>
+			<target>Gib hier Deinen vollständigen Namen ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_name" xml:space="preserve">
+				<source>Enter the full name of the invited person.</source>
+			<target>Geben Sie hier den vollständigen Namen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_name_informal" xml:space="preserve">
+				<source>Enter the full name of the invited person.</source>
+			<target>Gib hier den vollständigen Namen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_name" xml:space="preserve">
+				<source>Please enter your name!</source>
+			<target>Bitte geben Sie Ihren vollständigen Namen ein!</target></trans-unit>
+			<trans-unit id="missing_name_informal" xml:space="preserve">
+				<source>Please enter your name!</source>
+			<target>Bitte gib Deinen vollständigen Namen ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_name" xml:space="preserve">
+				<source>Please enter a name!</source>
+			<target>Bitte geben Sie einen Namen an!</target></trans-unit>
+			<trans-unit id="missing_invitation_name_informal" xml:space="preserve">
+				<source>Please enter a name!</source>
+			<target>Bitte gib einen Namen an!</target></trans-unit>
+			<trans-unit id="first_name" xml:space="preserve">
+				<source>First name</source>
+			<target>Vorname</target></trans-unit>
+			<trans-unit id="tooltip_first_name" xml:space="preserve">
+				<source>Enter your first name.</source>
+			<target>Geben Sie hier Ihren Vornamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_first_name_informal" xml:space="preserve">
+				<source>Enter your first name.</source>
+			<target>Gib hier Deinen Vornamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_first_name" xml:space="preserve">
+				<source>Enter the first name of the invited person.</source>
+			<target>Geben Sie hier den Vornamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_first_name_informal" xml:space="preserve">
+				<source>Enter the first name of the invited person.</source>
+			<target>Gib hier den Vornamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_first_name" xml:space="preserve">
+				<source>Please enter your first name!</source>
+			<target>Bitte geben Sie Ihren Vornamen ein!</target></trans-unit>
+			<trans-unit id="missing_first_name_informal" xml:space="preserve">
+				<source>Please enter your first name!</source>
+			<target>Bitte gib Deinen Vornamen ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_first_name" xml:space="preserve">
+				<source>Please enter a first name!</source>
+			<target>Bitte geben Sie einen Vornamen an!</target></trans-unit>
+			<trans-unit id="missing_invitation_first_name_informal" xml:space="preserve">
+				<source>Please enter a first name!</source>
+			<target>Bitte gib den Vornamen der einzuladenden Person ein!</target></trans-unit>
+			<trans-unit id="middle_name" xml:space="preserve">
+				<source>Middle name</source>
+			<target>Weitere Vornamen</target></trans-unit>
+			<trans-unit id="tooltip_middle_name" xml:space="preserve">
+				<source>Enter your middle name.</source>
+			<target>Geben Sie weitere Vornamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_middle_name_informal" xml:space="preserve">
+				<source>Enter your middle name.</source>
+			<target>Geben Sie weitere Vornamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_middle_name" xml:space="preserve">
+				<source>Enter the middle name of the invited person.</source>
+			<target>Geben Sie hier weitere Vornamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_middle_name_informal" xml:space="preserve">
+				<source>Enter the middle name of the invited person.</source>
+			<target>Geben Sie hier weitere Vornamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_middle_name" xml:space="preserve">
+				<source>Please enter your middle name!</source>
+			<target>Bitte geben Sie Ihre weiteren Vornamen ein!</target></trans-unit>
+			<trans-unit id="missing_middle_name_informal" xml:space="preserve">
+				<source>Please enter your middle name!</source>
+			<target>Bitte geben Sie Ihre weiteren Vornamen ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_middle_name" xml:space="preserve">
+				<source>Please enter a middle name!</source>
+			<target>Bitte geben Sie einen weiteren Vornamen ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_middle_name_informal" xml:space="preserve">
+				<source>Please enter a middle name!</source>
+			<target>Bitte geben Sie einen weiteren Vornamen ein!</target></trans-unit>
+			<trans-unit id="last_name" xml:space="preserve">
+				<source>Last name</source>
+			<target>Nachname</target></trans-unit>
+			<trans-unit id="tooltip_last_name" xml:space="preserve">
+				<source>Enter your surname.</source>
+			<target>Geben Sie hier Ihren Nachnamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_last_name_informal" xml:space="preserve">
+				<source>Enter your surname.</source>
+			<target>Gib hier Deinen Nachnamen ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_last_name" xml:space="preserve">
+				<source>Enter the surname of the invited person.</source>
+			<target>Geben Sie hier den Nachnamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_last_name_informal" xml:space="preserve">
+				<source>Enter the surname of the invited person.</source>
+			<target>Gib hier den Nachnamen der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_last_name" xml:space="preserve">
+				<source>Please enter your surname!</source>
+			<target>Bitte geben Sie Ihren Nachnamen ein!</target></trans-unit>
+			<trans-unit id="missing_last_name_informal" xml:space="preserve">
+				<source>Please enter your surname!</source>
+			<target>Bitte gib Deinen Nachnamen ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_last_name" xml:space="preserve">
+				<source>Please enter a surname!</source>
+			<target>Bitte geben Sie einen Nachnamen an!</target></trans-unit>
+			<trans-unit id="missing_invitation_last_name_informal" xml:space="preserve">
+				<source>Please enter a surname!</source>
+			<target>Bitte gib einen Nachnamen ein!</target></trans-unit>
+			<trans-unit id="tooltip_status" xml:space="preserve">
+				<source>Select in the list the status that corresponds to yours.</source>
+			<target>Wählen Sie aus der Liste den Status der zu Ihnen passt.</target></trans-unit>
+			<trans-unit id="tooltip_status_informal" xml:space="preserve">
+				<source>Select in the list the status that corresponds to yours.</source>
+			<target>Wähle aus der Liste den Status der zu Dir passt.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_status" xml:space="preserve">
+				<source>Select in the list the status that corresponds to the status of the invited person.</source>
+			<target>Wählen Sie aus der Liste den Status, der zur eingeladenen Person passt.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_status_informal" xml:space="preserve">
+				<source>Select in the list the status that corresponds to the status of the invited person.</source>
+			<target>Wähle aus der Liste den Status, der zur eingeladenen Person passt.</target></trans-unit>
+			<trans-unit id="date_of_birth" xml:space="preserve">
+				<source>Date of birth</source>
+			<target>Geburtsdatum (tt-mm-jjjj)</target></trans-unit>
+			<trans-unit id="tooltip_date_of_birth" xml:space="preserve">
+				<source>Enter your date of birth.</source>
+			<target>Geben Sie hier Ihr Geburtsdatum im Format Tag-Monat-Jahr ein.</target></trans-unit>
+			<trans-unit id="tooltip_date_of_birth_informal" xml:space="preserve">
+				<source>Enter your date of birth.</source>
+			<target>Gib hier Dein Geburtsdatum im Format Tag-Monat-Jahr ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_date_of_birth" xml:space="preserve">
+				<source>Enter the date of birth of the invited person.</source>
+			<target>Geben Sie hier das Geburtsdatum der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_date_of_birth_informal" xml:space="preserve">
+				<source>Enter the date of birth of the invited person.</source>
+			<target>Gib hier das Geburtsdatum der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_date_of_birth" xml:space="preserve">
+				<source>Please enter your date of birth!</source>
+			<target>Bitte geben Sie Ihr Geburtsdatum an!</target></trans-unit>
+			<trans-unit id="missing_date_of_birth_informal" xml:space="preserve">
+				<source>Please enter your date of birth!</source>
+			<target>Bitte gib hier dein Geburtsdatum ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_date_of_birth" xml:space="preserve">
+				<source>Please enter a date of birth!</source>
+			<target>Bitte geben Sie ein Geburtsdatum an!</target></trans-unit>
+			<trans-unit id="missing_invitation_date_of_birth_informal" xml:space="preserve">
+				<source>Please enter a date of birth!</source>
+			<target>Bitte gib hier ein Geburtsdatum ein!</target></trans-unit>
+			<trans-unit id="missing_captcha_response" xml:space="preserve">
+				<source>Please enter the captcha phrase!</source>
+			<target>Bitte Captcha-Text eingeben!</target></trans-unit>
+			<trans-unit id="missing_captcha_response_informal" xml:space="preserve">
+				<source>Please enter the captcha phrase!</source>
+			<target>Bitte Captcha-Text eingeben!</target></trans-unit>
+			<trans-unit id="address" xml:space="preserve">
+				<source>Address</source>
+			<target>Adresse</target></trans-unit>
+			<trans-unit id="tooltip_address" xml:space="preserve">
+				<source>Enter your address (number, street, apt.).</source>
+			<target>Geben Sie hier Ihre Adresse ein.</target></trans-unit>
+			<trans-unit id="tooltip_address_informal" xml:space="preserve">
+				<source>Enter your address (number, street, apt.).</source>
+			<target>Gib hier Deine Adresse ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_address" xml:space="preserve">
+				<source>Enter the address (number, street, apt.).</source>
+			<target>Geben Sie hier eine Adresse ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_address_informal" xml:space="preserve">
+				<source>Enter the address (number, street, apt.).</source>
+			<target>Gib hier eine Adresse ein.</target></trans-unit>
+			<trans-unit id="missing_address" xml:space="preserve">
+				<source>Please enter your address!</source>
+			<target>Bitte geben Sie Ihre Adresse ein!</target></trans-unit>
+			<trans-unit id="missing_address_informal" xml:space="preserve">
+				<source>Please enter your address!</source>
+			<target>Bitte gib Deine Adresse ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_address" xml:space="preserve">
+				<source>Please enter an address!</source>
+			<target>Bitte geben Sie eine Adresse an!</target></trans-unit>
+			<trans-unit id="missing_invitation_address_informal" xml:space="preserve">
+				<source>Please enter an address!</source>
+			<target>Bitte gib eine Adresse an!</target></trans-unit>
+			<trans-unit id="house_no" xml:space="preserve">
+				<source>House number</source>
+			<target></target><alt-trans xml:space="preserve" origin="None"><target>Hausnummer</target></alt-trans></trans-unit>
+			<trans-unit id="tooltip_house_no" xml:space="preserve">
+				<source>Enter your house number.</source>
+			<target>Geben Sie hier Ihre Telefonnummer ein.</target><note>87%</note><alt-trans xml:space="preserve" origin="jank"><target>Geben Sie Ihre Hausnummer ein.</target></alt-trans><alt-trans xml:space="preserve" origin="given7"><target>Geben Sie hier Ihre Hausnummer ein.</target></alt-trans></trans-unit>
+			<trans-unit id="tooltip_house_no_informal" xml:space="preserve">
+				<source>Enter your house number.</source>
+			<target>Geben Sie hier Ihre Telefonnummer ein.</target><note>87%</note><alt-trans xml:space="preserve" origin="jank"><target>Gib deine Hausnummer ein.</target></alt-trans></trans-unit>
+			<trans-unit id="tooltip_invitation_house_no" xml:space="preserve">
+				<source>Enter your house number.</source>
+			<target>Geben Sie hier Ihre Telefonnummer ein.</target><note>87%</note><alt-trans xml:space="preserve" origin="jank"><target>Geben Sie die Hausnummer ein.</target></alt-trans></trans-unit>
+			<trans-unit id="tooltip_invitation_house_no_informal" xml:space="preserve">
+				<source>Enter your house number.</source>
+			<target>Geben Sie hier Ihre Telefonnummer ein.</target><note>87%</note><alt-trans xml:space="preserve" origin="jank"><target>Gib die Hausnummer ein.</target></alt-trans></trans-unit>
+			<trans-unit id="missing_house_no" xml:space="preserve">
+				<source>Please enter your house number!</source>
+			<target>Bitte geben Sie Ihre Telefonnummer ein!</target><note>90%</note><alt-trans xml:space="preserve" origin="jank"><target>Bitte geben Sie Ihre Hausnummer ein!</target></alt-trans></trans-unit>
+			<trans-unit id="missing_house_no_informal" xml:space="preserve">
+				<source>Please enter your house number!</source>
+			<target>Bitte geben Sie Ihre Telefonnummer ein!</target><note>90%</note><alt-trans xml:space="preserve" origin="jank"><target>Bitte gib deine Hausnummer ein!</target></alt-trans></trans-unit>
+			<trans-unit id="missing_invitation_house_no" xml:space="preserve">
+				<source>Please enter a house number!</source>
+			<target>Bitte geben Sie eine Telefonnummer an!</target><note>89%</note><alt-trans xml:space="preserve" origin="None"><target>Bitte geben Sie eine Hausnummer an!</target></alt-trans></trans-unit>
+			<trans-unit id="missing_invitation_house_no_informal" xml:space="preserve">
+				<source>Please enter a house number!</source>
+			<target>Bitte geben Sie eine Telefonnummer an!</target><note>89%</note><alt-trans xml:space="preserve" origin="jank"><target>Bitte gib eine Telefonnummer an!</target></alt-trans></trans-unit>
+			<trans-unit id="city" xml:space="preserve">
+				<source>City</source>
+			<target>Wohnort</target></trans-unit>
+			<trans-unit id="tooltip_city" xml:space="preserve">
+				<source>Enter the name of the city or village.</source>
+			<target>Geben Sie hier Ihren Wohnort ein.</target></trans-unit>
+			<trans-unit id="tooltip_city_informal" xml:space="preserve">
+				<source>Enter the name of your city or village.</source>
+			<target>Gib hier Deinen Wohnort ein.</target></trans-unit>
+			<trans-unit id="missing_city" xml:space="preserve">
+				<source>Please enter the name of your city!</source>
+			<target>Bitte geben Sie Ihren Wohnort ein!</target></trans-unit>
+			<trans-unit id="missing_city_informal" xml:space="preserve">
+				<source>Please enter the name of your city!</source>
+			<target>Bitte gib hier Deinen Wohnort ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_city" xml:space="preserve">
+				<source>Please enter the name of a city!</source>
+			<target>Bitte geben Sie einen Ort an!</target></trans-unit>
+			<trans-unit id="missing_invitation_city_informal" xml:space="preserve">
+				<source>Please enter the name of a city!</source>
+			<target>Bitte gib einen Ort an!</target></trans-unit>
+			<trans-unit id="zone" xml:space="preserve">
+				<source>County/province</source>
+			<target>Bundesland/Staat/Provinz</target></trans-unit>
+			<trans-unit id="tooltip_zone" xml:space="preserve">
+				<source>Select your County or Province in this list.</source>
+			<target>Wählen Sie Ihr Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="tooltip_zone_informal" xml:space="preserve">
+				<source>Select your County or Province in this list.</source>
+			<target>Wähle Dein Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_zone" xml:space="preserve">
+				<source>Select the County or Province in this list.</source>
+			<target>Wählen Sie ein Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_zone_informal" xml:space="preserve">
+				<source>Select the County or Province in this list.</source>
+			<target>Wähle ein Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="missing_zone" xml:space="preserve">
+				<source>Please select your County or Province!</source>
+			<target>Bitte wählen Sie aus der Liste aus!</target></trans-unit>
+			<trans-unit id="missing_zone_informal" xml:space="preserve">
+				<source>Please select your County or Province!</source>
+			<target>Bitte wähl ein Land aus der Liste aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_zone" xml:space="preserve">
+				<source>Please select a County or Province!</source>
+			<target>Bitte geben Sie ein Bundesland/Staat/Provinz an!</target></trans-unit>
+			<trans-unit id="missing_invitation_zone_informal" xml:space="preserve">
+				<source>Please select a County or Province!</source>
+			<target>Bitte gib ein Bundesland/Staat/Provinz an!</target></trans-unit>
+			<trans-unit id="country" xml:space="preserve">
+				<source>Country</source>
+			<target>Land</target></trans-unit>
+			<trans-unit id="tooltip_country" xml:space="preserve">
+				<source>Enter the name of your country.</source>
+			<target>Geben Sie hier ihr Land ein.</target></trans-unit>
+			<trans-unit id="tooltip_country_informal" xml:space="preserve">
+				<source>Enter the name of your country.</source>
+			<target>Gib hier Dein Land ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_country" xml:space="preserve">
+				<source>Enter the name of the country.</source>
+			<target>Geben Sie hier ein Land ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_country_informal" xml:space="preserve">
+				<source>Enter the name of the country.</source>
+			<target>Gib hier Dein Land ein.</target></trans-unit>
+			<trans-unit id="missing_country" xml:space="preserve">
+				<source>Please enter the name of your country!</source>
+			<target>Bitte geben Sie Ihr Land ein!</target></trans-unit>
+			<trans-unit id="missing_country_informal" xml:space="preserve">
+				<source>Please enter the name of your country!</source>
+			<target>Bitte gib dein Land ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_country" xml:space="preserve">
+				<source>Please enter the name of the country!</source>
+			<target>Bitte geben Sie ein Land ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_country_informal" xml:space="preserve">
+				<source>Please enter the name of the country!</source>
+			<target>Gib hier ein Land ein.</target></trans-unit>
+			<trans-unit id="zip" xml:space="preserve">
+				<source>Postal code</source>
+			<target>Postleitzahl</target></trans-unit>
+			<trans-unit id="tooltip_zip" xml:space="preserve">
+				<source>Enter your Postcode.</source>
+			<target>Geben Sie hier Ihre PLZ ein.</target></trans-unit>
+			<trans-unit id="tooltip_zip_informal" xml:space="preserve">
+				<source>Enter your Postcode.</source>
+			<target>Gib hier Deine PLZ ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_zip" xml:space="preserve">
+				<source>Enter the Postcode.</source>
+			<target>Geben sie hier die PLZ ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_zip_informal" xml:space="preserve">
+				<source>Enter the Postcode.</source>
+			<target>Gib hier eine PLZ ein.</target></trans-unit>
+			<trans-unit id="missing_zip" xml:space="preserve">
+				<source>Please enter your Postcode!</source>
+			<target>Bitte geben Sie Ihre PLZ ein!</target></trans-unit>
+			<trans-unit id="missing_zip_informal" xml:space="preserve">
+				<source>Please enter your Postcode!</source>
+			<target>Bitte gib Deine PLZ ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_zip" xml:space="preserve">
+				<source>Please enter a Postcode!</source>
+			<target>Bitte geben Sie eine PLZ an!</target></trans-unit>
+			<trans-unit id="static_info_country" xml:space="preserve">
+				<source>Country</source>
+			<target>Land</target></trans-unit>
+			<trans-unit id="tooltip_static_info_country" xml:space="preserve">
+				<source>Select your country in the list.</source>
+			<target>Wählen Sie Ihr Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="tooltip_static_info_country_informal" xml:space="preserve">
+				<source>Select your country in the list.</source>
+			<target>Wähle Dein Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_static_info_country" xml:space="preserve">
+				<source>Select the country in the list.</source>
+			<target>Wählen Sie ein Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_static_info_country_informal" xml:space="preserve">
+				<source>Select the country in the list.</source>
+			<target>Wähle ein Land aus der Liste aus.</target></trans-unit>
+			<trans-unit id="missing_static_info_country" xml:space="preserve">
+				<source>Please select your country!</source>
+			<target>Bitte wählen Sie Ihr Land aus!</target></trans-unit>
+			<trans-unit id="missing_static_info_country_informal" xml:space="preserve">
+				<source>Please select your country!</source>
+			<target>Bitte wähle Dein Land aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_static_info_country" xml:space="preserve">
+				<source>Please select a country!</source>
+			<target>Bitte wählen Sie ein Land aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_static_info_country_informal" xml:space="preserve">
+				<source>Please select a country!</source>
+			<target>Bitte wähle ein Land aus!</target></trans-unit>
+			<trans-unit id="telephone" xml:space="preserve">
+				<source>Telephone</source>
+			<target>Telefon</target></trans-unit>
+			<trans-unit id="tooltip_telephone" xml:space="preserve">
+				<source>Enter your phone number.</source>
+			<target>Geben Sie hier Ihre Telefonnummer ein.</target></trans-unit>
+			<trans-unit id="tooltip_telephone_informal" xml:space="preserve">
+				<source>Enter your phone number.</source>
+			<target>Gib hier Deine Telefonnummer ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_telephone" xml:space="preserve">
+				<source>Enter the phone number of the invited person.</source>
+			<target>Geben Sie hier die Telefonnummer der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_telephone_informal" xml:space="preserve">
+				<source>Enter the phone number of the invited person.</source>
+			<target>Gib hier die Telefonnummer der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_telephone" xml:space="preserve">
+				<source>Please enter your phone number!</source>
+			<target>Bitte geben Sie Ihre Telefonnummer ein!</target></trans-unit>
+			<trans-unit id="missing_telephone_informal" xml:space="preserve">
+				<source>Please enter your phone number!</source>
+			<target>Bitte gib Deine Telefonnummer ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_telephone" xml:space="preserve">
+				<source>Please enter a phone number!</source>
+			<target>Bitte geben Sie eine Telefonnummer an!</target></trans-unit>
+			<trans-unit id="missing_invitation_telephone_informal" xml:space="preserve">
+				<source>Please enter a phone number!</source>
+			<target>Bitte gib eine Telefonnummer an!</target></trans-unit>
+			<trans-unit id="fax" xml:space="preserve">
+				<source>Fax</source>
+			<target>Fax</target></trans-unit>
+			<trans-unit id="tooltip_fax" xml:space="preserve">
+				<source>Enter your fax number.</source>
+			<target>Geben Sie hier Ihre Faxnummer ein.</target></trans-unit>
+			<trans-unit id="tooltip_fax_informal" xml:space="preserve">
+				<source>Enter your fax number.</source>
+			<target>Gib hier Deine Faxnummer ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_fax" xml:space="preserve">
+				<source>Enter the fax number of the invited person.</source>
+			<target>Geben Sie hier die Faxnummer der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_fax_informal" xml:space="preserve">
+				<source>Enter the fax number of the invited person.</source>
+			<target>Gib hier die Faxnummer der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_fax" xml:space="preserve">
+				<source>Please enter your fax number!</source>
+			<target>Bitte geben Sie Ihre Faxnummer ein!</target></trans-unit>
+			<trans-unit id="missing_fax_informal" xml:space="preserve">
+				<source>Please enter your fax number!</source>
+			<target>Bitte gib Deine Faxnummer ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_fax" xml:space="preserve">
+				<source>Please enter a fax number!</source>
+			<target>Bitte geben Sie eine Fax-Nummer an!</target></trans-unit>
+			<trans-unit id="missing_invitation_fax_informal" xml:space="preserve">
+				<source>Please enter a fax number!</source>
+			<target>Bitte gib eine Fax-Nummer an!</target></trans-unit>
+			<trans-unit id="email" xml:space="preserve">
+				<source>E-mail</source>
+			<target>E-Mail</target></trans-unit>
+			<trans-unit id="tooltip_email" xml:space="preserve">
+				<source>Enter your email address.</source>
+			<target>Geben Sie hier Ihre E-Mail-Adresse ein.</target></trans-unit>
+			<trans-unit id="tooltip_email_informal" xml:space="preserve">
+				<source>Enter your email address.</source>
+			<target>Gib hier Deine E-Mail-Adresse ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_email" xml:space="preserve">
+				<source>Enter the email address of the invited person.</source>
+			<target>Geben Sie hier die E-Mail-Adresse ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_email_informal" xml:space="preserve">
+				<source>Enter the email address of the invited person.</source>
+			<target>Gib hier die E-Mail-Adresse ein.</target></trans-unit>
+			<trans-unit id="missing_email" xml:space="preserve">
+				<source>A valid e-mail is required.</source>
+			<target>Eine gültige E-Mail-Adresse ist erforderlich.</target></trans-unit>
+			<trans-unit id="missing_email_informal" xml:space="preserve">
+				<source>A valid e-mail is required.</source>
+			<target>Eine gültige E-Mail-Adresse ist erforderlich.</target></trans-unit>
+			<trans-unit id="module_sys_dmail_html" xml:space="preserve">
+				<source>Receive HTML e-mails?</source>
+			<target>Wollen Sie HTML-E-Mails erhalten?</target></trans-unit>
+			<trans-unit id="module_sys_dmail_html_informal" xml:space="preserve">
+				<source>Receive HTML e-mails?</source>
+			<target>Willst du HTML-E-Mails erhalten?</target></trans-unit>
+			<trans-unit id="yes" xml:space="preserve">
+				<source>Yes</source>
+			<target>Ja</target></trans-unit>
+			<trans-unit id="no" xml:space="preserve">
+				<source>No</source>
+			<target>Nein</target></trans-unit>
+			<trans-unit id="module_sys_dmail_newsletter" xml:space="preserve">
+				<source>Receive newsletter?</source>
+			<target>Wollen Sie den Newsletter erhalten?</target></trans-unit>
+			<trans-unit id="module_sys_dmail_newletter_informal" xml:space="preserve">
+				<source>Receive newsletter?</source>
+			<target>Willst du den Newsletter erhalten?</target></trans-unit>
+			<trans-unit id="module_sys_dmail_category" xml:space="preserve">
+				<source>Receive news on any of these subjects?</source>
+			<target>Möchten Sie Nachrichten zu folgenden Themen erhalten?</target></trans-unit>
+			<trans-unit id="module_sys_dmail_category_informal" xml:space="preserve">
+				<source>Receive news on any of these subjects?</source>
+			<target>Möchtest du Nachrichten zu folgenden Themen erhalten?</target></trans-unit>
+			<trans-unit id="missing_module_sys_dmail_category" xml:space="preserve">
+				<source>Please select at least one subject!</source>
+			<target>Bitte wählen Sie mindestens ein Thema aus!</target></trans-unit>
+			<trans-unit id="missing_module_sys_dmail_category_informal" xml:space="preserve">
+				<source>Please select at least one subject!</source>
+			<target>Bitte wähle mindestens ein Thema aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_module_sys_dmail_category" xml:space="preserve">
+				<source>Please select at least one subject!</source>
+			<target>Bitte wählen Sie mindestens ein Thema aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_module_sys_dmail_category_informal" xml:space="preserve">
+				<source>Please select at least one subject!</source>
+			<target>Bitte wähle mindestens ein Thema aus!</target></trans-unit>
+			<trans-unit id="language" xml:space="preserve">
+				<source>Language</source>
+			<target>Sprache</target></trans-unit>
+			<trans-unit id="tooltip_language" xml:space="preserve">
+				<source>Select your preferred language in this list.</source>
+			<target>Wählen Sie hier Ihre bevorzugte Sprache aus.</target></trans-unit>
+			<trans-unit id="tooltip_language_informal" xml:space="preserve">
+				<source>Select your preferred language in this list.</source>
+			<target>Wähle hier Deine bevorzugte Sprache aus.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_language" xml:space="preserve">
+				<source>Select the language of the invited person in this list.</source>
+			<target>Wählen Sie hier die bevorzugte Sprache der einzuladenden Person aus.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_language_informal" xml:space="preserve">
+				<source>Select the language of the invited person in this list.</source>
+			<target>Wähle hier die bevorzugte Sprache der einzuladenden Person aus.</target></trans-unit>
+			<trans-unit id="missing_language" xml:space="preserve">
+				<source>Please select your preferred language!</source>
+			<target>Bitte wählen Sie Ihre bevorzugte Sprache aus!</target></trans-unit>
+			<trans-unit id="missing_language_informal" xml:space="preserve">
+				<source>Please select your preferred language!</source>
+			<target>Bitte wähle Deine bevorzugte Sprache aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_language" xml:space="preserve">
+				<source>Please select a preferred language!</source>
+			<target>Bitte wählen Sie eine Sprache aus!</target></trans-unit>
+			<trans-unit id="missing_invitation_language_informal" xml:space="preserve">
+				<source>Please select a preferred language!</source>
+			<target>Bitte wähle eine Sprache aus!</target></trans-unit>
+			<trans-unit id="title" xml:space="preserve">
+				<source>Title</source>
+			<target>Titel</target></trans-unit>
+			<trans-unit id="tooltip_title" xml:space="preserve">
+				<source>Enter the title of your position or profession.</source>
+			<target>Geben Sie hier den Titel Ihrer Stellung oder Ihres Berufes ein.</target></trans-unit>
+			<trans-unit id="tooltip_title_informal" xml:space="preserve">
+				<source>Enter the title of your position or profession.</source>
+			<target>Gib hier den Titel Deiner Position oder Deines Berufes ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_title" xml:space="preserve">
+				<source>Enter the title of the invited person.</source>
+			<target>Geben Sie hier den Titel der Stellung oder des Berufes der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_title_informal" xml:space="preserve">
+				<source>Enter the title of the invited person.</source>
+			<target>Gib hier den Titel der Stellung oder des Berufes der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_title" xml:space="preserve">
+				<source>Please enter your title!</source>
+			<target>Bitte geben Sie Ihren Titel ein!</target></trans-unit>
+			<trans-unit id="missing_title_informal" xml:space="preserve">
+				<source>Please enter your title!</source>
+			<target>Bitte gib einen Titel ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_title" xml:space="preserve">
+				<source>Please enter a title!</source>
+			<target>Bitte geben Sie einen Titel an!</target></trans-unit>
+			<trans-unit id="missing_invitation_title_informal" xml:space="preserve">
+				<source>Please enter a title!</source>
+			<target>Bitte gib einen Titel an!</target></trans-unit>
+			<trans-unit id="terms_acknowledged" xml:space="preserve">
+				<source>I acknowledge and agree to terms</source>
+			<target></target><alt-trans xml:space="preserve" origin="jank"><target>Ich habe die Bedingungen zur Kenntnis genommen und stimme ihnen zu.</target></alt-trans></trans-unit>
+			<trans-unit id="terms_acknowledged_informal" xml:space="preserve">
+				<source>I acknowledge and agree to terms:</source>
+			<target></target><alt-trans xml:space="preserve" origin="jank"><target>Ich habe die Bedingungen zur Kenntnis genommen und stimme ihnen zu.</target></alt-trans></trans-unit>
+			<trans-unit id="company" xml:space="preserve">
+				<source>Company</source>
+			<target>Firma</target></trans-unit>
+			<trans-unit id="tooltip_company" xml:space="preserve">
+				<source>Enter the name of your company or organization.</source>
+			<target>Geben Sie hier den Namen Ihrer Firma ein.</target></trans-unit>
+			<trans-unit id="tooltip_company_informal" xml:space="preserve">
+				<source>Enter the name of your company or organization.</source>
+			<target>Gib hier den Namen Deiner Firma ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_company" xml:space="preserve">
+				<source>Enter the name of the company or organization of the invited person.</source>
+			<target>Geben Sie hier den Namen der Firma der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_company" xml:space="preserve">
+				<source>Please enter the name of your company!</source>
+			<target>Bitte geben Sie Ihren Firmennamen ein!</target></trans-unit>
+			<trans-unit id="missing_company_informal" xml:space="preserve">
+				<source>Please enter the name of your company!</source>
+			<target>Bitte gib Deinen Firmennamen ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_company" xml:space="preserve">
+				<source>Please enter the name of a company!</source>
+			<target>Bitte geben Sie einen Firmennamen an!</target></trans-unit>
+			<trans-unit id="www" xml:space="preserve">
+				<source>Web site</source>
+			<target>Web-Site</target></trans-unit>
+			<trans-unit id="tooltip_www" xml:space="preserve">
+				<source>Enter the address of your website.</source>
+			<target>Geben Sie hier die Adresse Ihres Internet-Auftritts ein.</target></trans-unit>
+			<trans-unit id="tooltip_www_informal" xml:space="preserve">
+				<source>Enter the address of your website.</source>
+			<target>Gib hier die Adresse Deiner Web-Site ein.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_www" xml:space="preserve">
+				<source>Enter the address of the website of the invited person.</source>
+			<target>Geben Sie hier die Adresse der Web-Site der einzuladenden Person ein.</target></trans-unit>
+			<trans-unit id="missing_www" xml:space="preserve">
+				<source>Please enter the address of your website!</source>
+			<target>Bitte geben Sie die Adresse Ihrer Web-Site ein!</target></trans-unit>
+			<trans-unit id="missing_www_informal" xml:space="preserve">
+				<source>Please enter the address of your website!</source>
+			<target>Bitte gib die Adresse Deiner Web-Site ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_www" xml:space="preserve">
+				<source>Please enter a website address!</source>
+			<target>Bitte geben Sie eine Web-Site-Adresse an!</target></trans-unit>
+			<trans-unit id="image" xml:space="preserve">
+				<source>Photographs</source>
+			<target>Fotos</target></trans-unit>
+			<trans-unit id="tooltip_image" xml:space="preserve">
+				<source>Enter the path and name of a file or click on the button to browse the files on your computer.</source>
+			<target>Geben Sie hier Pfad und Dateinamen ein oder klicken Sie auf die Schaltfläche, um eine Datei auf Ihrem Computer auszuwählen.</target></trans-unit>
+			<trans-unit id="tooltip_image_informal" xml:space="preserve">
+				<source>Enter the path and name of a file or click on the button to browse the files on your computer.</source>
+			<target>Gib hier Pfad und Dateinamen ein oder klicke auf die Schaltfläche, um eine Datei auf Deinem Computer auszuwählen.</target></trans-unit>
+			<trans-unit id="tooltip_invitation_image" xml:space="preserve">
+				<source>Enter the path and name of a file or click on the button to browse the files on your computer.</source>
+			<target>Geben Sie hier Pfad und Dateinamen ein oder klicken Sie auf die Schaltfläche, um eine Datei auf Ihrem Computer auszuwählen.</target></trans-unit>
+			<trans-unit id="missing_image" xml:space="preserve">
+				<source>Please enter your photograph!</source>
+			<target>Bitte geben Sie Ihr Foto ein!</target></trans-unit>
+			<trans-unit id="missing_image_informal" xml:space="preserve">
+				<source>Please enter your photograph!</source>
+			<target>Bitte gib Dein Foto ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_image" xml:space="preserve">
+				<source>Please enter a photograph!</source>
+			<target>Bitte geben Sie ein Foto ein!</target></trans-unit>
+			<trans-unit id="missing_invitation_image_informal" xml:space="preserve">
+				<source>Please enter a photograph!</source>
+			<target>Bitte gib ein Foto ein!</target></trans-unit>
+			<trans-unit id="icon_delete" xml:space="preserve">
+				<source>Delete!</source>
+			<target>Löschen!</target></trans-unit>
+			<trans-unit id="file_view" xml:space="preserve">
+				<source>View</source>
+			<target>Vorschau</target></trans-unit>
+			<trans-unit id="confirm_file_delete" xml:space="preserve">
+				<source>Are sure that you want to delete this file?</source>
+			<target>Möchten Sie die Datei wirklich löschen?</target></trans-unit>
+			<trans-unit id="confirm_file_delete_informal" xml:space="preserve">
+				<source>Are sure that you want to delete this file?</source>
+			<target>Möchtest Du die Datei wirklich löschen?</target></trans-unit>
+			<trans-unit id="tooltip_comments" xml:space="preserve">
+				<source>Enter your comments.</source>
+			<target>Geben Sie hier Ihre Anmerkungen ein.</target></trans-unit>
+			<trans-unit id="tooltip_comments_informal" xml:space="preserve">
+				<source>Enter your comments.</source>
+			<target>Gib hier Deine Anmerkungen ein.</target></trans-unit>
+			<trans-unit id="missing_terms_acknowledged" xml:space="preserve">
+				<source>Please acknowledge the terms!</source>
+			<target>Bitte die Bedingungen akzeptieren!</target></trans-unit>
+			<trans-unit id="missing_terms_acknowledged_informal" xml:space="preserve">
+				<source>Please acknowledge the terms!</source>
+			<target>Bitte die Bedingungen akzeptieren!</target></trans-unit>
+			<trans-unit id="button_register" xml:space="preserve">
+				<source>Create account</source>
+			<target>Konto erstellen</target></trans-unit>
+			<trans-unit id="button_confirm_register" xml:space="preserve">
+				<source>Create account now!</source>
+			<target>Konto jetzt erstellen!</target></trans-unit>
+			<trans-unit id="button_send_invitation" xml:space="preserve">
+				<source>Send invitation</source>
+			<target></target></trans-unit>
+			<trans-unit id="button_send_invitation_now" xml:space="preserve">
+				<source>Send invitation now!</source>
+			<target></target></trans-unit>
+			<trans-unit id="button_back_to_form" xml:space="preserve">
+				<source>Back to form</source>
+			<target>Zurück zum Formular</target></trans-unit>
+			<trans-unit id="button_update" xml:space="preserve">
+				<source>Update profile</source>
+			<target>Bearbeitete Benutzerdaten speichern</target></trans-unit>
+			<trans-unit id="button_confirm_update" xml:space="preserve">
+				<source>Update profile now!</source>
+			<target>Benutzerdaten speichern!</target></trans-unit>
+			<trans-unit id="button_update_and_more" xml:space="preserve">
+				<source>Update and continue...</source>
+			<target>Aktualisieren und fortfahren...</target></trans-unit>
+			<trans-unit id="button_enter" xml:space="preserve">
+				<source>Enter</source>
+			<target>Eingeben</target></trans-unit>
+			<trans-unit id="button_confirm_delete" xml:space="preserve">
+				<source>Yes, delete account</source>
+			<target>Ja, Konto löschen</target></trans-unit>
+			<trans-unit id="button_cancel_delete" xml:space="preserve">
+				<source>No, cancel</source>
+			<target>Nein, abbrechen</target></trans-unit>
+			<trans-unit id="button_password_forgotten" xml:space="preserve">
+				<source>Send me the forgotten password.</source>
+			<target>Senden Sie mir das Passwort.</target></trans-unit>
+			<trans-unit id="button_password_forgotten_informal" xml:space="preserve">
+				<source>Send me the forgotten password.</source>
+			<target>Sende mir das Passwort.</target></trans-unit>
+			<trans-unit id="click_here_to_register" xml:space="preserve">
+				<source>Not a member yet? click here to register.</source>
+			<target>Noch kein Mitglied? Hier können Sie sich registrieren.</target></trans-unit>
+			<trans-unit id="click_here_to_register_informal" xml:space="preserve">
+				<source>Not a member yet? click here to register.</source>
+			<target>Noch kein Mitglied? Hier kannst Du Dich registrieren.</target></trans-unit>
+			<trans-unit id="tooltip_click_here_to_register" xml:space="preserve">
+				<source>Presents a registration form.</source>
+			<target>Zeigt ein Formular zur Registrierung an.</target></trans-unit>
+			<trans-unit id="click_here_to_edit" xml:space="preserve">
+				<source>Click here to edit your profile or delete your account.</source>
+			<target>Klicken Sie hier, um Ihre Benutzerdaten zu bearbeiten oder um Ihr Konto zu löschen.</target></trans-unit>
+			<trans-unit id="click_here_to_edit_informal" xml:space="preserve">
+				<source>Click here to edit your profile or delete your account.</source>
+			<target>Klicke hier, um Deine Benutzerdaten zu bearbeiten oder um Dein Konto zu löschen.</target></trans-unit>
+			<trans-unit id="tooltip_click_here_to_edit" xml:space="preserve">
+				<source>Presents an account editing form.</source>
+			<target>Zeigt ein Formular zur Bearbeitung des Benutzerkontos an.</target></trans-unit>
+			<trans-unit id="click_here_to_delete" xml:space="preserve">
+				<source>Click here to delete your membership.</source>
+			<target>Klicken Sie hier, um Ihr Konto zu löschen.</target></trans-unit>
+			<trans-unit id="click_here_to_delete_informal" xml:space="preserve">
+				<source>Click here to delete your membership.</source>
+			<target>Klicke hier, um Dein Konto zu löschen.</target></trans-unit>
+			<trans-unit id="tooltip_click_here_to_delete" xml:space="preserve">
+				<source>Opens a dialog to delete your membership.</source>
+			<target>Öffnet einen Dialog, um das Benutzerkonto zu löschen.</target></trans-unit>
+			<trans-unit id="tooltip_click_here_to_delete_informal" xml:space="preserve">
+				<source>Opens a dialog to delete your membership.</source>
+			<target>Öffnet einen Dialog, um das Benutzerkonto zu löschen.</target></trans-unit>
+			<trans-unit id="click_here_to_see_terms" xml:space="preserve">
+				<source>Click here to see the terms.</source>
+			<target></target></trans-unit>
+			<trans-unit id="click_here_to_see_terms_informal" xml:space="preserve">
+				<source>Click here to see the terms.</source>
+			<target></target><alt-trans xml:space="preserve" origin="None"><target>Klicken Sie hier um sich die Bedingungen anzuschauen.</target></alt-trans></trans-unit>
+			<trans-unit id="tooltip_click_here_to_see_terms" xml:space="preserve">
+				<source>Opens a page or file which shows the terms.</source>
+			<target></target></trans-unit>
+			<trans-unit id="tooltip_click_here_to_see_terms_informal" xml:space="preserve">
+				<source>Opens a page or file which shows the terms.</source>
+			<target></target></trans-unit>
+			<trans-unit id="enter_account_info" xml:space="preserve">
+				<source>Please complete the information for your membership.</source>
+			<target>Bitte füllen Sie die Informationen für Ihr Konto aus.</target></trans-unit>
+			<trans-unit id="enter_account_info_informal" xml:space="preserve">
+				<source>Please complete the information for your membership.</source>
+			<target>Bitte fülle die Informationen für Dein Konto aus.</target></trans-unit>
+			<trans-unit id="enter_invitation_account_info" xml:space="preserve">
+				<source>Please complete the information of the account for the invited person.</source>
+			<target>Bitte geben Sie die Informationen für das Konto der einzuladenden Person an.</target></trans-unit>
+			<trans-unit id="enter_invitation_account_info_informal" xml:space="preserve">
+				<source>Please complete the information of the account for the invited person.</source>
+			<target>Bitte gib die Informationen für das Konto der einzuladenden Person an.</target></trans-unit>
+			<trans-unit id="required_info_notice" xml:space="preserve">
+				<source>Please complete all required fields *</source>
+			<target>Die Felder, die mit einem Stern (*) markiert sind, müssen ausgefüllt werden!</target></trans-unit>
+			<trans-unit id="copy_paste_link" xml:space="preserve">
+				<source>Or copy and paste it into your browser.&lt;br /&gt;</source>
+			<target>(Klicken Sie auf den Link oder kopieren Sie ihn in die Adresszeile Ihres Browsers.)</target></trans-unit>
+			<trans-unit id="copy_paste_link_informal" xml:space="preserve">
+				<source>Or copy and paste it into your browser.&lt;br /&gt;</source>
+			<target>(Klicke auf den Link oder kopiere ihn in die Adresszeile Deines Browsers.)</target></trans-unit>
+			<trans-unit id="excuse_us" xml:space="preserve">
+				<source>Please forgive us for any inconvenience we may have caused you.&lt;br /&gt;&lt;br /&gt;</source>
+			<target>Auf diese Weise verhindern wir, dass sich jemand anderes unter Ihrer E-Mail-Adresse anmeldet. Wir bitten um Ihr Verständnis.</target></trans-unit>
+			<trans-unit id="excuse_us_informal" xml:space="preserve">
+				<source>Please forgive us for any inconvenience we may have caused you.&lt;br /&gt;&lt;br /&gt;</source>
+			<target>Auf diese Weise verhindern wir, dass sich jemand anderes unter Deiner E-Mail-Adresse anmeldet. Wir bitten um Dein Verständnis.</target></trans-unit>
+			<trans-unit id="registration_problem" xml:space="preserve">
+				<source>There seems to be a problem.</source>
+			<target>Es scheint ein Problem zu geben.</target></trans-unit>
+			<trans-unit id="registration_sorry" xml:space="preserve">
+				<source>We are sorry that it was not possible to complete this process.</source>
+			<target>Leider konnte die Registrierung nicht zu Ende geführt werden.</target></trans-unit>
+			<trans-unit id="registration_sorry_informal" xml:space="preserve">
+				<source>We are sorry that it was not possible to complete this process.</source>
+			<target>Leider konnte die Registrierung nicht zu Ende geführt werden.</target></trans-unit>
+			<trans-unit id="registration_clicked_twice" xml:space="preserve">
+				<source>Perhaps you clicked twice on the link?</source>
+			<target>Haben Sie den Link möglicherweise zweimal aufgerufen?</target></trans-unit>
+			<trans-unit id="registration_clicked_twice_informal" xml:space="preserve">
+				<source>Perhaps you clicked twice on the link?</source>
+			<target>Hast du den Link möglicherweise zweimal aufgerufen?</target></trans-unit>
+			<trans-unit id="registration_help" xml:space="preserve">
+				<source>If the problem persists, please contact us at the following e-mail address and we will be pleased to help you.</source>
+			<target>Wenn das Problem weiterhin besteht, unterrichten Sie uns bitte unter folgender Adresse, damit wir uns um eine Lösung kümmern können.</target></trans-unit>
+			<trans-unit id="registration_help_informal" xml:space="preserve">
+				<source>If the problem persists, please contact us at the following e-mail address and we will be pleased to help you.</source>
+			<target>Wenn das Problem weiterhin besteht, unterrichte uns bitte unter folgender Adresse, damit wir uns um eine Lösung kümmern können.</target></trans-unit>
+			<trans-unit id="kind_regards" xml:space="preserve">
+				<source>Kind regards,</source>
+			<target>Mit freundlichen Grüßen</target></trans-unit>
+			<trans-unit id="kind_regards_informal" xml:space="preserve">
+				<source>Kind regards,</source>
+			<target>Viele Grüße</target></trans-unit>
+			<trans-unit id="kind_regards_cre" xml:space="preserve">
+				<source>Welcome from us all at</source>
+			<target>Herzlich willkommen bei</target></trans-unit>
+			<trans-unit id="kind_regards_cre_informal" xml:space="preserve">
+				<source>Welcome from us all at</source>
+			<target>Herzlich willkommen bei</target></trans-unit>
+			<trans-unit id="kind_regards_del" xml:space="preserve">
+				<source>Wishing you well</source>
+			<target>Alles Gute!</target></trans-unit>
+			<trans-unit id="kind_regards_del_informal" xml:space="preserve">
+				<source>Wishing you well</source>
+			<target>Und Tschüss!</target></trans-unit>
+			<trans-unit id="kind_regards_ini" xml:space="preserve">
+				<source>We would like to welcome you at</source>
+			<target>Wir heißen Sie herzlich willkommen bei</target></trans-unit>
+			<trans-unit id="kind_regards_ini_informal" xml:space="preserve">
+				<source>We would like to welcome you at</source>
+			<target>Wir heißen Dich herzlich willkommen bei</target></trans-unit>
+			<trans-unit id="kind_regards_inv" xml:space="preserve">
+				<source>We would like to welcome you at</source>
+			<target>Wir heißen Sie herzlich willkommen bei</target></trans-unit>
+			<trans-unit id="kind_regards_inv_informal" xml:space="preserve">
+				<source>We would like to welcome you at</source>
+			<target>Wir heißen Dich herzlich Willkommen bei</target></trans-unit>
+			<trans-unit id="kind_regards_upd" xml:space="preserve">
+				<source>Warmest wishes</source>
+			<target>Mit den besten Grüßen</target></trans-unit>
+			<trans-unit id="kind_regards_upd_informal" xml:space="preserve">
+				<source>Warmest wishes</source>
+			<target>Viele Grüße</target></trans-unit>
+			<trans-unit id="v_really_wish_to_delete" xml:space="preserve">
+				<source>Do you really wish to delete your membership &lt;b&gt;%2$s&lt;/b&gt;?</source>
+			<target>Wollen Sie Ihr Konto wirklich löschen &lt;b&gt;%2$s&lt;/b&gt;?</target></trans-unit>
+			<trans-unit id="v_really_wish_to_delete_informal" xml:space="preserve">
+				<source>Do you really wish to delete your membership &lt;b&gt;%2$s&lt;/b&gt;?</source>
+			<target>Willst Du Dein Konto wirklich löschen &lt;b&gt;%2$s&lt;/b&gt;?</target></trans-unit>
+			<trans-unit id="v_verify_before_create" xml:space="preserve">
+				<source>Please verify that all the information is correct before your membership with the name &lt;b&gt;%2$s&lt;/b&gt; will be created&lt;br /&gt;</source>
+			<target>Bitte überprüfen Sie, ob alle Angaben korrekt sind,&lt;br /&gt;bevor Ihr Konto &lt;b&gt;%2$s&lt;/b&gt; erstellt wird:</target></trans-unit>
+			<trans-unit id="v_verify_before_create_informal" xml:space="preserve">
+				<source>Please verify that all the information is correct before your membership with the name &lt;b&gt;%2$s&lt;/b&gt; will be created&lt;br /&gt;</source>
+			<target>Bitte überprüfe, ob alle Angaben korrekt sind,&lt;br /&gt;bevor Dein Konto &lt;b&gt;%2$s&lt;/b&gt; erstellt wird:</target></trans-unit>
+			<trans-unit id="v_verify_invitation_before_create" xml:space="preserve">
+				<source>Please verify that all the data of &lt;b&gt;%3$s&lt;/b&gt; is correct before the membership with the name &lt;b&gt;%2$s&lt;/b&gt; will be created</source>
+			<target>Bitte überprüfen Sie, ob alle Angaben zu &lt;b&gt;%3$s&lt;/b&gt; korrekt sind, bevor das Konto &lt;b&gt;%2$s&lt;/b&gt; erstellt wird:</target></trans-unit>
+			<trans-unit id="v_verify_invitation_before_create_informal" xml:space="preserve">
+				<source>Please verify that all the data of &lt;b&gt;%3$s&lt;/b&gt; is correct before the membership with the name &lt;b&gt;%2$s&lt;/b&gt; will be created</source>
+			<target>Bitte überprüfe, ob alle Angaben zu &lt;b&gt;%3$s&lt;/b&gt; korrekt sind, bevor das Konto &lt;b&gt;%2$s&lt;/b&gt; erstellt wird:</target></trans-unit>
+			<trans-unit id="v_edit_your_account" xml:space="preserve">
+				<source>Edit the information of your membership &lt;b&gt;%2$s&lt;/b&gt;</source>
+			<target>Bearbeiten Sie die Angaben zu Ihrem Konto &lt;b&gt;%2$s&lt;/b&gt;:</target></trans-unit>
+			<trans-unit id="v_edit_your_account_informal" xml:space="preserve">
+				<source>Edit the information of your membership &lt;b&gt;%2$s&lt;/b&gt;</source>
+			<target>Bearbeite die Angaben zu Deinem Konto &lt;b&gt;%2$s&lt;/b&gt;:</target></trans-unit>
+			<trans-unit id="v_verify_before_update" xml:space="preserve">
+				<source>Please verify that all the information is correct before your membership &lt;b&gt;%2$s&lt;/b&gt; will be updated</source>
+			<target>Bitte überprüfen Sie, ob alle Angaben korrekt sind,&lt;br /&gt;bevor Ihr Konto &lt;b&gt;%2$s&lt;/b&gt; aktualisiert wird:</target></trans-unit>
+			<trans-unit id="v_verify_before_update_informal" xml:space="preserve">
+				<source>Please verify that all the information is correct before your membership &lt;b&gt;%2$s&lt;/b&gt; will be updated</source>
+			<target>Bitte überprüfe, ob alle Angaben korrekt sind,&lt;br /&gt;bevor Dein Konto &lt;b&gt;%2$s&lt;/b&gt; aktualisiert wird:</target></trans-unit>
+			<trans-unit id="v_dear" xml:space="preserve">
+				<source>Dear %3$s,</source>
+			<target>Sehr geehrte(r) %3$s,</target></trans-unit>
+			<trans-unit id="v_dear_informal" xml:space="preserve">
+				<source>Hi %3$s,</source>
+			<target>Hallo %3$s,</target></trans-unit>
+			<trans-unit id="v_dear_male" xml:space="preserve">
+				<source>Dear Mr. %3$s,</source>
+			<target>Sehr geehrter Herr %3$s,</target></trans-unit>
+			<trans-unit id="v_dear_female" xml:space="preserve">
+				<source>Dear Ms. %3$s,</source>
+			<target>Sehr geehrte Frau %3$s,</target></trans-unit>
+			<trans-unit id="v_infomail_dear" xml:space="preserve">
+				<source>Dear Ms./Sir,</source>
+			<target>Sehr geehrte(r) Dame/Herr,</target></trans-unit>
+			<trans-unit id="v_infomail_dear_informal" xml:space="preserve">
+				<source>Dear Ms./Sir,</source>
+			<target>Hallo,</target></trans-unit>
+			<trans-unit id="v_infomail_lost_password" xml:space="preserve">
+				<source>Enter the email address under which you are registered.</source>
+			<target>Bitte die E-Mail-Adresse eingeben.</target></trans-unit>
+			<trans-unit id="v_infomail_lost_password_confirm" xml:space="preserve">
+				<source>The email with the lost password has been sent to &lt;b&gt;%4$s&lt;/b&gt;.</source>
+			<target>Die E-Mail mit dem Passwort wurde an &lt;b&gt;%4$s&lt;/b&gt; geschickt.</target></trans-unit>
+			<trans-unit id="v_infomail_lost_password_subject" xml:space="preserve">
+				<source>Information about your registration with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Informationen zu Ihrer Registrierung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_infomail_lost_password_subject_informal" xml:space="preserve">
+				<source>Information about your registration with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Informationen zu deiner Registrierung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_to_the_administrator" xml:space="preserve">
+				<source>To the administrator of memberships with %1$s</source>
+			<target>An den Administrator für Mitgliedschaften bei %1$s:</target></trans-unit>
+			<trans-unit id="v_now_enter_your_username" xml:space="preserve">
+				<source>You may now enter with your username &lt;b&gt;%2$s&lt;/b&gt; and your password</source>
+			<target>Sie können jetzt Ihren Benutzernamen &lt;b&gt;%2$s&lt;/b&gt; und Ihr Passwort eingeben:</target></trans-unit>
+			<trans-unit id="v_now_enter_your_username_informal" xml:space="preserve">
+				<source>You may now enter with your username &lt;b&gt;%2$s&lt;/b&gt; and your password</source>
+			<target>Du kannst jetzt Deinen Benutzernamen &lt;b&gt;%2$s&lt;/b&gt; und Dein Passwort eingeben:</target></trans-unit>
+			<trans-unit id="v_notification" xml:space="preserve">
+				<source>Notification</source>
+			<target>Nachricht</target></trans-unit>
+			<trans-unit id="v_registration_created_subject" xml:space="preserve">
+				<source>Thank you for joining us at &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Vielen Dank für Ihre Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_created_subject_informal" xml:space="preserve">
+				<source>Thank you for joining us at &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Vielen Dank für Deine Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_created_message1" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been confirmed.</source>
+			<target>Ihr Konto für &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt.</target></trans-unit>
+			<trans-unit id="v_registration_created_message1_informal" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been confirmed.</source>
+			<target>Dein Konto für &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt.</target></trans-unit>
+			<trans-unit id="v_registration_created_message2" xml:space="preserve">
+				<source>Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list of members.</source>
+			<target>Ihre E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; wurde unserer Mitgliederliste hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_created_message2_informal" xml:space="preserve">
+				<source>Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list of members.</source>
+			<target>Deine E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; wurde unserer Mitgliederliste hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_created" xml:space="preserve">
+				<source>%3$s created a new membership with %1$s.</source>
+			<target>%3$s erstellte ein Konto bei %1$s.</target></trans-unit>
+			<trans-unit id="v_registration_updated_subject" xml:space="preserve">
+				<source>Your membership details with &lt;b&gt;%1$s&lt;/b&gt; have been updated.</source>
+			<target>Ihr Konto bei &lt;b&gt;%1$s&lt;/b&gt; wurde aktualisiert.</target></trans-unit>
+			<trans-unit id="v_registration_updated_subject_informal" xml:space="preserve">
+				<source>Your membership details with &lt;b&gt;%1$s&lt;/b&gt; have been updated.</source>
+			<target>Dein Konto bei &lt;b&gt;%1$s&lt;/b&gt; wurde aktualisiert.</target></trans-unit>
+			<trans-unit id="v_registration_updated_message1" xml:space="preserve">
+				<source>Thank you for keeping your profile up-to-date.</source>
+			<target>Vielen Dank, dass Sie Ihre Daten aktuell halten.</target></trans-unit>
+			<trans-unit id="v_registration_updated_message1_informal" xml:space="preserve">
+				<source>Thanks for keeping your profile up-to-date.</source>
+			<target>Vielen Dank, dass Du Deine Daten aktuell hältst.</target></trans-unit>
+			<trans-unit id="v_registration_updated" xml:space="preserve">
+				<source>%3$s updated his(her) profile with %1$s.</source>
+			<target>%3$s hat sein/ihr Konto bei %1$s aktualisiert.</target></trans-unit>
+			<trans-unit id="v_invitation_confirm" xml:space="preserve">
+				<source>The invitation has been sent.</source>
+			<target>Die Einladung wurde verschickt.</target></trans-unit>
+			<trans-unit id="v_invitation_account_was_created" xml:space="preserve">
+				<source>The membership &lt;b&gt;%2$s&lt;/b&gt; has been created. An invitation to confirm your registration with &lt;b&gt;%1$s&lt;/b&gt; was sent to &lt;b&gt;%3$s&lt;/b&gt; at the e-mail address &lt;b&gt;%4$s&lt;/b&gt;.</source>
+			<target>Das Konto &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt. Eine Einladung zur Bestätigung der Registrierung in &lt;b&gt;%1$s&lt;/b&gt; wurde an &lt;b&gt;%3$s&lt;/b&gt; geschickt (E-Mail: &lt;b&gt;%4$s&lt;/b&gt;).</target></trans-unit>
+			<trans-unit id="v_invitation_account_was_created_informal" xml:space="preserve">
+				<source>The membership &lt;b&gt;%2$s&lt;/b&gt; has been created. An invitation to confirm your registration with &lt;b&gt;%1$s&lt;/b&gt; was sent to &lt;b&gt;%3$s&lt;/b&gt; at the e-mail address &lt;b&gt;%4$s&lt;/b&gt;.</source>
+			<target>Das Konto &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt. Eine Einladung zur Bestätigung der Registrierung in &lt;b&gt;%1$s&lt;/b&gt; wurde an &lt;b&gt;%3$s&lt;/b&gt; geschickt (E-Mail: &lt;b&gt;%4$s&lt;/b&gt;).</target></trans-unit>
+			<trans-unit id="v_invitation_instructions1" xml:space="preserve">
+				<source>You will have access to the section &lt;b&gt;%1$s&lt;/b&gt; of our website only after you will have confirmed your registration.&lt;br /&gt;Please follow the instructions given in the confirmation message in order to complete the registration procedure.</source>
+			<target>Sie haben erst nach Bestätigung Ihrer Registrierung Zugriff auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site. Bitte befolgen Sie die Hinweise in der Bestätigungs-Mitteilung, um die Registrierung abzuschließen.</target></trans-unit>
+			<trans-unit id="v_please_confirm" xml:space="preserve">
+				<source>Please confirm your registration.</source>
+			<target>Bitte bestätigen Sie Ihre Anmeldung.</target></trans-unit>
+			<trans-unit id="v_please_confirm_informal" xml:space="preserve">
+				<source>Please confirm your registration.</source>
+			<target>Bitte bestätige Deine Anmeldung.</target></trans-unit>
+			<trans-unit id="v_your_account_was_created" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been created. We are sending a message to your e-mail address &lt;b&gt;%4$s&lt;/b&gt; so that you can confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Ihr Konto &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt. Wir senden eine E-Mail an die Adresse &lt;b&gt;%4$s&lt;/b&gt;, damit Sie die Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt; bestätigen können.</target></trans-unit>
+			<trans-unit id="v_your_account_was_created_informal" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been created. We are sending a message to your e-mail address &lt;b&gt;%4$s&lt;/b&gt; so that you can confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Dein Konto &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt. Wir senden eine E-Mail an die Adresse &lt;b&gt;%4$s&lt;/b&gt;, damit Du die Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt; bestätigen kannst.</target></trans-unit>
+			<trans-unit id="v_your_account_was_created_nomail" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been created. Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; is being used. Now you are registered at &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Das Konto &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt. Es wird die E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; benutzt. Die Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; ist damit abgeschlossen.</target></trans-unit>
+			<trans-unit id="v_your_account_was_created_nomail_informal" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been created. Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; is being used. Now you are registered at &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Das Konto &lt;b&gt;%2$s&lt;/b&gt; wurde erstellt. Es wird die E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; benutzt. Die Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; ist damit abgeschlossen.</target></trans-unit>
+			<trans-unit id="v_follow_instructions1" xml:space="preserve">
+				<source>In order to confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;, you will have to follow the instructions given in the invitation message.</source>
+			<target>Um ihre Anmeldung zu &lt;b&gt;%1$s&lt;/b&gt; zu bestätigen, müsssen Sie die Hinweise in der Einladung befolgen.</target></trans-unit>
+			<trans-unit id="v_follow_instructions1_informal" xml:space="preserve">
+				<source>In order to confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;, you will have to follow the instructions given in the invitation message.</source>
+			<target>Um Deine Anmeldung zu &lt;b&gt;%1$s&lt;/b&gt; zu bestätigen, musst Du die Hinweise in der Einladung befolgen.</target></trans-unit>
+			<trans-unit id="v_follow_instructions_review1" xml:space="preserve">
+				<source>In order to confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;, you will have to follow the instructions given in the invitation message.</source>
+			<target>Um Ihre Anmeldung zu &lt;b&gt;%1$s&lt;/b&gt; zu bestätigen, müssen Sie die Hinweise in der Einladung befolgen.</target></trans-unit>
+			<trans-unit id="v_follow_instructions_review1_informal" xml:space="preserve">
+				<source>In order to confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;, you will have to follow the instructions given in the invitation message.</source>
+			<target>Um Deine Anmeldung zu &lt;b&gt;%1$s&lt;/b&gt; zu bestätigen, musst Du die Hinweise in der Einladung befolgen.</target></trans-unit>
+			<trans-unit id="v_follow_instructions_review2" xml:space="preserve">
+				<source>Please be aware that after you confirm your registration, it will need to be reviewed by the administrator before you gain access to the section &lt;b&gt;%1$s&lt;/b&gt; of our website.</source>
+			<target>Wir bitten um Kenntnisnahme, dass die Registrierung vom Administrator bestätigt werden muss, bevor Sie Zugriff auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site erhalten.</target></trans-unit>
+			<trans-unit id="v_follow_instructions_review2_informal" xml:space="preserve">
+				<source>Please be aware that after you confirm your registration, it will need to be reviewed by the administrator before you gain access to the section &lt;b&gt;%1$s&lt;/b&gt; of our website.</source>
+			<target>Bevor Du Zugriff auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site erhältst, muss die Registrierung vom Administrator bestätigt werden.</target></trans-unit>
+			<trans-unit id="v_registration_initiated_subject" xml:space="preserve">
+				<source>Please confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Bitte bestätigen Sie Ihre Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_initiated_subject_informal" xml:space="preserve">
+				<source>Please confirm your registration with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Bitte bestätige Deine Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_initiated_message1" xml:space="preserve">
+				<source>Thank you for your application to become a member of &lt;b&gt;%1$s&lt;/b&gt;. &lt;br /&gt;Everyone is welcome to browse around our website but you will need to confirm your membership to have unrestricted access to all areas.&lt;br /&gt;&lt;br /&gt;To confirm your membership please click on this link</source>
+			<target>Wir danken für Ihre Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;. Sie erhalten den Zugang zum Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site allerdings erst, nachdem Sie Ihre Anmeldung bestätigt haben. Zur Bestätigung Ihrer Anmeldung rufen Sie bitte folgende Adresse auf:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_message1_informal" xml:space="preserve">
+				<source>Thank you for your application to become a member of &lt;b&gt;%1$s&lt;/b&gt;. &lt;br /&gt;Everyone is welcome to browse around our website but you will need to confirm your membership to have unrestricted access to all areas.&lt;br /&gt;&lt;br /&gt;To confirm your membership please click on this link</source>
+			<target>Wir danken für Deine Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;. Du erhältst den Zugang zum Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site allerdings erst, nachdem Du Deine Anmeldung bestätigt hast. Zur Bestätigung Deiner Anmeldung rufe bitte folgende Adresse auf:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_message2" xml:space="preserve">
+				<source>If, for any reason, you do not wish to continue the registration process, or you have received this message in error, please click on this link</source>
+			<target>Sie erhalten diese Mail, da wir uns vergewissern wollen, dass die eingegebene E-Mail-Adresse korrekt ist und dass niemand außer dem Benutzer dieser Adresse sich anmelden kann. Wenn Sie diese Mail erhalten haben, ohne dass Sie sich bei uns anmelden wollten, rufen Sie bitte folgende Adresse auf, um die Anmeldung abzubrechen und Ihre Adresse aus unserer Datenbank zu löschen:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_message2_informal" xml:space="preserve">
+				<source>If, for any reason, you do not wish to continue the registration process, or you have received this message in error, please click on this link</source>
+			<target>Du erhältst diese Mail, da wir uns vergewissern wollen, dass die eingegebene E-Mail-Adresse korrekt ist und dass niemand außer dem Benutzer dieser Adresse sich anmelden kann. Wenn Du diese E-Mail erhalten hast, ohne dass Du Dich bei uns anmelden willst, rufe bitte folgende Adresse auf, um die Anmeldung abzubrechen und Deine Adresse aus unserer Datenbank zu löschen:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_message3" xml:space="preserve">
+				<source>Please feel free to ask us any questions, or  tell us anything about the registration process, or make any other constructive comments by sending an e-mail to</source>
+			<target>Falls Sie Fragen haben, uns etwas über den Registrierungsprozess mitteilen möchten oder konstruktive Vorschläge haben, senden Sie uns bitte eine E-Mail an:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_message3_informal" xml:space="preserve">
+				<source>Please feel free to ask us any questions, or  tell us anything about the registration process, or make any other constructive comments by sending an e-mail to</source>
+			<target>Hast Du Fragen, Bemerkungen oder Verbesserungsvorschläge? Dann kontaktiere uns bitte unter folgender E-Mail-Adresse:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_review1" xml:space="preserve">
+				<source>Thank you for your application to become a member of &lt;b&gt;%1$s&lt;/b&gt;. &lt;br /&gt;Everyone is welcome to browse around our website but you will need to confirm your membership to have unrestricted access to all areas.&lt;br /&gt;&lt;br /&gt;To confirm your membership please click on this link</source>
+			<target>Danke für Ihren Antrag auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt;.&lt;br /&gt;Jedermann ist herzlich willkommen, sich auf unserer Web-Site umzuschauen. Um uneingeschränkten Zugriff auf alle Bereiche zu erhalten, müssen Sie Ihre Mitgliedschaft allerdings erst bestätigen.&lt;br /&gt;&lt;br /&gt;Um Ihre Mitgliedschaft zu bestätigen, folgen Sie bitte diesem Link:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_review1_informal" xml:space="preserve">
+				<source>Thank you for your application to become a member of &lt;b&gt;%1$s&lt;/b&gt;. &lt;br /&gt;Everyone is welcome to browse around our website but you will need to confirm your membership to have unrestricted access to all areas.&lt;br /&gt;&lt;br /&gt;To confirm your membership please click on this link</source>
+			<target>Danke für Deinen Antrag auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt;.&lt;br /&gt;Jedermann ist herzlich willkommen, sich auf unserer Web-Site umzuschauen. Um uneingeschränkten Zugriff auf alle Bereiche zu erhalten, musst Du Deine Mitgliedschaft allerdings erst bestätigen.&lt;br /&gt;&lt;br /&gt;\nUm Deine Mitgliedschaft zu bestätigen, folge bitte diesem Link:</target></trans-unit>
+			<trans-unit id="v_registration_initiated_review2" xml:space="preserve">
+				<source>Please be aware that after you confirm your registration, it will need to be reviewed by the administrator before you gain access to the section &lt;b&gt;%1$s&lt;/b&gt; of our website.</source>
+			<target>Wir bitten um Kenntnisnahme, dass die Registrierung vom Administrator bestätigt werden muss, bevor Sie Zugriff auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site erhalten.</target></trans-unit>
+			<trans-unit id="v_registration_initiated_review2_informal" xml:space="preserve">
+				<source>Please be aware that after you confirm your registration, it will need to be reviewed by the administrator before you gain access to the section &lt;b&gt;%1$s&lt;/b&gt; of our website.</source>
+			<target>Bevor Du Zugriff auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; unserer Web-Site erhältst, muss die Registrierung vom Administrator bestätigt werden.</target></trans-unit>
+			<trans-unit id="v_registration_initiated" xml:space="preserve">
+				<source>%3$s initiated his(her) registration in %1$s.</source>
+			<target>%3$s startete seine / ihre Anmeldung bei %1$s.</target></trans-unit>
+			<trans-unit id="v_registration_review_subject" xml:space="preserve">
+				<source>Please review the application of &lt;b&gt;%3$s&lt;/b&gt; for membership with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Bitte prüfen Sie den Antrag von &lt;b&gt;%3$s&lt;/b&gt; auf eine Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_review_subject_informal" xml:space="preserve">
+				<source>Please review the application of &lt;b&gt;%3$s&lt;/b&gt; for membership with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Bitte prüfe den Antrag von &lt;b&gt;%3$s&lt;/b&gt; auf eine Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_review_message1" xml:space="preserve">
+				<source>If you think that the application for membership with &lt;b&gt;%3$s&lt;/b&gt; should be accepted, please click on this link to accept</source>
+			<target>Wenn der Antrag zur Mitgliedschaft bei &lt;b&gt;%3$s&lt;/b&gt; angenommen werden soll, bitte folgenden Link aufrufen:</target></trans-unit>
+			<trans-unit id="v_registration_review_message1_informal" xml:space="preserve">
+				<source>If you think that the application for membership with &lt;b&gt;%3$s&lt;/b&gt; should be accepted, please click on this link to accept</source>
+			<target>Wenn der Antrag zur Mitgliedschaft bei &lt;b&gt;%3$s&lt;/b&gt; angenommen werden soll, bitte folgenden Link aufrufen:</target></trans-unit>
+			<trans-unit id="v_registration_review_message2" xml:space="preserve">
+				<source>If you think that the application for membership with &lt;b&gt;%3$s&lt;/b&gt; should be refused, please click on this link to refuse</source>
+			<target>Wenn der Antrag auf Mitgliedschaft bei &lt;b&gt;%3$s&lt;/b&gt; abgelehnt werden soll, bitte folgenden Link aufrufen:</target></trans-unit>
+			<trans-unit id="v_registration_review_message2_informal" xml:space="preserve">
+				<source>If you think that the application for membership with &lt;b&gt;%3$s&lt;/b&gt; should be refused, please click on this link to refuse</source>
+			<target>Wenn der Antrag auf Mitgliedschaft bei &lt;b&gt;%3$s&lt;/b&gt; abgelehnt werden soll, bitte folgenden Link aufrufen:</target></trans-unit>
+			<trans-unit id="v_registration_review_message3" xml:space="preserve">
+				<source>Please review the application of &lt;b&gt;%3$s&lt;/b&gt; for membership with &lt;b&gt;%1$s&lt;/b&gt;. The following data was entered on the registration form</source>
+			<target>Bitte den Antrag von &lt;b&gt;%3$s&lt;/b&gt; auf eine Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; überprüfen. Die folgenden Daten wurden bei der Registrierung eingegeben:</target></trans-unit>
+			<trans-unit id="v_registration_invited_subject" xml:space="preserve">
+				<source>Invitation to register with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Einladung zur Registrierung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_invited_subject_informal" xml:space="preserve">
+				<source>Invitation to register with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Einladung zur Registrierung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_invited_message1" xml:space="preserve">
+				<source>We thought you might be interested in registering with &lt;b&gt;%1$s&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+
+We have created an account for you with username &lt;b&gt;%2$s&lt;/b&gt; and password &lt;b&gt;%5$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;
+
+We are sending you this message so that you may confirm that you wish to register with &lt;b&gt;%1$s&lt;/b&gt;. You will be able to access the section reserved to &lt;b&gt;%1$s&lt;/b&gt; only after confirming your registration. You will also be able to change your password and account profile.&lt;br /&gt;&lt;br /&gt;
+
+If you wish to accept our invitation and confirm your registration in &lt;b&gt;%1$s&lt;/b&gt;, please follow this link</source>
+			<target>Wir glauben, dass eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; für Sie interessant sein könnte.&lt;br /&gt;&lt;br /&gt; Wir haben für Sie ein Benutzerkonto mit dem Benutzernamen &lt;b&gt;%2$s&lt;/b&gt; und dem Passwort &lt;b&gt;%5$s&lt;/b&gt; eingerichtet.&lt;br /&gt;&lt;br /&gt; Wir schicken Ihnen diese E-Mail, damit Sie bestätigen können, dass Sie eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; wünschen. Sie können auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; erst nach Bestätigung Ihrer Registrierung zugreifen. Sie können außerdem Ihr Passwort und Ihr Benutzerprofil ändern.&lt;br /&gt;&lt;br /&gt; Wenn Sie unsere Einladung annehmen und Ihre Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; bestätigen wollen, folgen Sie bitte diesem Link:</target></trans-unit>
+			<trans-unit id="v_registration_invited_message1_informal" xml:space="preserve">
+				<source>We thought you might be interested in registering with &lt;b&gt;%1$s&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+
+We have created an account for you with username &lt;b&gt;%2$s&lt;/b&gt; and password &lt;b&gt;%5$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;
+
+We are sending you this message so that you may confirm that you wish to register with &lt;b&gt;%1$s&lt;/b&gt;. You will be able to access the section reserved to &lt;b&gt;%1$s&lt;/b&gt; only after confirming your registration. You will also be able to change your password and account profile.&lt;br /&gt;&lt;br /&gt;
+
+If you wish to accept our invitation and confirm your registration in &lt;b&gt;%1$s&lt;/b&gt;, please follow this link</source>
+			<target>Wir glauben, dass eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; für Dich interessant sein könnte.&lt;br /&gt;&lt;br /&gt; Wir haben für Dich ein Benutzer-Konto mit dem Benutzernamen &lt;b&gt;%2$s&lt;/b&gt; und dem Passwort &lt;b&gt;%5$s&lt;/b&gt; eingerichtet.&lt;br /&gt;&lt;br /&gt; Wir schicken Dir diese Mail, damit Du bestätigen kannst, dass Du eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; wünschst. Du kannst auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; erst nach Bestätigung Deiner Registrierung zugreifen. Du kannst außerdem Dein Passwort und Dein Benutzerprofil ändern.&lt;br /&gt;&lt;br /&gt; Wenn Du unsere Einladung annehmen und Deine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; bestätigen willst, folge bitte diesem Link:</target></trans-unit>
+			<trans-unit id="v_registration_invited_message1a" xml:space="preserve">
+				<source>We thought you might be interested in registering with &lt;b&gt;%1$s&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+
+We have created an account for you with username &lt;b&gt;%2$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;
+
+We are sending you this message so that you may confirm that you wish to register with &lt;b&gt;%1$s&lt;/b&gt;. You will be able to access the section reserved to &lt;b&gt;%1$s&lt;/b&gt; only after confirming your registration. You will also be able to change your password and account profile.&lt;br /&gt;&lt;br /&gt;
+
+If you wish to accept our invitation and confirm your registration in &lt;b&gt;%1$s&lt;/b&gt;, please follow this link</source>
+			<target></target><alt-trans xml:space="preserve" origin="jank"><target>Wir glauben, dass eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; für Sie interessant sein könnte.&lt;br /&gt;&lt;br /&gt; Wir haben für Sie ein Benutzerkonto mit dem Benutzernamen &lt;b&gt;%2$s&lt;/b&gt; eingerichtet.&lt;br /&gt;&lt;br /&gt; Wir schicken Ihnen diese E-Mail, damit Sie bestätigen können, dass Sie eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; wünschen. Sie können auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; erst nach Bestätigung Ihrer Registrierung zugreifen. Sie können außerdem Ihr Passwort und Ihr Benutzerprofil ändern.&lt;br /&gt;&lt;br /&gt; Wenn Sie unsere Einladung annehmen und Ihre Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; bestätigen wollen, folgen Sie bitte diesem Link:</target></alt-trans></trans-unit>
+			<trans-unit id="v_registration_invited_message1a_informal" xml:space="preserve">
+				<source>We thought you might be interested in registering with &lt;b&gt;%1$s&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;
+
+We have created an account for you with username &lt;b&gt;%2$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;
+
+We are sending you this message so that you may confirm that you wish to register with &lt;b&gt;%1$s&lt;/b&gt;. You will be able to access the section reserved to &lt;b&gt;%1$s&lt;/b&gt; only after confirming your registration. You will also be able to change your password and account profile.&lt;br /&gt;&lt;br /&gt;
+
+If you wish to accept our invitation and confirm your registration in &lt;b&gt;%1$s&lt;/b&gt;, please follow this link</source>
+			<target></target><alt-trans xml:space="preserve" origin="jank"><target>Wir glauben, dass eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; für Dich interessant sein könnte.&lt;br /&gt;&lt;br /&gt; Wir haben für Dich ein Benutzer-Konto mit dem Benutzernamen &lt;b&gt;%2$s&lt;/b&gt; eingerichtet.&lt;br /&gt;&lt;br /&gt; Wir schicken Dir diese Mail, damit Du bestätigen kannst, dass Du eine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; wünschst. Du kannst auf den Bereich &lt;b&gt;%1$s&lt;/b&gt; erst nach Bestätigung Deiner Registrierung zugreifen. Du kannst außerdem Dein Passwort und Dein Benutzerprofil ändern.&lt;br /&gt;&lt;br /&gt; Wenn Du unsere Einladung annehmen und Deine Registrierung bei &lt;b&gt;%1$s&lt;/b&gt; bestätigen willst, folge bitte diesem Link:</target></alt-trans></trans-unit>
+			<trans-unit id="v_registration_invited_message2" xml:space="preserve">
+				<source>You will not receive this message twice. If you wish to decline our invitation and do not wish to register in &lt;b&gt;%1$s&lt;/b&gt;, please follow this link or just ignore this message</source>
+			<target>Sie werden diese Mail kein zweites Mal erhalten. Falls Sie unsere Einladung ablehnen und sich nicht bei &lt;b&gt;%1$s&lt;/b&gt; registrieren wollen, ignorieren Sie einfach diese E-Mail oder folgen Sie diesem Link:</target></trans-unit>
+			<trans-unit id="v_registration_invited_message2_informal" xml:space="preserve">
+				<source>You will not receive this message twice. If you wish to decline our invitation and do not wish to register in &lt;b&gt;%1$s&lt;/b&gt;, please follow this link or just ignore this message</source>
+			<target>Du wirst diese Mail kein zweites Mal erhalten. Falls Du unsere Einladung ablehnst und Dich nicht bei &lt;b&gt;%1$s&lt;/b&gt; registrieren willst, ignoriere einfach diese E-Mail oder folge diesem Link.</target></trans-unit>
+			<trans-unit id="v_now_choose_password" xml:space="preserve">
+				<source>Please choose a password now and enter it twice.</source>
+			<target>Bitte wählen Sie ein Passwort und geben Sie es zweimal ein.</target></trans-unit>
+			<trans-unit id="v_now_choose_password_informal" xml:space="preserve">
+				<source>Please choose a password now and enter it twice.</source>
+			<target>Bitte wähle ein Passwort und gib es zweimal ein.</target></trans-unit>
+			<trans-unit id="v_registration_invited" xml:space="preserve">
+				<source>An invitation to register in %1$s was sent to %3$s.</source>
+			<target>Eine Einladung zur Registrierung bei %1$s wurde an %3$s geschickt.</target></trans-unit>
+			<trans-unit id="v_registration_infomail_message1" xml:space="preserve">
+				<source>Your account data are username &lt;b&gt;%2$s&lt;/b&gt; and password &lt;b&gt;%5$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;</source>
+			<target>Die Daten Ihres Benutzerkontos lauten: Benutzername &lt;b&gt;%2$s&lt;/b&gt; und Passwort &lt;b&gt;%5$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_infomail_message1_informal" xml:space="preserve">
+				<source>Your account data are username &lt;b&gt;%2$s&lt;/b&gt; and password &lt;b&gt;%5$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;</source>
+			<target>Die Daten deines Benutzerkontos lauten: Benutzername &lt;b&gt;%2$s&lt;/b&gt; und Passwort &lt;b&gt;%5$s&lt;/b&gt;.&lt;br /&gt;&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_infomail_message1a" xml:space="preserve">
+				<source>Your account username is &lt;b&gt;%2$s&lt;/b&gt;.&lt;br /&gt;</source>
+			<target>Ihr Benutzername lautet: &lt;b&gt;%2$s&lt;/b&gt;.&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_infomail_message1a_informal" xml:space="preserve">
+				<source>Your account username is &lt;b&gt;%2$s&lt;/b&gt;.&lt;br /&gt;</source>
+			<target>Dein Benutzername lautet: &lt;b&gt;%2$s&lt;/b&gt;.&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_subject" xml:space="preserve">
+				<source>Thank you for registering with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Vielen Dank für Ihre Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_subject_informal" xml:space="preserve">
+				<source>Thank you for registering with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Vielen Dank für Deine Anmeldung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_message1" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been confirmed.</source>
+			<target>Ihr Konto &lt;b&gt;%2$s&lt;/b&gt; wurde angelegt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_message1_informal" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been confirmed.</source>
+			<target>Dein Konto &lt;b&gt;%2$s&lt;/b&gt; wurde angelegt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_message2" xml:space="preserve">
+				<source>Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list.</source>
+			<target>Ihre Adresse &lt;b&gt;%4$s&lt;/b&gt; wurde unserer Datenbank hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_message2_informal" xml:space="preserve">
+				<source>Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list.</source>
+			<target>Deine Adresse &lt;b&gt;%4$s&lt;/b&gt; wurde unserer Datenbank hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_review1" xml:space="preserve">
+				<source>Your application for membership &lt;b&gt;%2$s&lt;/b&gt; has been confirmed.</source>
+			<target>Ihr Antrag auf Mitgliedschaft &lt;b&gt;%2$s&lt;/b&gt; wurde bestätigt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_review1_informal" xml:space="preserve">
+				<source>Your application for membership &lt;b&gt;%2$s&lt;/b&gt; has been confirmed.</source>
+			<target>Dein Antrag auf Mitgliedschaft &lt;b&gt;%2$s&lt;/b&gt; wurde bestätigt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_review2" xml:space="preserve">
+				<source>Your application for membership will now be reviewed by the website administrator. You will be informed by email of the administrator's decision.</source>
+			<target>Ihr Antrag auf Mitgliedschaft wird jetzt vom Administrator geprüft. Sie werden per E-Mail über die Entscheidung des Administrators benachrichtigt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed_review2_informal" xml:space="preserve">
+				<source>Your application for membership will now be reviewed by the website administrator. You will be informed by email of the administrator's decision.</source>
+			<target>Dein Antrag auf Mitgliedschaft wird jetzt vom Administrator geprüft. Du wirst per E-Mail über die Entscheidung des Administrators benachrichtigt.</target></trans-unit>
+			<trans-unit id="v_registration_confirmed" xml:space="preserve">
+				<source>%3$s confirmed his(her) registration with %1$s.</source>
+			<target>%3$s hat seine (ihre) Anmeldung bei %1$s bestätigt.</target></trans-unit>
+			<trans-unit id="v_registration_cancelled_subject" xml:space="preserve">
+				<source>Your registration has been cancelled.</source>
+			<target>Ihre Anmeldung wurde abgebrochen.</target></trans-unit>
+			<trans-unit id="v_registration_cancelled_subject_informal" xml:space="preserve">
+				<source>Your registration has been cancelled.</source>
+			<target>Deine Anmeldung wurde abgebrochen.</target></trans-unit>
+			<trans-unit id="v_registration_cancelled_message1" xml:space="preserve">
+				<source>As requested, we have cancelled your membership &lt;b&gt;%2$s&lt;/b&gt; and your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been deleted from our list.&lt;br /&gt;</source>
+			<target>Ihr Konto &lt;b&gt;%2$s&lt;/b&gt; und die Adresse &lt;b&gt;%4$s&lt;/b&gt; wurden wie gewünscht aus unserer Datenbank entfernt.</target></trans-unit>
+			<trans-unit id="v_registration_cancelled_message1_informal" xml:space="preserve">
+				<source>As requested, we have cancelled your membership &lt;b&gt;%2$s&lt;/b&gt; and your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been deleted from our list.&lt;br /&gt;</source>
+			<target>Dein Konto &lt;b&gt;%2$s&lt;/b&gt; und die Adresse &lt;b&gt;%4$s&lt;/b&gt; wurden wie gewünscht aus unserer Datenbank entfernt.</target></trans-unit>
+			<trans-unit id="v_registration_cancelled_message2" xml:space="preserve">
+				<source>You will still be able to browse the pages of &lt;b&gt;%1$s&lt;/b&gt; for which membership is not necessary, if you wish.&lt;br /&gt;&lt;br /&gt;If you ever change your mind, you may re-join us and we will be pleased to welcome you again.&lt;br /&gt;</source>
+			<target>Wenn Sie möchten, können Sie immer noch die öffentlich zugänglichen Seiten von &lt;b&gt;%1$s&lt;/b&gt; anschauen.&lt;br /&gt;&lt;br /&gt;Sollten Sie Ihre Meinung ändern, können Sie sich jederzeit erneut registrieren.&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_cancelled_message2_informal" xml:space="preserve">
+				<source>You will still be able to browse the pages of &lt;b&gt;%1$s&lt;/b&gt; for which membership is not necessary, if you wish.&lt;br /&gt;&lt;br /&gt;If you ever change your mind, you may re-join us and we will be pleased to welcome you again.&lt;br /&gt;</source>
+			<target>Wenn Du möchtest, kannst Du immer noch die öffentlich zugänglichen Seiten von &lt;b&gt;%1$s&lt;/b&gt; anschauen.&lt;br /&gt;&lt;br /&gt;Solltest Du Deine Meinung ändern, kannst Du Dich jederzeit erneut registrieren.&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_cancelled" xml:space="preserve">
+				<source>%3$s cancelled his(her) registration with %1$s.</source>
+			<target>%3$s hat seine / ihre Anmeldung für %1$s abgebrochen.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_subject" xml:space="preserve">
+				<source>The application of &lt;b&gt;%3$s&lt;/b&gt; for membership with &lt;b&gt;%1$s&lt;/b&gt; is now accepted.</source>
+			<target>Der Antrag von &lt;b&gt;%3$s&lt;/b&gt; auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde angenommen.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_message1" xml:space="preserve">
+				<source>A message is being sent to &lt;b&gt;%3$s&lt;/b&gt; to inform him(her) that his(her) membership with &lt;b&gt;%1$s&lt;/b&gt; was accepted.</source>
+			<target>Eine Mitteilung wird an &lt;b&gt;%3$s&lt;/b&gt; gesendet, um ihn/sie darüber zu informieren, dass seine/ihre Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; angenommen wurde.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_message2" xml:space="preserve">
+				<source>&lt;b&gt;%3$s&lt;/b&gt; is now able to login.</source>
+			<target>&lt;b&gt;%3$s&lt;/b&gt; kann sich jetzt anmelden.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_subject2" xml:space="preserve">
+				<source>Your application for membership with &lt;b&gt;%1$s&lt;/b&gt; has been accepted.</source>
+			<target>Ihr Antrag auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde angenommen.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_subject2_informal" xml:space="preserve">
+				<source>Your application for membership with &lt;b&gt;%1$s&lt;/b&gt; has been accepted.</source>
+			<target>Dein Antrag auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde angenommen.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_message3" xml:space="preserve">
+				<source>We are pleased to inform you that your membership &lt;b&gt;%2$s&lt;/b&gt; has been accepted and that your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list.</source>
+			<target>Wir freuen uns, Ihnen mitteilen zu können, dass Ihr Antrag auf Mitgliedschaft bei &lt;b&gt;%2$s&lt;/b&gt; angenommen und dass Ihre E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; unserer Datenbank hinzugefügt wurde.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_message3_informal" xml:space="preserve">
+				<source>We are pleased to inform you that your membership &lt;b&gt;%2$s&lt;/b&gt; has been accepted and that your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list.</source>
+			<target>Glückwunsch! Deine Mitgliedschaft bei &lt;b&gt;%2$s&lt;/b&gt; wurde angenommen und Deine E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; unserer Datenbank hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_accepted_message4" xml:space="preserve">
+				<source>You may now login at</source>
+			<target>Sie können sich jetzt anmelden bei</target></trans-unit>
+			<trans-unit id="v_registration_accepted_message4_informal" xml:space="preserve">
+				<source>You may now login at</source>
+			<target>Du kannst Dich jetzt anmelden bei</target></trans-unit>
+			<trans-unit id="v_registration_accepted" xml:space="preserve">
+				<source>The application of %3$s for membership with %1$s was accepted.</source>
+			<target>Der Antrag von %3$s auf Mitgliedschaft bei %1$s wurde angenommen.</target></trans-unit>
+			<trans-unit id="v_registration_refused_subject" xml:space="preserve">
+				<source>The application of &lt;b&gt;%3$s&lt;/b&gt; for membership with &lt;b&gt;%1$s&lt;/b&gt; is now refused.</source>
+			<target>Der Antrag von &lt;b&gt;%3$s&lt;/b&gt; auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde abgelehnt.</target></trans-unit>
+			<trans-unit id="v_registration_refused_message1" xml:space="preserve">
+				<source>A message is being sent to &lt;b&gt;%3$s&lt;/b&gt; to inform him(her) that his(her) membership with &lt;b&gt;%1$s&lt;/b&gt; was refused.</source>
+			<target>Eine Mitteilung wird an &lt;b&gt;%3$s&lt;/b&gt; gesendet, um ihn/sie darüber zu informieren, dass seine/ihre Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; abgelehnt wurde.</target></trans-unit>
+			<trans-unit id="v_registration_refused_message2" xml:space="preserve">
+				<source>The account of &lt;b&gt;%3$s&lt;/b&gt; will now be deleted.</source>
+			<target>Das Benutzerkonto von &lt;b&gt;%3$s&lt;/b&gt; wird nun gelöscht.</target></trans-unit>
+			<trans-unit id="v_registration_refused" xml:space="preserve">
+				<source>The application of %3$s for membership with %1$s was refused.</source>
+			<target>Der Antrag von %3$s auf Mitgliedschaft bei %1$s wurde abgelehnt.</target></trans-unit>
+			<trans-unit id="v_registration_refused_subject2" xml:space="preserve">
+				<source>Your application for membership with &lt;b&gt;%1$s&lt;/b&gt; has been refused.</source>
+			<target>Ihr Antrag auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde abgelehnt.</target></trans-unit>
+			<trans-unit id="v_registration_refused_subject2_informal" xml:space="preserve">
+				<source>Your application for membership with &lt;b&gt;%1$s&lt;/b&gt; has been refused.</source>
+			<target>Dein Antrag auf Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde abgelehnt.</target></trans-unit>
+			<trans-unit id="v_registration_refused_message3" xml:space="preserve">
+				<source>We are sorry to inform you that your membership &lt;b&gt;%2$s&lt;/b&gt; has been refused.</source>
+			<target>Es tut uns leid, Ihnen mitteilen zu müssen, dass Ihr Antrag auf Mitgliedschaft bei &lt;b&gt;%2$s&lt;/b&gt; abgelehnt wurde.</target></trans-unit>
+			<trans-unit id="v_registration_refused_message3_informal" xml:space="preserve">
+				<source>We are sorry to inform you that your membership &lt;b&gt;%2$s&lt;/b&gt; has been refused.</source>
+			<target>Tut uns leid, aber Deine Mitgliedschaft bei &lt;b&gt;%2$s&lt;/b&gt; wurde abgelehnt.</target></trans-unit>
+			<trans-unit id="v_registration_refused_message4" xml:space="preserve">
+				<source>Please feel free to ask us any questions, or  tell us anything about the registration process, or make any other comments by sending an e-mail to</source>
+			<target>Bitte zögern Sie nicht, sich bei Fragen, Bemerkungen oder Verbesserungsvorschlägen an uns unter folgender E-Mail-Adresse zu wenden:</target></trans-unit>
+			<trans-unit id="v_registration_refused_message4_informal" xml:space="preserve">
+				<source>Please feel free to ask us any questions, or  tell us anything about the registration process, or make any other comments by sending an e-mail to</source>
+			<target>Hast du Fragen, Bemerkungen oder Verbesserungsvorschläge? Dann kontaktiere uns bitte unter folgender E-Mail-Adresse:</target></trans-unit>
+			<trans-unit id="v_registration_entered_subject" xml:space="preserve">
+				<source>Thank you for registering with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Vielen Dank für die Registrierung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_entered_subject_informal" xml:space="preserve">
+				<source>Thank you for registering with &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target>Danke für die Registrierung bei &lt;b&gt;%1$s&lt;/b&gt;.</target></trans-unit>
+			<trans-unit id="v_registration_entered_message1" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been accepted.</source>
+			<target>Ihr Antrag auf Mitgliedschaft &lt;b&gt;%2$s&lt;/b&gt; wurde angenommen.</target></trans-unit>
+			<trans-unit id="v_registration_entered_message1_informal" xml:space="preserve">
+				<source>Your membership &lt;b&gt;%2$s&lt;/b&gt; has been accepted.</source>
+			<target>Dein Antrag auf Mitgliedschaft &lt;b&gt;%2$s&lt;/b&gt; wurde angenommen.</target></trans-unit>
+			<trans-unit id="v_registration_entered_message2" xml:space="preserve">
+				<source>Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list.</source>
+			<target>Ihre E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; wurde unserer Datenbank hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_entered_message2_informal" xml:space="preserve">
+				<source>Your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been added to our list.</source>
+			<target>Deine E-Mail-Adresse &lt;b&gt;%4$s&lt;/b&gt; wurde unserer Datenbank hinzugefügt.</target></trans-unit>
+			<trans-unit id="v_registration_entered" xml:space="preserve">
+				<source>%3$s accessed the login form of %1$s after acceptation of his(her) membership application.</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_deleted_subject" xml:space="preserve">
+				<source>Your membership with &lt;b&gt;%1$s&lt;/b&gt; has been ended.</source>
+			<target>Ihre Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde beendet.</target></trans-unit>
+			<trans-unit id="v_registration_deleted_subject_informal" xml:space="preserve">
+				<source>Your membership with &lt;b&gt;%1$s&lt;/b&gt; has been ended.</source>
+			<target>Deine Mitgliedschaft bei &lt;b&gt;%1$s&lt;/b&gt; wurde beendet.</target></trans-unit>
+			<trans-unit id="v_registration_deleted_message1" xml:space="preserve">
+				<source>As requested, we have ended your membership &lt;b&gt;%2$s&lt;/b&gt; and your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been deleted from our list.&lt;br /&gt;</source>
+			<target>Ihr Konto &lt;b&gt;%2$s&lt;/b&gt; und die Adresse &lt;b&gt;%4$s&lt;/b&gt; wurden wie gewünscht aus unserer Datenbank gelöscht.</target></trans-unit>
+			<trans-unit id="v_registration_deleted_message1_informal" xml:space="preserve">
+				<source>As requested, we have ended your membership &lt;b&gt;%2$s&lt;/b&gt; and your e-mail address &lt;b&gt;%4$s&lt;/b&gt; has been deleted from our list.&lt;br /&gt;</source>
+			<target>Dein Konto &lt;b&gt;%2$s&lt;/b&gt; und die Adresse &lt;b&gt;%4$s&lt;/b&gt; wurden wie gewünscht aus unserer Datenbank gelöscht.</target></trans-unit>
+			<trans-unit id="v_registration_deleted_message2" xml:space="preserve">
+				<source>You will still be able to browse the pages of &lt;b&gt;%1$s&lt;/b&gt; for which membership is not necessary, if you wish.&lt;br /&gt;&lt;br /&gt;If you ever change your mind, you may re-join us and we will be pleased to welcome you again.&lt;br /&gt;</source>
+			<target>Wenn Sie möchten, können Sie immer noch die öffentlich zugänglichen Seiten von &lt;b&gt;%1$s&lt;/b&gt; anschauen.&lt;br /&gt;&lt;br /&gt;Sollten Sie Ihre Meinung ändern, können Sie sich jederzeit erneut registrieren.&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_deleted_message2_informal" xml:space="preserve">
+				<source>You will still be able to browse the pages of &lt;b&gt;%1$s&lt;/b&gt; for which membership is not necessary, if you wish.&lt;br /&gt;&lt;br /&gt;If you ever change your mind, you may re-join us and we will be pleased to welcome you again.&lt;br /&gt;</source>
+			<target>Wenn Du möchtest, kannst Du immer noch die öffentlich zugänglichen Seiten von &lt;b&gt;%1$s&lt;/b&gt; anschauen.&lt;br /&gt;&lt;br /&gt;Solltest Du Deine Meinung ändern, kannst Du Dich jederzeit erneut registrieren.&lt;br /&gt;</target></trans-unit>
+			<trans-unit id="v_registration_deleted" xml:space="preserve">
+				<source>%3$s deleted his(her) account from %1$s.</source>
+			<target>%3$s hat sein/ihr Konto aus %1$s gelöscht.</target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed_subject" xml:space="preserve">
+				<source>Your subscription to the newsletter of &lt;b&gt;%1$s&lt;/b&gt; has been ended.</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed_subject_informal" xml:space="preserve">
+				<source>Your subscription to the newsletter of &lt;b&gt;%1$s&lt;/b&gt; has been ended.</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed_message1" xml:space="preserve">
+				<source>As requested, we have ended the subscription of user &lt;b&gt;%2$s&lt;/b&gt; to the newsletter of &lt;b&gt;%1$s&lt;/b&gt;.&lt;br /&gt;</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed_message1_informal" xml:space="preserve">
+				<source>As requested, we have ended the subscription of user &lt;b&gt;%2$s&lt;/b&gt; to the newsletter of &lt;b&gt;%1$s&lt;/b&gt;.&lt;br /&gt;</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed_message2" xml:space="preserve">
+				<source>However, your account remains active and you may login into the site. You may also resume your subscription at your convenience.&lt;br /&gt;</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed_message2_informal" xml:space="preserve">
+				<source>However, your account remains active and you may login into the site. You may also resume your subscription at your convenience.&lt;br /&gt;</source>
+			<target></target></trans-unit>
+			<trans-unit id="v_registration_unsubscribed" xml:space="preserve">
+				<source>%3$s has ended his(her) subscription to the newsletter of %1$s.</source>
+			<target></target></trans-unit>
+			<trans-unit id="evalErrors_allowed_image" xml:space="preserve">
+				<source>The file extension %s is not allowed.</source>
+			<target>Die Dateiendung %s ist nicht erlaubt.</target></trans-unit>
+			<trans-unit id="evalErrors_atLeast" xml:space="preserve">
+				<source>You must enter at least %s characters!</source>
+			<target>Der Wert muss mindestens %s Zeichen enthalten!</target></trans-unit>
+			<trans-unit id="evalErrors_atLeast_username" xml:space="preserve">
+				<source>The username must contain at least %s characters.</source>
+			<target>Ihr Benutzername muss mindestens %s Zeichen enthalten.</target></trans-unit>
+			<trans-unit id="evalErrors_atLeast_informal" xml:space="preserve">
+				<source>You must enter at least %s characters!</source>
+			<target>Der Wert muss mindestens %s Zeichen enthalten!</target></trans-unit>
+			<trans-unit id="evalErrors_atleast_characters" xml:space="preserve">
+				<source>You must enter at least %s characters!</source>
+			<target>Sie müssen mindestens %s Zeichen verwenden!</target></trans-unit>
+			<trans-unit id="evalErrors_atleast_characters_informal" xml:space="preserve">
+				<source>You must enter at least %s characters!</source>
+			<target>Du musst mindestens %s Zeichen verwenden!</target></trans-unit>
+			<trans-unit id="evalErrors_atLeast_password" xml:space="preserve">
+				<source>The password must contain at least %s characters.</source>
+			<target>Das Passwort muss mindestens %s Zeichen enthalten.</target></trans-unit>
+			<trans-unit id="evalErrors_atLeast_password_informal" xml:space="preserve">
+				<source>The password must contain at least %s characters.</source>
+			<target>Das Passwort muss mindestens %s Zeichen enthalten.</target></trans-unit>
+			<trans-unit id="evalErrors_atmost_characters" xml:space="preserve">
+				<source>You must enter at most %s characters!</source>
+			<target>Sie dürfen höchstens %s Zeichen verwenden!</target></trans-unit>
+			<trans-unit id="evalErrors_atmost_characters_informal" xml:space="preserve">
+				<source>You must enter at most %s characters!</source>
+			<target>Du darfst höchstens %s Zeichen verwenden!</target></trans-unit>
+			<trans-unit id="evalErrors_atMost" xml:space="preserve">
+				<source>You must enter at most %s characters!</source>
+			<target>Der Wert darf höchstens %s Zeichen enthalten!</target></trans-unit>
+			<trans-unit id="evalErrors_atMost_informal" xml:space="preserve">
+				<source>You must enter at most %s characters!</source>
+			<target>Der Wert darf höchstens %s Zeichen enthalten!</target></trans-unit>
+			<trans-unit id="evalErrors_atMost_password" xml:space="preserve">
+				<source>The password must contain at most %s characters.</source>
+			<target>Das Passwort darf höchstens %s Zeichen enthalten.</target></trans-unit>
+			<trans-unit id="evalErrors_atMost_password_informal" xml:space="preserve">
+				<source>The password must contain at most %s characters.</source>
+			<target>Das Passwort darf höchstens %s Zeichen enthalten.</target></trans-unit>
+			<trans-unit id="evalErrors_atMost_username" xml:space="preserve">
+				<source>The username must contain at most %s characters.</source>
+			<target>Ihr Benutzername darf höchstens %s Zeichen enthalten.</target></trans-unit>
+			<trans-unit id="evalErrors_captcha" xml:space="preserve">
+				<source>Invalid!</source>
+			<target>Üngültig!</target></trans-unit>
+			<trans-unit id="evalErrors_freecap" xml:space="preserve">
+				<source>The entered letters did not correspond to the letters in the image.</source>
+			<target>Üngültig!</target></trans-unit>
+			<trans-unit id="evalErrors_date" xml:space="preserve">
+				<source>Please enter a valid date!</source>
+			<target>Bitte geben Sie ein gültiges Datum im Format tt-mm-jjjj ein!</target></trans-unit>
+			<trans-unit id="evalErrors_date_informal" xml:space="preserve">
+				<source>Please enter a valid date!</source>
+			<target>Bitte gib ein gültiges Datum im Format tt-mm-jjjj ein!</target></trans-unit>
+			<trans-unit id="evalErrors_email" xml:space="preserve">
+				<source>Please enter a valid e-mail address.</source>
+			<target>Bitte geben Sie eine gültige E-Mail-Adresse ein.</target></trans-unit>
+			<trans-unit id="evalErrors_email_informal" xml:space="preserve">
+				<source>Please enter a valid e-mail address.</source>
+			<target>Bitte gib eine gültige E-Mail-Adresse ein.</target></trans-unit>
+			<trans-unit id="evalErrors_email_email" xml:space="preserve">
+				<source>According to our verifications, the e-mail you have entered is not valid. Perhaps it was not entered correctly?</source>
+			<target>Laut unserer Überprüfung ist diese E-Mail-Adresse ungültig. Haben Sie sie richtig eingegeben?</target></trans-unit>
+			<trans-unit id="evalErrors_email_email_informal" xml:space="preserve">
+				<source>According to our verifications, the e-mail you entered is not valid. Perhaps you did not enter it correctly?</source>
+			<target>Laut unserer Überprüfung ist diese E-Mail-Adresse ungültig. Hast Du sie richtig eingegeben?</target></trans-unit>
+			<trans-unit id="evalErrors_existed_already" xml:space="preserve">
+				<source>The value existed already. Enter a new value.</source>
+			<target>Der Wert existierte bereits. Geben Sie einen neuen Wert ein.</target></trans-unit>
+			<trans-unit id="evalErrors_existed_already_informal" xml:space="preserve">
+				<source>The value existed already. Enter a new value.</source>
+			<target>Der Wert existierte bereits. Gib einen neuen Wert ein.</target></trans-unit>
+			<trans-unit id="evalErrors_file_extension" xml:space="preserve">
+				<source>The file extension %s is not allowed.</source>
+			<target>Die Dateierweiterung %s ist nicht erlaubt.</target></trans-unit>
+			<trans-unit id="evalErrors_file_upload" xml:space="preserve">
+				<source>Internal server error in upload of file "%s".</source>
+			<target></target></trans-unit>
+			<trans-unit id="evalErrors_write_permission" xml:space="preserve">
+				<source>Write permission error for file "%s".</source>
+			<target>Keine Schreibberechtigung für die Datei "%s".</target></trans-unit>
+			<trans-unit id="evalErrors_max_size_image" xml:space="preserve">
+				<source>The file size should not exceed %s KB.</source>
+			<target>Die Dateigröße sollte %s KB nicht überschreiten.</target></trans-unit>
+			<trans-unit id="evalErrors_preg" xml:space="preserve">
+				<source>This value does not fit to the required expression!</source>
+			<target>Der Wert entspricht nicht dem geforderten Ausdruck!</target></trans-unit>
+			<trans-unit id="evalErrors_preg_internal" xml:space="preserve">
+				<source>Internal error in the regular expression "%s"!</source>
+			<target>Interner Fehler im regulären Ausdruck "%s"!</target></trans-unit>
+			<trans-unit id="evalErrors_required" xml:space="preserve">
+				<source>You must enter a value!</source>
+			<target>Bitte geben Sie einen Wert ein!</target></trans-unit>
+			<trans-unit id="evalErrors_required_informal" xml:space="preserve">
+				<source>You must enter a value!</source>
+			<target>Bitte gib einen Wert ein!</target></trans-unit>
+			<trans-unit id="evalErrors_required_terms_acknowledged" xml:space="preserve">
+				<source>Please acknowledge the terms!</source>
+			<target>Bitte die Bedingungen akzeptieren!</target><note>100%</note></trans-unit>
+			<trans-unit id="evalErrors_required_terms_acknowledged_informal" xml:space="preserve">
+				<source>Please acknowledge the terms!</source>
+			<target>Bitte die Bedingungen akzeptieren!</target><note>100%</note></trans-unit>
+			<trans-unit id="evalErrors_same_twice" xml:space="preserve">
+				<source>You must enter the same value twice.</source>
+			<target>Sie müssen zweimal den gleichen Wert angeben.</target></trans-unit>
+			<trans-unit id="evalErrors_same_twice_informal" xml:space="preserve">
+				<source>You must enter the same value twice.</source>
+			<target>Du musst zweimal den gleichen Wert angeben.</target></trans-unit>
+			<trans-unit id="evalErrors_size_too_large" xml:space="preserve">
+				<source>The file is larger than %s KB.</source>
+			<target>Die Datei ist größer als %s kB.</target></trans-unit>
+			<trans-unit id="evalErrors_twice" xml:space="preserve">
+				<source>Please enter the same value twice.</source>
+			<target>Bitte geben Sie zweimal den selben Wert ein.</target></trans-unit>
+			<trans-unit id="evalErrors_twice_informal" xml:space="preserve">
+				<source>Please enter the same value twice.</source>
+			<target>Bitte gib zweimal den selben Wert ein.</target></trans-unit>
+			<trans-unit id="evalErrors_twice_password" xml:space="preserve">
+				<source>You must enter the same password twice.</source>
+			<target>Sie müssen zweimal dasselbe Passwort eingeben.</target></trans-unit>
+			<trans-unit id="evalErrors_twice_password_informal" xml:space="preserve">
+				<source>You must enter the same password twice.</source>
+			<target>Du musst zweimal dasselbe Passwort eingeben.</target></trans-unit>
+			<trans-unit id="evalErrors_unvalid_list" xml:space="preserve">
+				<source>The value was not a valid value from this list: %s</source>
+			<target>Der Wert ist kein gültiger Wert aus der Liste: %s</target></trans-unit>
+			<trans-unit id="evalErrors_unvalid_url" xml:space="preserve">
+				<source>Please enter a valid Internet site address.</source>
+			<target>Bitte geben Sie eine gültige URL ein.</target></trans-unit>
+			<trans-unit id="evalErrors_unvalid_url_informal" xml:space="preserve">
+				<source>Please enter a valid Internet site address.</source>
+			<target>Bitte gib eine gültige URL ein.</target></trans-unit>
+			<trans-unit id="evalErrors_unvalid_date" xml:space="preserve">
+				<source>Please enter a valid date.</source>
+			<target>Bitte geben Sie ein gültiges Datum ein.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueLocal" xml:space="preserve">
+				<source>This value already exist. Please enter a new value.</source>
+			<target>Dieser Wert ist bereits vorhanden. Bitte geben Sie einen anderen ein.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueLocal_informal" xml:space="preserve">
+				<source>This value already exist. Please enter a new value.</source>
+			<target>Dieser Wert ist bereits vorhanden. Bitte gib einen anderen ein.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueLocal_username" xml:space="preserve">
+				<source>This username already exists. Please enter a different username.</source>
+			<target>Dieser Benutzername ist bereits vorhanden. Versuchen Sie es mit einem anderen.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueLocal_username_informal" xml:space="preserve">
+				<source>This username already exists. Please enter a different username.</source>
+			<target>Dieser Benutzername ist bereits vorhanden. Versuche es mit einem anderen.</target></trans-unit>
+			<trans-unit id="evalErrors_valid_email" xml:space="preserve">
+				<source>You must enter a valid email address.</source>
+			<target>Sie müssen eine gültige E-Mail-Adresse angeben.</target></trans-unit>
+			<trans-unit id="evalErrors_valid_email_informal" xml:space="preserve">
+				<source>You must enter a valid email address.</source>
+			<target>Du musst eine gültige E-Mail-Adresse angeben.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueGlobal_username" xml:space="preserve">
+				<source>This username already exists. Please enter a different username.</source>
+			<target>Dieser Benutzername ist bereits vorhanden. Versuchen Sie es mit einem anderen.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueGlobal_username_informal" xml:space="preserve">
+				<source>This username already exists. Please enter a different username.</source>
+			<target>Dieser Benutzername ist bereits vorhanden. Versuche es mit einem anderen.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueGlobal" xml:space="preserve">
+				<source>This value already exists. Please enter a new value.</source>
+			<target>Dieser Wert ist bereits vorhanden. Bitte geben Sie einen anderen ein.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueGlobal_informal" xml:space="preserve">
+				<source>This value already exists. Please enter a new value.</source>
+			<target>Dieser Wert ist bereits vorhanden. Bitte gib einen anderen ein.</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueLocal_email" xml:space="preserve">
+				<source>This e-mail address already exist.</source>
+			<target>Unter dieser E-Mail-Adresse haben wir schon einen Benutzer registriert. Haben Sie vielleicht Ihr Passwort vergessen?</target></trans-unit>
+			<trans-unit id="evalErrors_uniqueLocal_email_informal" xml:space="preserve">
+				<source>This e-mail address already exist.</source>
+			<target>Unter dieser E-Mail-Adresse haben wir schon einen Benutzer registriert. Haben Sie vielleicht Ihr Passwort vergessen?</target><note>100%</note></trans-unit>
+			<trans-unit id="evalErrors_wwwURL_www" xml:space="preserve">
+				<source>According to our verifications, the website address you entered is not valid. Perhaps it was not entered correctly?</source>
+			<target>Laut unserer Überprüfung ist die angegebene Web-Site-Adresse nicht gültig. Wurde sie eventuell nicht korrekt eingegeben?</target></trans-unit>
+			<trans-unit id="evalErrors_wwwURL_www_informal" xml:space="preserve">
+				<source>According to our verifications, the website address you entered is not valid. Perhaps it was not entered correctly?</source>
+			<target>Laut unserer Überprüfung ist die angegebene Web-Site-Adresse nicht gültig. Wurde sie eventuell nicht korrekt eingegeben?</target></trans-unit>
+			<trans-unit id="internal_no_subtemplate" xml:space="preserve">
+				<source>The subpart %s was not found in the template file.</source>
+			<target>Der Abschnitt %s wurde in der Vorlagendatei nicht gefunden.</target></trans-unit>
+			<trans-unit id="internal_edit_option" xml:space="preserve">
+				<source>Edit-option is not set in TypoScript.</source>
+			<target>Option zur Bearbeitung ist im TypoScript nicht gesetzt.</target></trans-unit>
+			<trans-unit id="internal_infomail_configuration" xml:space="preserve">
+				<source>Configuration error: infomail option is not available or emailField is not set in TypoScript</source>
+			<target>Konfigurationsfehler: Die Option Infomail ist nicht verfügbar oder der Feldname für E-Mail (email.field) ist nicht im TypoScript konfiguriert.</target></trans-unit>
+			<trans-unit id="internal_token_empty" xml:space="preserve">
+				<source>The form's token is empty!</source>
+			<target>Der Sicherheitstoken dieses Formulars ist leer!</target></trans-unit>
+			<trans-unit id="internal_token_short" xml:space="preserve">
+				<source>The form's token is too short!</source>
+			<target>Der Sicherheitstoken dieses Formulars ist zu kurz!</target></trans-unit>
+			<trans-unit id="internal_no_text_found" xml:space="preserve">
+				<source>Internal error in the FE user registration. No text replacement has been found for &lt;b&gt;%1$s&lt;/b&gt;.</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_login_security_level" xml:space="preserve">
+				<source>Frontend login security level must be set to "normal" or to "rsa"</source>
+			<target>Frontend-Login-Security-Level muss auf "normal" oder "rsa" gesetzt sein</target></trans-unit>
+			<trans-unit id="internal_rsaauth_backend_not_available" xml:space="preserve">
+				<source>Required RSA auth backend not available</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_decrypt_auto_login_failed" xml:space="preserve">
+				<source>Failed to decrypt auto login password</source>
+			<target>Fehler beim Entschlüsseln des Autologin-Passwortes</target></trans-unit>
+			<trans-unit id="internal_rsaauth_retrieve_private_key_failed" xml:space="preserve">
+				<source>RSA auth service failed to retrieve private key</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_rsaauth_process_incoming_password_failed" xml:space="preserve">
+				<source>RSA auth service failed to process incoming password</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_salted_passwords_disabled" xml:space="preserve">
+				<source>Salted passwords must be enabled in frontend</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_salted_passwords_no_instance" xml:space="preserve">
+				<source>Could not get a salting instance from saltedpasswords</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_required_extension_missing" xml:space="preserve">
+				<source>Required extension "%1$s" is not available and must be installed</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_required_authentication_service_not_available" xml:space="preserve">
+				<source>Required authentication service not available</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_check_requirements_frontend" xml:space="preserve">
+				<source>&lt;p&gt;&lt;big&gt;&lt;b&gt;Front End User Registration (sr_feuser_register): %1$s.&lt;/b&gt;&lt;/big&gt;&lt;/p&gt;</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_replace_deprecated_marker" xml:space="preserve">
+				<source>Deprecated marker %1$s must be replaced by marker %2$s in HTML template file %3$s</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_remove_deprecated_marker" xml:space="preserve">
+				<source>Deprecated marker %1$s must be removed from HTML template file %2$s</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_auto_login_failed" xml:space="preserve">
+				<source>The auto login has failed.</source>
+			<target></target></trans-unit>
+			<trans-unit id="internal_no_enabled_user" xml:space="preserve">
+				<source>The user "%s" is not existent or enabled.</source>
+			<target></target></trans-unit>
+			<trans-unit id="table_not_defined_in_TCA" xml:space="preserve">
+				<source>The table "%s" is not defined in TCA.</source>
+			<target></target></trans-unit>
+			<trans-unit id="missing_gender" xml:space="preserve">
+				<source>Please enter your salutation!</source>
+			<target></target></trans-unit>
+			<trans-unit id="missing_gender_informal" xml:space="preserve">
+				<source>Please enter your salutation!</source>
+			<target></target></trans-unit>
+			<trans-unit id="dateFormat" xml:space="preserve">
+				<source>MMMM d, y</source>
+			<target></target></trans-unit>
+		</body>
+	</file>
+</xliff>

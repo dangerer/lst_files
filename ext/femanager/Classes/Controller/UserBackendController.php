@@ -5,12 +5,19 @@ declare(strict_types=1);
 namespace In2code\Femanager\Controller;
 
 use In2code\Femanager\Domain\Model\User;
+use In2code\Femanager\Domain\Repository\LogRepository;
+use In2code\Femanager\Domain\Repository\UserGroupRepository;
+use In2code\Femanager\Domain\Repository\UserRepository;
+use In2code\Femanager\Domain\Service\SendMailService;
 use In2code\Femanager\Event\AdminConfirmationUserEvent;
 use In2code\Femanager\Event\RefuseUserEvent;
+use In2code\Femanager\Finisher\FinisherRunner;
 use In2code\Femanager\Utility\BackendUserUtility;
+use In2code\Femanager\Utility\BackendUtility;
 use In2code\Femanager\Utility\ConfigurationUtility;
 use In2code\Femanager\Utility\HashUtility;
 use In2code\Femanager\Utility\LocalizationUtility;
+use In2code\Femanager\Utility\LogUtility;
 use In2code\Femanager\Utility\UserUtility;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Backend\Routing\Exception\RouteNotFoundException;
@@ -27,6 +34,7 @@ use TYPO3\CMS\Core\Type\Bitmask\Permission;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
  * Class UserBackendController
@@ -40,6 +48,22 @@ class UserBackendController extends AbstractController
     protected ModuleTemplateFactory $moduleTemplateFactory;
 
     protected ModuleTemplate $moduleTemplate;
+
+    protected LogRepository $logRepository;
+
+    public function __construct(
+        UserRepository $userRepository,
+        UserGroupRepository $userGroupRepository,
+        PersistenceManager $persistenceManager,
+        SendMailService $sendMailService,
+        FinisherRunner $finisherRunner,
+        LogUtility $logUtility,
+        LogRepository $logRepository,
+    ) {
+        parent::__construct($userRepository, $userGroupRepository, $persistenceManager, $sendMailService,
+            $finisherRunner, $logUtility);
+        $this->logRepository = $logRepository;
+    }
 
     public function injectModuleTemplateFactory(ModuleTemplateFactory $moduleTemplateFactory)
     {
@@ -65,14 +89,42 @@ class UserBackendController extends AbstractController
         $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
         $this->moduleTemplate->assignMultiple(
             [
-                'users' => $this->userRepository->findAllInBackend($filter),
+                'users' => $this->userRepository->findOnPageByBackendFilter($filter),
                 'moduleUri' => $uriBuilder->buildUriFromRoute('tce_db'),
                 'action' => 'list',
                 'loginAsEnabled' => $this->loginAsEnabled(),
+                'logEnabled' => !ConfigurationUtility::isDisableLogActive(),
                 'configPID' => $this->getConfigPID(),
+                'currentSelectedPid' => BackendUtility::getPageIdentifier() ?? 0,
+                'filter' => $filter,
             ]
         );
         return $this->moduleTemplate->renderResponse('UserBackend/List');
+    }
+
+    public function logAction(array $filter = []): ResponseInterface
+    {
+        $this->moduleTemplate->assignMultiple([
+                'users' => $this->userRepository->findAllWithoutDeleted(),
+                'groupedLogEntries' => $this->groupLogEntriesDay($this->logRepository->findByFilter($filter)),
+                'action' => 'log',
+                'logEnabled' => !ConfigurationUtility::isDisableLogActive(),
+                'filter' => array_filter($filter)
+            ]
+        );
+
+        return $this->moduleTemplate->renderResponse('UserBackend/Log');
+    }
+
+    protected function groupLogEntriesDay(iterable $logEntries): iterable
+    {
+        $targetStructure = [];
+        foreach ($logEntries as $entry) {
+            $timestampDay = strtotime($entry->getTstamp()->format('Y-m-d'));
+            $targetStructure[$timestampDay][] = $entry;
+        }
+        krsort($targetStructure);
+        return $targetStructure;
     }
 
     public function confirmationAction(array $filter = []): ResponseInterface
@@ -88,6 +140,7 @@ class UserBackendController extends AbstractController
                     ConfigurationUtility::isBackendModuleFilterUserConfirmation()
                 ),
                 'moduleUri' => $uriBuilder->buildUriFromRoute('tce_db'),
+                'logEnabled' => !ConfigurationUtility::isDisableLogActive(),
                 'action' => 'confirmation',
             ]
         );
@@ -117,7 +170,7 @@ class UserBackendController extends AbstractController
 
         $this->eventDispatcher->dispatch(new AdminConfirmationUserEvent($user));
 
-        $jsonResult = $this->getFrontendRequestResult('adminConfirmation', $userIdentifier, $user);
+        $jsonResult = $this->getFrontendRequestResult('confirmAdmin', $userIdentifier, $user);
 
         if ($jsonResult['status'] ?? false) {
             $this->addFlashMessage(
@@ -175,7 +228,7 @@ class UserBackendController extends AbstractController
 
         $this->eventDispatcher->dispatch(new RefuseUserEvent($user));
 
-        $jsonResult = $this->getFrontendRequestResult('adminConfirmationRefused', $userIdentifier, $user);
+        $jsonResult = $this->getFrontendRequestResult('confirmAdminRefused', $userIdentifier, $user);
 
         if ($jsonResult['status'] ?? false) {
             $this->addFlashMessage(
@@ -212,6 +265,8 @@ class UserBackendController extends AbstractController
                 ),
                 'moduleUri' => $uriBuilder->buildUriFromRoute('tce_db'),
                 'action' => 'listOpenUserConfirmations',
+                'logEnabled' => !ConfigurationUtility::isDisableLogActive(),
+                'filter' => $filter,
             ]
         );
         return $this->moduleTemplate->renderResponse('UserBackend/ListOpenUserConfirmations');
@@ -274,6 +329,7 @@ class UserBackendController extends AbstractController
                 'tx_femanager_registration' => [
                     'user' => $userIdentifier,
                     'hash' => HashUtility::createHashForUser($user),
+                    'adminHash' => HashUtility::createHashForUser($user, 'admin'),
                     'status' => $status,
                     'action' => 'confirmCreateRequest',
                     'controller' => 'New',

@@ -194,6 +194,9 @@ plugin.tx_femanager {
 
       # All email settings within the creation process
       email {
+        # When activated, links with actions like create or delete redirects to a confirmation page
+        # This is done, so that the action for the link cannot activated by verification processes of the e-mail client or other things which might open the link in advance (for example virus or malware checks).
+        activateEmailLinkFormConfirmation = 1
 
         # Email for User confirmation (User must confirm his Email address)
         createUserConfirmation {
@@ -274,6 +277,16 @@ plugin.tx_femanager {
           # this is a useful setting, as some virus scanners are preloading all links in an email, which then deletes this user automatically
           # default = 0
           confirmUserConfirmationRefused = 0
+
+          # if a user creates his profile, the creation of the profile must be confirmed
+          # this is a useful setting, as some virus scanners are preloading all links in an email, which then creates this user automatically
+          # default = 0
+          confirmUserConfirmation = 0
+
+          # if an admin needs to confirm a profile, this adds a confirmation step
+          # this is a useful setting, as some virus scanners are preloading all links in an email, which then accepts/refuses this user automatically
+          # default = 0
+          confirmAdminConfirmation = 0
 
         }
         # Email for Admin confirmation (Admin must confirm registration in an email)
@@ -679,6 +692,11 @@ plugin.tx_femanager {
         # Remove Usergroups from Usergroup Selection in Frontend
         #        removeFromUserGroupSelection = 2,3
 
+        # SECURITY: Allow frontend users to assign ANY frontend usergroup to themselves.
+        # Keep this disabled (0). To allow only specific groups, set validation.usergroup.inList
+        # instead. If neither is configured, submitted usergroup values are ignored (fail closed).
+        allowUnrestrictedUserGroupSelection = 0
+
         # initially save password as hash ("Argon2i", "Bcrypt", "Pbkdf2", "Phpass", "Blowfish", "Md5" or empty for extension saltedpasswords - if installed)
         #        passwordSave = Argon2i
 
@@ -1069,6 +1087,11 @@ plugin.tx_femanager {
 
         # Remove Usergroups from Usergroup Selection in Frontend
         #        removeFromUserGroupSelection = 2,3
+
+        # SECURITY: Allow frontend users to assign ANY frontend usergroup to themselves.
+        # Keep this disabled (0). To allow only specific groups, set validation.usergroup.inList
+        # instead. If neither is configured, submitted usergroup values are ignored (fail closed).
+        allowUnrestrictedUserGroupSelection = 0
 
         # initially save password as hash ("Argon2i", "Bcrypt", "Pbkdf2", "Phpass", "Blowfish", "Md5" or empty for extension saltedpasswords - if installed)
         #        passwordSave = Argon2i
@@ -1489,6 +1512,11 @@ plugin.tx_femanager {
       misc {
         # Remove Usergroups from Usergroup Selection in Frontend
         #        removeFromUserGroupSelection = 2,3
+
+        # SECURITY: Allow frontend users to assign ANY frontend usergroup to themselves.
+        # Keep this disabled (0). To allow only specific groups, set validation.usergroup.inList
+        # instead. If neither is configured, submitted usergroup values are ignored (fail closed).
+        allowUnrestrictedUserGroupSelection = 0
 
         # initially save password as hash ("Argon2i", "Bcrypt", "Pbkdf2", "Phpass", "Blowfish", "Md5" or empty for extension saltedpasswords - if installed)
         #        passwordSave = Argon2i

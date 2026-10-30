@@ -6,6 +6,7 @@ CREATE TABLE fe_users (
   date_of_birth int(11) DEFAULT '0' NOT NULL,
   tx_femanager_confirmedbyuser tinyint(3) DEFAULT '0' NOT NULL,
   tx_femanager_confirmedbyadmin tinyint(3) DEFAULT '0' NOT NULL,
+  tx_femanager_confirmation_required tinyint(3) DEFAULT '0' NOT NULL,
   tx_femanager_log int(11) DEFAULT '0' NOT NULL,
   tx_femanager_changerequest text,
   tx_femanager_terms tinyint(3) DEFAULT '0' NOT NULL,
@@ -24,6 +25,7 @@ CREATE TABLE tx_femanager_domain_model_log (
 
   title varchar(255) DEFAULT '' NOT NULL,
   state int(11) unsigned DEFAULT '0' NOT NULL,
+  additional_properties mediumblob,
 
   tstamp int(11) unsigned DEFAULT '0' NOT NULL,
   crdate int(11) unsigned DEFAULT '0' NOT NULL,

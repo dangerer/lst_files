@@ -131,7 +131,7 @@ class UploadService implements SingletonInterface
     {
         $filename = $file->getOriginalName();
         $fileInfo = pathinfo($filename);
-        $extension = strtolower($fileInfo['extension']);
+        $extension = strtolower($fileInfo['extension'] ?? '');
         if (!empty($extension) &&
             !empty($fileExtensions) &&
             GeneralUtility::inList($fileExtensions, $extension) &&
@@ -322,7 +322,7 @@ class UploadService implements SingletonInterface
             $randomizedFileName .= $fileInfo['filename'] . '-';
         }
         $randomizedFileName .= StringUtility::getRandomString(32, false);
-        $randomizedFileName .= '.' . $fileInfo['extension'];
+        $randomizedFileName .= '.' . ($fileInfo['extension'] ?? '');
         return $randomizedFileName;
     }
 

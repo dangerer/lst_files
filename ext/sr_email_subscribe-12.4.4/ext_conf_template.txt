@@ -1,0 +1,4 @@
+  # cat=basic/enable; type=string; label=Image upload folder: This is the place where the images are stored.
+imageFolder = 2:/tx_sremailsubscribe/
+  # cat=basic/enable; type=string; label=Address table: Name of the address table to be used
+addressTable = tt_address

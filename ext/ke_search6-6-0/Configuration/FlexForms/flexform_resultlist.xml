@@ -1,0 +1,34 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <MAIN>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_resultlist.xlf:ff.main</sheetTitle>
+                <type>array</type>
+                <el>
+
+                    <loadFlexformsFromOtherCE>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_resultlist.xlf:ff.loadFlexformsFromOtherCE
+                        </label>
+                        <config>
+                            <type>group</type>
+                            <allowed>tt_content</allowed>
+                            <size>1</size>
+                            <maxitems>1</maxitems>
+                            <minitems>1</minitems>
+                            <wizards>
+                                <suggest>
+                                    <type>suggest</type>
+                                </suggest>
+                            </wizards>
+                        </config>
+                    </loadFlexformsFromOtherCE>
+
+                </el>
+            </ROOT>
+        </MAIN>
+    </sheets>
+</T3DataStructure>

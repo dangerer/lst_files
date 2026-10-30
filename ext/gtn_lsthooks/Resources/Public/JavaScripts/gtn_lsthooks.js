@@ -210,18 +210,61 @@ $(document).ready(function () {
     });
     // form print button
 	$('.lst-printButton').on('click', function(){
+        var printStyles = `
+            <style>
+                @page {
+                    size: A4 portrait;
+                    margin: 15mm;
+                }
+        
+                @media print {
+                    html,
+                    body {
+                        width: 210mm;
+                        min-height: 297mm;
+                        margin: 0;
+                        padding: 0;
+                    }
+        
+                    .powermail_print_page {
+                        print-color-adjust: exact;
+                        -webkit-print-color-adjust: exact;
+                    }
+                }
+            </style>
+        `;
         var printContentNeed = $('.tx-powermail .powermail_create').first();
         var printContent = printContentNeed.clone()
         var printHeader = $('.add-print-header', 'body').clone();
         var printFooter = $('.add-print-footer', 'body').clone();
         printHeader.prependTo(printContent).show();
         printFooter.appendTo(printContent).show();
+        
+        var userAddress = printContent.find('.UserAdress-ran').first();
+        var headerBodytext = printContent
+            .find('.ce-printheaderadress')
+            .first()
+            .children('.ce-bodytext')
+            .first();
+        
+        if (userAddress.length && headerBodytext.length) {
+            userAddress.insertBefore(headerBodytext);
+        }
+        
 		var headNeed = $('head').clone();
         $('.lst-printButton', printContent).remove();
         var WindowPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=1,status=0');
-        WindowPrint.document.write('<html>'+ headNeed.html() + '<body class="powermail_print_page"><div class="powermail_create_print">' + printContent.html() + '</div>');
-	WindowPrint.document.write('<script type="text/javascript">$(window).load(function() { window.print(); window.close(); });</script>');
-	WindowPrint.document.write('</body></html>');
+        WindowPrint.document.write(
+            '<html><head>' +
+            headNeed.html() +
+            printStyles +
+            '</head><body class="powermail_print_page">' +
+            '<div class="powermail_create_print">' +
+            printContent.html() +
+            '</div>'
+        );
+	    WindowPrint.document.write('<script type="text/javascript">$(window).load(function() { window.print(); window.close(); });</script>');
+	    WindowPrint.document.write('</body></html>');
         WindowPrint.document.close();
         // WindowPrint.focus();
         // WindowPrint.setTimeout('console.log(window.top); window.top.print();', 1000);

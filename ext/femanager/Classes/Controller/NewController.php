@@ -38,18 +38,32 @@ use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
  */
 class NewController extends AbstractFrontendController
 {
+
+    /**
+     * Status values that perform an admin-side state change (enable or delete a pending user) and
+     * therefore always require a valid adminHash, independently of the confirmAdminConfirmation setting.
+     */
+    private const ADMIN_CONFIRMATION_STATUSES = [
+        'adminConfirmation',
+        'confirmAdmin',
+        'adminConfirmationRefused',
+        'adminConfirmationRefusedSilent',
+        'confirmAdminDeletion',
+        'confirmAdminRefused',
+        'confirmAdminRefusedSilent',
+    ];
+
     /**
      * Render registration form
      *
-     * @param User|null $user
      * @throws JsonException
      */
-    public function newAction(User $user = null): ResponseInterface
+    public function newAction(): ResponseInterface
     {
         $this->view->assignMultiple(
             [
-                'user' => $user,
                 'allUserGroups' => $this->allUserGroups,
+                'usergroupFieldMode' => $this->userGroupSanitizationService->getFieldRenderMode($this->settings['new'] ?? []),
             ]
         );
         $this->assignForAll();
@@ -76,6 +90,11 @@ class NewController extends AbstractFrontendController
             throw new PropagateResponseException($this->redirect('createStatus'));
         }
         $user = UserUtility::overrideUserGroup($user, $this->settings);
+        $user = $this->userGroupSanitizationService->sanitize(
+            $user,
+            $this->settings['new'] ?? [],
+            $this->userGroupSanitizationService->getOriginalUsergroupUids($user)
+        );
         $configuration = ConfigurationUtility::getValue('new./forceValues./beforeAnyConfirmation.', $this->config);
         $user = FrontendUtility::forceValues($user, $configuration);
         $user = UserUtility::fallbackUsernameAndPassword($user);
@@ -85,6 +104,8 @@ class NewController extends AbstractFrontendController
 
         $this->eventDispatcher->dispatch(new BeforeUserCreateEvent($user));
         $this->ratelimiterService->consumeSlot();
+
+        $user->setTxFemanagerConfirmationRequired($this->determineRequiredConfirmation());
 
         if ($this->isAllConfirmed()) {
             $response = $this->createAllConfirmed($user);
@@ -117,10 +138,9 @@ class NewController extends AbstractFrontendController
      *
      * @SuppressWarnings(PHPMD.ExitExpression)
      */
-    public function confirmCreateRequestAction(int $user, string $hash, string $status = 'adminConfirmation')
+    public function confirmCreateRequestAction(int $user, string $hash, string $status = 'adminConfirmation', ?string $adminHash = null)
     {
         $backend = false;
-
         $user = $this->userRepository->findByUid($user);
 
         $this->eventDispatcher->dispatch(new BeforeUserConfirmEvent($user, $hash, $status));
@@ -134,38 +154,96 @@ class NewController extends AbstractFrontendController
             throw new PropagateResponseException($this->redirect('new'));
         }
 
+        if (in_array($status, self::ADMIN_CONFIRMATION_STATUSES, true)
+            && HashUtility::validHash((string)$adminHash, $user, 'admin') === false
+        ) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate('error_not_authorized'),
+                '',
+                ContextualFeedbackSeverity::ERROR
+            );
+            throw new PropagateResponseException($this->redirect('new'), 1743766811);
+        }
+
         $request = ServerRequestFactory::fromGlobals();
-        // check if the request was triggered via Backend
+        // check if the the request was triggered via Backend
         if ($request->hasHeader('Accept')) {
             $accept = $request->getHeader('Accept')[0];
             if (str_contains((string)$accept, 'application/json')) {
                 $backend = true;
             }
         }
-        // todo refactor this into a better workflow
-        if ($status == 'userConfirmationRefused') {
-            if (ConfigurationUtility::getValue(
+
+        if ($status === 'userConfirmation' && ConfigurationUtility::getValue(
+                'new./email./createUserConfirmation./confirmUserConfirmation',
+                $this->config
+            ) == '1') {
+            $this->view->assignMultiple(
+                [
+                    'user' => $user,
+                    'status' => 'confirmUser',
+                    'hash' => $hash,
+                ]
+            );
+            $this->assignForAll();
+            return $this->htmlResponse();
+        }
+
+
+        if ($status === 'userConfirmationRefused' && ConfigurationUtility::getValue(
                 'new./email./createUserConfirmation./confirmUserConfirmationRefused',
                 $this->config
             ) == '1') {
-                $this->view->assignMultiple(
-                    [
-                        'user' => $user,
-                        'status' => 'confirmDeletion',
-                        'hash' => $hash,
-                    ]
-                );
-                $this->assignForAll();
-                return $this->htmlResponse();
-            }
+            $this->view->assignMultiple(
+                [
+                    'user' => $user,
+                    'status' => 'confirmDeletion',
+                    'hash' => $hash,
+                ]
+            );
+            $this->assignForAll();
+            return $this->htmlResponse();
+        }
+
+        if ($status === 'adminConfirmation' && ConfigurationUtility::getValue(
+            'new./email./createUserConfirmation./confirmAdminConfirmation',
+            $this->config
+        ) == '1') {
+            $this->view->assignMultiple(
+                [
+                    'user' => $user,
+                    'status' => 'confirmAdmin',
+                    'hash' => $hash,
+                    'adminHash' => $adminHash,
+                ]
+            );
+            $this->assignForAll();
+            return $this->htmlResponse();
+        }
+
+        if (($status === 'adminConfirmationRefused' || $status === 'adminConfirmationRefusedSilent') &&
+            ConfigurationUtility::getValue(
+                'new./email./createUserConfirmation./confirmAdminConfirmation',
+                $this->config
+            ) == '1') {
+            $this->view->assignMultiple(
+                [
+                    'user' => $user,
+                    'status' => 'confirmAdminRefused',
+                    'silent' => $status === 'adminConfirmationRefusedSilent',
+                    'hash' => $hash,
+                    'adminHash' => $adminHash,
+                ]
+            );
+            $this->assignForAll();
+            return $this->htmlResponse();
         }
 
         $furtherFunctions = match ($status) {
-            'userConfirmation' => $this->statusUserConfirmation($user, $hash, $status),
-            'userConfirmationRefused' => $this->statusUserConfirmationRefused($user, $hash),
-            'confirmDeletion' => $this->statusUserConfirmationRefused($user, $hash),
-            'adminConfirmation' => $this->statusAdminConfirmation($user, $hash, $status, $backend),
-            'adminConfirmationRefused', 'adminConfirmationRefusedSilent' =>
+            'userConfirmation', 'confirmUser' => $this->statusUserConfirmation($user, $hash, $status),
+            'userConfirmationRefused', 'confirmDeletion' => $this->statusUserConfirmationRefused($user, $hash),
+            'adminConfirmation', 'confirmAdmin' => $this->statusAdminConfirmation($user, $hash, $status, $backend),
+            'adminConfirmationRefused', 'adminConfirmationRefusedSilent', 'confirmAdminDeletion', 'confirmAdminRefused', 'confirmAdminDeletionSilent' =>
             $this->statusAdminConfirmationRefused($user, $hash, $status),
             default => false,
         };
@@ -367,6 +445,7 @@ class NewController extends AbstractFrontendController
         $user->setDisable(true);
         $this->userRepository->add($user);
         $this->persistenceManager->persistAll();
+        $this->processUploadedImage($user);
         $this->logUtility->log(Log::STATUS_PROFILECREATIONREQUEST, $user);
         if (!empty($this->settings['new']['confirmByUser'])) {
             $this->createUserConfirmationRequest($user);
@@ -416,11 +495,12 @@ class NewController extends AbstractFrontendController
                     $this->settings['new']['confirmByAdmin'] ?? '',
                     $this->settings['new']['email']['createAdminConfirmation']['receiver']['name']['value'] ?? ''
                 ),
-                StringUtility::makeEmailArray($user->getEmail(), $user->getUsername()),
+                ['sender@femanager.org' => 'Sender Name'],
                 'New Registration request',
                 [
                     'user' => $user,
                     'hash' => HashUtility::createHashForUser($user),
+                    'adminHash' => HashUtility::createHashForUser($user, 'admin'),
                 ],
                 ConfigurationUtility::getValue('new./email./createAdminConfirmation.', $this->config),
                 $this->request
@@ -434,9 +514,62 @@ class NewController extends AbstractFrontendController
         return empty($this->settings['new']['confirmByUser']) && empty($this->settings['new']['confirmByAdmin']);
     }
 
+    /**
+     * Build the confirmation bitmask from the registration settings. This is evaluated once during
+     * registration (where the settings reliably belong to the registration plugin) and persisted on
+     * the user, so later steps no longer depend on the ambient plugin settings.
+     */
+    protected function determineRequiredConfirmation(): int
+    {
+        $confirmationRequired = User::CONFIRMATION_REQUIRED_NONE;
+        if (!empty($this->settings['new']['confirmByUser'])) {
+            $confirmationRequired |= User::CONFIRMATION_REQUIRED_USER;
+        }
+        if (!empty($this->settings['new']['confirmByAdmin'])) {
+            $confirmationRequired |= User::CONFIRMATION_REQUIRED_ADMIN;
+        }
+
+        return $confirmationRequired;
+    }
+
+    /**
+     * Effective confirmation bitmask for a user. Accounts created before the
+     * tx_femanager_confirmation_required field existed carry the stored value NONE; for those the
+     * requirement is inferred from the confirmation state - mirroring ConfirmationRequiredUpdater - so
+     * the workflow stays correct even when the upgrade wizard has not been executed yet.
+     */
+    protected function getEffectiveConfirmationRequired(User $user): int
+    {
+        $stored = $user->getTxFemanagerConfirmationRequired();
+        if ($stored !== User::CONFIRMATION_REQUIRED_NONE) {
+            return $stored;
+        }
+
+        if ($user->isDisable() === false || $user->getTxFemanagerConfirmedbyadmin()) {
+            return User::CONFIRMATION_REQUIRED_NONE;
+        }
+
+        return $user->getTxFemanagerConfirmedbyuser()
+            ? User::CONFIRMATION_REQUIRED_ADMIN
+            : (User::CONFIRMATION_REQUIRED_USER | User::CONFIRMATION_REQUIRED_ADMIN);
+    }
+
     protected function isAdminConfirmationMissing(User $user): bool
     {
-        return !empty($this->settings['new']['confirmByAdmin']) && !$user->getTxFemanagerConfirmedbyadmin();
+        return $user->getTxFemanagerConfirmedbyadmin() === false
+            && ($this->getEffectiveConfirmationRequired($user) & User::CONFIRMATION_REQUIRED_ADMIN) !== 0;
+    }
+
+    /**
+     * The resend action (re)sends the *user* confirmation link. It must only do so for accounts that
+     * actually still await a user confirmation. The resend plugin has no knowledge of the registration
+     * settings, so the decision is taken from the user record - otherwise a valid confirmation link
+     * could be handed out for admin-only or already confirmed accounts.
+     */
+    protected function isUserConfirmationResendable(User $user): bool
+    {
+        return $user->getTxFemanagerConfirmedbyuser() === false
+            && ($this->getEffectiveConfirmationRequired($user) & User::CONFIRMATION_REQUIRED_USER) !== 0;
     }
 
     /**
@@ -453,26 +586,33 @@ class NewController extends AbstractFrontendController
     public function resendConfirmationMailAction(): ResponseInterface
     {
         // @todo find a better way to fetch the data
-        $result = GeneralUtility::_GP('tx_femanager_registration');
-        if (is_array($result)) {
-            $mail = $result['user']['email'] ?? '';
-            if ($mail && GeneralUtility::validEmail($mail)) {
-                $user = $this->userRepository->findFirstByEmail($mail);
-                if (is_a($user, User::class)) {
-                    $this->sendCreateUserConfirmationMail($user);
-                    $this->addFlashMessage(
-                        LocalizationUtility::translate('resendConfirmationMailSend'),
-                        '',
-                        ContextualFeedbackSeverity::INFO
-                    );
-                    return $this->redirect('resendConfirmationDialogue');
-                }
-            }
+        $result = $this->request->getParsedBody()['tx_femanager_resendconfirmationmail']
+            ?? $this->request->getQueryParams()['tx_femanager_resendconfirmationmail']
+            ?? $this->request->getParsedBody()['tx_femanager_registration']
+            ?? $this->request->getQueryParams()['tx_femanager_registration']
+            ?? null;
+        $mail = is_array($result) ? ($result['user']['email'] ?? '') : '';
+
+        if ($mail === '' || GeneralUtility::validEmail($mail) === false) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate('resendConfirmationMailFail'),
+                LocalizationUtility::translate('validationError'),
+                ContextualFeedbackSeverity::ERROR
+            );
+            return $this->redirect('resendConfirmationDialogue');
+        }
+
+        // A confirmation mail is only sent when the account actually has a pending user confirmation.
+        // The response is identical for every valid address (sent, nothing to send, or no such
+        // account), so it cannot be used to find out whether an account exists for a given email.
+        $user = $this->userRepository->findFirstByEmail($mail);
+        if ($user instanceof User && $this->isUserConfirmationResendable($user)) {
+            $this->sendCreateUserConfirmationMail($user);
         }
         $this->addFlashMessage(
-            LocalizationUtility::translate('resendConfirmationMailFail'),
-            LocalizationUtility::translate('validationError'),
-            ContextualFeedbackSeverity::ERROR
+            LocalizationUtility::translate('resendConfirmationMailSend'),
+            '',
+            ContextualFeedbackSeverity::INFO
         );
         return $this->redirect('resendConfirmationDialogue');
     }

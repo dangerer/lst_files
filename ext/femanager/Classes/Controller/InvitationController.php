@@ -31,6 +31,7 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
  */
 class InvitationController extends AbstractFrontendController
 {
+
     /**
      * action new
      */
@@ -45,7 +46,12 @@ class InvitationController extends AbstractFrontendController
             );
             return $this->redirect('status');
         }
-        $this->view->assign('allUserGroups', $this->allUserGroups);
+        $this->view->assignMultiple(
+            [
+                'allUserGroups' => $this->allUserGroups,
+                'usergroupFieldMode' => $this->userGroupSanitizationService->getFieldRenderMode($this->settings['invitation'] ?? [])
+            ]
+        );
         $this->assignForAll();
         return $this->htmlResponse();
     }
@@ -64,7 +70,7 @@ class InvitationController extends AbstractFrontendController
                 '',
                 ContextualFeedbackSeverity::ERROR
             );
-            $this->redirect('status');
+            return $this->redirect('status');
         }
 
         if ($this->allowedUserForInvitationNewAndCreate() !== true) {
@@ -80,6 +86,11 @@ class InvitationController extends AbstractFrontendController
         $user = FrontendUtility::forceValues(
             $user,
             ConfigurationUtility::getValue('invitation./forceValues./beforeAnyConfirmation.', $this->config)
+        );
+        $user = $this->userGroupSanitizationService->sanitize(
+            $user,
+            $this->settings['invitation'] ?? [],
+            $this->userGroupSanitizationService->getOriginalUsergroupUids($user)
         );
         $user = UserUtility::fallbackUsernameAndPassword($user);
         if (ConfigurationUtility::getValue('invitation/fillEmailWithUsername', $this->settings) === '1') {
@@ -102,6 +113,7 @@ class InvitationController extends AbstractFrontendController
     {
         $this->userRepository->add($user);
         $this->persistenceManager->persistAll();
+        $this->processUploadedImage($user);
         $this->addFlashMessage(LocalizationUtility::translate('createAndInvited'));
         $this->logUtility->log(Log::STATUS_INVITATIONPROFILECREATED, $user);
 
@@ -138,7 +150,8 @@ class InvitationController extends AbstractFrontendController
                     'user' => $user,
                     'settings' => $this->settings,
                 ],
-                ConfigurationUtility::getValue('invitation./email./invitationAdminNotifyStep1.', $this->config)
+                ConfigurationUtility::getValue('invitation./email./invitationAdminNotifyStep1.', $this->config),
+                $this->request
             );
         }
 
@@ -161,7 +174,7 @@ class InvitationController extends AbstractFrontendController
                 '',
                 ContextualFeedbackSeverity::ERROR
             );
-            $this->redirect('status');
+            return $this->redirect('status');
         }
 
         // User must not be deleted (deleted = 0) and not be activated (disable = 1)
@@ -171,12 +184,8 @@ class InvitationController extends AbstractFrontendController
                 '',
                 ContextualFeedbackSeverity::ERROR
             );
-            $this->redirect('status');
+           return $this->redirect('status');
         }
-
-        $user->setDisable(false);
-        $this->userRepository->update($user);
-        $this->persistenceManager->persistAll();
 
         $this->eventDispatcher->dispatch(new InviteUserEditEvent($user, $hash));
 
@@ -192,6 +201,21 @@ class InvitationController extends AbstractFrontendController
     }
 
     /**
+     * The invited user is still disabled (disable=1) at this point. Extbase's typed-argument
+     * mapping respects enableFields and would not find it. Pre-loading it through the repository
+     * (which ignores enableFields) registers it in the persistence session, so the typed
+     * "user" argument is resolved from there instead of a fresh, enableFields-restricted query.
+     */
+    public function initializeUpdateAction(): void
+    {
+        $submitted = $this->request->hasArgument('user') ? $this->request->getArgument('user') : null;
+        $userUid = (int)(is_array($submitted) ? ($submitted['__identity'] ?? 0) : 0);
+        if ($userUid > 0) {
+            $this->userRepository->findByUid($userUid);
+        }
+    }
+
+    /**
      * action update
      */
     #[Validate(['validator' => ServersideValidator::class, 'param' => 'user'])]
@@ -204,7 +228,7 @@ class InvitationController extends AbstractFrontendController
                 '',
                 ContextualFeedbackSeverity::ERROR
             );
-            $this->redirect('status');
+            return $this->redirect('status');
         }
         $this->addFlashMessage(LocalizationUtility::translate('createAndInvitedFinished'));
         $this->logUtility->log(Log::STATUS_INVITATIONPROFILEENABLED, $user);
@@ -225,14 +249,21 @@ class InvitationController extends AbstractFrontendController
                     'user' => $user,
                     'settings' => $this->settings,
                 ],
-                ConfigurationUtility::getValue('invitation./email./invitationAdminNotify.', $this->config)
+                ConfigurationUtility::getValue('invitation./email./invitationAdminNotify.', $this->config),
+                $this->request
             );
         }
         $user = UserUtility::overrideUserGroup($user, $this->settings, 'invitation');
+        $user = $this->userGroupSanitizationService->sanitize(
+            $user,
+            $this->settings['invitation'] ?? [],
+            $this->userGroupSanitizationService->getOriginalUsergroupUids($user)
+        );
         UserUtility::hashPassword(
             $user,
             ConfigurationUtility::getValue('invitation/misc/passwordSave', $this->settings)
         );
+        $user->setDisable(false);
         $this->userRepository->update($user);
         $this->persistenceManager->persistAll();
         $this->eventDispatcher->dispatch(new InviteUserUpdateEvent($user));
@@ -245,6 +276,10 @@ class InvitationController extends AbstractFrontendController
     public function deleteAction(int $user, string $hash = ''): ResponseInterface
     {
         $user = $this->userRepository->findByUid($user);
+
+        if($this->addVariablesForActionConfirmation(true, $user, 'invitationConfirmationRefused')) {
+            return $this->htmlResponse();
+        };
 
         if ($user !== null && HashUtility::validHash($hash, $user)) {
             $this->logUtility->log(Log::STATUS_PROFILEDELETE, $user);
@@ -270,7 +305,8 @@ class InvitationController extends AbstractFrontendController
                         'user' => $user,
                         'settings' => $this->settings,
                     ],
-                    $this->config['invitation.']['email.']['invitationRefused.']
+                    $this->config['invitation.']['email.']['invitationRefused.'],
+                    $this->request
                 );
             }
 

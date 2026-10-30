@@ -241,7 +241,7 @@ abstract class AbstractController extends ActionController
                     ConfigurationUtility::getValue(
                         'edit./email./notifyAdmin./receiver./email./value',
                         $this->config
-                    ) ?: ConfigurationUtility::getValue('edit./notifyAdmin', $this->config),
+                    ) ?: ConfigurationUtility::getValue('edit/notifyAdmin', $this->settings),
                     $this->settings['edit']['email']['notifyAdmin']['receiver']['name']['value'] ?? null
                 ),
                 StringUtility::makeEmailArray($user->getEmail(), $user->getUsername()),
@@ -287,6 +287,7 @@ abstract class AbstractController extends ActionController
                     'user' => $user,
                     'changes' => $dirtyProperties,
                     'hash' => HashUtility::createHashForUser($user),
+                    'adminHash' => HashUtility::createHashForUser($user, 'admin'),
                 ],
                 $this->config['edit.']['email.']['updateRequest.'] ?? [],
                 $this->request
@@ -364,6 +365,8 @@ abstract class AbstractController extends ActionController
 
         // send notify email to admin
         if ($createAdminNotify) {
+            $variables['adminHash'] = HashUtility::createHashForUser($user, 'admin');
+
             $this->sendMailService->send(
                 'createNotify',
                 StringUtility::makeEmailArray(

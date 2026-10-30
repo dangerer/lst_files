@@ -1,0 +1,9 @@
+routeEnhancers:
+  SrEmailSubscribe:
+    type: Plugin
+    routePath: '/{regHash}'
+    namespace: 'tx_sremailsubscribe_pi1'
+    requirements:
+      regHash: '^[a-f0-9]{20}$'
+    _arguments:
+      regHash: 'regHash'

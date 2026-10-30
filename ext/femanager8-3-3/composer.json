@@ -1,0 +1,146 @@
+{
+  "name": "in2code/femanager",
+  "description": "Modern TYPO3 Frontend User Registration.",
+  "keywords": [
+    "typo3",
+    "form",
+    "frontend",
+    "registration",
+    "profile",
+    "sr_feuser_register",
+    "fe_users"
+  ],
+  "homepage": "https://github.com/in2code-de/femanager",
+  "authors": [
+    {
+      "name": "Alex Kellner",
+      "email": "alexander.kellner@in2code.de"
+    },
+    {
+      "name": "Stefan Busemann",
+      "email": "stefan.busemann@in2code.de"
+    }
+  ],
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.1",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-intl": "*",
+    "typo3/cms-core": "^12.3.0",
+    "symfony/config": "^6.4 || ^7.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/in2code-de/femanagerextended.git"
+    }
+  ],
+  "replace": {
+    "typo3-ter/femanager": "self.version"
+  },
+  "require-dev": {
+    "behat/behat": "^3.12",
+    "behat/mink-selenium2-driver": "^1.6",
+    "drevops/behat-screenshot": "^1.2",
+    "friends-of-behat/mink-browserkit-driver": "^1.6",
+    "friends-of-behat/mink-extension": "^2.7",
+    "friendsofphp/php-cs-fixer": "^3.14",
+    "genesis/behat-fail-aid": "^3.7",
+    "helhum/typo3-console": "^8.0.0",
+    "helmich/typo3-typoscript-lint": "^3.1",
+    "michielroos/typo3scan": "^1.7",
+    "mikey179/vfsstream": "^1.6",
+    "phpmd/phpmd": "^2.13",
+    "phpstan/extension-installer": "^1.2",
+    "phpstan/phpstan": "^1.10",
+    "saschaegerer/phpstan-typo3": "^1.8",
+    "se/selenium-server-standalone": "^3.141",
+    "ssch/typo3-rector": "^1.2",
+    "typo3/cms-adminpanel": "^12.3.0",
+    "typo3/cms-backend": "^12.3.0",
+    "typo3/cms-belog": "^12.3.0",
+    "typo3/cms-beuser": "^12.3.0",
+    "typo3/cms-dashboard": "^12.3.0",
+    "typo3/cms-extbase": "^12.3.0",
+    "typo3/cms-extensionmanager": "^12.3.0",
+    "typo3/cms-felogin": "^12.3.0",
+    "typo3/cms-filelist": "^12.3.0",
+    "typo3/cms-fluid": "^12.3.0",
+    "typo3/cms-fluid-styled-content": "^12.3.0",
+    "typo3/cms-frontend": "^12.3.0",
+    "typo3/cms-impexp": "^12.4",
+    "typo3/cms-info": "^12.3.0",
+    "typo3/cms-install": "^12.3.0",
+    "typo3/cms-lowlevel": "^12.3.0",
+    "typo3/cms-recordlist": "^12.3.0",
+    "typo3/cms-recycler": "^12.3",
+    "typo3/cms-rte-ckeditor": "^12.3.0",
+    "typo3/cms-scheduler": "^12.3.0",
+    "typo3/cms-setup": "^12.3.0",
+    "typo3/cms-t3editor": "^12.3.0",
+    "typo3/cms-tstemplate": "^12.3.0",
+    "typo3/testing-framework": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "In2code\\Femanager\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "In2code\\Femanager\\Tests\\": "Tests/",
+      "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/",
+      "TYPO3\\CMS\\Fluid\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/fluid/Tests/"
+    }
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin",
+    "sort-packages": true,
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "scripts": {
+    "test:unit": "phpunit -c phpunit.xml.dist",
+    "test:behaviour:ddev": "behat --config Tests/Behaviour/behat.ddev.yml",
+    "test:behaviour:ddev:tag": "behat --config Tests/Behaviour/behat.ddev.yml --tags",
+    "test:behaviour:ddev:stop": "behat --config Tests/Behaviour/behat.ddev.yml --stop-on-failure",
+    "test:behaviour:docker": "behat --config Tests/Behaviour/behat.docker.yml",
+    "test:behaviour:docker:tag": "behat --config Tests/Behaviour/behat.docker.yml --tags",
+    "test:behaviour:docker:stop": "behat --config Tests/Behaviour/behat.docker.yml --stop-on-failure",
+    "test:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+    "test:php:cs": "php-cs-fixer fix --dry-run --config=.project/tests/.php-cs-fixer.php --diff",
+    "test:php:fix": "php-cs-fixer fix --config=.project/tests/.php-cs-fixer.php --diff",
+    "test:ts:lint": "typoscript-lint -c .project/tests/typoscript-lint.yml --fail-on-warnings",
+    "test:rector": "rector -n",
+    "test:rector:fix": "rector",
+    "prepare-release": [
+      "@extension-create-libs",
+      "rm -rf .Build/",
+      "rm -rf .ddev/",
+      "rm -rf .github/",
+      "rm -rf .project/",
+      "rm -rf Tests/",
+      "rm .gitignore",
+      "rm .editorconfig",
+      "rm .gitattributes",
+      "rm .php_cs.cache",
+      "rm .docker-compose.yml",
+      "rm dynamicReturnTypeMeta.json",
+      "rm Makefile",
+      "rm phpunit.xml.dist"
+    ]
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web",
+      "extension-key": "femanager"
+    }
+  }
+}

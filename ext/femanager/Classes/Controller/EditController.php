@@ -45,6 +45,7 @@ class EditController extends AbstractFrontendController
         $this->view->assignMultiple([
             'user' => $this->user,
             'allUserGroups' => $this->allUserGroups,
+            'usergroupFieldMode' => $this->userGroupSanitizationService->getFieldRenderMode($this->settings['edit'] ?? []),
             'token' => $token,
         ]);
         $this->assignForAll();
@@ -57,16 +58,16 @@ class EditController extends AbstractFrontendController
     public function updateAction(User $user, string $captcha = null)
     {
         $currentUser = UserUtility::getCurrentUser();
-        $userValues = $this->request->hasArgument('user') ? $this->request->getArgument('user') : null;
-        $token = $this->request->hasArgument('token') ? $this->request->getArgument('token') : null;
+        $userValues = $this->request->getArgument('user') ?? [];
+        $token = $this->request->getArgument('token') ?? null;
+        $identity = (int)($userValues['__identity'] ?? 0);
+        $isSpoof = $this->isSpoof($currentUser, $identity, $token);
 
-        if ($currentUser === null ||
-            empty($userValues['__identity']) ||
-            (int)$userValues['__identity'] === null ||
-            $token === null ||
-            $this->isSpoof($currentUser, (int)$userValues['__identity'], $token)
-        ) {
-            $this->logUtility->log(Log::STATUS_PROFILEUPDATEREFUSEDSECURITY, $user);
+        if (!$currentUser instanceof User || $identity === 0 || $token === null || $isSpoof) {
+            $logStatus = $isSpoof ? Log::STATUS_PROFILEUPDATEATTEMPTEDSPOOF : Log::STATUS_PROFILEUPDATEREFUSEDSECURITY;
+            $logContext = $isSpoof ? $currentUser : $user;
+            $this->logUtility->log($logStatus, $logContext);
+
             $this->addFlashMessage(
                 LocalizationUtility::translateByState(Log::STATUS_PROFILEUPDATEREFUSEDSECURITY),
                 '',
@@ -83,6 +84,12 @@ class EditController extends AbstractFrontendController
         $user = FrontendUtility::forceValues(
             $user,
             ConfigurationUtility::getValue('edit./forceValues./beforeAnyConfirmation.', $this->config)
+        );
+
+        $user = $this->userGroupSanitizationService->sanitize(
+            $user,
+            $this->settings['edit'] ?? [],
+            $this->userGroupSanitizationService->getOriginalUsergroupUids($user)
         );
 
         $this->emailForUsername($user);
@@ -105,13 +112,33 @@ class EditController extends AbstractFrontendController
     }
 
     /**
+     * Confirm, refuse or silently refuse a profile change request.
+     *
+     * All three actions are admin actions and therefore always require a valid adminHash,
+     * independently of the confirmAdminConfirmation setting
+     *
      * @param User $user User object
      * @param string $hash
      * @param string $status could be "confirm", "refuse", "silentRefuse"
+     * @param string|null $adminHash Hash to authorize the admin action
      */
-    public function confirmUpdateRequestAction(User $user, $hash, $status = 'confirm'): ResponseInterface
-    {
+    public function confirmUpdateRequestAction(
+        User $user,
+        string $hash,
+        string $status = 'confirm',
+        ?string $adminHash = null
+    ): ResponseInterface {
         $this->view->assign('user', $user);
+
+        if (HashUtility::validHash((string)$adminHash, $user, 'admin') === false) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate('error_not_authorized'),
+                '',
+                ContextualFeedbackSeverity::ERROR
+            );
+            return $this->htmlResponse(null);
+        }
+
         if (!HashUtility::validHash($hash, $user) || !$user->getTxFemanagerChangerequest()) {
             $this->addFlashMessage(
                 LocalizationUtility::translate('updateFailedProfile'),
@@ -159,6 +186,13 @@ class EditController extends AbstractFrontendController
                 }
             }
         }
+
+        $user = $this->userGroupSanitizationService->sanitize(
+            $user,
+            $this->settings['edit'] ?? [],
+            $this->userGroupSanitizationService->getOriginalUsergroupUids($user)
+        );
+
         if (!empty($this->config['edit.']['forceValues.']['onAdminConfirmation.'])) {
             $user = FrontendUtility::forceValues($user, $this->config['edit.']['forceValues.']['onAdminConfirmation.']);
         }
@@ -180,7 +214,8 @@ class EditController extends AbstractFrontendController
                 'user' => $user,
                 'settings' => $this->settings,
             ],
-            $this->config['edit.']['email.']['updateRequestRefused.']
+            $this->config['edit.']['email.']['updateRequestRefused.'],
+            $this->request
         );
         $this->logUtility->log(Log::STATUS_PROFILEUPDATEREFUSEDADMIN, $user);
         $this->addFlashMessage(LocalizationUtility::translateByState(Log::STATUS_PROFILEUPDATEREFUSEDADMIN));

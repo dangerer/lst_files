@@ -49,7 +49,9 @@ class AddressController extends ActionController
 
     public function showAction(?Address $address = null)
     {
-        if (is_a($address, Address::class) && ($this->settings['detail']['checkPidOfAddressRecord'] ?? false)) {
+        if ((int) ($this->settings['singleRecords'] ?? 0) && !($this->settings['allowOverride'] ?? false) && ($this->settings['displayMode'] ?? '' === 'single')) {
+            $address = $this->addressRepository->findByUid($this->settings['singleRecords']);
+        } elseif (is_a($address, Address::class) && ($this->settings['detail']['checkPidOfAddressRecord'] ?? false)) {
             $address = $this->checkPidOfAddressRecord($address);
         }
 
@@ -158,7 +160,7 @@ class AddressController extends ActionController
 
     protected function createDemandFromSettings(): Demand
     {
-        $demand = new Demand();
+        $demand = GeneralUtility::makeInstance(Demand::class);
         $demand->setCategories((string) ($this->settings['groups'] ?? ''));
         $categoryCombination = (int) ($this->settings['groupsCombination'] ?? 1) === 1 ? 'or' : 'and';
         $demand->setCategoryCombination($categoryCombination);

@@ -1,0 +1,15 @@
+
+  # cat=basic; type=string; label=Image upload folder: Specify the name of the image upload folder. Default is 2:/tx_srfeuserregister/ since TYPO3 CMS 8 LTS.
+uploadFolder = 2:/tx_srfeuserregister/
+
+  # cat=basic; type=string; label=Allowed image types: Specify the list of acceptable file extensions for the front end user images. Default is gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,ai,svg.
+imageTypes = gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,ai,svg
+
+  # cat=basic; type=int+; label=Maximun image size: Specify the maximum size of uploaded image files, in number of KB's. Default is 7168.
+imageMaxSize = 7168
+
+  # cat=basic; type=user[SJBR\SrFeuserRegister\Configuration\ConfigurationHelper->buildEncryptionAlgorithmSelector]; label=Encryption Algorithm: Select the encryption algorithm to be used by the extension.
+encryptionAlgorithm = aes-256-cbc
+
+  # cat=basic; type=string; label=Salt: Salt
+salt = cH!swe!retReGu7W6bEDRup7usuDUh9THeD2CHeGE*ewr4n39=E@rAsp7c-Ph@pH

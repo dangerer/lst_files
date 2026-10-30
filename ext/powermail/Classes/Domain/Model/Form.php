@@ -32,6 +32,7 @@ class Form extends AbstractEntity
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\In2code\Powermail\Domain\Model\Page>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $pages;
 
@@ -48,6 +49,11 @@ class Form extends AbstractEntity
      * @var array
      */
     protected array $pagesByUid = [];
+
+    /**
+     * @var string
+     */
+    protected string $autocompleteToken = '';
 
     /**
      * @return string
@@ -222,5 +228,23 @@ class Form extends AbstractEntity
             return $field->isTypeOf($field::FIELD_TYPE_EXTPORTABLE);
         }
         return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAutocompleteToken(): string
+    {
+        return $this->autocompleteToken;
+    }
+
+    /**
+     * @param string $autocompleteToken
+     *
+     * @return void
+     */
+    public function setAutocompleteToken(string $autocompleteToken): void
+    {
+        $this->autocompleteToken = $autocompleteToken;
     }
 }

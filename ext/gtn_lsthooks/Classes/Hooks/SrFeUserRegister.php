@@ -12,6 +12,7 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 
 class SrFeUserRegister {
 
@@ -112,6 +113,133 @@ class SrFeUserRegister {
 
 	public function registrationProcess_afterSaveCreate($table, $dataArray, $origArray, $token, &$newRow, $cmd, $cmdKey, $pid, $extraList, $pObj) {
 		return $this->registrationProcess_afterSaveEdit($table, $dataArray, $origArray, $token, $newRow, $cmd, $cmdKey, $pid, $extraList, $pObj);
+	}
+
+	/**
+	 * Before setfixed confirmation processing: force admin notification recipient
+	 * from fe_users.lst_region (not the browser cookie / regionSelected TypoScript).
+	 *
+	 * @param array $recordArray
+	 * @param SetfixedActionController $pObj
+	 */
+	public function confirmRegistrationClass_preProcess(array &$recordArray, $pObj)
+	{
+		if (!is_object($pObj) || !method_exists($pObj, 'getTable') || $pObj->getTable() !== 'fe_users') {
+			return;
+		}
+
+		$lstRegion = (int)($recordArray['lst_region'] ?? 0);
+		if ($lstRegion <= 0 || !is_array($this->tsSettings)) {
+			return;
+		}
+
+		$adminEmail = trim((string)($this->tsSettings['lstSettings.']['adminEmailsByRegion.'][(string)$lstRegion] ?? ''));
+		if ($adminEmail !== '') {
+			$this->overrideEmailAdminRecipient($pObj, $adminEmail);
+		}
+
+		$this->overridePidTitleFromRegion($pObj, $lstRegion);
+	}
+
+	/**
+	 * Set email.admin on the Email view (and controller conf) used by setfixed.
+	 *
+	 * @param SetfixedActionController $pObj
+	 * @param string $adminEmail
+	 */
+	protected function overrideEmailAdminRecipient($pObj, string $adminEmail): void
+	{
+		try {
+			$emailProperty = new \ReflectionProperty($pObj, 'email');
+			$emailProperty->setAccessible(true);
+			$email = $emailProperty->getValue($pObj);
+			if (is_object($email)) {
+				$emailConfProperty = new \ReflectionProperty($email, 'conf');
+				$emailConfProperty->setAccessible(true);
+				$emailConf = $emailConfProperty->getValue($email);
+				if (!is_array($emailConf)) {
+					$emailConf = [];
+				}
+				if (!isset($emailConf['email.']) || !is_array($emailConf['email.'])) {
+					$emailConf['email.'] = [];
+				}
+				$emailConf['email.']['admin'] = $adminEmail;
+				$emailConfProperty->setValue($email, $emailConf);
+			}
+
+			$confProperty = new \ReflectionProperty($pObj, 'conf');
+			$confProperty->setAccessible(true);
+			$conf = $confProperty->getValue($pObj);
+			if (!is_array($conf)) {
+				$conf = [];
+			}
+			if (!isset($conf['email.']) || !is_array($conf['email.'])) {
+				$conf['email.'] = [];
+			}
+			$conf['email.']['admin'] = $adminEmail;
+			$confProperty->setValue($pObj, $conf);
+		} catch (\ReflectionException $e) {
+			// Leave cookie-based TypoScript email.admin unchanged.
+		}
+	}
+
+	/**
+	 * Set pidTitle (sprintf %1$s in admin mail subject/body) from lst_region storage folder.
+	 *
+	 * @param SetfixedActionController $pObj
+	 * @param int $lstRegion
+	 */
+	protected function overridePidTitleFromRegion($pObj, int $lstRegion): void
+	{
+		$pid = (int)($this->tsSettings['lstSettings.']['userPidsByRegion.'][(string)$lstRegion] ?? 0);
+		if ($pid <= 0) {
+			return;
+		}
+
+		$pageRepository = GeneralUtility::makeInstance(PageRepository::class);
+		$page = $pageRepository->getPage_noCheck($pid);
+		$pidTitle = trim((string)($page['title'] ?? ''));
+		if ($pidTitle === '') {
+			return;
+		}
+
+		try {
+			$confProperty = new \ReflectionProperty($pObj, 'conf');
+			$confProperty->setAccessible(true);
+			$conf = $confProperty->getValue($pObj);
+			if (!is_array($conf)) {
+				$conf = [];
+			}
+			$conf['pid'] = (string)$pid;
+			$conf['pidTitleOverride'] = $pidTitle;
+			$confProperty->setValue($pObj, $conf);
+
+			$parametersProperty = new \ReflectionProperty($pObj, 'parameters');
+			$parametersProperty->setAccessible(true);
+			$parameters = $parametersProperty->getValue($pObj);
+			if (is_object($parameters)) {
+				$pidTitleProperty = new \ReflectionProperty($parameters, 'pidTitle');
+				$pidTitleProperty->setAccessible(true);
+				$pidTitleProperty->setValue($parameters, $pidTitle);
+			}
+
+			$emailProperty = new \ReflectionProperty($pObj, 'email');
+			$emailProperty->setAccessible(true);
+			$email = $emailProperty->getValue($pObj);
+			if (is_object($email)) {
+				$emailConfProperty = new \ReflectionProperty($email, 'conf');
+				$emailConfProperty->setAccessible(true);
+				$emailConf = $emailConfProperty->getValue($email);
+				if (!is_array($emailConf)) {
+					$emailConf = [];
+				}
+				$emailConf['pid'] = (string)$pid;
+				$emailConf['pidTitleOverride'] = $pidTitle;
+				$emailConfProperty->setValue($email, $emailConf);
+			}
+		} catch (\ReflectionException $e) {
+			// Leave cookie-based TypoScript pidTitle unchanged.
+		}
 	}
 
     /**

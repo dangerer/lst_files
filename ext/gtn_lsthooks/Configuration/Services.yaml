@@ -4,6 +4,13 @@ services:
     autoconfigure: true
     public: false
 
+  Gtn\GtnLsthooks\Controller\CourseRegistrationsController:
+    tags: ['backend.controller']
+
+  Gtn\GtnLsthooks\Domain\Repository\CourseRegistrationRepository: ~
+
+  Gtn\GtnLsthooks\Service\CourseRegistrationSummary: ~
+
 #  Gtn\GtnLsthooks\:
 #    resource: '../Classes/*'
 #    exclude: '../Classes/Domain/Model/*'

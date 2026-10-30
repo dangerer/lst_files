@@ -145,6 +145,21 @@
 			<trans-unit id="courses.addInfoOnlineText4" xml:space="preserve">
 				<source>91 days after registration, the participant can no longer access the course. The acquired certificate remains valid.</source>
 			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineHeader" xml:space="preserve">
+				<source>Information about registration for and deregistration from the online training course:</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText1" xml:space="preserve">
+				<source>After the registration has been checked by the Labor Strauss Group, an invoice will be issued – payment due date: immediately and without deductions.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText2" xml:space="preserve">
+				<source>Registration for the chosen course and activation of the participant usually takes place one working day after invoicing.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText3" xml:space="preserve">
+				<source>Upon activation of the course, the participant will be informed personally by e-mail.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText4" xml:space="preserve">
+				<source></source>
+			</trans-unit>
 			<trans-unit id="courses.targetGroup" xml:space="preserve">
 				<source>Target group</source>
 			</trans-unit>

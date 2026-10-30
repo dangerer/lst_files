@@ -1,0 +1,46 @@
+{
+  "name": "sjbr/sr-email-subscribe",
+  "description": "Email address subscription for TYPO3 CMS.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "TYPO3",
+    "email",
+    "address",
+    "frontend",
+    "subscription"
+  ],
+  "authors": [
+    {
+      "name": "Stanislas Rolland",
+      "homepage": "https://www.sjbr.ca",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "https://codeberg.org/sjbr/sr-email-subscribe",
+  "support": {
+	"issues": "https://codeberg.org/sjbr/sr-email-subscribe/issues"
+  },
+  "replace": {
+	"typo3-ter/sr-email-subscribe": "self.version"
+  },
+  "require": {
+    "typo3/cms-core": "^12.4",
+    "sjbr/sr-feuser-register": "^12.5",
+    "sjbr/static-info-tables": "^12.4.2",
+    "friendsoftypo3/tt-address": "^8.0"
+  },
+  "suggest": {
+  	 "sjbr/sr-freecap": "Allows to add a captcha to the subscription form."
+  },
+  "autoload": {
+    "psr-4": {
+      "SJBR\\SrEmailSubscribe\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "sr_email_subscribe"
+    }
+  }
+}

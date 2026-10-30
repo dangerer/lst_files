@@ -81,7 +81,7 @@ Labor Strauss Gruppe
             <trans-unit id="ranForm.withAccepting.emailToUser.pdf.printDescription" xml:space="preserve">
 				<target><![CDATA[
 					Bitte drucken Sie dieses Formular aus und legen es der Sendung bei. Trennen Sie den oben stehenden
-    Abschnitt ab und kleben ihn zur Adressierung auf die Verpackung.
+    Abschnitt ab und kleben ihn zur Adressierung auf die Verpackung...
 				]]>
                 </target>
 			</trans-unit>

@@ -1,0 +1,104 @@
+plugin.tx_ttaddress {
+    view {
+        templateRootPaths {
+            0 = EXT:tt_address/Resources/Private/Templates/
+            1 = {$plugin.tx_ttaddress.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:tt_address/Resources/Private/Partials/
+            1 = {$plugin.tx_ttaddress.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:tt_address/Resources/Private/Layouts/
+            1 = {$plugin.tx_ttaddress.view.layoutRootPath}
+        }
+    }
+
+    settings {
+        ## Override settings if empty in flexform
+        overrideFlexformSettingsIfEmpty = paginate.itemsPerPage, singlePid, pages, recursive, hidePagination, sortBy, sortOrder, groupsCombination
+
+        # comma separated list of page IDs containing address records
+        pages = 
+        
+        # recursion level: same_page_only=0
+        recursive = 
+        
+        # display mode: List=0, Detail=1, Map=2
+        displayMode = 
+        
+        # groups combination: AND=0, OR=1
+        groupsCombination = 
+        
+        # sort by field
+        sortBy = 
+        
+        # order: ASC, DESC
+        sortOrder = 
+        
+        # page ID of single view
+        singlePid = 
+        
+        detail {
+            ## Set your lightbox here. The address records UID is appended, see fluid template
+            imageClass = lightbox lightbox_
+
+            ## Check PID of address record
+            checkPidOfAddressRecord = 0
+        }
+
+        map {
+
+            # leaflet, googleMaps, staticGoogleMaps
+            rendering = leaflet
+
+            defaultPosition {
+                lat = 48.3057664
+                lng = 14.2873126
+            }
+            googleMaps {
+                key =
+            }
+            staticGoogleMaps {
+                parameters {
+                    key =
+                    size = 500x400
+                }
+            }
+        }
+
+        paginate {
+            # can be overridden by plugin
+            itemsPerPage = 10
+            insertAbove = 0
+            insertBelow = 1
+            maximumNumberOfLinks = 10
+        }
+
+        seo {
+            pageTitle {
+                properties = title,firstName,middleName,lastName
+                glue = " "
+            }
+        }
+    }
+}
+
+
+# Rendering of tt_address, displayed by "Insert Record" content element
+tt_content.shortcut.variables.shortcuts.tables := addToList(tt_address)
+tt_content.shortcut.variables.shortcuts.conf.tt_address = USER
+tt_content.shortcut.variables.shortcuts.conf.tt_address {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = TtAddress
+    pluginName = ListView
+    vendorName = FriendsOfTYPO3
+
+    settings =< plugin.tx_ttaddress.settings
+    settings {
+        displayMode = single
+        insertRecord = 1
+    }
+}

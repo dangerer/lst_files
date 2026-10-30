@@ -1,0 +1,33 @@
+# Backend Module
+module.tx_femanager {
+  view {
+    templateRootPaths.0 = EXT:femanager/Resources/Private/Templates/
+    partialRootPaths.0 = EXT:femanager/Resources/Private/Partials/
+    layoutRootPaths.0 = EXT:femanager/Resources/Private/Layouts/
+  }
+}
+
+##########################################################
+# Page for backend module Login as function (impersonate)
+##########################################################
+feManagerLoginAs = PAGE
+feManagerLoginAs {
+  typeNum = 1548943013
+  config {
+    no_cache = 1
+    #disableAllHeaderCode = 1
+    #disablePrefixComment = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    debug = 0
+  }
+  10 = USER
+  10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = Femanager
+    pluginName = Impersonate
+    vendorName = In2code
+    controller = User
+    action = loginAs
+  }
+}

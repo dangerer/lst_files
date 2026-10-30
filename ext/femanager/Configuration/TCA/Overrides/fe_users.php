@@ -17,19 +17,19 @@ $feUsersColumns = [
             'type' => 'radio',
             'items' => [
                 [
-                    'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+                    'label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
                     'tx_femanager_domain_model_user.gender.item0',
-                    '0',
+                    'value' => 0,
                 ],
                 [
-                    'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+                    'label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
                     'tx_femanager_domain_model_user.gender.item1',
-                    '1',
+                    'value' => 1,
                 ],
                 [
-                    'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+                    'label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
                     'tx_femanager_domain_model_user.gender.item2',
-                    '2',
+                    'value' => 2,
                 ],
             ],
         ],
@@ -40,10 +40,11 @@ $feUsersColumns = [
             'tx_femanager_domain_model_user.dateOfBirth',
         'config' => [
             'type' => 'input',
-            'renderType' => 'inputDateTime',
+            'renderType' => 'datetime',
+            'format' => 'date',
             'size' => 10,
-            'eval' => 'date',
-            'checkbox' => '0',
+            'eval' => 'int',
+            'checkbox' => 0,
             'default' => 0,
         ],
     ],
@@ -53,9 +54,9 @@ $feUsersColumns = [
             'fe_users.crdate',
         'config' => [
             'type' => 'input',
-            'renderType' => 'inputDateTime',
-            'size' => 30,
-            'eval' => 'datetime',
+            'format' => 'datetime',
+            'renderType' => 'datetime',
+            'eval' => 'datetime,int',
             'readOnly' => true,
             'default' => time(),
         ],
@@ -66,9 +67,9 @@ $feUsersColumns = [
             'fe_users.tstamp',
         'config' => [
             'type' => 'input',
-            'renderType' => 'inputDateTime',
-            'size' => 30,
-            'eval' => 'datetime',
+            'format' => 'datetime',
+            'renderType' => 'datetime',
+            'eval' => 'datetime,int',
             'readOnly' => true,
             'default' => time(),
         ],
@@ -91,6 +92,18 @@ $feUsersColumns = [
             'default' => 0,
         ],
     ],
+    'tx_femanager_confirmation_required' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:fe_users.confirmationRequired',
+        'config' => [
+            'type' => 'check',
+            'items' => [
+                ['label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:fe_users.confirmationRequired.user'],
+                ['label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:fe_users.confirmationRequired.admin'],
+            ],
+            'default' => 0,
+        ],
+    ],
     'tx_femanager_terms' => [
         'exclude' => 1,
         'label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
@@ -107,9 +120,9 @@ $feUsersColumns = [
         'exclude' => true,
         'config' => [
             'type' => 'input',
-            'renderType' => 'inputDateTime',
-            'size' => 30,
-            'eval' => 'datetime',
+            'format' => 'datetime',
+            'renderType' => 'datetime',
+            'eval' => 'datetime,int',
             'readOnly' => true,
         ],
     ],
@@ -147,8 +160,8 @@ if ($extConf->get('femanager', 'overrideFeUserCountryFieldWithSelect')) {
     ];
 }
 
-$fields = 'crdate, tstamp, tx_femanager_confirmedbyuser, tx_femanager_confirmedbyadmin, tx_femanager_terms, ' .
-    'tx_femanager_terms_date_of_acceptance';
+$fields = 'crdate, tstamp, tx_femanager_confirmedbyuser, tx_femanager_confirmedbyadmin, ' .
+    'tx_femanager_confirmation_required, tx_femanager_terms, tx_femanager_terms_date_of_acceptance';
 
 if (!ConfigurationUtility::isDisableLogActive()) {
     $feUsersColumns['tx_femanager_log'] = [

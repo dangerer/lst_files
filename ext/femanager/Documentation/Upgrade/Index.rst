@@ -7,8 +7,268 @@ Upgrade
 
 .. only:: html
 
-	:ref:`v8.0` | :ref:`v7.1` | :ref:`v6.0` | :ref:`v5.2` | :ref:`v5.0` | :ref:`v4.0` |
+	:ref:`v8.4.2` | :ref:`v8.1` | :ref:`v8.0` | :ref:`v7.1` | :ref:`v6.0` | :ref:`v5.2` | :ref:`v5.0` | :ref:`v4.0` |
 
+.. _v8.4.2:
+
+to version 8.4.2 (security update)
+----------------------------------
+
+This security release closes multiple security issues:
+
+----
+
+Broken access control:
+~~~~~~~~~~~
+
+Closes a broken access control issue in the invitation component.
+
+----
+
+Privilege escalation:
+~~~~~~~~~~~
+
+Closes a privilege escalation in the frontend usergroup selection.
+
+The registration, edit and invitation forms can render a usergroup ``<select>``. The frontend
+template and the rendered dropdown were treated as the only restriction on which usergroup a user
+could choose. They are **not** a security boundary: a crafted request can submit any usergroup uid,
+regardless of what the form offers. A logged-in frontend user could therefore assign **any**
+frontend usergroup - including privileged ones - to their own account.
+
+What changed
+""""""""""""
+
+The submitted usergroup relation is now validated on the server before the user is persisted, in a
+single place (``UserGroupSanitizationService``). The form is **secure by default / fail closed**:
+
+* **Forced groups** - if ``settings.<form>.overrideUserGroup`` is set, the configured group(s)
+  always win and the submitted value is ignored (unchanged behaviour).
+* **Field not editable** - if ``usergroup`` is not part of the configured ``fields``, any submitted
+  usergroup change is reverted.
+* **Allowlist** - if ``settings.<form>.validation.usergroup.inList`` is set, the submitted uids are
+  reduced to that list. This is the recommended way to let users choose a group.
+* **Opt-in for unrestricted selection** - if no allowlist is configured but
+  ``settings.<form>.misc.allowUnrestrictedUserGroupSelection = 1`` is set, every offered group may
+  be selected (legacy behaviour).
+* **Fail closed** - if neither an allowlist nor the opt-in is configured, the submitted usergroup
+  change is **ignored** and a log entry (``Profile update not authorized``) is written.
+
+Every reverted or reduced submission is logged so unexpected usergroup changes become visible.
+
+.. important::
+
+   Installations that previously relied on an **unconfigured** usergroup selection (no
+   ``validation.usergroup.inList``) will no longer accept user-submitted usergroups by default. This
+   is intentional. To keep offering a usergroup selection, do **one** of the following per form
+   (``new``, ``edit``, ``invitation``):
+
+   * Configure an allowlist (recommended):
+
+     .. code-block:: typoscript
+
+        plugin.tx_femanager.settings.edit.validation.usergroup.inList = 1,2,3
+
+   * Or explicitly restore the former, unrestricted behaviour:
+
+     .. code-block:: typoscript
+
+        plugin.tx_femanager.settings.edit.misc.allowUnrestrictedUserGroupSelection = 1
+
+Customized usergroup templates
+""""""""""""""""""""""""""""""
+
+If you override :file:`Resources/Private/Partials/Fields/Usergroup.html`, note that the field is now
+rendered depending on the new ``usergroupFieldMode`` variable
+(``select`` / ``hidden`` / ``notice``). When neither an allowlist nor the opt-in is configured, a
+generic notice (``usergroupSelectionNotConfigured``) is shown instead of the selection; the specific
+missing configuration is **not** exposed in the frontend but written to the TYPO3 log. Compare your
+template with the shipped partial to pick up this behaviour.
+
+See :ref:`usergroupsecurity` for the full description of the feature.
+
+----
+
+Registration confirmation bypass:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Closes a registration confirmation bypass. Two issues are fixed:
+* The admin confirmation action (``status=adminConfirmation``) could be triggered with the regular
+  user confirmation ``hash`` when the default settings were used, because the dedicated ``adminHash``
+  was only validated when ``confirmAdminConfirmation`` was enabled. A registrant who obtained their
+  own user confirmation hash could therefore approve their own account without admin interaction.
+* The "Resend Confirmation Mail" action sent the user confirmation email (containing that ``hash``)
+  for any submitted address, even on sites that only use admin confirmation.
+
+.. important::
+
+   After updating, run the upgrade wizard
+   :guilabel:`Admin Tools > Upgrade > Run Upgrade Wizard > "EXT:femanager: Migrate required confirmation for pending users"`.
+   It populates the new field ``fe_users.tx_femanager_confirmation_required`` for accounts that were
+   still pending at the time of the update. See "Fallback" below for the behaviour if it is not run.
+
+What changed
+""""""""""""
+
+* **adminHash is now mandatory for every admin action.** Admin confirmation, refusal and silent
+  refusal always require a valid ``adminHash``, independently of the ``confirmAdminConfirmation``
+  setting. The regular user ``hash`` alone is no longer sufficient. This applies both to the
+  registration confirmation (``New`` controller) and to the profile change confirmation
+  (``Edit`` controller, ``confirmUpdateRequest``).
+* **The required confirmation is stored on the user.** During registration femanager now persists
+  which confirmations are required (user and/or admin) in the new field
+  ``fe_users.tx_femanager_confirmation_required``. The workflow reads this field instead of the
+  ambient plugin settings, which the "Resend Confirmation Mail" plugin does not have access to.
+* **Resend only resends a pending user confirmation.** The resend action sends the user confirmation
+  email only when the account still has an outstanding user confirmation (already confirmed accounts,
+  or accounts that only await admin approval, are not resent). To avoid disclosing whether an account
+  exists for a given email address, the same neutral message is shown for every valid address -
+  regardless of whether a mail was sent, nothing was pending, or no such account exists.
+
+Customized email/confirmation templates
+"""""""""""""""""""""""""""""""""""""""
+
+If you override any of these templates, add the ``adminHash`` argument to all admin action links,
+otherwise the links will be rejected as "not authorized":
+
+* :file:`Resources/Private/Templates/Email/CreateAdminConfirmation.html`
+* :file:`Resources/Private/Templates/Email/CreateNotify.html`
+* :file:`Resources/Private/Templates/Email/UpdateRequest.html`
+* :file:`Resources/Private/Templates/New/ConfirmCreateRequest.html` (the ``adminHash`` hidden field
+  in the ``confirmAdmin`` and ``confirmAdminRefused`` cases)
+
+Example:
+
+.. code-block:: html
+
+   old: <f:link.action action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'adminConfirmation'}">
+   new: <f:link.action action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, adminHash:adminHash, status:'adminConfirmation'}">
+
+Fallback if the upgrade wizard is not run
+"""""""""""""""""""""""""""""""""""""""""
+
+The fix does not depend on the wizard for its security: for accounts that still have the default
+value ``0`` (``none``) - i.e. accounts created before the field existed - the required confirmation
+is inferred at runtime from the confirmation state, mirroring the wizard:
+
+* disabled, confirmed by user, not by admin → admin confirmation is still required
+* disabled, confirmed by neither → both confirmations are required (an admin can always release the
+  account from the backend)
+* already confirmed by admin, or enabled → no confirmation pending
+
+As a result the registration workflow and the resend action behave correctly even without the wizard.
+Running the wizard is still recommended: it persists the precise requirement so it is shown and
+filterable in the backend and the runtime fallback is no longer needed.
+
+.. warning::
+
+   There is no way to find out retroactively whether an existing, still pending account originally
+   required an admin confirmation or not. For the ambiguous case (a disabled account that has been
+   confirmed by neither the user nor an admin) both the wizard and the runtime fallback therefore
+   choose the safe option and require an admin confirmation. On a site that only uses user
+   confirmation this means such legacy accounts now additionally wait for an admin, even though no
+   admin confirmation was originally intended. These accounts are not lost: an administrator can
+   release them at any time via :guilabel:`Web > Frontend Users` (femanager backend module). Only
+   accounts that were already pending at the time of the update are affected; accounts created
+   afterwards store their exact requirement and are never over-restricted.
+
+----
+
+Information Disclosure:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Closes a unauthorized access to frontend user details issue.
+
+The detail action accepted a frontend user from the request without verifying that the requested record matched the
+user configured in the Detail plugin or a user shown by the List plugin. A crafted request could therefore display
+the details of another frontend user.
+
+What changed
+""""""""""""
+
+The user shown by the Detail plugin is now resolved from a trusted source:
+
+* If a specific user is configured, request arguments can no longer override that user.
+* If ``Logged in FE User`` (``[this]``) is configured, request arguments can no longer override the current user.
+* Links generated by the List plugin contain a signed ``hash`` for the linked user. The detail action rejects a
+  request-supplied user when the hash is missing or invalid.
+
+.. important::
+
+   Installations that override :file:`Resources/Private/Templates/User/List.html` must add the signed ``hash`` to
+   every link that passes a ``user`` to the ``show`` action. Without the hash, the detail request is rejected.
+
+Customized list templates
+"""""""""""""""""""""""""
+
+``UserController::listAction`` assigns the ``showHashes`` array, keyed by the user uid. Resolve the nested value in
+a separate Fluid variable before passing it to ``arguments``.
+
+**Old:**
+
+.. code-block:: html
+
+   <f:link.action action="show" arguments="{user:user}">
+      {user.username}
+   </f:link.action>
+
+**New:**
+
+.. code-block:: html
+
+   <f:for each="{users}" as="user">
+      <f:variable name="showHash" value="{showHashes.{user.uid}}" />
+      <f:link.action action="show" arguments="{user:user, hash:showHash}">
+         {user.username}
+      </f:link.action>
+   </f:for>
+
+Do not use ``hash:showHashes.{user.uid}`` directly inside the ``arguments`` expression. The nested expression can be
+interpreted as a string instead of an array.
+
+Customized detail templates
+"""""""""""""""""""""""""""
+
+If a customized :file:`Resources/Private/Templates/User/Show.html` contains a self-referencing ``show`` link, pass
+the ``showHash`` variable assigned by the controller:
+
+.. code-block:: html
+
+   <f:link.action action="show" arguments="{user:user, hash:showHash}">
+      {user.username}
+   </f:link.action>
+
+See :ref:`showlistusers` for the full description of the List and Detail views.
+
+----
+
+.. _v8.1:
+
+to version 8.1.0
+----------------
+
+Deprecations
+
+
+Confirmation links
+~~~~~~~~~~~~~~~~~~
+
+New TypoScript options are added for this:
+new.email.createUserConfirmation.confirmUserConfirmation
+When enabled, a user confirming their profile creation via the email link will show a confirmation dialog beforehand. This prevents unexpected execution f.e. via Virus Scanners
+new.email.createUserConfirmation.confirmAdminConfirmation
+When enabled, an admin confirming/refusing/silently refusing someones profile creation via the email link will show a confirmation dialog beforehand
+This PR also includes adjustments to HashUtility allowing to specify more data while hashing a user, so that another hash can be created to prevent meddling with the admin actions (which by default is already prevented using cHashes).
+
+For new.email.createUserConfirmation.confirmAdminConfirmation, this technically is a breaking change as template
+adjustments were required to pass the admin hash to the email links. If you have customized templates, please add the
+variable "adminHash:adminHash" to all action links in Resources/Private/Templates/Email/CreateAdminConfirmation.html
+
+Example:
+old:		<f:link.action action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'adminConfirmation'}">
+new		<f:link.action action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, adminHash:adminHash, status:'adminConfirmation'}">
+
+These settings are getting the default settings for V14! This change applies also for V13!
 
 .. _v8.0:
 

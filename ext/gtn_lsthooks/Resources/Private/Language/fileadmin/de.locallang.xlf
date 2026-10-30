@@ -145,6 +145,21 @@
 			<trans-unit id="courses.addInfoOnlineText4" xml:space="preserve">
 				<target>91 Tage nach der Anmeldung ist der Kurs für den Teilnehmer nicht mehr aufrufbar. Das erworbene Zertifikat behält seine Gültigkeit.</target>
 			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineHeader" xml:space="preserve">
+				<target>Informationen zur An- und Abmeldung für die Online-Schulung:</target>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText1" xml:space="preserve">
+				<target>Nach der Prüfung der Anmeldung durch die Labor Strauss Gruppe wird eine Rechnung gelegt - Zahlungsziel: sofort und ohne Abzüge.</target>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText2" xml:space="preserve">
+				<target>Die Freischaltung des Teilnehmers, und die Eintragung in den gewählten Kurs, erfolgt üblicherweise einen Werktag nach Rechnungslegung. </target>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText3" xml:space="preserve">
+				<target>Nach erfolgter Freischaltung wird der Teilnehmer persönlich per E-Mail informiert.</target>
+			</trans-unit>
+			<trans-unit id="courses.addInfoLiveOnlineText4" xml:space="preserve">
+				<target></target>
+			</trans-unit>
 			<trans-unit id="courses.targetGroup" xml:space="preserve">
 				<target>Zielgruppe</target>
 			</trans-unit>

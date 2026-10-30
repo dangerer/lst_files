@@ -120,6 +120,9 @@
 			<trans-unit id="tx_femanager_domain_model_log.state">
 				<source>State</source>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.additional_properties">
+				<source>Additional Properties</source>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.100">
 				<source>Registration</source>
 			</trans-unit>
@@ -162,6 +165,12 @@
 			<trans-unit id="tx_femanager_domain_model_log.state.206">
 				<source>Image deleted</source>
 			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.207">
+				<source>Attempted to spoof profile</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.208">
+				<source>Profile update not authorized</source>
+			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.300">
 				<source>Delete</source>
 			</trans-unit>
@@ -185,6 +194,21 @@
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.state.405">
 				<source>Password changed and profile activated</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.501">
+				<source>Was impersonated by Backend User (login as)</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.502">
+				<source>Impersonation was denied for Backend User (login as)</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.600">
+				<source>Frontend Login</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.601">
+				<source>Successful frontend login</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.602">
+				<source>Failed frontend login</source>
 			</trans-unit>
 			<trans-unit id="tx_femanager_domain_model_log.user">
 				<source>User</source>
@@ -421,7 +445,7 @@
 				<source>Your new profile was just created.</source>
 			</trans-unit>
 			<trans-unit id="emailInvitationText2">
-				<source>Please confirm your profile registration on our server by clicking the following link. After that, you can define a password.</source>
+				<source>Please confirm your profile registration on our server by clicking the following link. After that, you can define a password and activate your profile.</source>
 			</trans-unit>
 			<trans-unit id="emailInvitationLinkConfirm">
 				<source>Confirm Profile</source>
@@ -456,6 +480,54 @@
 			<trans-unit id="emailInvitationUserRefusedAdminNotifiyUserProperties">
 				<source>Profile properties:</source>
 			</trans-unit>
+
+			<trans-unit id="formConfirmActionText">
+				<source>Please confirm your choice</source>
+			</trans-unit>
+			<trans-unit id="formAdminConfirmationText">
+				<source>By clicking this submit button, the registration of %s will be confirmed:</source>
+			</trans-unit>
+			<trans-unit id="formAdminConfirmationSubmitButton">
+				<source>Confirm registration</source>
+			</trans-unit>
+			<trans-unit id="formAdminConfirmationRefusedText">
+				<source>By clicking this button, you confirm to delete the registration:</source>
+			</trans-unit>
+			<trans-unit id="formAdminConfirmationRefusedSubmitButton">
+				<source>Delete registration</source>
+			</trans-unit>
+			<trans-unit id="formAdminConfirmationRefusedSilentText">
+				<source>By clicking this button, you confirm to delete the registration, without sending an email to the user:</source>
+			</trans-unit>
+			<trans-unit id="formAdminConfirmationRefusedSilentSubmitButton">
+				<source>Silently delete registration</source>
+			</trans-unit>
+			<trans-unit id="formUserConfirmationText">
+				<source>By clicking this submit button, your registration will be confirmed:</source>
+			</trans-unit>
+			<trans-unit id="formUserConfirmationSubmitButton">
+				<source>Confirm registration</source>
+			</trans-unit>
+			<trans-unit id="formUserConfirmationRefusedText">
+				<source>To confirm that you don't want to be registered on our system and having your information removed, click this button:</source>
+			</trans-unit>
+			<trans-unit id="formUserConfirmationRefusedSubmitButton">
+				<source>Delete registration</source>
+			</trans-unit>
+			<trans-unit id="formInvitationConfirmationText">
+				<source>By clicking this submit button you confirm your profile. After that, you can define a password:</source>
+			</trans-unit>
+			<trans-unit id="formInvitationConfirmationSubmitButton">
+				<source>Confirm Registration</source>
+			</trans-unit>
+			<trans-unit id="formInvitationConfirmationRefusedText">
+				<source>To confirm that you don't want to be registered on our system and having your information removed, click this button:</source>
+			</trans-unit>
+			<trans-unit id="formInvitationConfirmationRefusedSubmitButton">
+				<source>Delete Registration</source>
+			</trans-unit>
+
+
 			<trans-unit id="noRecordsFound">
 				<source>No records found.</source>
 			</trans-unit>
@@ -473,6 +545,9 @@
 			</trans-unit>
 			<trans-unit id="submitNew">
 				<source>Create Profile Now</source>
+			</trans-unit>
+			<trans-unit id="submitActivate">
+				<source>Activate Profile</source>
 			</trans-unit>
 			<trans-unit id="submitResend">
 				<source>Resend now</source>
@@ -508,7 +583,7 @@
 				<source>Thank you for your registration. Your profile will be available as soon as the admin confirms your request.</source>
 			</trans-unit>
 			<trans-unit id="resendConfirmationMailSend">
-				<source>An Email was send to your account. Please check your inbox.</source>
+				<source>If your registration is still awaiting confirmation, a confirmation email has been sent to this address. Please check your inbox.</source>
 			</trans-unit>
 			<trans-unit id="resendConfirmationMailFail">
 				<source>We received no valid mail.</source>
@@ -533,9 +608,22 @@
 			<trans-unit id="titleUpdateProfile">
 				<source>Update your user-profile</source>
 			</trans-unit>
+			<trans-unit id="confirmUserConfirmation">
+				<source>Please confirm the creation of your account.</source>
+			</trans-unit>
 			<trans-unit id="confirmUserConfirmationRefused">
 				<source>Please confirm the deletion of your account.</source>
 			</trans-unit>
+			<trans-unit id="confirmAdminConfirmation">
+				<source>Please confirm the creation of this account.</source>
+			</trans-unit>
+			<trans-unit id="confirmAdminConfirmationRefused">
+				<source>Please confirm the deletion of this account.</source>
+			</trans-unit>
+			<trans-unit id="confirmAdminConfirmationRefusedSilent">
+				<source>Please confirm the silent deletion of this account.</source>
+			</trans-unit>
+
 			<trans-unit id="update">
 				<source>Profile successfully changed</source>
 			</trans-unit>
@@ -574,6 +662,9 @@
 			</trans-unit>
 			<trans-unit id="pleaseChoose">
 				<source>Please choose ...</source>
+			</trans-unit>
+			<trans-unit id="usergroupSelectionNotConfigured">
+				<source>The usergroup selection is currently not available. Please contact the administrator.</source>
 			</trans-unit>
 			<trans-unit id="pleaseChooseCountry">
 				<source>Please choose a country ...</source>

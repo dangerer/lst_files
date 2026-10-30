@@ -44,10 +44,12 @@ use TYPO3\CMS\Extbase\Annotation as ExtbaseAnnotation;
 use TYPO3\CMS\Extbase\Configuration\Exception\InvalidConfigurationTypeException;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use TYPO3Fluid\Fluid\View\ViewInterface;
 
 /**
  * Class FormController
@@ -63,6 +65,16 @@ class FormController extends AbstractController
      * @var DataProcessorRunner
      */
     protected DataProcessorRunner $dataProcessorRunner;
+
+    public function getView(): ?ViewInterface
+    {
+        return $this->view;
+    }
+
+    public function getRequest(): ?RequestInterface
+    {
+        return $this->request;
+    }
 
     /**
      * @return ResponseInterface
@@ -80,6 +92,9 @@ class FormController extends AbstractController
         $event = $this->eventDispatcher->dispatch(
             GeneralUtility::makeInstance(FormControllerFormActionEvent::class, $form, $this)
         );
+        if ($event->getViewVariables()) {
+            $this->view->assignMultiple($event->getViewVariables());
+        }
         $form = $event->getForm();
         SessionUtility::saveFormStartInSession($this->settings, $form);
         $this->view->assignMultiple(
@@ -95,7 +110,7 @@ class FormController extends AbstractController
     }
 
     /**
-     * @param Mail $mail
+     * @param ?Mail $mail
      * @return ResponseInterface
      * @throws DeprecatedException
      * @throws ExtensionConfigurationExtensionNotConfiguredException
@@ -103,7 +118,7 @@ class FormController extends AbstractController
      * @throws InvalidQueryException
      * @throws NoSuchArgumentException
      */
-    public function checkConfirmationAction(Mail $mail): ResponseInterface
+    public function checkConfirmationAction(?Mail $mail = null): ResponseInterface
     {
         $response = $this->forwardIfFormParamsDoNotMatch();
 
@@ -184,7 +199,7 @@ class FormController extends AbstractController
     }
 
     /**
-     * @param Mail $mail
+     * @param ?Mail $mail
      * @return ResponseInterface
      * @throws DeprecatedException
      * @throws ExtensionConfigurationExtensionNotConfiguredException
@@ -193,7 +208,7 @@ class FormController extends AbstractController
      * @throws NoSuchArgumentException
      * @deprecated since version 12.3.2, will be removed in version 13.0.0
      */
-    public function checkCreateAction(Mail $mail): ResponseInterface
+    public function checkCreateAction(?Mail $mail = null): ResponseInterface
     {
         trigger_error(
             'EXT:powermail -- Method "checkCreateAction" is deprecated since version 12.3.2, will be removed in version 13.0.0',
@@ -381,7 +396,7 @@ class FormController extends AbstractController
                 'ttContentData' => $this->contentObject->data,
                 'uploadService' => $this->uploadService,
                 'powermail_rte' => $this->settings['thx']['body'],
-                'powermail_all' => TemplateUtility::powermailAll($mail, 'web', $this->settings, $this->actionMethodName, $this->request),
+                'powermail_all' => TemplateUtility::powermailAll($mail, 'web', $this->settings, $this->actionMethodName),
             ]
         );
         $this->view->assignMultiple($this->mailRepository->getVariablesWithMarkersFromMail($mail, true));
@@ -408,7 +423,7 @@ class FormController extends AbstractController
     /**
      * Confirm Double Optin
      *
-     * @param int $mailUid
+     * @param int $mail
      * @param string $hash Given Hash String
      * @return ResponseInterface
      * @throws IllegalObjectTypeException
@@ -587,9 +602,6 @@ class FormController extends AbstractController
     {
         $arguments = $this->request->getArguments();
         if (empty($arguments['mail'])) {
-            $logger = ObjectUtility::getLogger(__CLASS__);
-            $logger->warning('Redirect (mail empty)', $arguments);
-
             return new ForwardResponse('form');
         }
         return null;
@@ -607,9 +619,6 @@ class FormController extends AbstractController
         if ($mail !== null) {
             $formsToContent = GeneralUtility::intExplode(',', $this->settings['main']['form']);
             if (!in_array($mail->getForm()->getUid(), $formsToContent)) {
-                $logger = ObjectUtility::getLogger(__CLASS__);
-                $logger->warning('Redirect (optin)', [$formsToContent, (array)$mail]);
-
                 return new ForwardResponse('form');
             }
         }

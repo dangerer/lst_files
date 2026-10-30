@@ -60,7 +60,9 @@ class ConfigurationUtility extends AbstractUtility
         'new./email./createUserConfirmation./sender./name./value' => '',
         'new./email./createUserConfirmation./subject' => 'TEXT',
         'new./email./createUserConfirmation./subject.' => [],
+        'new./email./createUserConfirmation./confirmUserConfirmation' => '0',
         'new./email./createUserConfirmation./confirmUserConfirmationRefused' => '0',
+        'new./email./createUserConfirmation./confirmAdminConfirmation' => '0',
         'new./email./createUserNotify.' => [],
         'new./email./createUserNotify./sender./email./value' => '9999',
         'new./email./createUserNotify./sender./name./value' => '9999',
@@ -192,7 +194,7 @@ class ConfigurationUtility extends AbstractUtility
     public static function notifyAdminAboutEdits($config)
     {
         if (self::getValue(
-            'edit/email/notifyAdmin',
+            'edit/notifyAdmin',
             $config
         ) || self::getValue(
             'edit/email/notifyAdmin/receiver/email/value',

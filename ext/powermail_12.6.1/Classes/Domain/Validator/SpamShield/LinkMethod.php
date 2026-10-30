@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+namespace In2code\Powermail\Domain\Validator\SpamShield;
+
+/**
+ * Class LinkMethod
+ */
+class LinkMethod extends AbstractMethod
+{
+    /**
+     * Link Check: Counts numbers of links in message
+     *
+     * @return bool true if spam recognized
+     */
+    public function spamCheck(): bool
+    {
+        $linkAmount = 0;
+        foreach ($this->mail->getAnswers() as $answer) {
+            if (!is_string($answer->getValue())) {
+                continue;
+            }
+            $counter = preg_match_all('@http://|https://|ftp://|(^|\s)www\.\S@', $answer->getValue(), $result);
+            if (is_int($counter)) {
+                $linkAmount += $counter;
+            }
+        }
+        return $linkAmount > (int)$this->configuration['linkLimit'];
+    }
+}

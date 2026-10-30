@@ -277,9 +277,9 @@ class NewsRepository extends AbstractDemandedRepository
                 $orderField = $orderSplit[0];
                 $ascDesc = $orderSplit[1] ?? '';
                 if ($ascDesc) {
-                    $orderings[$orderField] = (strtolower($ascDesc) === 'desc') ?
-                        QueryInterface::ORDER_DESCENDING :
-                        QueryInterface::ORDER_ASCENDING;
+                    $orderings[$orderField] = (strtolower($ascDesc) === 'desc')
+                        ? QueryInterface::ORDER_DESCENDING
+                        : QueryInterface::ORDER_ASCENDING;
                 } else {
                     $orderings[$orderField] = QueryInterface::ORDER_ASCENDING;
                 }
@@ -350,6 +350,8 @@ class NewsRepository extends AbstractDemandedRepository
      */
     public function countByDate(DemandInterface $demand): array
     {
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_news_domain_model_news');
         $data = [];
         $sql = $this->findDemandedRaw($demand);
 
@@ -358,27 +360,25 @@ class NewsRepository extends AbstractDemandedRepository
 
         // Get the month/year into the result
         $field = $demand->getDateField();
-        $field = empty($field) ? 'datetime' : $field;
+        $field = $connection->quoteIdentifier(empty($field) ? 'datetime' : $field);
 
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)
-            ->getConnectionForTable('tx_news_domain_model_news');
         $isPostgres = $connection->getDatabasePlatform() instanceof PostgreSQLPlatform;
         $isSqlite = $connection->getDatabasePlatform() instanceof SQLitePlatform;
         if ($isPostgres) {
             $sql = 'SELECT count(*), date_trunc(\'year\', to_timestamp(' . $field . '/1)::date) as _year, date_trunc(\'month\', to_timestamp(' . $field . '/1)::date)  as _MONTH 
 from tx_news_domain_model_news ' . substr($sql, strpos($sql, 'WHERE '));
         } elseif ($isSqlite) {
-            $sql = 'SELECT strftime(\'%m\', ' . $field . ', \'unixepoch\') AS "_month",' .
-                ' strftime(\'%Y\', ' . $field . ', \'unixepoch\') AS "_year", ' .
-                ' count(strftime(\'%m\', ' . $field . ', \'unixepoch\')) as count_month,' .
-                ' count(strftime(\'%Y\', ' . $field . ', \'unixepoch\')) as count_year' .
-                ' FROM tx_news_domain_model_news ' . substr($sql, strpos($sql, 'WHERE '));
+            $sql = 'SELECT strftime(\'%m\', ' . $field . ', \'unixepoch\') AS "_month",'
+                . ' strftime(\'%Y\', ' . $field . ', \'unixepoch\') AS "_year", '
+                . ' count(strftime(\'%m\', ' . $field . ', \'unixepoch\')) as count_month,'
+                . ' count(strftime(\'%Y\', ' . $field . ', \'unixepoch\')) as count_year'
+                . ' FROM tx_news_domain_model_news ' . substr($sql, strpos($sql, 'WHERE '));
         } else {
-            $sql = 'SELECT MONTH(FROM_UNIXTIME(' . $field . ')) AS "_month",' .
-                ' YEAR(FROM_UNIXTIME(' . $field . ')) AS "_year", ' .
-                ' count(MONTH(FROM_UNIXTIME(' . $field . '))) as count_month,' .
-                ' count(YEAR(FROM_UNIXTIME(' . $field . '))) as count_year' .
-                ' FROM tx_news_domain_model_news ' . substr($sql, strpos($sql, 'WHERE '));
+            $sql = 'SELECT MONTH(FROM_UNIXTIME(' . $field . ')) AS "_month",'
+                . ' YEAR(FROM_UNIXTIME(' . $field . ')) AS "_year", '
+                . ' count(MONTH(FROM_UNIXTIME(' . $field . '))) as count_month,'
+                . ' count(YEAR(FROM_UNIXTIME(' . $field . '))) as count_year'
+                . ' FROM tx_news_domain_model_news ' . substr($sql, strpos($sql, 'WHERE '));
         }
 
         if (ApplicationType::fromRequest($GLOBALS['TYPO3_REQUEST'])->isFrontend()) {
@@ -388,8 +388,8 @@ from tx_news_domain_model_news ' . substr($sql, strpos($sql, 'WHERE '));
             $expressionBuilder = $connection
                 ->createQueryBuilder()
                 ->expr();
-            $sql .= BackendUtility::BEenableFields('tx_news_domain_model_news') .
-                ' AND ' . $expressionBuilder->eq('deleted', 0);
+            $sql .= BackendUtility::BEenableFields('tx_news_domain_model_news')
+                . ' AND ' . $expressionBuilder->eq('deleted', 0);
         }
 
         // group by custom month/year fields

@@ -124,6 +124,15 @@ class SurveyController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 	 * @return void
 	 */
 	public function listAction() {
+		// DEBUG: log the last error (e.g. memory exhausted) when the request dies
+		register_shutdown_function(function () {
+			$err = error_get_last();
+			if ($err !== null) {
+				$this->debugStep('SHUTDOWN error: ' . $err['message'] . ' in ' . $err['file'] . ':' . $err['line']);
+			}
+		});
+		$this->debugStep('listAction start, GET=' . json_encode($_GET) . ', settings.surveyid=' . ($this->settings['surveyid'] ?? 'null') . ', settings.ttAddressRequired=' . ($this->settings['ttAddressRequired'] ?? 'null'));
+
 		// DebuggerUtility::var_dump(GeneralUtility::hmac((string)123045));die()
 		$context = GeneralUtility::makeInstance(Context::class);
 
@@ -153,27 +162,38 @@ class SurveyController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 				return $this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('<h3>' .
 					LocalizationUtility::translate('fe.hashMissing', 'GtnSurvey') . '</h3>'));
 			}
-			$addresses = \nn\t3::Db()->findAll('tt_address', true);
-			foreach ($addresses as $adr) {
+			// Only fetch the uids (not the full records) to keep memory low, the table has a lot of entries
+			$queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)
+				->getQueryBuilderForTable('tt_address');
+			$queryBuilder->getRestrictions()->removeAll();
+			$this->debugStep('BEFORE select uid from tt_address');
+			$uidResult = $queryBuilder->select('uid')->from('tt_address')->executeQuery();
+			$this->debugStep('AFTER select uid from tt_address');
+			while (($adrUid = $uidResult->fetchOne()) !== false) {
 				// Check if the hash matches the uid of the tt_address record
-				if (GeneralUtility::hmac((string)$adr["uid"]) == $ttaddrUid) {
-					$curAdrUser = $adr;
+				if (GeneralUtility::hmac((string)$adrUid) == $ttaddrUid) {
+					$curAdrUser = \nn\t3::Db()->findByUid('tt_address', (int)$adrUid, true);
 					break;
 				}
 			}
+			$uidResult->free();
+			$this->debugStep('AFTER hmac loop, matched tt_address uid: ' . ($curAdrUser['uid'] ?? 'none'));
 			if (!isset($curAdrUser)) {
 				return $this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('<h3>' .
 					LocalizationUtility::translate('fe.hashInvalid', 'GtnSurvey') . '</h3>'));
 			}
 
 
+			$this->debugStep('BEFORE nnt3 Db()->findByValues(tx_gtnsurvey_domain_model_survey_respondees)');
 			$userSurveyResponds = \nn\t3::Db()->findByValues('tx_gtnsurvey_domain_model_survey_respondees',
 				['tt_address_id' => $curAdrUser['uid'], 'survey_id' => (int)$this->settings['surveyid']]);
+			$this->debugStep('AFTER findByValues(respondees), rows: ' . count($userSurveyResponds ?? []));
 
 			// GET THE TT_ADDRESS RECORD
 			//$ttAddress = \nn\t3::Db()->findByValues('tt_address', ['uid' => $curAdrUser['uid']])->getFirst();
 
 			if (!empty($userSurveyResponds)) {
+				$this->debugStep('already responded -> forward to sendConfirmation');
 				return new ForwardResponse('sendConfirmation');
 			}
 
@@ -184,7 +204,9 @@ class SurveyController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			$this->view->assign('ttAddressUid', $curAdrUser['uid']);
 		}
 
+		$this->debugStep('BEFORE surveyRepository->findByUid(' . (int)$this->settings['surveyid'] . ')');
 		$surveys = $this->surveyRepository->findByUid((int)$this->settings['surveyid']);
+		$this->debugStep('AFTER surveyRepository->findByUid, found: ' . ($surveys !== null ? 'yes' : 'no'));
 
 		$languageAspect = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Context\Context::class)->getAspect('language');
 
@@ -194,8 +216,29 @@ class SurveyController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 			'langUid' => $languageAspect->getId()
 		]);
 
+		// Fluid rendering triggers lazy loading of the survey relations (question groups, questions, answers ...)
+		$this->debugStep('BEFORE view->render()');
+		$html = $this->view->render();
+		$this->debugStep('AFTER view->render(), output length: ' . strlen($html));
 
-		return $this->htmlResponse();
+		return $this->htmlResponse($html);
+	}
+
+	/**
+	 * DEBUG: append a step with memory usage to var/log/gtn_survey_debug.log
+	 * (written immediately, so it survives a fatal "memory exhausted" error)
+	 */
+	private function debugStep(string $message): void {
+		file_put_contents(
+			\TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/gtn_survey_debug.log',
+			sprintf("[%s] %s | mem: %.1f MB | peak: %.1f MB\n",
+				date('Y-m-d H:i:s'),
+				$message,
+				memory_get_usage(true) / 1048576,
+				memory_get_peak_usage(true) / 1048576
+			),
+			FILE_APPEND
+		);
 	}
 
 

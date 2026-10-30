@@ -83,6 +83,7 @@ class Utils implements \TYPO3\CMS\Core\SingletonInterface {
             return 0;
         }
         $registered = 0;
+        $mailUids = [];
         $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_powermail_domain_model_mail');
         $queryBuilder = $connection->createQueryBuilder();
         // get mails for this course (by answer with course uid)
@@ -93,13 +94,34 @@ class Utils implements \TYPO3\CMS\Core\SingletonInterface {
             ->leftJoin('m', 'tx_powermail_domain_model_form', 'form', $queryBuilder->expr()->eq('m.form', $queryBuilder->quoteIdentifier('form.uid')))
             ->where(
                 $queryBuilder->expr()->eq('form.uid', $queryBuilder->createNamedParameter($courseRegistrationFormUid, \PDO::PARAM_INT)),
-                $queryBuilder->expr()->eq('f.marker', $queryBuilder->createNamedParameter($courseUidMarker, \PDO::PARAM_INT)),
+                $queryBuilder->expr()->eq('f.marker', $queryBuilder->createNamedParameter($courseUidMarker, \PDO::PARAM_STR)),
                 $queryBuilder->expr()->eq('a.value', $queryBuilder->createNamedParameter($courseUid, \PDO::PARAM_INT))
             )
             ->executeQuery()
             ->fetchAllAssociative();
         if ($statement && count($statement) > 0) {
             $mailUids = array_map(function($m) {return $m['uid'];}, $statement);
+        }
+        if ($mailUids) {
+            // Use the date saved with each registration, not the current DCE date.
+            $queryBuilder = $connection->createQueryBuilder();
+            $dates = $queryBuilder->select('a.mail', 'a.value')
+                ->from('tx_powermail_domain_model_answer', 'a')
+                ->join('a', 'tx_powermail_domain_model_field', 'f', $queryBuilder->expr()->eq('a.field', $queryBuilder->quoteIdentifier('f.uid')))
+                ->where(
+                    $queryBuilder->expr()->in('a.mail', $queryBuilder->createNamedParameter($mailUids, Connection::PARAM_INT_ARRAY)),
+                    $queryBuilder->expr()->eq('f.marker', $queryBuilder->createNamedParameter('termin', \PDO::PARAM_STR))
+                )
+                ->executeQuery()
+                ->fetchAllAssociative();
+            $today = new \DateTimeImmutable('today', new \DateTimeZone('Europe/Vienna'));
+            $pastMailUids = [];
+            foreach ($dates as $date) {
+                if ($this->isPastCourseDate((string)$date['value'], $today)) {
+                    $pastMailUids[] = $date['mail'];
+                }
+            }
+            $mailUids = array_values(array_diff($mailUids, $pastMailUids));
         }
         if ($mailUids && count($mailUids) > 0) {
             // +1 participant if self-checked
@@ -144,6 +166,21 @@ class Utils implements \TYPO3\CMS\Core\SingletonInterface {
         }
         return $registered;
     }
+
+    private function isPastCourseDate(string $term, \DateTimeImmutable $today): bool
+    {
+        // Missing or invalid dates must not accidentally release occupied places.
+        if (!preg_match('/^\s*(\d{1,2}\.\d{1,2}\.\d{4})(?=\s|$)/u', $term, $matches)) {
+            return false;
+        }
+        $start = \DateTimeImmutable::createFromFormat('!d.m.Y', $matches[1], $today->getTimezone());
+        $errors = \DateTimeImmutable::getLastErrors();
+        if ($start === false || ($errors !== false && ($errors['warning_count'] || $errors['error_count']))) {
+            return false;
+        }
+        return $start < $today->setTime(0, 0);
+    }
+
     // course registrations: get max possible participants - option from DCE element
     public function getCourseMaxParticipants($courseUid)
     {
