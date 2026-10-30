@@ -1,0 +1,14 @@
+<f:for each="{contentObject.assets}" as="fileReference" iteration="i">
+	<f:if condition="{i.cycle} == 1">
+		<div class="headerimg headerimg-mask" style="background-position: center {field.headerBannerVerticalAlign}%; background-image: url('https://www.laborstrauss.com/{f:uri.image(src:'{fileReference.uid}',treatIdAsReference:'1',width: '1400c')}')">
+			<div class="mask-header">
+				
+				<header class="h-100">
+					<div class="container-fluid d-flex justify-content-center align-items-center h-100">
+						<h4>{field.title}</h4>
+					</div>
+				</header>
+			</div>
+		</div>
+	</f:if>
+</f:for>

@@ -1,0 +1,379 @@
+.tx-downloadlst li{
+	list-style-type: none;
+}
+.tx-downloadlst #my-search{
+	margin-left: 10px;
+	margin-bottom: 20px;
+	margin-bottom: 0;
+}
+.tx-downloadlst #my-tree ul li a,
+.tx-downloadlst #custom-tree ul li a {
+    display: inline-block;
+}
+
+.tx-downloadlst .tf-tree .tf-child-true.tf-open > div {
+	font-weight: normal !important;
+}
+
+.tx-downloadlst .tf-tree .tf-selected {
+	border-radius: 0 !important;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist li::before {
+	content: "";
+	padding-right: 0;
+}
+
+.container-fluid .maincol .tx-downloadlst ul {
+	margin-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist {
+	margin-left: 0;
+	margin-top: 2.5rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist.lst-dlist-select {
+	margin-top: 0;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist img {
+	display: inline;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links {
+	float: right;
+	font-size: 0.85rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links a {
+	padding-right: 10px;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links a img {
+	padding-bottom: 5px;
+	padding-right: 2px;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links a:last-child {
+	padding-right: 0;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	padding: .75rem 1.5rem;
+	padding: 0 !important;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item.tf-open {
+	background-color: #f8f9fa;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item.lst-dlitem {
+	background-color: #f8f9fa;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist.lst-dlist-select .list-group-item.lst-dlitem {
+	background-color: #fff;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul .list-group-item {
+	border-left: none;
+	border-right: none;
+}
+
+.list-group-item.lst-fliselect {
+	border-top: none;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul .list-group-item > div {
+	padding-left: 2.5rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist.lst-dlist-select ul .list-group-item > div {
+	padding-left: 1rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul .list-group-item > div {
+	padding-left: 4.2rem;
+}
+
+
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul .list-group-item:last-child {
+	border-bottom: none;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item > div {
+	padding: .75rem 1rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item:last-child {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item .icon {
+	color: #8a9aa8;
+	margin-right: 0.5rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item.tf-open > div > .icon {
+	color: #4c6275;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item .lst-dlinfo {
+	font-size: 0.8rem;
+	margin-left: 0;
+	color: #595f67;
+}
+
+.tx-downloadlst .btn-icon-lstdList {
+	padding: 0.35rem 0.65rem;
+}
+
+.lst-dlist-dlitem {
+    cursor: auto;
+    
+}
+
+.lst-dlist-dlitemTitle {
+	max-width: 70%;
+	max-width: calc(100% - 10rem);
+	overflow: hidden;
+	display: inline-block;
+}
+
+.lst-dlist-select .lst-dlinfo {
+	padding-left: 0.5rem;
+}
+
+
+.tx-downloadlst .badge-lstnew {
+	margin-left: .5rem;
+	background-color: #da251d;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	padding: .12em .4em;
+}
+
+/*done by 5-May-2021 after download recursive functinality */
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul .list-group-item > div {
+	padding-left: 5.8rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul .list-group-item > div {
+	padding-left: 7.4rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 9rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 10.5rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 12rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 13.6rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 15.2rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 16.6rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 18.2rem;
+}
+
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	padding-left: 19.7rem;
+}
+
+@media (max-width: 1199px) {
+	
+}
+@media (max-width: 991px) {
+	
+	#my-tree .lst-dlist-dlitem {
+	    cursor: auto;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: space-between;
+	    width: 100%;
+	}
+	#my-tree .lst-dlist-dlitemTitle {
+	    max-width: 70%;
+	    max-width: 100%;
+	    overflow: hidden;
+	    display: inline-block;
+	}
+	.container-fluid .maincol .tx-downloadlst ul#my-tree.lst-dlist .lst-dlist-links {
+	    float: right;
+	    font-size: 0.85rem;
+	    width: 100%;
+	    text-align: right;
+	}
+}
+@media (max-width: 767px) {
+	
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item > div {
+	    padding: .75rem 0.5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item .icon {
+	    margin-right: 0.2rem;
+	    margin-right: 0.2rem;
+	    font-size: 11px;
+	    top: -2px;
+	    position: relative;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul .list-group-item > div {
+	    padding-left: 1rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul .list-group-item > div {
+	    padding-left: 1.5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul .list-group-item > div {
+	    padding-left: 2rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul .list-group-item > div {
+	    padding-left: 2.5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 3rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 3.5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 4rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 4.5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 5.5rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 6rem;
+	}
+	.container-fluid .maincol .tx-downloadlst ul.lst-dlist ul ul ul ul ul ul ul ul ul ul ul ul ul .list-group-item > div {
+	    padding-left: 6.5rem;
+	}
+}
+
+/* New Download Button with Modal */
+
+.btn-downloadlist,
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links a.btn-downloadlist {
+	padding: 0.25rem 0.8rem;
+}
+
+.btn-downloadlist:hover,
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links a.btn-downloadlist:hover,
+.btn-downloadlist:focus,
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .lst-dlist-links a.btn-downloadlist:focus {
+	color: #fff;
+}
+
+.btn-downloadlist .icon,
+.container-fluid .maincol .tx-downloadlst ul.lst-dlist .list-group-item .btn-downloadlist .icon {
+	color: #fff;
+}
+
+.btn-dl-flag {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn-lstgrey.btn-dl-flag {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-size: 1rem;
+}
+
+.lst-dlist-links .btn-lstgrey.btn-dl-flag {
+	padding: 0.25rem 0.8rem !important;
+	font-size: 0.95rem;
+	min-width: 142px;
+}
+
+.btn-dl-flag .flagicon {
+	max-width: 25px !important;
+	margin-right: 15px;
+	
+}
+
+.flagicon-sm {
+	max-width: 15px !important;
+	margin-left: 5px;
+	display: inline-block;
+	padding-bottom: .3rem;
+}
+
+.lst-dlist-links .btn-lstgrey.btn-dl-flag .flagicon {
+	max-width: 15px !important;
+	margin-right: 10px;
+}
+
+.lst-dlitem-n .lst-dlist-links {
+	min-width: 150px;
+}
+
+
+.container-fluid .modal-language-downloadlist h5.modal-title {
+	font-size: 1.7rem;
+	text-align: left;
+	padding-right: 1rem;
+	line-height: 1.3;
+}
+
+.modal-language-downloadlist .modal-dialog-centered {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+}
+
+@media (min-width: 576px) {
+  .modal-language-downloadlist .modal-dialog-centered {
+	min-height: calc(100% - 3.5rem);
+  }
+}
+
+.modal-language-downloadlist-btn-cnt {
+	max-width: 300px;
+
+}
+
+.modal-language-downloadlist-btn-cnt p {
+	margin-bottom: .75rem;
+}
+
+.modal-language-downloadlist .modal-header {
+	align-items: flex-start;
+}

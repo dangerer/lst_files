@@ -1,0 +1,465 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+
+<f:if condition="{gtnLst:ContentCategoryCondition(contentUid: data.uid)}">
+
+<f:if condition="{data.layout} == 2 || {data.layout} == 5 || {data.layout} == 8 || {data.layout} == 9">
+
+	<f:then>
+	
+			<!-- ##### BLANK LAYOUT #### -->
+			<f:if condition="{data.frame_class} != none">
+				<f:then>
+
+						<f:if condition="{data._LOCALIZED_UID}">
+							<a id="c{data._LOCALIZED_UID}"></a>
+						</f:if>
+						<f:render section="Before" optional="true">
+							<f:render partial="DropIn/Before/All" arguments="{_all}" />
+						</f:render>
+						<f:render section="Header" optional="true">
+							<f:render partial="Header/AllBlank" arguments="{_all}" />
+						</f:render>
+						<f:render section="Main" optional="true" />
+						<f:render section="Footer" optional="true">
+							<f:render partial="Footer/All" arguments="{_all}" />
+						</f:render>
+						<f:render section="After" optional="true">
+							<f:render partial="DropIn/After/All" arguments="{_all}" />
+						</f:render>
+		
+				</f:then>
+				<f:else>
+		
+					<a id="c{data.uid}"></a>
+					<f:if condition="{data._LOCALIZED_UID}">
+						<a id="c{data._LOCALIZED_UID}"></a>
+					</f:if>
+					<f:if condition="{data.space_before_class}">
+						<div class="frame-space-before-{data.space_before_class}"></div>
+					</f:if>
+					<f:render section="Before" optional="true">
+						<f:render partial="DropIn/Before/All" arguments="{_all}" />
+					</f:render>
+					<f:render section="Header" optional="true">
+						<f:render partial="Header/AllBlank" arguments="{_all}" />
+					</f:render>
+					<f:render section="Main" optional="true" />
+					<f:render section="Footer" optional="true">
+						<f:render partial="Footer/All" arguments="{_all}" />
+					</f:render>
+					<f:render section="After" optional="true">
+						<f:render partial="DropIn/After/All" arguments="{_all}" />
+					</f:render>
+					<f:if condition="{data.space_after_class}">
+						<div class="frame-space-after-{data.space_after_class}"></div>
+					</f:if>
+		
+				</f:else>
+			</f:if>
+			<!-- ##### / BLANK LAYOUT #### -->	
+	
+	</f:then>
+	
+	<f:else>
+	
+		
+		<f:if condition="{data.layout} == 3">
+		
+			<f:then>
+			
+			
+					<!-- ##### SLIDER LAYOUT #### -->
+					<f:if condition="{data.frame_class} != none">
+						<f:then>
+							<li class="item active itemno{data.uid}">
+							
+								<f:if condition="{data._LOCALIZED_UID}">
+									<a id="c{data._LOCALIZED_UID}"></a>
+								</f:if>
+								<f:render section="Before" optional="true">
+									<f:render partial="DropIn/Before/All" arguments="{_all}" />
+								</f:render>
+								
+								<f:render section="Main" optional="true" />
+								<f:render section="Footer" optional="true">
+									<f:render partial="Footer/All" arguments="{_all}" />
+								</f:render>
+								<f:render section="After" optional="true">
+									<f:render partial="DropIn/After/All" arguments="{_all}" />
+								</f:render>
+							</li>
+				
+						</f:then>
+						<f:else>
+
+				
+						</f:else>
+					</f:if>
+					<!-- ##### / SLIDER LAYOUT #### -->
+			
+			
+			</f:then>
+			
+			<f:else>
+			
+				<f:if condition="{data.layout} == 4">
+				
+					<f:then>
+					
+					
+						<!-- ##### PRODUKTGRUPPE LAYOUT #### -->
+						<f:if condition="{data.frame_class} != none">
+							<f:then>
+								
+								<div id="c{data.uid}" class="col-sm-12 col-md-6 col-lg-4 ce-productgroup">
+									<f:link.page pageUid="{data.header_link}">
+										<div class="ctn-prod">
+										<f:if condition="{data._LOCALIZED_UID}">
+											<a id="c{data._LOCALIZED_UID}"></a>
+										</f:if>
+										<f:render section="Before" optional="true">
+											<f:render partial="DropIn/Before/All" arguments="{_all}" />
+										</f:render>
+											
+										<f:render section="Main" optional="true" />
+										<f:render section="Footer" optional="true">
+											<f:render partial="Footer/All" arguments="{_all}" />
+										</f:render>
+										<f:render section="After" optional="true">
+											<f:render partial="DropIn/After/All" arguments="{_all}" />
+										</f:render>										
+										<f:render section="Header" optional="true">
+											<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+										</f:render>
+										</div>
+									</f:link.page>
+								</div>
+								
+							</f:then>
+							<f:else>
+					
+							</f:else>
+						</f:if>
+						<!-- ##### / PRODUKTGRUPPE LAYOUT #### -->
+
+					
+					
+					</f:then>
+					
+					<f:else>
+					
+						
+						<f:if condition="{data.layout} == 6">
+						
+							<f:then>
+							
+							
+								<!-- ##### PRODUKT LAYOUT #### -->
+								<f:if condition="{data.frame_class} != none">
+									<f:then>
+										
+										<div id="c{data.uid}" class="col-12 col-sm-6 col-md-4 col-lg-3 ce-product">
+											<f:link.page pageUid="{data.header_link}">
+												<div class="ctn-prod">
+												<f:if condition="{data._LOCALIZED_UID}">
+													<a id="c{data._LOCALIZED_UID}"></a>
+												</f:if>
+												<f:render section="Before" optional="true">
+													<f:render partial="DropIn/Before/All" arguments="{_all}" />
+												</f:render>
+													
+												<f:render section="Main" optional="true" />
+												<f:render section="Footer" optional="true">
+													<f:render partial="Footer/All" arguments="{_all}" />
+												</f:render>
+												<f:render section="After" optional="true">
+													<f:render partial="DropIn/After/All" arguments="{_all}" />
+												</f:render>
+												<f:render section="Header" optional="true">
+													<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+												</f:render>
+												</div>
+											</f:link.page>
+										</div>
+										
+									</f:then>
+									<f:else>
+							
+									</f:else>
+								</f:if>
+								<!-- ##### / PRODUKT LAYOUT #### -->
+							
+							
+							</f:then>
+							
+							<f:else>
+							
+								<f:if condition="{data.layout} == 5">
+								
+									<f:then>
+									
+									
+										<!-- ##### HEADERIMAGE LAYOUT #### -->
+										<f:if condition="{data.frame_class} != none">
+											<f:then>
+												
+												<div class="headerimg">
+													<f:if condition="{data._LOCALIZED_UID}">
+														<a id="c{data._LOCALIZED_UID}"></a>
+													</f:if>
+													<f:render section="Before" optional="true">
+														<f:render partial="DropIn/Before/All" arguments="{_all}" />
+													</f:render>
+													
+													<f:render section="Main" optional="true" />
+													<f:render section="Footer" optional="true">
+														<f:render partial="Footer/All" arguments="{_all}" />
+													</f:render>
+													<f:render section="After" optional="true">
+														<f:render partial="DropIn/After/All" arguments="{_all}" />
+													</f:render>
+												</div>
+									
+											</f:then>
+											<f:else>
+					
+									
+											</f:else>
+										</f:if>
+										<!-- ##### / HEADERIMAGE LAYOUT #### -->
+									
+									
+									</f:then>
+									
+									<f:else>
+									
+										<f:if condition="{data.layout} == 7">
+										
+											<f:then>
+											
+											
+											
+												<!-- ##### PERSON CARD #### -->
+												<f:if condition="{data.frame_class} != none">
+													<f:then>
+											
+														<div id="c{data.uid}" class="col-12 col-md-12 col-lg-4 frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+															<div class="ce-personcard">
+																<f:if condition="{data._LOCALIZED_UID}">
+																	<a id="c{data._LOCALIZED_UID}"></a>
+																</f:if>
+																<f:render section="Before" optional="true">
+																	<f:render partial="DropIn/Before/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="Header" optional="true">
+																	<f:render partial="Header/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="Main" optional="true" />
+																<f:render section="Footer" optional="true">
+																	<f:render partial="Footer/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="After" optional="true">
+																	<f:render partial="DropIn/After/All" arguments="{_all}" />
+																</f:render>
+															</div>
+														</div>
+											
+													</f:then>
+													<f:else>
+											
+														<a id="c{data.uid}"></a>
+														<f:if condition="{data._LOCALIZED_UID}">
+															<a id="c{data._LOCALIZED_UID}"></a>
+														</f:if>
+														<f:if condition="{data.space_before_class}">
+															<div class="frame-space-before-{data.space_before_class}"></div>
+														</f:if>
+														<f:render section="Before" optional="true">
+															<f:render partial="DropIn/Before/All" arguments="{_all}" />
+														</f:render>
+														<f:render section="Header" optional="true">
+															<f:render partial="Header/All" arguments="{_all}" />
+														</f:render>
+														<f:render section="Main" optional="true" />
+														<f:render section="Footer" optional="true">
+															<f:render partial="Footer/All" arguments="{_all}" />
+														</f:render>
+														<f:render section="After" optional="true">
+															<f:render partial="DropIn/After/All" arguments="{_all}" />
+														</f:render>
+														<f:if condition="{data.space_after_class}">
+															<div class="frame-space-after-{data.space_after_class}"></div>
+														</f:if>
+											
+													</f:else>
+												</f:if>
+												<!-- ##### / DEFAULT LAYOUT #### -->
+
+											
+											
+											
+											</f:then>
+											
+											<f:else>
+											
+												<f:if condition="{data.layout} == 10">
+												
+													<f:then>
+													
+													
+														<!-- ##### PERSON CARD Sidebar #### -->
+														<f:if condition="{data.frame_class} != none">
+															<f:then>
+															
+																<div id="c{data.uid}" class="frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+																	<div class="ce-personcard">
+																		<f:if condition="{data._LOCALIZED_UID}">
+																			<a id="c{data._LOCALIZED_UID}"></a>
+																		</f:if>
+																		<f:render section="Before" optional="true">
+																			<f:render partial="DropIn/Before/All" arguments="{_all}" />
+																		</f:render>
+																		<f:render section="Header" optional="true">
+																			<f:render partial="Header/All" arguments="{_all}" />
+																		</f:render>
+																		<f:render section="Main" optional="true" />
+																		<f:render section="Footer" optional="true">
+																			<f:render partial="Footer/All" arguments="{_all}" />
+																		</f:render>
+																		<f:render section="After" optional="true">
+																			<f:render partial="DropIn/After/All" arguments="{_all}" />
+																		</f:render>
+																	</div>
+																</div>
+													
+															</f:then>
+															<f:else>
+													
+																<a id="c{data.uid}"></a>
+																<f:if condition="{data._LOCALIZED_UID}">
+																	<a id="c{data._LOCALIZED_UID}"></a>
+																</f:if>
+																<f:if condition="{data.space_before_class}">
+																	<div class="frame-space-before-{data.space_before_class}"></div>
+																</f:if>
+																<f:render section="Before" optional="true">
+																	<f:render partial="DropIn/Before/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="Header" optional="true">
+																	<f:render partial="Header/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="Main" optional="true" />
+																<f:render section="Footer" optional="true">
+																	<f:render partial="Footer/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="After" optional="true">
+																	<f:render partial="DropIn/After/All" arguments="{_all}" />
+																</f:render>
+																<f:if condition="{data.space_after_class}">
+																	<div class="frame-space-after-{data.space_after_class}"></div>
+																</f:if>
+													
+															</f:else>
+														</f:if>
+														<!-- ##### / DEFAULT LAYOUT #### -->
+													
+													
+													</f:then>
+													
+													<f:else>
+													
+													
+														<!-- ##### DEFAULT LAYOUT #### -->
+														<f:if condition="{data.frame_class} != none">
+															<f:then>
+													
+																<div id="c{data.uid}" class="frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+																	<f:if condition="{data._LOCALIZED_UID}">
+																		<a id="c{data._LOCALIZED_UID}"></a>
+																	</f:if>
+																	<f:render section="Before" optional="true">
+																		<f:render partial="DropIn/Before/All" arguments="{_all}" />
+																	</f:render>
+																	<f:render section="Header" optional="true">
+																		<f:render partial="Header/All" arguments="{_all}" />
+																	</f:render>
+																	<f:render section="Main" optional="true" />
+																	<f:render section="Footer" optional="true">
+																		<f:render partial="Footer/All" arguments="{_all}" />
+																	</f:render>
+																	<f:render section="After" optional="true">
+																		<f:render partial="DropIn/After/All" arguments="{_all}" />
+																	</f:render>
+																</div>
+													
+															</f:then>
+															<f:else>
+													
+																<a id="c{data.uid}"></a>
+																<f:if condition="{data._LOCALIZED_UID}">
+																	<a id="c{data._LOCALIZED_UID}"></a>
+																</f:if>
+																<f:if condition="{data.space_before_class}">
+																	<div class="frame-space-before-{data.space_before_class}"></div>
+																</f:if>
+																<f:render section="Before" optional="true">
+																	<f:render partial="DropIn/Before/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="Header" optional="true">
+																	<f:render partial="Header/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="Main" optional="true" />
+																<f:render section="Footer" optional="true">
+																	<f:render partial="Footer/All" arguments="{_all}" />
+																</f:render>
+																<f:render section="After" optional="true">
+																	<f:render partial="DropIn/After/All" arguments="{_all}" />
+																</f:render>
+																<f:if condition="{data.space_after_class}">
+																	<div class="frame-space-after-{data.space_after_class}"></div>
+																</f:if>
+													
+															</f:else>
+														</f:if>
+														<!-- ##### / DEFAULT LAYOUT #### -->
+													
+													
+													</f:else>
+													
+												</f:if>
+											
+											
+											</f:else>
+										
+										</f:if>
+									
+									</f:else>
+								
+								</f:if>
+							
+							</f:else>
+						
+						</f:if>
+					
+					</f:else>
+				
+				</f:if>			
+			
+			</f:else>
+			
+		</f:if>
+	
+			
+
+	
+	
+	</f:else>
+	
+</f:if>	
+
+</f:if>	
+	
+</f:spaceless>
+</html>

@@ -1,0 +1,234 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+
+<f:security.ifAuthenticated>
+   <f:then>
+
+
+<div id="dce-{contentObject.uid}" class="course-detail">
+	<h1>{field.location} - {field.datebeginn} <f:if condition="{field.dateend}">bis {field.dateend}</f:if></h1>
+	<h2 class="mt-1 mb-2">{field.course}</h2>
+	<f:if condition="{contentObject.categories}">
+
+				<f:comment>
+					Here are shown double categories. So, let keep which categories are already shown and do not show such double.
+					Use dynamic variable name for that: tc_{tc_uniqueindex}_{category.uid}
+				</f:comment>
+
+				<v:variable.set name="tc_uniqueindex">{v:random.string(length:"5")}</v:variable.set>
+
+
+		<div class="training-cat mb-4">
+			<f:for each="{contentObject.categories}" as="category" iteration="categoryIterator">
+				<f:if condition="{v:variable.get(name:\"tc_{tc_uniqueindex}_{category.uid}\")}">
+					<f:else>
+                                        	<span class="badge badge-trainings">{gtnLst:categoryTitleTranslated(categoryUid:"{category.uid}")}</span>
+					</f:else>
+				</f:if>
+					<v:variable.set name="tc_{tc_uniqueindex}_{category.uid}" value="{category.uid}" />
+			</f:for>
+		</div>
+	</f:if>
+
+	<gtnLst:ifCourseIsFull course="{contentObject.uid}">
+		<div class="alert alert-danger">
+			{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.courseFullyBooked")}
+		</div>
+	</gtnLst:ifCourseIsFull>
+
+	<f:if condition="{field.description}">
+		<div class="mt-2 mb-4">
+			<f:format.html>{field.description}</f:format.html>
+		</div>
+	</f:if>
+	<f:if condition="{field.agenda}">
+		<div class="mt-2 mb-3 trainings-agenda">
+			<h4>Agenda:</h4>
+			<f:format.html>{field.agenda}</f:format.html>
+		</div>
+	</f:if>
+	
+	<div class="trainings-info row mb-3">
+		<f:if condition="{field.trainingtimes}">
+			<div class="col-12 col-sm-3 col-md-3 mb-2">
+				<strong>{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.trainingTimes")}:</strong>
+			</div>
+			<div class="col-12 col-sm-9 mb-2 col-md-9 col-trainingtimes">
+				<f:format.html>{field.trainingtimes}</f:format.html>
+			</div>
+		</f:if>
+		<f:if condition="{field.priorknowledge}">
+			<div class="col-12 col-sm-3 col-md-3 mb-2">
+				<strong>{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.priorKnowledge")}:</strong>
+			</div>
+			<div class="col-12 col-sm-9 col-md-9 mb-2">
+				{field.priorknowledge}
+			</div>
+		</f:if>
+		<f:if condition="{field.equipment}">
+			<div class="col-12 col-sm-3 col-md-3 mb-2">
+				<strong>{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.workEquipment")}:</strong>
+			</div>
+			<div class="col-12 col-sm-9 col-md-9 mb-2">
+				{field.equipment}
+			</div>
+		</f:if>
+		<f:if condition="{field.numberofparticipants}">
+			<div class="col-12 col-sm-3 col-md-3 mb-2">
+				<strong>{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.participants")}:</strong>
+			</div>
+			<div class="col-12 col-sm-9 col-md-9 mb-2">
+				{field.numberofparticipants}
+			</div>
+		</f:if>
+		<f:if condition="{field.cost}">
+			<div class="col-12 col-sm-3 col-md-3 mb-2">
+				<strong>{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.price")}:</strong>
+			</div>
+			<div class="col-12 col-sm-9 col-md-9 mb-2">
+				€ {field.cost} {field.costadditionalinfo}
+				<f:if condition="{field.costadditionalinfo2}">
+					<br>
+					{field.costadditionalinfo2}
+				</f:if>
+			</div>
+		</f:if>
+		
+	</div>
+	
+	<div class="additonal-info alert alert-primary mt-5">
+		<f:if condition="{field.datebeginn}">
+			<f:if condition="{field.dateend}">
+				<f:then>
+					<p class="mb-0">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.begin")}: <strong>{field.datebeginn} - {field.timebeginn}</strong></p>
+				</f:then>
+				<f:else>
+					<p class="mb-0">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.date")}: <strong>{field.datebeginn} <f:if condition="{field.timebeginn}">- {field.timebeginn}</f:if> <f:if condition="{field.timeend}">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.till")}  {field.timeend}</f:if></strong></p>
+				</f:else>
+			</f:if>
+			
+		</f:if>
+		<f:if condition="{field.dateend}">
+			<f:then>
+				<p class="mb-0">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.end")}: <strong>{field.dateend} - {field.timeend}</strong></p>
+			</f:then>
+			<f:else>
+			
+			</f:else>
+		</f:if>
+		<f:if condition="{field.organizer}">
+			<p class="mb-0">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.organizer")}: {field.organizer}</p>
+		</f:if>
+		<f:if condition="{field.address}">
+			<p class="mb-0">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.address")}: {dce:format.replace(subject: field.address, search: ';', replace: ',')}</p>
+		</f:if>
+		<div style="display:none;">
+			{gtnLst:CourseParticipants(course:"{contentObject.uid}")} / {gtnLst:CourseParticipants(course:"{contentObject.uid}", get:"max")}
+		</div>
+	</div>
+	
+	<div class="trainings-registration mt-5">
+
+		<gtnLst:ifCourseIsFull course="{contentObject.uid}">
+			<f:then>
+				<div class="alert alert-danger">
+					{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.courseFullyBooked")}	  <br>
+<f:comment>
+				number of participans: {gtnLst:CourseParticipants(course:"{contentObject.uid}")}
+</f:comment>
+				</div>
+			</f:then>
+			<f:else>
+<f:comment>
+				max prtspnts: {gtnLst:CourseParticipants(course:"{contentObject.uid}", get:"max")}
+</f:comment>
+
+		<f:variable name="backUrlDe" value="{f:uri.page(language: 0, absolute: 1)}" />
+		<f:variable name="backUrlEn" value="{f:uri.page(language: 1, absolute: 1)}" />
+
+		<form action="{f:uri.page(pageUid:12213, absolute:'true', additionalParams: {revertLangBackUrlDe: backUrlDe, revertLangBackUrlEn: backUrlEn})}" id="form-eventdata" method="post">
+			<f:comment>
+				UID of the course. we need it for calculate registered participants
+				It is NOT the same value as "Kurs ID" !!!!!!!!
+				it is for INNER using !!!!
+			</f:comment>
+			<input type="hidden" name="tx_powermail_pi1[field][kursuid]" value="{contentObject.uid}" />
+			<input type="hidden" name="tx_powermail_pi1[field][kurstitel]" value="{field.course}" />
+			<input type="hidden" name="tx_powermail_pi1[field][kursorganizer]" value="{field.organizer}" />
+			<input type="hidden" name="tx_powermail_pi1[field][kursaddress]" value="{dce:format.replace(subject: field.address, search: ';', replace: ',')}" />
+			<input type="hidden" name="tx_powermail_pi1[field][termin]" value="{field.datebeginn} {field.timebeginn}{f:if(condition: field.dateend, then: ' bis {field.dateend} {field.timeend}', else: ' bis {field.timeend}')}" />
+			<input type="hidden" name="tx_powermail_pi1[field][teilnahmegebuehr]" value="€ {field.cost} {field.costadditionalinfo} {field.costadditionalinfo2}" />
+			<input type="hidden" name="tx_powermail_pi1[field][courseid]" value="{field.courseid}" />
+			<input type="hidden" name="tx_powermail_pi1[field][niederlassung]" value="{gtnLst:SelectedRegionTitle()}" />
+			<f:for each="{contentObject.categories}" as="category">
+				<f:comment>if the course has category "Präsenz" we need to have additional powermail field 'Zertifikat':</f:comment>
+				<f:if condition="{category.uid} == 47">
+					<input type="hidden" name="tx_powermail_pi1[field][showsertfield]" value="1" />					
+				</f:if>
+			</f:for>
+			<a onClick="document.getElementById('form-eventdata').submit(); return false;" class="btn btn-primary btn-lst btn-arrow" href="#">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.registerNow")}</a>
+		</form>
+
+			</f:else>	
+		</gtnLst:ifCourseIsFull>
+
+		<f:comment>
+			<a class="btn btn-primary btn-lst btn-arrow" href="https://www.laborstrauss.com/schulungzentrum/anmeldung">Jetzt für diese Schulung anmelden {f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.registerNow")}</a>
+		</f:comment>
+	</div>
+	
+	
+	<f:if condition="{field.infofooter}">
+		<div class="info-footer mt-5">
+			<h4 class="mb-2">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoPresenceHeader")}
+			</h4>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoPresenceText1")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoPresenceText2")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoPresenceText3")}
+			</p>
+		</div>
+	</f:if>
+	
+	<f:if condition="{field.infofooteronline}">
+		<div class="info-footer mt-5">
+			<h4 class="mb-2">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoOnlineHeader")}
+			</h4>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoOnlineText1")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoOnlineText2")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoOnlineText3")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoOnlineText4")}
+			</p>
+		</div>
+	</f:if>
+	
+</div>
+	   <script>
+		   var maxCourseParticipants = {gtnLst:courseParticipants(course: '{courseUid}', get: 'max')};
+		   var currentCourseParticipants = {gtnLst:courseParticipants(course: '{courseUid}', get: 'current')};
+		   debugger
+	   </script>
+
+   </f:then>
+   <f:else>
+	<div class="row justify-content-md-center"> 
+		<div class="col-12 col-sm-8 col-md-8 col-lg-8 maincol">
+      {f:cObject(typoscriptObjectPath: "lib.loginFormContent")}
+		</div>
+	</div>
+   </f:else>
+
+
+</f:security.ifAuthenticated>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en"
+	    datatype="plaintext"
+	    original="EXT:cookieconsent/Resources/Private/Language/locallang.xlf"
+	    date="2023-10-26T11:54:14Z"
+		target-language="de"
+		product-name="cookieconsent">
+		<header/>
+		<body>
+			<trans-unit id="message">
+                <source>We use cookies and other tracking technologies to personalize and improve your experience. By continuing to use our website you consent to this.</source>
+                <target>Diese Website benutzt Cookies, die für den technischen Betrieb der Website erforderlich sind und stets gesetzt werden. Andere Cookies, um Inhalte und Anzeigen zu personalisieren und die Zugriffe auf unsere Website zu analysieren, werden nur mit Ihrer Zustimmung gesetzt. Außerdem geben wir Informationen zu Ihrer Verwendung unserer Website an unsere Partner für soziale Medien, Werbung und Analysen weiter.</target>
+            </trans-unit>
+            <trans-unit id="dismiss">
+                <source>allow cookies</source>
+                <target>Cookies zulassen!</target>
+            </trans-unit>
+            <trans-unit id="allow">
+                <source>save</source>
+                <target>Speichern</target>
+            </trans-unit>
+            <trans-unit id="config">
+                <source>customize</source>
+                <target>Anpassen</target>
+            </trans-unit>
+            <trans-unit id="allowall">
+                <source>allow all!</source>
+                <target>Alle akzeptieren!</target>
+            </trans-unit>
+            <trans-unit id="deny">
+                <source>decline</source>
+                <target>Ablehnen</target>
+            </trans-unit>
+            <trans-unit id="policy">
+                <source>Cookie Policy</source>
+                <target>Cookies</target>
+            </trans-unit>
+            <trans-unit id="link">
+                <source>More info</source>
+                <target>Mehr Infos</target>
+            </trans-unit>
+            <trans-unit id="dpRequire">
+                <source>necessary</source>
+                <target>Notwendig</target>
+            </trans-unit>
+            <trans-unit id="dpStatistik">
+                <source>statistics</source>
+                <target>Statistiken</target>
+            </trans-unit>
+            <trans-unit id="dpMarketing">
+                <source>marketing</source>
+                <target>Marketing</target>
+            </trans-unit>
+
+            <trans-unit id="media.notice">
+                <source>Cookie Notice</source>
+                <target>Cookie-Hinweis</target>
+            </trans-unit>
+            <trans-unit id="media.desc">
+                <source>Loading this resource will connect to external servers which use cookies and other tracking technologies to personalize and improve experience. Further information can be found in our privacy policy.</source>
+                <target>Durch das Laden dieser Ressource wird eine Verbindung zu externen Servern hergestellt, die Cookies und andere Tracking-Technologien verwenden, um die Benutzererfahrung zu personalisieren und zu verbessern. Weitere Informationen finden Sie in unserer Datenschutzerklärung.</target>
+            </trans-unit>
+            <trans-unit id="media.btn">
+                <source>Allow Cookies and load this resource</source>
+                <target>Erlaube Cookies und lade diese Ressource</target>
+            </trans-unit>
+
+            <trans-unit id="cookie.name">
+                <source>Cookies</source>
+                <target>Cookies</target>
+            </trans-unit>
+            <trans-unit id="cookie.category">
+                <source>Category</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="cookie.category.0">
+                <source>Required</source>
+                <target>Erforderlich</target>
+            </trans-unit>
+            <trans-unit id="cookie.category.1">
+                <source>Statistics</source>
+                <target>Statistiken</target>
+            </trans-unit>
+            <trans-unit id="cookie.category.2">
+                <source>Marketing</source>
+                <target>Marketing</target>
+            </trans-unit>
+            <trans-unit id="cookie.description">
+                <source>Domain</source>
+                <target>Domain</target>
+            </trans-unit>
+            <trans-unit id="cookie.duration_time.1">
+                <source>Day(s)</source>
+                <target>Tag(e)</target>
+            </trans-unit>
+            <trans-unit id="cookie.duration_time.2">
+                <source>Year(s)</source>
+                <target>Jahr(e)</target>
+            </trans-unit>
+            <trans-unit id="cookie.duration">
+                <source>Duration</source>
+                <target>Dauer</target>
+            </trans-unit>
+            <trans-unit id="cookie.vendor">
+                <source>Vendor</source>
+                <target>Anbieter</target>
+            </trans-unit>
+
+            <trans-unit id="config.header">
+                <source>Customize Consent Preferences</source>
+                <target>Einstellungen für die Zustimmung anpassen</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

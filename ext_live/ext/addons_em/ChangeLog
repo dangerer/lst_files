@@ -1,0 +1,74 @@
+2024-12-18 Franz Holzinger  <franz@ttproducts.de>
+    * Doctrine executeUpdate has been renamed into executeStatement already in TYPO3 11.5
+
+2024-10-29 Franz Holzinger  <franz@ttproducts.de>
+    * compatible with TYPO3 13.4
+
+2023-12-29 Franz Holzinger  <franz@ttproducts.de>
+    * use rector to improve the PHP code
+
+2023-04-15 Franz Holzinger  <franz@ttproducts.de>
+    * compatible with TYPO3 12.3
+
+2022-12-01 Franz Holzinger  <franz@ttproducts.de>
+    * bugfix issue #2: Migrate extension icon to Resources/Public/Icons/Extension.gif
+
+2022-10-05 Franz Holzinger  <franz@ttproducts.de>
+    * new feature: class FileHandlingApi with methods taken from extensionmanager \TYPO3\CMS\Extensionmanager\Utility\FileHandlingUtility
+ to generate an extension ZIP file and download it via the browser
+
+2022-01-20 Franz Holzinger  <franz@ttproducts.de>
+    * bugfix issue #1: rename namespace XClass ==> Xclass
+
+2022-01-20 Franz Holzinger  <franz@ttproducts.de>
+    * new feature: XCLASS for \TYPO3\CMS\Core\Database\Schema\SchemaMigrator in order to support
+      UPDATE changes in the files ext_tables_static+adt.sql of the extensions static_info_tables_xx .
+
+2022-01-14 Franz Holzinger  <franz@ttproducts.de>
+    * Remove the hook class.tx_addonsem_hooks_pool.php
+
+2022-01-11 Franz Holzinger  <franz@ttproducts.de>
+    * It works also with PHP 8
+
+2022-01-05 Franz Holzinger  <franz@ttproducts.de>
+    * compatible with TYPO3 11.5
+    * remove deprecated file class.tx_addonsem_tca_div.php
+
+2021-06-24 Franz Holzinger  <franz@ttproducts.de>
+    * again compatible with TYPO3 8.7
+
+2021-03-31 Franz Holzinger  <franz@ttproducts.de>
+    * compatible with TYPO3 10.4
+
+2020-04-29 Franz Holzinger  <franz@ttproducts.de>
+    * compatible with TYPO3 9.5
+    * modification in composer.json
+
+2018-10-16 Franz Holzinger  <franz@ttproducts.de>
+    * use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility instead of t3lib_extMgm
+
+2018-10-05 Franz Holzinger  <franz@ttproducts.de>
+    * modification in composer.json
+
+2018-01-29 Franz Holzinger  <franz@ttproducts.de>
+    * compatible with TYPO3 8.7.13
+    * add composer.json file
+
+2016-01-29 Franz Holzinger  <franz@ttproducts.de>
+	* for TYPO3 7.6.2: replace calls to t3lib_div by class \TYPO3\CMS\Core\Utility\GeneralUtility
+	* deprecate method writeLocalconfValue
+
+2015-12-03 Franz Holzinger  <franz@ttproducts.de>
+	* Move into UTF-8 characters
+
+2014-08-30 Franz Holzinger  <franz@ttproducts.de>
+	* add tx_em_Tools::getSerializedLocalLang because tx_em_Tools have gone lost
+
+2014-08-19 Franz Holzinger  <franz@ttproducts.de>
+	* Add a function to remove fields from the TCA: tx_addonsem_tca_div::removeFieldsFromTCA
+
+2014-07-16 Franz Holzinger  <franz@ttproducts.de>
+	* Upload as version 0.0.1 into TER
+
+2011-05-15 Franz Holzinger  <franz@ttproducts.de>
+	* Initial release

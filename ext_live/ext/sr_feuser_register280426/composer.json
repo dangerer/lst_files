@@ -1,0 +1,46 @@
+{
+  "name": "sjbr/sr-feuser-register",
+  "description": "A self-registration variant of Kasper Skårhøj's Front End User Admin extension for TYPO3 CMS.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "TYPO3",
+    "user",
+    "registration",
+    "frontend",
+    "fe_users"
+  ],
+  "authors": [
+    {
+    "name": "Stanislas Rolland",
+    "homepage": "https://www.sjbr.ca",
+    "role": "Developer"
+    }
+  ],
+  "homepage": "https://codeberg.org/sjbr/sr-feuser-register",
+  "support": {
+    "issues": "https://codeberg.org/sjbr/sr-feuser-register/issues"
+  },
+  "replace": {
+	"typo3-ter/sr-feuser-register": "self.version"
+  },
+  "require": {
+    "typo3/cms-core": "^12.4",
+    "typo3/cms-felogin": "^12.4",
+    "sjbr/static-info-tables": "^12.4.2"
+  },
+  "suggest": {
+    "sjbr/sr-freecap": "Allows to add a captcha to the registration form.",
+    "directmailteam/direct-mail" : "Allows to send newsletters to registered users."
+  },
+  "autoload": {
+    "psr-4": {
+      "SJBR\\SrFeuserRegister\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "sr_feuser_register"
+    }
+  }
+}

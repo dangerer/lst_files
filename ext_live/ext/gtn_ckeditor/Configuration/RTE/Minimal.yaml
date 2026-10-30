@@ -1,0 +1,25 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:gtn_ckeditor/Configuration/RTE/GtnStyles.yaml" }
+
+
+# Minimal configuration for the editor
+editor:
+  config:
+
+    contentsCss: "/fileadmin/Lst2017/Resources/Public/StyleSheets/TYPO3_rte.css"
+
+    toolbarGroups:
+      - { name: styles }
+      - { name: basicstyles, groups: [ basicstyles] }
+      - { name: clipboard, groups: [clipboard, undo] }
+
+    removeButtons:
+      - Anchor
+      - Superscript
+      - Subscript
+      - Underline
+      - Strike
+

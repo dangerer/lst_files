@@ -1,0 +1,15 @@
+## Configuring the Font Maker backend module
+module.tx_srfreecap {
+	## Paths for backend templates
+	view {
+		templateRootPaths {
+			10 = EXT:sr_freecap/Resources/Private/Templates/FontMaker/
+		}
+		partialRootPaths {
+			10 = EXT:sr_freecap/Resources/Private/Partials/
+		}
+		layoutRootPaths {
+			10 = EXT:sr_freecap/Resources/Private/Layouts/
+		}
+	}
+}

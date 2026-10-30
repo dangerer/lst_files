@@ -1,0 +1,52 @@
+# ==============================================
+# Typoscript configuration for ke_search
+# ==============================================
+
+# paths for fluid templating
+plugin.tx_kesearch_pi1 {
+    view {
+        templateRootPaths {
+            0 = EXT:ke_search/Resources/Private/Templates/
+            1 = {$plugin.tx_kesearch.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:ke_search/Resources/Private/Partials/
+            1 = {$plugin.tx_kesearch.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:ke_search/Resources/Private/Layouts/
+            1 = {$plugin.tx_kesearch.layoutRootPath}
+        }
+    }
+    cssFile = EXT:ke_search/Resources/Public/Css/ke_search_pi1.css
+
+    # Set this to a comma-separated list of piVars you want to allow for custom implementations
+    # Example:
+    # Set
+    # additionalAllowedPiVars = myvar
+    # and in SearchForm.html use
+    # <input type="hidden" name="tx_kesearch_pi1[myvar]" value="example" />
+    # to add a custom piVar
+    additionalAllowedPiVars =
+
+    # By default the URL parameter for the searchword is "tx_kesearch_pi1[sword]". With this setting you may change
+    # the name of the parameter for example to "query" which allows the search words to be tracked by GA4.
+    searchWordParameter = tx_kesearch_pi1[sword]
+}
+
+plugin.tx_kesearch_pi2 {
+    view < plugin.tx_kesearch_pi1.view
+    cssFile < plugin.tx_kesearch_pi1.cssFile
+    additionalAllowedPiVars < plugin.tx_kesearch_pi1.additionalAllowedPiVars
+    searchWordParameter < plugin.tx_kesearch_pi1.searchWordParameter
+
+    # Set this to 1 to make the filters available in the result list plugin
+    includeFilters = 0
+}
+
+plugin.tx_kesearch_pi3 {
+    view < plugin.tx_kesearch_pi1.view
+    cssFile < plugin.tx_kesearch_pi1.cssFile
+    additionalAllowedPiVars < plugin.tx_kesearch_pi1.additionalAllowedPiVars
+    searchWordParameter < plugin.tx_kesearch_pi1.searchWordParameter
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-11-03T13:48:41Z" product-name="file_list">
+		<header/>
+		<body>
+			<trans-unit id="filelist_title">
+				<source>File List - List of files</source>
+			</trans-unit>
+			<trans-unit id="filelist_wizard_description">
+				<source>Makes a list of files and folders.</source>
+			</trans-unit>
+
+			<trans-unit id="tabs.general">
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tabs.appearance">
+				<source>Listing Appearance</source>
+			</trans-unit>
+			<trans-unit id="filelist.mode">
+				<source>Mode</source>
+			</trans-unit>
+			<trans-unit id="filelist.mode.folder">
+				<source>Files within a folder</source>
+			</trans-unit>
+			<trans-unit id="filelist.mode.file_collections">
+				<source>Files from file collections</source>
+			</trans-unit>
+			<trans-unit id="filelist.path">
+				<source>Restrict to folder path (example: 1:/user_upload/)</source>
+			</trans-unit>
+			<trans-unit id="filelist.path.summary">
+				<source>Path</source>
+			</trans-unit>
+			<trans-unit id="filelist.path.summary.errorEmpty">
+				<source>No path selected</source>
+			</trans-unit>
+			<trans-unit id="filelist.path.wizards.link.title">
+				<source>Folder selector</source>
+			</trans-unit>
+			<trans-unit id="filelist.includeSubfolders">
+				<source>Allow browsing to subfolders</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy">
+				<source>Sort files by</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy.date">
+				<source>Modification Date</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy.crdate">
+				<source>Creation Date</source>
+			</trans-unit>
+			<trans-unit id="filelist.orderBy.size">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="filelist.sortDirection">
+				<source>Sort sequence</source>
+			</trans-unit>
+			<trans-unit id="filelist.sortDirection.asc">
+				<source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="filelist.sortDirection.desc">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="filelist.file_collections">
+				<source>Select file collections</source>
+			</trans-unit>
+			<trans-unit id="filelist.newDuration">
+				<source>Amount of days between a files creation date and the frontend visit date within which a file should be displayed as &quot;new&quot; (0 = disabled)</source>
+			</trans-unit>
+			<trans-unit id="filelist.templateLayout">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="filelist.templateLayout.simple">
+				<source>Simple listing</source>
+			</trans-unit>
+			<trans-unit id="filelist.templateLayout.thumbnailDescription">
+				<source>Thumbnail + description</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

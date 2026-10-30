@@ -1,0 +1,28 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="row">
+    <f:if condition="{question.title}">
+        <f:then>
+            <div class="question-text col-xl-10">
+                <p>{question.title}</p>
+            </div>
+            <div class="answer-fields col-xl-2">
+                <f:for each="{question.answers}" as="answer">
+                    <f:render partial="Answer/MultiSelect" arguments="{answer:answer, questionUid: question.uid}"/>
+                </f:for>
+
+            </div>
+        </f:then>
+        <f:else>
+            <div class="answer-fields">
+                <f:for each="{question.answers}" as="answer">
+                    <f:render partial="Answer/MultiSelect" arguments="{answer:answer, questionUid: question.uid}"/>
+                </f:for>
+
+            </div>
+        </f:else>
+
+    </f:if>
+
+</div>
+</html>
+

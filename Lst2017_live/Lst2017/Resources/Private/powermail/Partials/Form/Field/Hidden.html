@@ -1,0 +1,9 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:if condition="{field.lstAddJs}">
+	{field.lstAddJs -> f:format.raw()}
+</f:if>
+<f:form.hidden
+		id="powermail_field_{field.marker}"
+		property="{field.marker}"
+		value="{vh:Misc.PrefillField(field:field, mail:mail)}"
+		class="powermail_hidden {field.css} powermail_{field.marker}" />

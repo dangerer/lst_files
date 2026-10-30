@@ -1,0 +1,14 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_gender form-group">
+	<label class="control-label">
+		{f:translate(key:'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:fe_user.fe_language')}
+	</label>
+	<div class="">     
+		<f:form.select 
+			id="femanager_field_feLanguage"
+			class="form-control" 
+			property="feLanguage"
+			options = "{0: '{f:translate(key:\'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:fe_user.fe_language.item0\')}', 1: '{f:translate(key:\'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:fe_user.fe_language.item1\')}'}"
+		/>
+	</div>
+</div>

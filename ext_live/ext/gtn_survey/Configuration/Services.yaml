@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  GTN\GtnSurvey\:
+    resource: '../Classes/*'
+
+  GTN\GtnSurvey\Controller\SurveyAnalysisController:
+    tags: [ 'backend.controller' ]

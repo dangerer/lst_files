@@ -1,0 +1,468 @@
+
+#lib.genderTitle = CASE
+#lib.genderTitle {
+##	key.data = TSFE:fe_user|user|gender	
+#	key = TEXT
+#	key.data = DB:fe_users:1806:gender
+#	0 = TEXT
+#	0.value = Herr
+#	1 = TEXT
+#	1.value = Frau			
+#}
+
+# CASE does not work. WHY???
+lib.genderTitle = COA
+lib.genderTitle.10 = TEXT
+lib.genderTitle.10 {
+	value = Herr
+	if.value.data = TSFE:fe_user|user|gender	
+	if.equals = 0
+}
+lib.genderTitle.20 = TEXT
+lib.genderTitle.20 {
+	value = Frau
+	if.value.data = TSFE:fe_user|user|gender	
+	if.equals = 1
+}
+
+[siteLanguage("languageId") == 1]
+#[Gtn\GtnLstHooks\Condition\FeLanguageSelectedCondition = 1]
+	lib.genderTitle.10.value = Mr
+	lib.genderTitle.20.value = Ms
+[end]
+
+plugin.tx_powermail {
+        view {
+                templateRootPaths {
+                        0 = EXT:powermail/Resources/Private/Templates/
+                        1 = fileadmin/Lst2017/Resources/Private/powermail/Templates/
+                }
+                partialRootPaths {
+                        0 = EXT:powermail/Resources/Private/Partials/
+                        1 = fileadmin/Lst2017/Resources/Private/powermail/Partials/
+                }
+                layoutRootPaths {
+                        0 = EXT:powermail/Resources/Private/Layouts/
+                        1 = fileadmin/Lst2017/Resources/Private/powermail/Layouts/
+                }
+        }
+	
+	settings {
+		setup {
+			captcha.use = captcha
+			prefill {				
+#				anrede = TEXT
+#				anrede.data = TSFE:fe_user|user|gender
+#				anrede.value = Herr
+				anrede < lib.genderTitle
+				andrede < lib.genderTitle
+				# Allgemeine Anfragen
+				land = TEXT
+				land.data = TSFE:fe_user|user|static_info_country
+				# RAN
+				land2 = TEXT
+				land2.data = TSFE:fe_user|user|static_info_country
+			}
+		}
+	}
+
+	_LOCAL_LANG {
+		de {
+#			error_wrong_captcha = err1
+#			validationerror_captcha = err2
+
+			validationerror_validation.9 = Ungültige Eingabe (zu viele/zu wenige Zeichen)!
+		}
+		en {
+			validationerror_mandatory = This field must be filled in!
+			
+			validationerror_validation.9 = Invalid entry (too many/not enough characters)! 
+		}
+	}
+}
+
+
+
+# for RAN
+[32 in tree.rootLineParentIds]
+plugin.tx_powermail {
+        view {
+                templateRootPaths {                        
+                        33 = fileadmin/Lst2017/Resources/Private/powermail_RAN/Templates/
+                }
+        }
+}
+[end]
+
+# for DayCode form
+[11249 in tree.rootLineParentIds]
+#plugin.tx_powermail.settings.setup.validation.native = 0
+#plugin.tx_powermail.settings.setup.validation.client = 0
+plugin.tx_powermail.settings.setup.validation.server = 0
+[end]
+
+# for Tech support form. becasue the country marker is 'marker'
+[86 in tree.rootLineParentIds]
+    plugin.tx_powermail.settings.setup.prefill {
+	marker = TEXT
+	marker.data = TSFE:fe_user|user|static_info_country
+}
+[end]
+
+[11490 in tree.rootLineParentIds]
+    plugin.tx_powermail {
+        settings {
+            setup {
+
+                # Manipulate values from {powermail_all} by markername
+                manipulateVariablesInPowermailAllMarker {
+                    # On Confirmation Page (if activated)
+                    confirmationPage {
+                        # manipulate values by given marker (e.g. firstname, email, referrer) with TypoScript - available fieldnames (access with .field=): value, valueType, uid, pid
+                        anrede = CASE
+                        anrede {
+                            key.field = value
+
+                            m = TEXT
+                            m.value = Herr
+
+                            default = TEXT
+                            default.value = Frau
+                        }
+
+                        newsletter = CASE
+                        newsletter {
+                            key.field = value
+
+                            0 = TEXT
+                            0.value = Nein
+
+                            default = TEXT
+                            default.value = Ja
+                        }
+                    }
+
+                }
+
+                dbEntry {
+
+                    #####################################################
+                    ### EXAMPLE for adding values to table tt_address ###
+                    #####################################################
+
+                    1 {
+                        # Enable or disable db entry for table tt_address
+                        _enable = TEXT
+                        _enable.value = 1
+                        _enable.if.isTrue.field = newsletter
+
+                        # Set tableName to "tt_address"
+                        _table = TEXT
+                        _table.value = tt_address
+
+                        # Write only if any field is not yet filled with current value (e.g. test if an email is already in database)
+                        # default: always add new records (don't care about existing values)
+                        # update: update record if there is an existing entry (e.g. if email is already there)
+                        # none: no entry if field is filled (do nothing if record already exists)
+                        _ifUnique.email = update
+
+                        # optional: add additional where clause (only in mode "update") for search if a record still exists. You could use a plain string (see example below) or a cObject if needed
+                        _ifUniqueWhereClause = AND pid = 114
+
+                        # Fill tt_address.email with a static value => mail@mail.com
+                        email = TEXT
+                        email.field = e_mail
+
+                        # Fill tt_address.pid with the current pid (e.g. 12)
+                        pid = TEXT
+                        pid.value = 114
+
+                        # Fill tt_address.tstamp with the current time as timestamp (like 123456789)
+                        tstamp = TEXT
+                        tstamp.data = date:U
+
+                        crdate = TEXT
+                        crdate.data = date:U
+
+                        # Fill tt_address.address with the current formatted time (like "Date: 20.01.2013")
+                        address = TEXT
+                        address.data = date:U
+                        address.strftime = Date: %d.%m.%Y
+
+                        gender = TEXT
+                        gender.field = anrede
+
+                        # Fill tt_address.name with the value from powermail {firstname}
+                        first_name = TEXT
+                        first_name.field = vorname
+
+                        # Fill tt_address.last_name with the value from powermail {lastname}
+                        last_name = TEXT
+                        last_name.field = nachname
+
+                        # Fill tt_address.company with the value from powermail {company}
+                        company = TEXT
+                        company.field = firma
+
+
+                        zip = TEXT
+                        zip.field = plz
+
+                        city = TEXT
+                        city.field = ort
+
+                        country = TEXT
+                        country.field = land
+
+                        static_info_country = TEXT
+                        static_info_country.field = land
+
+
+
+                    }
+                }
+
+            }
+
+        }
+
+    }
+[end]
+
+[11602 in tree.rootLineParentIds]
+    plugin.tx_powermail {
+        settings {
+            setup {
+
+                # Manipulate values from {powermail_all} by markername
+                manipulateVariablesInPowermailAllMarker {
+                    # On Confirmation Page (if activated)
+                    confirmationPage {
+                        # manipulate values by given marker (e.g. firstname, email, referrer) with TypoScript - available fieldnames (access with .field=): value, valueType, uid, pid
+                        anrede = CASE
+                        anrede {
+                            key.field = value
+
+                            m = TEXT
+                            m.value = Herr
+
+                            default = TEXT
+                            default.value = Frau
+                        }
+
+#                        newsletter = CASE
+#                        newsletter {
+#                            key.field = value
+#
+#                            0 = TEXT
+#                            0.value = Nein
+#
+#                            default = TEXT
+#                            default.value = Ja
+#                        }
+                    }
+
+                }
+
+                dbEntry {
+
+                    #####################################################
+                    ### EXAMPLE for adding values to table tt_address ###
+                    #####################################################
+
+                    1 {
+                        # Enable or disable db entry for table tt_address
+                        _enable = TEXT
+                        _enable.value = 1
+#                        _enable.if.isTrue.field = newsletter
+
+                        # Set tableName to "tt_address"
+                        _table = TEXT
+                        _table.value = tt_address
+
+                        # Write only if any field is not yet filled with current value (e.g. test if an email is already in database)
+                        # default: always add new records (don't care about existing values)
+                        # update: update record if there is an existing entry (e.g. if email is already there)
+                        # none: no entry if field is filled (do nothing if record already exists)
+                        _ifUnique.email = update
+
+                        # optional: add additional where clause (only in mode "update") for search if a record still exists. You could use a plain string (see example below) or a cObject if needed
+                        _ifUniqueWhereClause = AND pid = 114
+
+                        # Fill tt_address.email with a static value => mail@mail.com
+                        email = TEXT
+                        email.field = e_mail
+
+                        # Fill tt_address.pid with the current pid (e.g. 12)
+                        pid = TEXT
+                        pid.value = 114
+
+                        # Fill tt_address.tstamp with the current time as timestamp (like 123456789)
+                        tstamp = TEXT
+                        tstamp.data = date:U
+
+                        crdate = TEXT
+                        crdate.data = date:U
+
+                        # Fill tt_address.address with the current formatted time (like "Date: 20.01.2013")
+                        address = TEXT
+                        address.data = date:U
+                        address.strftime = Date: %d.%m.%Y
+
+                        gender = TEXT
+                        gender.field = anrede
+
+                        # Fill tt_address.name with the value from powermail {firstname}
+                        first_name = TEXT
+                        first_name.field = vorname
+
+                        # Fill tt_address.last_name with the value from powermail {lastname}
+                        last_name = TEXT
+                        last_name.field = nachname
+
+                        # Fill tt_address.company with the value from powermail {company}
+                        company = TEXT
+                        company.field = firma
+
+
+                        zip = TEXT
+                        zip.field = plz
+
+                        city = TEXT
+                        city.field = ort
+
+                        country = TEXT
+                        country.field = land
+
+                        static_info_country = TEXT
+                        static_info_country.field = land
+
+
+
+                    }
+                }
+
+            }
+
+        }
+
+    }
+[end]
+
+[siteLanguage("languageId") == 1] AND [11490 in tree.rootLineParentIds]
+    ## English people to english newsletter users
+    plugin.tx_powermail.settings.setup.dbEntry.1._ifUniqueWhereClause = AND pid = 335
+    plugin.tx_powermail.settings.setup.dbEntry.1.pid.value = 335
+    ## English texts confirmation page
+
+    plugin.tx_powermail.settings.setup.manipulateVariablesInPowermailAllMarker.confirmationPage {
+        anrede = CASE
+        anrede {
+            key.field = value
+
+            m = TEXT
+            m.value = Mr
+
+            default = TEXT
+            default.value = Ms
+        }
+
+        newsletter = CASE
+        newsletter {
+            key.field = value
+
+            0 = TEXT
+            0.value = No
+
+            default = TEXT
+            default.value = Yes
+        }
+    }
+[end]
+
+
+
+    plugin.tx_powermail {
+ 	settings {
+		setup {
+			# Exclude values from {powermail_all} by markername or fieldtype
+                        excludeFromPowermailAllMarker {
+                                # On Confirmation Page (if activated)
+                                confirmationPage {
+                                        # add some markernames (commaseparated) which should be excluded
+                                        excludeFromMarkerNames = articlesdata, datenschutz
+
+                                        # add some fieldtypes (commaseparated) which should be excluded
+                                        excludeFromFieldTypes = hidden, captcha
+                                }
+
+                                # On Submitpage
+                                submitPage {
+                                        # add some markernames (commaseparated) which should be excluded
+                                        excludeFromMarkerNames = articlesdata, datenschutz
+
+                                        # add some fieldtypes (commaseparated) which should be excluded
+                                        excludeFromFieldTypes = captcha
+                                }
+
+                                # In Mail to receiver
+                                receiverMail {
+                                        # add some markernames (commaseparated) which should be excluded
+                                        excludeFromMarkerNames = articlesdata, datenschutz
+
+                                        # add some fieldtypes (commaseparated) which should be excluded
+                                        excludeFromFieldTypes = captcha
+                                }
+
+                                # In Mail to sender (if activated)
+                                senderMail {
+                                        # add some markernames (commaseparated) which should be excluded
+                                        excludeFromMarkerNames = articlesdata, datenschutz
+
+                                        # add some fieldtypes (commaseparated) which should be excluded
+                                        excludeFromFieldTypes = captcha
+                                }
+
+                                # In double-opt-in Mail to sender (if activated)
+                                optinMail {
+                                        # add some markernames (commaseparated) which should be excluded
+                                        excludeFromMarkerNames = articlesdata, datenschutz
+
+                                        # add some fieldtypes (commaseparated) which should be excluded
+                                        excludeFromFieldTypes = captcha
+                                }
+                        }
+#			dataProcessors {
+#				143 {
+#					# Classname that should be called with method *DataProcessor()
+#					class = Gtn\GtnLstHooks\Hooks\AddCsvDataProcessor
+#				}
+#			}
+		}
+	}
+}
+
+# add content for RAN print modal
+lib.addContentForPrint = COA
+lib.addContentForPrint {   
+    10 = CONTENT
+    10 {
+        table = tt_content
+        select.where = colPos = 0
+        select.pidInList = 320
+    }
+    10.stdWrap.wrap = <div class="add-print-header" style="display:none;">|</div>
+    20 = CONTENT
+    20 {
+        table = tt_content
+        select.where = colPos = 2
+        select.pidInList = 320
+    }
+    20.stdWrap.wrap = <div class="add-print-footer" style="display:none;">|</div>
+}
+
+
+
+
+
+

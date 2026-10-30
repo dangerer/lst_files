@@ -1,0 +1,13 @@
+{
+  "name": "gtn_lstkesearch",
+  "type": "typo3-cms-extension",
+  "description": "Hooks for ke_search.",
+  "autoload": {
+    "psr-4": {
+      "Gtn\\KeSearchHooks\\": "Classes"
+    }
+  },
+  "require": {
+    "typo3/cms-core": "^8.7"
+  }
+}

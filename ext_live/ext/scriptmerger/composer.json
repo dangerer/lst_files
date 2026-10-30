@@ -1,0 +1,26 @@
+{
+	"name": "sgalinski/scriptmerger",
+	"type": "typo3-cms-extension",
+	"description": "CSS/Javascript Minificator, Compressor And Concatenator - This extension minimizes the http requests by concatenating your css and javascript. Furthermore the result can be minified and compressed. This whole process is highly configurable and is partly based on the \"minify\", \"jsminplus\" and \"jsmin\" projects.",
+	"homepage": "https://www.sgalinski.de",
+	"license": [
+		"GPL-2.0-or-later"
+	],
+	"version": "9.0.0",
+	"support": {
+		"issues": "https://gitlab.sgalinski.de/typo3/scriptmerger"
+	},
+	"require": {
+		"typo3/cms-core": "^12.4.0"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "scriptmerger"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"SGalinski\\Scriptmerger\\": "Classes/"
+		}
+	}
+}

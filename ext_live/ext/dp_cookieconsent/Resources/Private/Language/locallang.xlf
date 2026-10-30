@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2023-10-25T11:53:14Z"
+		  product-name="cookieconsent">
+		<header/>
+		<body>
+			<trans-unit id="message">
+				<source>We use cookies and other tracking technologies to personalize and improve your experience. By continuing to use our website you consent to this.</source>
+			</trans-unit>
+			<trans-unit id="dismiss">
+				<source>allow cookies</source>
+			</trans-unit>
+            <trans-unit id="allowall">
+                <source>allow all!</source>
+            </trans-unit>
+            <trans-unit id="config">
+                <source>customize</source>
+            </trans-unit>
+            <trans-unit id="allow">
+                <source>save</source>
+            </trans-unit>
+			<trans-unit id="deny">
+				<source>decline</source>
+			</trans-unit>
+			<trans-unit id="policy">
+				<source>Cookie Policy</source>
+			</trans-unit>
+			<trans-unit id="link">
+				<source>More info</source>
+			</trans-unit>
+			<trans-unit id="dpRequire">
+				<source>necessary</source>
+			</trans-unit>
+			<trans-unit id="dpStatistik">
+				<source>statistics</source>
+			</trans-unit>
+			<trans-unit id="dpMarketing">
+				<source>marketing</source>
+			</trans-unit>
+
+			<trans-unit id="media.notice">
+                <source>Cookie Notice</source>
+            </trans-unit>
+            <trans-unit id="media.desc">
+                <source>Loading this resource will connect to external servers which use cookies and other tracking technologies to personalize and improve experience. Further information can be found in our privacy policy.</source>
+            </trans-unit>
+            <trans-unit id="media.btn">
+                <source>Allow cookies and load this resource</source>
+            </trans-unit>
+
+
+            <trans-unit id="cookie.name">
+                <source>Cookies</source>
+            </trans-unit>
+            <trans-unit id="cookie.category">
+                <source>Category</source>
+            </trans-unit>
+            <trans-unit id="cookie.category.0">
+                <source>Required</source>
+            </trans-unit>
+            <trans-unit id="cookie.category.1">
+                <source>Statistics</source>
+            </trans-unit>
+            <trans-unit id="cookie.category.2">
+                <source>Marketing</source>
+            </trans-unit>
+            <trans-unit id="cookie.description">
+                <source>Domain</source>
+            </trans-unit>
+            <trans-unit id="cookie.duration_time.1">
+                <source>Day(s)</source>
+            </trans-unit>
+            <trans-unit id="cookie.duration_time.2">
+                <source>Year(s)</source>
+            </trans-unit>
+            <trans-unit id="cookie.duration">
+                <source>Duration</source>
+            </trans-unit>
+            <trans-unit id="cookie.vendor">
+                <source>Vendor</source>
+            </trans-unit>
+
+            <trans-unit id="config.header">
+                <source>Customize Consent Preferences</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

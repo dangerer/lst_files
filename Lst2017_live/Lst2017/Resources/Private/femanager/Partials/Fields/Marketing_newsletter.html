@@ -1,0 +1,18 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_marketingnewsletter form-group">
+    <div class="col-sm-12">
+        <div class="checkbox">
+            <label class="checkbox">
+                <f:form.checkbox
+                        id="femanager_field_marketing_newsletter"
+                        property="marketingNewsletter"
+                        value="1"		
+		/>
+                <f:translate key="marketing_newsletter" extensionName="srFeuserRegister" />
+                <f:if condition="{femanager:Validation.IsRequiredField(fieldName:'marketing_newsletter')}">
+                    <span>*</span>
+                </f:if>
+            </label>
+        </div>
+    </div>
+</div>

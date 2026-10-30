@@ -1,0 +1,37 @@
+{
+	"name": "friendsoftypo3/rdct",
+	"type": "typo3-cms-extension",
+	"description": "Frontend redirects based on RDCT GET parameter",
+	"homepage": "https://extensions.typo3.org/extension/rdct",
+	"support": {
+		"docs": "https://docs.typo3.org/p/friendsoftypo3/rdct/main/en-us/",
+		"issues": "https://github.com/FriendsOfTYPO3/rdct/issues",
+		"source": "https://github.com/FriendsOfTYPO3/rdct"
+	},
+	"license": ["GPL-2.0+"],
+	"authors": [
+		{
+			"name": "Benni Mack",
+			"email": "benni@typo3.org",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": "^8.1",
+		"typo3/cms-core": ">=12.4.0 <=12.9.99",
+		"typo3/cms-frontend": ">=12.4.0 <=12.9.99"
+	},
+	"replace": {
+		"typo3-ter/rdct": "*"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "rdct"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"FoT3\\Rdct\\": "Classes/"
+		}
+	}
+}

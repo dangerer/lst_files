@@ -1,0 +1,40 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+
+		<f:comment>
+			{vh:Form.Countries()} will try to get the country list from the extension static_info_tables (and _de, _fr etc...)
+			If static_info_tables is not installed, a static list of countries and the ISO3 code will be shown in frontent
+			If you want to change sorting, Value or Label, please install static_info_tables
+		</f:comment>
+
+<div class="powermail_fieldwrap powermail_fieldwrap_type_country powermail_fieldwrap_{field.marker} {field.css} {settings.styles.framework.fieldAndLabelWrappingClasses} form-group">
+	<label for="powermail_field_{field.marker}" class="{settings.styles.framework.labelClasses}" title="{field.description}">
+		<vh:string.escapeLabels>{field.title}</vh:string.escapeLabels><f:if condition="{field.mandatory}"><span class="mandatory">*</span></f:if>
+	</label>
+
+	<div class="{settings.styles.framework.fieldWrappingClasses}"> 
+	                                                                            
+			<f:switch expression="{f:cObject(typoscriptObjectPath: 'lib.languageTS')}">
+				<f:case value="en">
+					<f:form.select
+						property="{field.marker}"
+						options="{vh:Form.Countries(key:'isoCodeA2',value:'shortNameEn',sortbyField:'shortNameEn',sorting:'asc')}"
+						prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+						class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')} form-control"
+						value="{vh:Misc.PrefillField(field:field)}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}_country" />
+				</f:case>
+				<f:defaultCase>
+					<f:form.select
+						property="{field.marker}"
+						options="{vh:Form.Countries(key:'isoCodeA2',value:'shortNameDe',sortbyField:'shortNameDe',sorting:'asc')}"
+						prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+						class="powermail_country {settings.styles.framework.fieldClasses} {vh:Validation.ErrorClass(field:field, class:'powermail_field_error')} form-control"
+						value="{vh:Misc.PrefillField(field:field)}"
+						additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+						id="powermail_field_{field.marker}_country" />
+				</f:defaultCase>
+			</f:switch>                	
+
+	</div>
+</div>

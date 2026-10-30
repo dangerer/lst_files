@@ -1,0 +1,30 @@
+@media print {
+	.headerimg,
+	footer#Footer,
+	.sidebar,
+	.breadCrumb,
+	.navbar-service,
+	#navbarLstMain {
+		display: none !important;
+	}
+
+	.row {
+		display: block;
+	}
+
+	/* powermail */
+	.tx-powermail table, .powermail_create_print table {
+		page-break-after: auto !important;
+		width: 100%;
+	}
+
+	.tx-powermail .btn, {
+		display: none !important;
+	}
+
+	.maincol {
+		max-width: 100% !important;
+	}
+
+
+}

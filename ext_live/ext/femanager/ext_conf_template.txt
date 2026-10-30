@@ -1,0 +1,11 @@
+# cat=basic/enable/010; type=boolean; label= Disable Backend Module: You can deactivate the Backend Module if you don't need it
+disableModule = 0
+
+# cat=basic/enable/020; type=boolean; label= Enable confirmation view: Enable a special confirmation view in Backend Module
+enableConfirmationModule = 0
+
+# cat=basic/enable/030; type=boolean; label= Disable Log: If you don't want to save each change of an fe_user, you can disable the logfile
+disableLog = 0
+
+# cat=basic/enable/200; type=boolean; label= Replace the input field for a fe_user's country with a select box.: This feature can be active without static_info_tables, but will use data from static_info_tables if it is installed.
+overrideFeUserCountryFieldWithSelect = 0

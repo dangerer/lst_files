@@ -1,0 +1,195 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+{f:cache.disable()}
+
+<f:variable name="coursesAccessible" value="no" />
+<f:comment>If the user is logged in, but has not access by group</f:comment>
+<f:security.ifAuthenticated>
+	<f:variable name="coursesAccessible" value="noAccess" />
+</f:security.ifAuthenticated>
+<f:security.ifHasRole role="3">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="4">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="5">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+
+
+<f:if condition="{coursesAccessible} == 'yes'">
+   <f:then>
+
+
+<f:format.raw>
+<script>
+$(document).ready(function() {
+	
+	updateCourseList();
+	$('body').on('change', '.trainings-filter .course-filter', function() {
+		updateCourseList();
+	});
+
+	sortCoursesList();
+
+
+	function updateCourseList() {
+		var allCourses = $('.trainings-course');
+
+		// show all first!
+		allCourses.show();
+		var shownCount = allCourses.length;
+		
+		var allFiltersAnd = [];
+		var allFilterElements = $('.trainings-filter .course-filter');
+		// get array of filter categories: AND + OR conditions
+		allFilterElements.each(function() {
+			var selectedCategories = $(this).val().split(',').filter(Boolean);
+			if (selectedCategories) {
+				// if here is AND
+				// allFiltersAnd = allFiltersAnd.concat(selectedCategories)
+				// if here is OR
+				allFiltersAnd.push(selectedCategories);
+			}
+		}).filter(Boolean);
+		allFiltersAnd = allFiltersAnd.filter(function (el) {
+			return el.length > 0;
+		});
+
+		// show/hide courses by filter
+		allCourses.each(function() {
+			var item = $(this);
+			var elementCategoryUids = item.find('.badge-trainings').map(function() {
+				return $(this).attr('data-categoryUid').toString();
+			}).get();
+			
+			// check all AND
+						
+			if (allFiltersAnd.length > 0) {
+				/*
+				// AND rules 
+				var allFiltersMatch = allFiltersAnd.every(function(catUid) {
+					return elementCategoryUids.includes(catUid);					
+				}); 
+				/**/
+				// check AND + OR rules
+				var allFiltersMatch = allFiltersAnd.every(function(andFilter) {
+					if (!andFilter || andFilter == '') {
+						return true;
+					}
+					return andFilter.some(function(val) {
+						return elementCategoryUids.includes(val);
+					});
+				}); /**/
+			} else {
+				allFiltersMatch = true;
+			}
+			
+			
+			// hide if does not match
+			if (!allFiltersMatch) {
+				item.hide(50);
+				shownCount -= 1;
+			}
+			
+		});
+		
+		if (shownCount > 0) {
+			$('#noFoundAlert').addClass('d-none');
+		} else {
+			$('#noFoundAlert').removeClass('d-none');
+		}
+
+	};
+
+	function sortCoursesList() {
+		var courses = $('.trainings-course');
+		// Sort courses: first data-startDate, then data-courseLocation
+		courses.sort(function(a, b) {
+			// by Titles
+//			var titleA = $(a).attr('data-courseTitle');
+//			var titleB = $(b).attr('data-courseTitle');
+			// by BE sorting
+			var titleA = $(a).attr('data-ceSorting');
+			var titleB = $(b).attr('data-ceSorting');
+			
+			if (titleA < titleB) return -1;
+			if (titleA > titleB) return 1;
+			return 0;
+		});    
+		courses.detach().insertAfter('.trainings-filter');
+	}
+
+
+});
+</script>
+</f:format.raw>
+
+<div class="trainings-filter mt-3 mb-5">
+	<form class="" name="SchulungenForm">
+		<div class="form-row">
+
+			<f:render section="filterSelect" arguments="{items: field.filterArt, id: 'selectArt', filterTitle: '{f:translate(key: \'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.type\')}', withAllOption: field.filterArtAll}" />
+
+			<f:render section="filterSelect" arguments="{items: field.filterLang, id: 'selectLang', filterTitle: '{f:translate(key: \'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.language\')}', withAllOption: field.filterLangAll}" />
+
+			<f:render section="filterSelect" arguments="{items: field.filterTheme, id: 'selectTheme', filterTitle: '{f:translate(key: \'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.theme\')}', withAllOption: field.filterThemeAll}" />
+
+			<f:render section="filterSelect" arguments="{items: field.filterTargetGroup, id: 'selectTargetGroup', filterTitle: '{f:translate(key: \'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.targetGroup\')}', withAllOption: field.filterTargetGroupAll}" />
+
+		</div>
+	</form>
+
+	<div class="alert alert-info my-2 d-none" id="noFoundAlert">
+		{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.noOneFound")}
+	</div>
+</div>
+
+<f:comment>
+<f:variable name="courseLoginFormShown" value="1" />
+</f:comment>
+</f:then>
+<f:else>
+	<f:if condition="{coursesAccessible} == 'noAccess'">
+		<f:then>
+			<div class="alert alert-danger">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.noGroupAccess")}
+			</div>
+		</f:then>
+		<f:else>			
+			<div class="row justify-content-md-center"> 
+				<div class="col-12 col-sm-8 col-md-8 col-lg-8 maincol">
+				      {f:cObject(typoscriptObjectPath: "lib.loginFormContent")}
+				</div>
+			</div>
+		</f:else>
+	</f:if>
+</f:else>
+</f:if>
+
+
+
+
+<f:section name="filterSelect">
+
+	<f:if condition="{items}">
+	
+			<div class="col">
+				<label class="sr-only" for="{id}">Art</label>
+				<select class="form-control course-filter" id="{id}">
+			  	<option value="">{filterTitle}</option>
+					<f:for as="item" each="{items -> v:iterator.sort(sortBy: 'sorting')}" >
+						<option value="{item.uid}">
+{gtnLst:categoryTitleTranslated(categoryUid:"{item.uid}")}
+						</option>
+					</f:for>
+				<f:if condition="{withAllOption}">
+			  		<option value="<f:for as='i' each='{items}' iteration='iter'>{i.uid}{f:if(condition: iter.isLast, else: ',')}</f:for>">Alle</option>
+				</f:if>
+				</select>
+			</div>
+	</f:if>
+
+</f:section>

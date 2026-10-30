@@ -1,0 +1,64 @@
+.landingp-content-block {
+	fffont-size: 120%;
+}
+
+#maincontent .container-fluid .maincol .ce-textpic  ul.ul-checkmark li::before {
+    font-family: "Ionicons";
+	content: "\f122";
+    font-size: 1rem;
+    padding-right: 10px;
+    color: #da251d;
+    margin-left: -18px;
+}
+
+#maincontent .container-fluid h1 {
+	margin-bottom: 1.5rem;
+	font-size: 3.1rem;
+}
+
+.powermail_fieldwrap_type_check {
+	ffont-size: 90%;
+}
+
+.ben-img {
+	background-image: url(/fileadmin/Lst2017/Resources/Public/Images/slidertest_4.jpg);
+	background: transparent url(../Images/home_break.jpg) no-repeat center center;
+}
+
+.powermail_fieldwrap_type_submit {
+	text-align: center;
+}
+
+.powermail_submit.btn-lst {
+	font-size: 1.29rem;
+}
+
+/* Center Logo */
+/*.navbar-expand-md {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}*/
+
+.bg-pagepad {
+	padding-bottom: 25px;
+}
+
+.headerimg header .container-fluid h4 p {
+	font-size: 2.1rem;
+}
+
+#maincontent .container-fluid .landingp-content-block h3 {
+	text-align: center;
+}
+
+
+
+@media (max-width: 992px) {
+	#c6819 .ce-textpic  {
+		overflow: none;
+	}
+	#c6819  .ce-row {
+		overflow: initial;
+	}
+}

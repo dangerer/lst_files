@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+		<!-- ##### Element start ##### -->
+		<f:layout name="Default" />
+
+		<f:section name="Main">
+			<f:render section="Custom_Main{f:if(condition: '{data.layout} > 1', then: '{data.layout}')}" arguments="{_all}" />
+		</f:section>
+
+		<!-- ### LAYOUT 1 - DEFAULT LAYOUT ### -->
+		<f:layout name="Default" />
+		<f:section name="Custom_Main">
+			
+			<!-- ### Gallery Item start ### -->
+			<div class="ce-image ce-{gallery.position.horizontal} ce-{gallery.position.vertical}">
+				<f:render partial="Media/Gallery" arguments="{_all}" />
+			</div>
+			<!-- ### / Gallery Item End ### -->
+			
+		</f:section>
+		
+		<!-- ### LAYOUT 11 - Gallery (4spaltig) ### -->
+		<f:layout name="Default" />
+		<f:section name="Custom_Main11">
+			
+			<!-- ### Gallery Item start ### -->
+			<div class="ce-image ce-{gallery.position.horizontal} ce-{gallery.position.vertical}">
+				<f:render partial="Media/Gallery4Spaltig" arguments="{_all}" />
+			</div>
+			<!-- ### / Gallery Item End ### -->
+			
+		</f:section>
+			
+			
+</f:section>
+</html>

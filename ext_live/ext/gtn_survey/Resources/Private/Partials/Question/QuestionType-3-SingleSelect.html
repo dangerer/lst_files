@@ -1,0 +1,18 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="row">
+    <div class="question-text col-xl-8">
+        <p>{question.title}</p>
+    </div>
+    <div class="answer-fields col-xl-4">
+        <f:for each="{sections}" as="section">
+            <div class="answer-section">
+                <f:for each="{question.answers}" as="answer">
+                    <f:render partial="Answer/RadioButton" arguments="{answer:answer, questionUid: question.uid, sectionUid: section.uid}"/>
+                </f:for>
+            </div>
+        </f:for>
+
+    </div>
+</div>
+</html>
+

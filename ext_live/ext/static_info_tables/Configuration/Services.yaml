@@ -1,0 +1,50 @@
+# Configuration/Services.yaml
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  SJBR\StaticInfoTables\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  SJBR\StaticInfoTables\EventListener\Package\AfterPackageActivationEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'StaticInfoTables/Package/AfterPackageActivationEventLister'
+        event: TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent
+    public: true
+
+  SJBR\StaticInfoTables\EventListener\Package\AfterExtensionStaticDatabaseContentHasBeenImportedEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'StaticInfoTables/Package/AfterExtensionStaticDatabaseContentHasBeenImportedEventListener'
+        event: TYPO3\CMS\Extensionmanager\Event\AfterExtensionStaticDatabaseContentHasBeenImportedEvent
+    public: true
+
+  SJBR\StaticInfoTables\EventListener\Backend\View\ModifyDatabaseQueryForRecordListingEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'StaticInfoTables/Backend/View/ModifyDatabaseQueryForRecordListingEventListener'
+        event: TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent
+    public: true
+
+  SJBR\StaticInfoTables\EventListener\Bootstrap\BootCompletedEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'StaticInfoTables/Bootstrap/BootCompletedEventListener'
+        event: TYPO3\CMS\Core\Core\Event\BootCompletedEvent
+    public: true
+
+  SJBR\StaticInfoTables\Configuration\TypoScript\ConfigurationHelper:
+    public: true
+
+  SJBR\StaticInfoTables\Hook\Backend\Form\FormDataProvider\TcaLabelProcessor:
+    public: true
+
+  SJBR\StaticInfoTables\Hook\Backend\Form\FormDataProvider\TcaSelectItemsProcessor:
+    public: true
+
+  SJBR\StaticInfoTables\Hook\Core\DataHandling\ProcessDataMap:
+    public: true

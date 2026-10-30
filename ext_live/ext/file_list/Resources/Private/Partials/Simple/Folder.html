@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:fl="http://typo3.org/ns/Causal/FileList/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<tr>
+    <td>
+        <f:link.action action="list" arguments="{path: folder.identifier}">
+            <img src="{f:uri.resource(path:'Icons/Folders/folder.png')}" alt="{folder.name}" />
+        </f:link.action>
+        <f:link.action action="list" arguments="{path: folder.properties.identifier}">{folder.name}</f:link.action>
+        <f:if condition="{folder.properties.tx_filelist.isNew}">
+            <span class="label label-default badge badge-secondary"><f:translate key="newFile" /></span>
+        </f:if>
+    </td>
+    <td class="text-right">
+        <f:switch expression="{folder.files -> f:count()}">
+            <f:case value="0">
+                <f:translate key="directory_size.no_files" />
+            </f:case>
+            <f:case value="1">
+                {folder.files -> f:count()} <f:translate key="directory_size.one_file" />
+            </f:case>
+            <f:defaultCase>
+                {folder.files -> f:count()} <f:translate key="directory_size.multiple_files" />
+            </f:defaultCase>
+        </f:switch>
+    </td>
+    <td>
+        <f:variable name="folderLastModification" value="{fl:folder.lastModificationDate(folder:folder)}" />
+        <f:if condition="{folderLastModification}">
+            <f:format.date format="{settings.dateFormat}">@{folderLastModification}</f:format.date>
+        </f:if>
+    </td>
+</tr>
+
+</html>

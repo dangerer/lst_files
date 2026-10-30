@@ -1,0 +1,40 @@
+<div class="col mb-4" id="dce-{contentObject.uid}">
+	<f:if condition="{field.link}">
+		<f:then>
+			<f:link.typolink parameter="{field.link}" title="{field.title}" class="card card-solutions-product card-row h-100 {field.textAlignment} flex-column justify-content-start {field.backgroundColor}" >
+				<f:for each="{contentObject.assets}" as="image" iteration="i">
+					<f:if condition="{i.cycle} == 1">
+							<f:image image="{image}" width="900c" height="690c" alt="{image.alternative}" />
+					</f:if>
+				</f:for>
+				<div class="card-body">
+					<f:if condition="{field.title}">
+						<h3 class="card-title {field.titleSize} nohyphens-{field.titlenohyphens}"><span>{field.title}</span><!--i class="fa-regular fa-arrow-right ms-3"--></i></h3>
+					</f:if>
+					<f:if condition="{field.content}">
+						<div class="card-text">
+							<f:format.html>{field.content}</f:format.html>
+						</div>
+					</f:if>
+				</div>
+			</f:link.typolink>
+		</f:then>
+		<f:else>
+			<div class="card card-solutions-product card-row h-100 {field.textAlignment} flex-column justify-content-start {field.backgroundColor}">	
+				<f:for each="{contentObject.assets}" as="image" iteration="i">
+					<f:if condition="{i.cycle} == 1">
+						<f:image image="{image}" width="844m" alt="{image.alternative}" />
+					</f:if>
+				</f:for>
+				<div class="card-body">
+					<f:if condition="{field.title}">
+						<h3 class="card-title {field.titleSize} nohyphens-{field.titlenohyphens}">{field.title}</h3>
+					</f:if>
+					<f:if condition="{field.content}">
+						<f:format.html>{field.content}</f:format.html>
+					</f:if>
+				</div>
+					</div>
+		</f:else>
+	</f:if>
+</div>

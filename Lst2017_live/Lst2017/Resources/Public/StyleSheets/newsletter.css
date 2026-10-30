@@ -1,0 +1,601 @@
+/* default styles for extension "tx_cssstyledcontent" */
+  /* Captions */
+  DIV.csc-textpic-caption-c .csc-textpic-caption { text-align: center; }
+  DIV.csc-textpic-caption-r .csc-textpic-caption { text-align: right; }
+  DIV.csc-textpic-caption-l .csc-textpic-caption { text-align: left; }
+
+  /* Needed for noRows setting */
+  DIV.csc-textpic DIV.csc-textpic-imagecolumn { float: left; display: inline; }
+
+  /* Border just around the image */
+  DIV.csc-textpic-border DIV.csc-textpic-imagewrap .csc-textpic-image IMG, DIV.csc-textpic-border DIV.csc-textpic-single-image IMG {
+    border: 2px solid black;
+    padding: 0px 0px;
+  }
+  
+  
+  
+  
+.csc-default:before,
+.csc-default:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.csc-default:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.csc-default {
+    *zoom: 1;
+}
+
+  DIV.csc-textpic-imagewrap { padding: 0; }
+
+  DIV.csc-textpic IMG { border: none; }
+
+  /* DIV: This will place the images side by side */
+  DIV.csc-textpic DIV.csc-textpic-imagewrap DIV.csc-textpic-image { float: left; }
+
+  /* UL: This will place the images side by side */
+  DIV.csc-textpic DIV.csc-textpic-imagewrap UL { list-style: none; margin: 0; padding: 0; }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap UL LI { float: left; margin: 0; padding: 0; }
+
+  /* DL: This will place the images side by side */
+  DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image { float: left; }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DT { float: none; }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD { float: none; }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD IMG { border: none; } /* FE-Editing Icons */
+  DL.csc-textpic-image { margin: 0; }
+  DL.csc-textpic-image DT { margin: 0; display: inline; }
+  DL.csc-textpic-image DD { margin: 0; }
+
+  /* Clearer */
+  DIV.csc-textpic-clear { clear: both; }
+
+  /* Margins around images: */
+
+  /* Pictures on left, add margin on right */
+  DIV.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-image,
+  DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
+  DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-image {
+    display: inline; /* IE fix for double-margin bug */
+    margin-right: 10px;
+  }
+
+  /* Pictures on right, add margin on left */
+  DIV.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-image,
+  DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
+  DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-image {
+    display: inline; /* IE fix for double-margin bug */
+    margin-left: 10px;
+  }
+
+  /* Pictures centered, add margin on left */
+  DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image {
+    display: inline; /* IE fix for double-margin bug */
+    margin-left: 10px;
+  }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption { margin: 0; }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image IMG { margin: 0; vertical-align:bottom; margin-bottom: 10px;}
+
+  /* Space below each image (also in-between rows) */
+  DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image { margin-bottom: 10px; }
+  DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow { margin-bottom: 10px; display: block; }
+  DIV.csc-textpic DIV.csc-textpic-imagerow { clear: both; }
+  DIV.csc-textpic DIV.csc-textpic-single-image IMG { margin-bottom: 10px; }
+
+  /* IE7 hack for margin between image rows */
+  *+html DIV.csc-textpic DIV.csc-textpic-imagerow .csc-textpic-image { margin-bottom: 0; }
+  *+html DIV.csc-textpic DIV.csc-textpic-imagerow { margin-bottom: 10px; }
+
+  /* No margins around the whole image-block */
+  DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-firstcol { margin-left: 0px !important; }
+  DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-lastcol { margin-right: 0px !important; }
+
+  /* Add margin from image-block to text (in case of "Text w/ images") */
+  DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap,
+  DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {
+    margin-right: 10px !important;
+  }
+  DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap,
+  DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {
+    margin-left: 10px !important;
+  }
+
+  /* Positioning of images: */
+
+  /* Above */
+  DIV.csc-textpic-above DIV.csc-textpic-text { clear: both; }
+
+  /* Center (above or below) */
+  DIV.csc-textpic-center { text-align: center; /* IE-hack */ }
+  DIV.csc-textpic-center DIV.csc-textpic-imagewrap { margin: 0 auto; }
+  DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image { text-align: left; /* Remove IE-hack */ }
+  DIV.csc-textpic-center DIV.csc-textpic-text { text-align: left; /* Remove IE-hack */ }
+
+  /* Right (above or below) */
+  DIV.csc-textpic-right DIV.csc-textpic-imagewrap { float: right; }
+  DIV.csc-textpic-right DIV.csc-textpic-text { clear: right; }
+
+  /* Left (above or below) */
+  DIV.csc-textpic-left DIV.csc-textpic-imagewrap { float: left; }
+  DIV.csc-textpic-left DIV.csc-textpic-text { clear: left; }
+  
+  /* Left (below) */
+  /*DIV.csc-textpic-left.csc-textpic-below DIV.csc-textpic-imagewrap { float: left; }*/
+  /*DIV.csc-textpic-left DIV.csc-textpic-text { clear: left; }*/
+
+  
+  /* Left (in text) */
+  DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap { float: left; }
+
+  /* Right (in text) */
+  DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap { float: right; }
+
+  /* Right (in text, no wrap around) */
+  DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap { float: right; clear: both; }
+  /* Hide from IE5-mac. Only IE-win sees this. \*/
+  * html DIV.csc-textpic-intext-right-nowrap .csc-textpic-text { height: 1%; }
+  /* End hide from IE5/mac */
+
+  /* Left (in text, no wrap around) */
+  DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap { float: left; clear: both; }
+  /* Hide from IE5-mac. Only IE-win sees this. \*/
+  * html DIV.csc-textpic-intext-left-nowrap .csc-textpic-text,
+  * html .csc-textpic-intext-left ol,
+  * html .csc-textpic-intext-left ul { height: 1%; }
+  /* End hide from IE5/mac */
+
+  DIV.csc-textpic DIV.csc-textpic-imagerow-last { margin-bottom: 0; }
+
+  /* Browser fixes: */
+
+  /* Fix for unordered and ordered list with image "In text, left" */
+  .csc-textpic-intext-left ol, .csc-textpic-intext-left ul {padding-left: 40px; overflow: auto; }
+/* default styles for extension "tt_products" */
+      .tx-ttproducts-pi1-wrap1 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #000; }
+      .tx-ttproducts-pi1-wrap2 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000; }
+
+
+.ExternalClass * {line-height: 100%};
+
+*{font-size: 13px;} 
+body { font-size: 13px; margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif; }
+
+		h1,h2,h3,h4,h5,h6{
+			display:block;
+			margin:0;
+			padding:0;
+		}
+		
+		body,#bodyTable,#bodyCell{
+			height:100%;
+			margin:0;
+			padding:0;
+			width:100%;
+		}
+		#outlook a{
+			padding:0;
+		}
+
+		table{
+			mso-table-lspace:0pt;
+			mso-table-rspace:0pt;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		p,a,li,td,blockquote{
+			mso-line-height-rule:exactly;
+		}
+		/*a[href^=tel],a[href^=sms]{
+			color:inherit;
+			cursor:default;
+			text-decoration:none;
+		}*/
+		p,a,li,td,body,table,blockquote,span{
+			-ms-text-size-adjust:100%;
+			-webkit-text-size-adjust:100%;
+		}
+		.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{
+			line-height:100%;
+		}
+
+
+table td, table, tr, table, th, div, strong, p, span {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px !important;
+}
+
+h1 {font-size: 20px !important; margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif !important;color: #495757 !important; font-weight: normal; line-height:125%; margin-bottom: 20px;}
+
+
+h1.headh1 {font-size: 20.5px !important; margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif !important;font-weight:normal !important;color: #495757 !important;letter-spacing: 0.025em;  line-height:125%;}
+
+.orange {color:#ec7404;}
+
+h2 {font-size: 18px !important; margin: 0 0 17px 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif !important;color: #000 !important; line-height:125%; }
+
+h3 {color:#495757;font-size: 15.5px !important;font-weight: normal; line-height:125%;} 
+
+p, ul li { font-size: 13px !important; color: #000 !important; margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight:normal; line-height:17px; }
+#footer a {color:#0044CC !important; text-decoration:none;}
+#templateFooter p { font-size: 13px !important; color: #707070 !important; margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight:normal; }
+
+p {
+	margin-bottom: 13px;
+}
+
+#outlook a{
+	padding:0;
+}
+
+table#bodyTable {
+	background-color: #fff;
+}
+#bodyCell {
+	border-top: 0 none;
+    height: 100% !important;
+    margin: 0;
+    padding: 0 0 20px 0;
+    width: 100% !important;
+}
+
+
+#templateContainer {
+	border: none;
+	background-color: #fff;
+}
+
+#templateContainerTop {
+	width: 100%;
+}
+
+#templateContainerTop td {
+	background-color: #E20613;
+}
+
+#templateContainer #templateHeader, #templateContainer #templateBody, #templateContainer #templateFooter {
+	padding: 15px;
+}
+
+.templateBodyInhalt .csc-default {
+	margin-bottom: 40px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #b3b3b3;
+}
+
+.headertopbg {
+	background-color: transparent;;
+	padding: 
+}
+
+.headertopbg td {
+    padding: 5px 10px;
+    text-align: right;
+}
+
+.headertopbg td a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px !important;
+}
+
+.headertopbg td a:visited, .headertopbg td a:link, .headertopbg td a, a.linktonewsletter {
+	color: #fff !important;
+}
+
+.csc-textpic-intext-left img, .news-latest-item img, .csc-textpic-intext-left-nowrap img {
+ /* padding-bottom:10px;
+  padding-right: 15px; */
+  border:none;
+}
+
+.csc-textpic-intext-right img, .csc-textpic-intext-right-nowrap img {
+  /*padding-bottom:10px;
+  padding-left: 15px;*/
+  border:none;
+}
+
+.csc-textpic-intext-right .csc-textpic-imagewrap, .csc-textpic-intext-right-nowrap .csc-textpic-imagewrap {
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+.csc-textpic-intext-left .csc-textpic-imagewrap, .csc-textpic-intext-left-nowrap .csc-textpic-imagewrap {
+	margin-right: 15px;
+	margin-bottom: 10px;
+}
+
+.csc-textpic-center {
+/*  text-align:center; */
+}
+
+img {
+  border: 1px solid #fff;
+}
+
+.csc-default {
+  margin-bottom:40px;
+}
+
+.csc-default h1 {
+  margin-bottom:17px;
+}
+ 
+.csc-textpic-caption {
+  font-size:10.5px;
+ text-align: left; 
+}
+
+.csc-textpic-imagewrap li {
+  float:right;
+}
+
+.csc-textpic-imagewrap ul {
+  list-style-type:none;
+}
+
+.csc-textpic-center {
+    text-align: center;
+  display: block;
+}
+
+.newsletterarchiv {
+}
+
+ul.newsmenu {
+  list-style-type:none;
+    margin: 0;
+  padding: 0;
+}
+
+.newsmenu li {
+  margin: 0 0 7px 0;
+  padding: 0;
+}
+
+.punktorange {
+  float: left;
+}
+
+.teaserlink {
+	text-align: right;
+	
+}
+
+.news-img-wrap {
+	float:left;
+	padding: 0 20px 20px 0;
+}
+
+.footer  {
+	clear: both;
+	font-size: 10.5px;
+	color: #888888;
+	margin-top: 20px;
+}
+
+.news .footer span.news-list-date, .news .footer span.news-list-category {
+    border-right: 1px solid #DDDDDD;
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.footer span.news-list-category {
+    margin-right: 10px;
+    padding-right: 0px;
+}
+
+.elc_category_item {
+	margin-right: 10px;
+}
+
+.headh1 {
+	text-align: right;
+}
+
+.teaserlink {
+	margin-top: 20px;
+}
+
+.teaserlink a {
+	color: #717c7d;
+
+	text-decoration: none;
+	font-size: 11px !important;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.teaserlink a:hover {
+	color: #DA7506;
+	text-decoration: underline;
+}
+
+/* .news .article, .csc-default {
+	border-bottom: 2px dotted #cacaca;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+} */
+
+.divider hr {
+	border: 0; border-bottom: 2px dotted #cacaca; background: #fff;
+	border-top-style: dashed;
+}
+
+
+.container1 {
+	
+	padding-bottom: 0;
+}
+
+
+.templateBodyEinleitung .csc-default {
+	margin-bottom: 0;
+}
+
+.news .article:last-child, .csc-default:last-child {
+	border-bottom: 0;
+}
+
+.newslettersubmit {
+	padding-right: 20px;
+}
+
+p.newlwelcome {
+	padding-bottom: 20px;
+}
+
+.newsletter-title {
+	text-align: right;
+}
+
+.newsletter-title h1 {
+	font-size: 15.5px !important;
+}
+
+p.absatz-newsletter {
+	font-weight: bold;
+}
+
+table, tr, td {
+	height: auto !important;	
+}
+
+body { width: 100% !important; }
+.ReadMsgBody { width: 100%; }
+
+table td, table tr { border-collapse: collapse; }
+ table, tr, td { mso-table-lspace:-1pt; mso-table-rspace:-1pt; }
+
+
+
+
+/* Client-specific Styles */
+body { width: 100% !important; }
+.ReadMsgBody { width: 100%; }
+.ExternalClass { width: 100%; display:block !important; } /* Force Hotmail to display emails at full width */
+table, tr, td { mso-table-lspace:-1pt; mso-table-rspace:-1pt; } /* Force Outlook to stop adding extra space around aligned tables */
+
+/* Reset Styles */
+/* Add 100px so mobile switch bar doesn't cover street address. */
+body { background-color: #fff; margin: 0; padding: 0; }
+img { outline: none; text-decoration: none; display: block;}
+br, strong br, b br, em br, i br { line-height:100%; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.4 !important; -webkit-font-smoothing: antialiased;font-family: Verdana, Arial, Helvetica, sans-serif; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #008bb0 !important; }
+h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {    color: red !important; }
+/* Preferably not the same color as the normal header link color.  There is limited support for pseudo classes in email clients, this was added just for good measure. */
+h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited { color: purple !important; }
+/* Preferably not the same color as the normal header link color. There is limited support for pseudo classes in email clients, this was added just for good measure. */  
+table td, table tr { border-collapse: collapse; }
+.yshortcuts, .yshortcuts a, .yshortcuts a:link,.yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span {
+color: black; text-decoration: none !important; border-bottom: none !important; background: none !important;
+}    /* Body text color for the New Yahoo. This example sets the font of Yahoo's Shortcuts to black. */
+
+p, table, tr, td, div {
+	overflow: visible !important;
+}
+
+.ExternalClass{display:inline-block; line-height: 131%};
+.ExternalClass {width: 100%;}
+
+/**This is to overwrite Outlook.com’s Embedded CSS************/
+table {border-collapse:separate;}
+a, a:link, a:visited {text-decoration: none; color: #E20613;} 
+a:hover {text-decoration: underline;}
+h2,h2 a,h2 a:visited,h3,h3 a,h3 a:visited,h4,h5,h6,.t_cht {color:#000 !important}
+.ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td {line-height: 100%}
+/**This is to center your email in Outlook.com************/
+.ExternalClass {width: 100%;}
+
+.ExternalClass * {line-height: 100%} 
+
+img {
+	display: inline !important;
+	float: none !important;
+}
+
+#templateContainer #templateFooter img {
+	display: inline !important;
+}
+
+.headertopbg td a {
+	font-size: 12px;
+	color: #fff;
+	text-decoration: none;
+}
+
+#templateContainer #templateFooter {
+	text-align: center;
+	border-top: none;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+DIV.csc-textpic DIV.csc-textpic-imagewrap DIV.csc-textpic-image {
+	float: none !important;
+}
+
+.csc-default h2, h2 {
+  color: #495757 !important;
+  font-size: 19px !important;
+  font-weight: normal !important;
+}
+
+strong, b {
+	color: #495757 !important;
+}
+
+p.bodytext {
+	text-align: left !important;
+}
+
+td.nltitle {
+	text-align: right;
+}
+
+td.nltitle h1 {
+	color: #da251d !important;
+	margin-top: 20px !important;
+	font-size: 22.5px !important;
+}
+
+.csc-frame  {
+	border-bottom: 1px solid rgba(0,0,0,.125);
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+}
+
+a.button {
+	background-color: #da251d;
+	color: #fff;
+	padding: 0.35rem 1.3rem;
+}
+
+.btn-lst {
+	background-color: #da251d;
+	border: none;
+	font-size: 14px;
+	border-radius: 0;
+	color: #fff;
+	padding: 0.45rem 1.4rem;
+	text-decoration: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
+.btn-lst:hover, 
+.btn-lst:focus {
+	background-color: #8a9aa7;
+}

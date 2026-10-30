@@ -1,0 +1,54 @@
+{
+    "name": "t3/dce",
+    "type": "typo3-cms-extension",
+    "description": "Best FlexForm based content elements since 2012. With TCA mapping feature, simple backend view and much more features which makes it super easy to create own content element types.",
+    "keywords": [
+        "TYPO3 CMS",
+        "DCE",
+        "Content elements",
+        "Dynamic Content Elements"
+    ],
+    "homepage": "https://extensions.typo3.org/extension/dce/",
+    "support": {
+        "source": "https://github.com/a-r-m-i-n/dce",
+        "docs": "https://docs.typo3.org/typo3cms/extensions/dce/",
+        "issues": "https://github.com/a-r-m-i-n/dce/issues",
+        "forum": "https://www.facebook.com/TYPO3.DCE.Extension/"
+    },
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Armin Vieweg",
+            "role": "Developer",
+            "email": "armin@v.ieweg.de"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "ext-dom": "*",
+        "typo3/cms-core": "^12.4"
+    },
+    "suggest": {
+        "b13/container": "Brings clean container functionality to TYPO3 CMS, supported by DCE."
+    },
+    "autoload": {
+        "psr-4": {
+            "T3\\Dce\\": "Classes"
+        }
+    },
+    "replace": {
+        "arminvieweg/dce": "*"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "dce",
+            "Package": {
+                "serviceProvider": "T3\\Dce\\ServiceProvider",
+                "protected": false,
+                "partOfFactoryDefault": true,
+                "partOfMinimalUsableSystem": true
+            }
+        }
+    }
+}

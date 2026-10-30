@@ -1,0 +1,20 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_gender form-group">
+	<label class="control-label">
+		<f:translate key="tx_femanager_domain_model_user.gender" />
+			<span>*</span>
+<f:comment>		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'gender')}">
+			<span>*</span>
+		</f:if>
+</f:comment>
+	</label>
+	<div class="">     
+		<f:form.select 
+			class="form-control" 
+			property="gender"
+			additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'gender')}"
+			options = "{99: '...', 0: '{f:translate(key:\'tx_femanager_domain_model_user.gender.item0\')}', 1: '{f:translate(key:\'tx_femanager_domain_model_user.gender.item1\')}'}"
+
+		/>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{data.header_layout} != 100">
+	<f:if condition="{data.header} || {data.subheader} || {data.date}">
+		<header class="prod_caption">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="prod_captionTxt col-sm-9">
+						<div class="inner">
+							<f:render partial="Header/Header" arguments="{
+								header: data.header,
+								layout: data.header_layout,
+								positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}',
+								link: data.header_link,
+								default: settings.defaultHeaderType}" />
+							<f:render partial="Header/SubHeader" arguments="{
+								subheader: data.subheader,
+								layout: data.header_layout,
+								positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}',
+								default: settings.defaultHeaderType}" />
+							<f:render partial="Header/Date" arguments="{
+								date: data.date,
+								positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}'}" />
+						</div>
+					</div>
+					<div class="prod_captionIcon col-sm-3">
+						<div class="inner">
+							<!-- span class="icon ion-chevron-right"></span -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</f:if>
+</f:if>
+</html>

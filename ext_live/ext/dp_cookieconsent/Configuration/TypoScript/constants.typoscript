@@ -1,0 +1,73 @@
+plugin.tx_cookieconsent {
+    view {
+        # cat=plugin.tx_cookieconsent/file; type=string; label=templateRootPath
+        templateRootPath =
+        # cat=plugin.tx_cookieconsent/file; type=string; label=partialRootPath
+        partialRootPath =
+        # cat=plugin.tx_cookieconsent/file; type=string; label=layoutRootPath
+        layoutRootPath =
+    }
+
+    settings {
+        # cat=plugin.tx_cookieconsent; type=int+; label= PID of Cookie Storage
+        storagePid =
+        # cat=plugin.tx_cookieconsent; type=int+; label= PID to Data Protection
+        url =
+        # cat=plugin.tx_cookieconsent; type=string; label= target for link tag
+        target = _blank
+        # cat=plugin.tx_cookieconsent; type=options[edgeless,classic,basic,wire]; label=Layout
+        theme = edgeless
+        # cat=plugin.tx_cookieconsent; type=options[top,top-left,top-right,bottom,bottom-left,bottom-right]; label= Position
+        position = bottom-right
+        # cat=plugin.tx_cookieconsent; type=options[extend,opt-in]; label = Type
+        type = opt-in
+        # cat=plugin.tx_cookieconsent; type=options[true,false]; label = adds a button to review the consent window
+        revokable = true
+        # cat=plugin.tx_cookieconsent; type=options[true,false]; label = pre check statistics in checkboxes layout
+        statistics = false
+        # cat=plugin.tx_cookieconsent; type=options[true,false]; label = pre check marketing in checkboxes layout
+        marketing = false
+        # cat=plugin.tx_cookieconsent; type=options[true,false]; label = force page reload after revoke
+        reloadOnRevoke = false
+
+
+        tracking.googleTagManager {
+            # cat=plugin.tx_cookieconsent/tracking; type=string; label= Google Tag Manager ID
+            id =
+            # cat=plugin.tx_cookieconsent/tracking; type=string; label= Init on Checkboxes
+            on = statistics,marketing
+        }
+
+        overlay {
+            # cat=plugin.tx_cookieconsent/overlay; type=options[true,false]; label = display iframe overlay
+            notice = true
+            box {
+                # cat=plugin.tx_cookieconsent/overlay; type=color; label= Overlay: Background
+                background = rgba(0,0,0,.8)
+                # cat=plugin.tx_cookieconsent/overlay; type=color; label= Overlay: Text
+                text = #fff
+            }
+            button {
+                # cat=plugin.tx_cookieconsent/overlay; type=color; label= Overlay Button: Background
+                background = #b81839
+                # cat=plugin.tx_cookieconsent/overlay; type=color; label= Overlay Button: Text
+                text = #fff
+            }
+        }
+
+        palette {
+            popup {
+                # cat=plugin.tx_cookieconsent/popup; type=color; label= Bar: Background
+                background = rgba(0,0,0,.8)
+                # cat=plugin.tx_cookieconsent/popup; type=color; label= Bar: Text
+                text = #fff
+            }
+            button {
+                # cat=plugin.tx_cookieconsent/button; type=color; label= Button: Background
+                background = #b81839
+                # cat=plugin.tx_cookieconsent/button; type=color; label= Button: Text
+                text = #fff
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<!-- Aufruf (Top-Level) -->
+<ul class="nav nav-pim flex-column ul-level-1">
+  <f:render section="PimMenuRecursive" arguments="{items: pimmenu, level: 1}" />
+</ul>
+
+<!-- Section: rekursiver Renderer -->
+<f:section name="PimMenuRecursive">
+  <f:for each="{items}" as="item">
+	<!-- alles, was „kompliziert“ ist, in Variablen auslagern -->
+	<f:variable name="nextLevel">{level + 1}</f:variable>
+	<f:variable name="isTop">{f:if(condition: level == 1, then: 1, else: 0)}</f:variable>
+	<f:variable name="linkClass">
+	  {f:if(condition: isTop, then: 'nav-link', else: 'dropdown-item')}
+	</f:variable>
+	<f:variable name="activeClass">
+	  {f:if(condition: item.current || item.active, then: ' active', else: '')}
+	</f:variable>
+
+	<li class="nav-item li-level-{level}">
+	  <f:link.page
+		pageUid="{item.data.uid}"
+		id="menu-item-{item.data.uid}"
+		class="{linkClass} link-level-{level}{activeClass}"
+	  >
+		{item.title}
+	  </f:link.page>
+
+	  <f:if condition="{item.children}">
+		<ul class="nav flex-column ul-level-{nextLevel}">
+		  <f:render section="PimMenuRecursive" arguments="{items: item.children, level: nextLevel}" />
+		</ul>
+	  </f:if>
+	</li>
+  </f:for>
+</f:section>

@@ -1,0 +1,107 @@
+<f:layout name="Default" />
+
+<f:section name="HeaderAssets">
+
+</f:section>
+
+<f:section name="content">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/jquery-ui.min.js')}"></script>
+
+    <div class="loader" style="display:none;"></div>
+
+    <div class="gtn-survey">
+        <h1>Zeitraum</h1>
+
+        <f:form class="date-range-form" action="showSurvey" controller="SurveyAnalysis" arguments="{survey: survey}" enctype="multipart/form-data">
+            <label for="surveyDateRangeFrom">Von: </label>
+            <f:form.textfield class="survey-date-range-picker" id="surveyDateRangeFrom" name="surveyDateRangeFrom" />
+            <span class="glyphicon glyphicon-calendar"></span><br>
+
+            <label for="surveyDateRangeTo">Bis: </label>
+            <f:form.textfield class="survey-date-range-picker" id="surveyDateRangeTo" name="surveyDateRangeTo" />
+            <span class="glyphicon glyphicon-calendar"></span><br>
+
+            <f:form.submit class="btn filter-button" value="Filtern" />
+        </f:form>
+
+        <div class="gtn-survey-container" style="    overflow: scroll;
+    height: 100%;">
+            <h1 class="header-title">{survey.name}</h1>
+            <h4 class="filter-header">
+                <f:if condition="{timeframe}">
+                    <f:then>Gewählter Zeitraum: {timeframe}</f:then>
+                    <f:else>Ohne zeitliche Beschränkung</f:else>
+                </f:if>
+            </h4>
+
+            <div data-survey="{jsonEncoded}" id="chartHolder"></div>
+
+            <div class="container-fluid accordion">
+                <div class="row">
+                    <div class="top-nav-container">
+                        <input type="checkbox" class="export-selector select-all" /> Alle auswählen
+                        <button id="expandAllButton" class="btn">Alle ausklappen</button>
+                      <f:comment><button id="printButton" class="btn">Als PDF exportieren</button></f:comment>
+                    </div>
+                </div>
+
+                <f:for each="{survey.questionGroups}" as="questgroup">
+                    <div class="row question-grp-container">
+                        <div class="col-2">
+                            <input type="checkbox" class="export-selector" />
+                        </div>
+                        <div class="col-10 col-content">
+                            <h3><f:format.htmlentitiesDecode>{questgroup.name}</f:format.htmlentitiesDecode></h3>
+                            <div>
+                                <f:for each="{questgroup.questions}" as="quest">
+                                    <f:if condition="{questgroup.sections}">
+                                        <f:then>
+                                            <f:for each="{questgroup.sections}" as="section">
+                                                <div class="row">
+                                                    <div class="quest col-xl-4">
+                                                        <h3 class="ignore">Bereich: <b>{section.title}</b></h3>
+                                                    </div>
+                                                    <div class="chart col-xl-8">
+                                                        <canvas class="canvas-chart" width="700" height="300"></canvas>
+                                                    </div>
+                                                </div>
+                                            </f:for>
+                                        </f:then>
+                                        <f:else>
+                                            <div class="row">
+                                                <div class="chart col-xl-8">
+                                                    <canvas class="canvas-chart" width="700" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </f:else>
+                                    </f:if>
+                                </f:for>
+                            </div>
+                        </div>
+                    </div>
+                </f:for>
+
+            </div>
+        </div>
+
+        <div id="pdfCloneContainer" style="position: absolute; top: -16384px;"></div>
+
+       
+    </div>
+
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/moment-with-locales.js')}"></script>
+
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/daterangepicker.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/GraphModule.js')}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.0/jspdf.min.js"></script>
+
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/surveyGraphs.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/surveyPicker.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'JavaScript/surveyPDF.js')}"></script>
+
+</f:section>
+
+<f:section name="FooterAssets">
+
+</f:section>

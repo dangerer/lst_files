@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  FriendsOfTYPO3\TtAddress\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  FriendsOfTYPO3\TtAddress\Command\GeocodeCommand:
+    tags:
+      - name: 'console.command'
+        command: 'ttaddress:geocode'
+        description: 'Geocode tt_address records'
+        schedulable: true
+        hidden: false
+
+  FriendsOfTYPO3\TtAddress\FormEngine\TtAddressPreviewRenderer:
+    tags:
+      - name: event.listener
+        identifier: 'ext-ttaddress/fluid-preview/content'
+        event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent

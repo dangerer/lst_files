@@ -1,0 +1,44 @@
+
+<div id="startModal" class="modal fade" {f:if(condition: debug, then: 'data-debug="1"')}>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+
+			<f:switch expression="{f:cObject(typoscriptObjectPath: 'lib.languageTS')}">
+				<f:case value="en">
+					<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/mepmodal.jpg">
+				</f:case>
+				<f:defaultCase>
+					<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/mepmodal.jpg">
+				</f:defaultCase>
+			</f:switch>
+			
+		</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+		<f:switch expression="{f:cObject(typoscriptObjectPath: 'lib.languageTS')}">
+			<f:case value="en">
+				<h2>Sehr geehrte Kunden, Interessenten <br />und Geschäftspartner,</h2>
+				<p>die MEP-Gefahrenmeldetechnik GmbH ist seit 1992 ein Tocherunternehmen von Labor Strauss Sicherungsanlagenbau GmbH.</p>
+				<p>Wir haben unsere Webseite vollständig überarbeitet. Sie finden unseren Firmenauftritt auf der gemeinsamen Webseite der Labor Strauss Firmengruppe.</p>
+				<p>Diese Seite erreichen Sie über die bisherige Webadresse <a href="https://www.mep-pockau.de">www.mep-pockau.de</a> und über die neue Adresse <a href="https://www.laborstrauss.com">www.laborstrauss.com.</a></p>
+				<p class="small mt-4">MEP-Gefahrenmeldetechnik GmbH<br />
+					D-09509 Pockau-Lengefeld / Pockau</p>
+			</f:case>
+				<f:defaultCase>
+				<h2>Sehr geehrte Kunden, Interessenten <br />und Geschäftspartner,</h2>
+				<p>die MEP-Gefahrenmeldetechnik GmbH ist seit 1992 ein Tocherunternehmen von Labor Strauss Sicherungsanlagenbau GmbH.</p>
+				<p>Wir haben unsere Webseite vollständig überarbeitet. Sie finden unseren Firmenauftritt auf der gemeinsamen Webseite der Labor Strauss Firmengruppe.</p>
+				<p>Diese Seite erreichen Sie über die bisherige Webadresse <a href="https://www.mep-pockau.de">www.mep-pockau.de</a> und über die neue Adresse <a href="https://www.laborstrauss.com">www.laborstrauss.com.</a></p>
+				<p class="small mt-4">MEP-Gefahrenmeldetechnik GmbH<br />
+					D-09509 Pockau-Lengefeld / Pockau</p>
+			</f:defaultCase>
+		</f:switch>
+
+            </div>
+        </div>
+    </div>
+</div>

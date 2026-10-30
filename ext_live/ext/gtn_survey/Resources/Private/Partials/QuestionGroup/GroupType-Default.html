@@ -1,0 +1,8 @@
+
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="group-type-default">
+    <f:for each="{questionGroup.questions}" as="question">
+        <f:render partial="Question/QuestionType" arguments="{question:question}"/>
+    </f:for>
+</div>
+</html>

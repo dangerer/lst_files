@@ -1,0 +1,146 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+		<div class="tx_gtnsurvey container-fluid" >
+			<f:if condition="{isBackendUserLoggedIn}">
+				<f:flashMessages />
+			</f:if>
+
+			<f:form enctype="multipart/form-data" action="processAnswer" arguments="{survey:survey}">
+				<div class="question-groups">
+					<f:for each="{survey.questionGroups}" as="questionGroup">
+						<h3 class="question-group-title">{questionGroup.name}</h3>
+						<f:render partial="QuestionGroup/GroupType" arguments="{questionGroup:questionGroup}" />
+					</f:for>
+				</div>
+					
+
+					<f:if condition="{ttAddressUid}">
+						<f:form.textfield style="display:none;" name="ttAddressUid" value="{ttAddressUid}"/>
+					</f:if>
+				<f:if condition="{settings.showContactdataForm}">
+					<div class="survey-description">
+						<f:format.raw>{survey.description}</f:format.raw>
+					</div>
+					<div class="survey-participant">
+						<f:render partial="Participant/Form"/>
+					</div>
+				</f:if>
+
+					<!--honey pot field to deny bots -->
+					<f:form.textfield style="display:none;" name="honeypot"/>
+				<f:if condition="!{isBackendUserLoggedIn}">
+					<input id="submitSurvey" class="btn btn-primary btn-lst" type="submit" value="{f:translate(key: 'fe.submit')}"/>
+				</f:if>
+
+			</f:form>
+
+				<f:link.action style="display:none;" id="submitMailAnswer" action="sendAnswerMail">action link</f:link.action>
+
+			<f:flashMessages />
+
+			<f:form.validationResults for="survey">
+				<f:if condition="{validationResults.flattenedErrors}">
+					<ul id="formErrorList" class="errors">
+						<f:for each="{validationResults.errors}" as="error">
+							<li>{error}</li>
+						</f:for>
+					</ul>
+				</f:if>
+			</f:form.validationResults>
+		</div>
+
+
+		<script type="text/javascript">
+			$(document).ready(() => {
+				let formErrList = document.getElementById('formErrorList');
+				if(formErrList != null) {
+				    document.getElementById('submitSurvey').scrollIntoView({
+                        behavior: 'auto',
+                        block: 'center',
+                        inline: 'center'
+					});
+				}
+				console.log(formErrList);
+                $('#submitSurvey').on('click', (e) => {
+					let formObj = $($('.tx_gtnsurvey > form')[0]).clone();
+					$(formObj)
+						.find('.section-container, \
+								 .smiley-container, \
+								 .section-title-container, \
+								 .smiley-char-container,\
+								 .group-type-3 .answer-fields,\
+								 .group-type-3 .answer-section,\
+								 .group-type-2 .answer-fields,\
+								 .group-type-2 .answer-section')
+							.css({	
+									'display': 'flex',
+									'justify-content': 'space-around',
+									'width':'100%'
+								})
+							.end()
+						.find('.group-type-3 .answer-fields .answer-text,\
+								.group-type-2 .answer-fields .answer-text,\
+								.survey-description,\
+								submitSurvey')
+								.css('display','none')
+							.end()
+						.find('.smiley-container img, \
+								.empty-space')
+								.css({
+									'height':'20px',
+									'width':'20px',
+									'margin-bottom':'5px'
+								})
+							.end()
+						.find('.question-text > p')
+							.css('text-align','center')
+							.end()
+						.find('input')
+							.prop('disabled',true);
+		
+					$($(formObj)[0]).find('input:checkbox:not(:checked), .tx-gtn-survey input:radio:not(:checked)').css('display', 'none');
+					$($(formObj)[0]).find('input:checked').replaceWith('<span>&#x274C;</span>');
+
+					
+						
+					$($(formObj)[0]).find('input:checked').each(function() {
+						$(this).prop('checked', true);
+					});
+					
+                    let url = $('#submitMailAnswer').attr('href');
+                    let htmlSurvey = $(formObj)[0].outerHTML;
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: {
+                            survey: htmlSurvey
+						},
+                        success: function(data) {
+                            //called when successful
+                           
+                        },
+                        error: function(e) {
+                            //called when there is an error
+                            //console.log(e.message);
+                        }
+                    });
+                });
+
+            });
+		</script>
+	</f:section>
+
+</html>

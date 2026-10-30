@@ -1,0 +1,132 @@
+<f:comment>
+	Last Change: add Class menu-active to condition if active to rotate the chevrons correct
+</f:comment>
+
+<!-- Sidebar navigation -->
+<div id="slide-out" class="side-nav sn-bg-4 mdb-sidenav fixed bg-lightgrey2">
+	
+  <ul class="custom-scrollbar list-unstyled ps ps--active-y gtnsolutions-lake-nav-scroll-container" style="NOmax-height: 100vh;padding-bottom: 30px;position: relative; height: 100%;">
+  	<li class="close-cnt mt-3 mb-0 mx-3 text-right">
+		  <a href="javascript:void(0);" 
+			  data-activates="slide-out" 
+			  class="button-collapse button-sidebar-close">
+			  <i class="fas fa-bars icon ion-android-close"></i>
+		  </a>
+	</li>
+	<li class="sidebar-search mt-4">
+	  <f:format.raw>{productlist_search}</f:format.raw>
+	</li>
+
+	<li>
+	  <ul id="side-menu" class="collapsible collapsible-accordion">
+		<f:for each="{headerMenu}" as="mainnavigationItem">
+		  <f:if condition="{mainnavigationItem.children}">
+			<f:then>
+			  <li class="menu-item menu-item-first-level menu-item-type-custom menu-item-object-custom menu-item-has-children {f:if(condition: mainnavigationItem.active, then:'active')} has-sub menu-item-{mainnavigationItem.data.uid}">
+				<a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" data-title="{mainnavigationItem.title}" title="{mainnavigationItem.title}" class="collapsible-header mainnavigation-title waves-effect arrow-r d-flex justify-content-between menu-link-{mainnavigationItem.data.uid}">
+				  <span class="flex-grow-1">{mainnavigationItem.title}</span>
+				
+				</a>
+
+				<div class="collapsible-body" style="display: none;">
+				  <ul class="sk-nav-menu sk-mobile-menu menu-main-menu">
+
+					<f:for each="{mainnavigationItem.children}" as="children">
+					  <f:if condition="{children.children}">
+						<f:then>
+						  <li class="menu-item-has-children menu-item menu-item-second-level menu-item-type-post_type menu-item-object-page {f:if(condition: children.active, then:'active menu-active')} has-sub">
+							<a href="{children.link}" target="{children.target}" title="{children.title}">{children.title}</a>
+
+							<ul class="sub-menu sub-menu-third-level">
+							  <f:for each="{children.children}" as="child">
+
+								<f:if condition="{child.children}">
+								  <f:then>
+									<li class="menu-item-has-children menu-item menu-item-third-level menu-item-type-post_type menu-item-object-page {f:if(condition: child.active, then:'active menu-active')} has-sub">
+									  <a href="{child.link}" target="{child.target}" title="{child.title}">{child.title}</a>
+
+									  <!-- 4. Ebene -->
+									  <ul class="sub-menu sub-menu-fourth-level">
+										<f:for each="{child.children}" as="subchild">
+
+										  <f:if condition="{subchild.children}">
+											<f:then>
+											  <!-- 4. Ebene mit Kindern => öffnet 5. Ebene -->
+											  <li class="menu-item-has-children menu-item menu-item-fourth-level {f:if(condition: subchild.active, then:'active menu-active')} has-sub">
+												<a href="{subchild.link}" target="{subchild.target}" title="{subchild.title}" class="d-flex justify-content-start align-items-center">
+												  <span class="flex-grow-1">{subchild.title}</span>
+												</a>
+
+												<!-- 5. Ebene -->
+												<ul class="sub-menu sub-menu-fifth-level">
+												  <f:for each="{subchild.children}" as="deepchild">
+													<li class="menu-item menu-item-fifth-level {f:if(condition: deepchild.active, then:'active')}">
+													  <a href="{deepchild.link}" target="{deepchild.target}" title="{deepchild.title}" class="d-flex justify-content-start align-items-center">
+														<span class="flex-grow-1">{deepchild.title}</span>
+													  </a>
+													</li>
+												  </f:for>
+												</ul>
+											  </li>
+											</f:then>
+											<f:else>
+											  <!-- 4. Ebene als Blatt -->
+											  <li class="menu-item menu-item-fourth-level {f:if(condition: subchild.active, then:'active')}">
+												<a href="{subchild.link}" target="{subchild.target}" title="{subchild.title}" class="d-flex justify-content-start align-items-center">
+												  <span class="flex-grow-1">{subchild.title}</span>
+												</a>
+											  </li>
+											</f:else>
+										  </f:if>
+
+										</f:for>
+									  </ul>
+
+									</li>
+								  </f:then>
+								  <f:else>
+									<!-- 3. Ebene als Blatt -->
+									<li class="menu-item {f:if(condition: child.active, then:'active')}">
+									  <a href="{child.link}" target="{child.target}" title="{child.title}" class="d-flex justify-content-start align-items-center">
+										<span class="flex-grow-1">{child.title}</span>
+									  </a>
+									</li>
+								  </f:else>
+								</f:if>
+
+							  </f:for>
+							</ul>
+
+						  </li>
+						</f:then>
+						<f:else>
+						  <!-- 2. Ebene als Blatt -->
+						  <li class="menu-item menu-item-type-post_type menu-item-object-page {f:if(condition: children.active, then:'active')}">
+							<a href="{children.link}" target="{children.target}" title="{children.title}" class="collapsible-header waves-effect">{children.title}</a>
+						  </li>
+						</f:else>
+					  </f:if>
+
+					</f:for>
+
+				  </ul>
+				</div>
+
+			  </li>
+			</f:then>
+			<f:else>
+			  <!-- 1. Ebene als Blatt -->
+			  <li class="menu-item menu-item-type-post_type menu-item-object-page {f:if(condition: mainnavigationItem.active, then:'active')}">
+				<a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}" data-title="{mainnavigationItem.title}" class="collapsible-header waves-effect">
+				  {mainnavigationItem.title}
+				</a>
+			  </li>
+			</f:else>
+		  </f:if>
+		</f:for>
+	  </ul>
+	</li>
+  </ul>
+  <div class="sidenav-bg mask-strong"></div>
+</div>
+<!--/. Sidebar navigation -->

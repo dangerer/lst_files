@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<T3DataStructure><meta type="array"><langDisable>1</langDisable></meta><sheets><feSurvey>
+    <ROOT>
+        <TCEforms>
+            <sheetTitle>Umfrage-Konfiguration</sheetTitle>
+
+        </TCEforms>
+        <type>array</type>
+        <el>
+        <settings.surveyid>
+            <TCEforms>
+                <label>Umfrage</label>
+                <config>
+                    <type>select</type>
+                    <renderType>selectSingle</renderType>
+                    <foreign_table>tx_gtnsurvey_domain_model_survey</foreign_table>
+                </config>
+            </TCEforms>
+        </settings.surveyid>
+            <settings.ttAddressRequired>
+                <TCEforms>
+                    <label>Personalisierte Umfrage (Einmalige Ausfüllmöglichkeit)</label>
+                    <onChange>reload</onChange>
+
+                    <config>
+                        <type>check</type>
+                    </config>
+                </TCEforms>
+            </settings.ttAddressRequired>
+            <settings.fetchRespondeeMail>
+                <TCEforms>
+                    <label>Personalisierte Umfrage: User-Mail bei Absenden des Formulars mitsenden?</label>
+                    <config>
+                        <type>check</type>
+                    </config>
+                    <displayCond>FIELD:settings.ttAddressRequired:=:1</displayCond>
+                </TCEforms>
+            </settings.fetchRespondeeMail>
+            <settings.showContactdataForm>
+                <TCEforms>
+                    <label>Umfrage-Formular: User-Adresse Formular anzeigen</label>
+                    <onChange>reload</onChange>
+
+                    <config>
+                        <type>check</type>
+                    </config>
+                </TCEforms>
+            </settings.showContactdataForm>
+        <settings.mailRequired>
+            <TCEforms>
+                <label>Umfrage-Formular: Sender-Mail ist zwingend anzugebend</label>
+                <config>
+                    <type>check</type>
+                </config>
+                <displayCond>FIELD:settings.showContactdataForm:=:1</displayCond>
+
+            </TCEforms>
+        </settings.mailRequired>
+        <settings.receiverMail>
+            <TCEforms>
+                <label>Empfänger-Adresse(n) für Ergebnisse</label>
+                <config>
+                    <type>text</type>
+                    <cols>24</cols>
+                    <rows>5</rows>
+                </config>
+            </TCEforms>
+        </settings.receiverMail>
+        </el>
+    </ROOT>
+</feSurvey>
+</sheets></T3DataStructure>

@@ -1,0 +1,341 @@
+categories:
+  srfeuserregister: ~
+  srfeuserregister.general:
+    parent: srfeuserregister
+  srfeuserregister.form:
+    parent: srfeuserregister
+  srfeuserregister.process:
+    parent: srfeuserregister
+  srfeuserregister.pids:
+    parent: srfeuserregister
+  srfeuserregister.usergroups:
+    parent: srfeuserregister
+  srfeuserregister.emails:
+    parent: srfeuserregister
+  srfeuserregister.templates:
+    parent: srfeuserregister
+
+settings:
+  srfeuserregister.tableName:
+    default: 'fe_users'
+    type: string
+    category: srfeuserregister.general
+  srfeuserregister.salutation:
+    default: 'formal'
+    type: string
+    enum:
+      formal: 'Formal'
+      informal: 'Informal'
+    category: srfeuserregister.general
+  srfeuserregister.defaultCODE:
+    default: ''
+    type: string
+    enum:
+      '': ''
+      CREATE: 'CREATE'
+      EDIT: 'EDIT'
+    category: srfeuserregister.general
+  srfeuserregister.formFields:
+    default: 'username, password, gender, first_name, last_name, status, date_of_birth, email, address, city, zone, static_info_country, zip, telephone, fax, language, title, company, www, module_sys_dmail_html, module_sys_dmail_newsletter, module_sys_dmail_category, image, comments, terms_acknowledged, disable'
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.requiredFields:
+    default: 'username, password, first_name, last_name,email'
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.useEmailAsUsername:
+    default: false
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.generateUsername:
+    default: false
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.doNotEnforceUsername:
+    default: false
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.usernameAtLeast:
+    default: 6
+    type: int
+    category: srfeuserregister.form
+  srfeuserregister.usernameAtMost:
+    default: 50
+    type: int
+    category: srfeuserregister.form
+  srfeuserregister.passwordAtLeast:
+    default: 5
+    type: int
+    category: srfeuserregister.form
+  srfeuserregister.passwordAtMost:
+    default: 40
+    type: int
+    category: srfeuserregister.form
+  srfeuserregister.nameAtMost:
+    default: 80
+    type: int
+    category: srfeuserregister.form
+  srfeuserregister.maxImages:
+    default: 6
+    type: int
+    category: srfeuserregister.form
+  srfeuserregister.file.icon_delete:
+    default: 'EXT:sr_feuser_register/Resources/Public/Images/icon_delete.png'
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.forceFileDelete:
+    default: true
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.file.termsFile:
+    default: 'EXT:sr_feuser_register/Resources/Public/TextFiles/terms.txt'
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.termsUrl:
+    default: ''
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.useLocalCountry:
+    default: false
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.onChangeCountryAttribute:
+    default: "event.target.form.elements.namedItem('tx_srfeuserregister_pi1[countryChange]').value = 1; event.target.form.submit();"
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.dmailCheckedUponRegistration:
+    default: false
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.unsubscribeAllowedFields:
+    default: 'module_sys_dmail_newsletter'
+    type: string
+    category: srfeuserregister.form
+  srfeuserregister.enablePreviewRegister:
+    default: true
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.enablePreviewEdit:
+    default: true
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.allowHtmlInLabels:
+    default: false
+    type: bool
+    category: srfeuserregister.form
+  srfeuserregister.enableEmailConfirmation:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyConfirmation:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnApprove:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnApprove:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnRefuse:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnRefuse:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminReview:
+    default: false
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnAdminRefuse:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnAdminAccept:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnAdminRefuse:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnRegister:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnRegister:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAutoLoginOnConfirmation:
+    default: false
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAutoLoginOnCreate:
+    default: false
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.autoLoginRedirect_url:
+    default: ''
+    type: string
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnEnter:
+    default: false
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnUpdate:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnUpdate:
+    default: 1
+    type: int
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnUnsubscribe:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableEmailOnDelete:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.enableAdminNotifyOnDelete:
+    default: true
+    type: bool
+    category: srfeuserregister.process
+  srfeuserregister.pid:
+    default: ''
+    type: string
+    category: srfeuserregister.pids
+  srfeuserregister.pidTitleOverride:
+    default: ''
+    type: string
+    category: srfeuserregister.pids
+  srfeuserregister.userGroupsPidList:
+    default: ''
+    type: string
+    category: srfeuserregister.pids
+  srfeuserregister.module_sys_dmail_category_PIDLIST:
+    default: ''
+    type: string
+    category: srfeuserregister.pids
+  srfeuserregister.registerPID:
+    default: 
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.editPID:
+    default: 
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.confirmPID:
+    default: 
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.confirmInvitationPID:
+    default:
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.confirmType:
+    default: 0
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.loginPID:
+    default:
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.linkToPID:
+    default:
+    type: int
+    category: srfeuserregister.pids
+  srfeuserregister.linkToPIDAddButton:
+    default: false
+    type: bool
+    category: srfeuserregister.pids
+  srfeuserregister.userGroupUponRegistration:
+    default: ''
+    type: string
+    category: srfeuserregister.usergroups
+  srfeuserregister.userGroupAfterConfirmation:
+    default: ''
+    type: string
+    category: srfeuserregister.usergroups
+  srfeuserregister.userGroupAfterAcceptation:
+    default: ''
+    type: string
+    category: srfeuserregister.usergroups
+  srfeuserregister.allowUserGroupSelection:
+    default: false
+    type: bool
+    category: srfeuserregister.usergroups
+  srfeuserregister.allowMultipleUserGroupSelection:
+    default: false
+    type: bool
+    category: srfeuserregister.usergroups
+  srfeuserregister.allowUserGroupUpdate:
+    default: false
+    type: bool
+    category: srfeuserregister.usergroups
+  srfeuserregister.keepUnselectableUserGroups:
+    default: false
+    type: bool
+    category: srfeuserregister.usergroups
+  srfeuserregister.allowedUserGroups:
+    default: 'ALL'
+    type: string
+    category: srfeuserregister.usergroups
+  srfeuserregister.allowedSubgroups:
+    default: ''
+    type: string
+    category: srfeuserregister.usergroups
+  srfeuserregister.deniedUserGroups:
+    default: ''
+    type: string
+    category: srfeuserregister.usergroups
+  srfeuserregister.useLocalization:
+    default: false
+    type: bool
+    category: srfeuserregister.usergroups
+  srfeuserregister.email:
+    default: 'MyTYPO3Site@mydomain.org'
+    type: string
+    category: srfeuserregister.emails
+  srfeuserregister.siteName:
+    default: 'My TYPO3 Site'
+    type: string
+    category: srfeuserregister.emails
+  srfeuserregister.enableHTMLMail:
+    default: true
+    type: bool
+    category: srfeuserregister.emails
+  srfeuserregister.HTMLMailCSS:
+    default: 'EXT:sr_feuser_register/Resources/Private/StyleSheets/htmlmail.css'
+    type: string
+    category: srfeuserregister.emails
+  srfeuserregister.enableEmailAttachment:
+    default: false
+    type: bool
+    category: srfeuserregister.emails
+  srfeuserregister.file.attachmentFile:
+    default: 'EXT:sr_feuser_register/Resources/Private/TextFiles/attachment.txt'
+    type: string
+    category: srfeuserregister.emails
+  srfeuserregister.useShortUrls:
+    default: true
+    type: bool
+    category: srfeuserregister.emails
+  srfeuserregister.shortUrlLife:
+    default: 30
+    type: int
+    category: srfeuserregister.emails
+  srfeuserregister.codeLength:
+    default: 12
+    type: int
+    category: srfeuserregister.emails
+  srfeuserregister.file.templateFile:
+    default: 'EXT:sr_feuser_register/Resources/Private/Templates/RegisterHtmlTemplate.html'
+    type: string
+    category: srfeuserregister.templates

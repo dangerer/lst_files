@@ -1,0 +1,273 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<f:layout name="General" />
+<!--
+	=====================
+		Templates/News/List.html
+-->
+
+<f:section name="content">
+	<!--TYPO3SEARCH_end-->
+	
+	<f:switch expression="{settings.templateLayout}">
+
+
+		<!-- News Template Layout News Home List -->
+		<f:case value="1">
+			<!-- News Item HOME -->
+			<f:if condition="{news}">
+				<f:then>
+					<div class="news-list-view row news-list-home" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:render partial="List/ItemHome" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:if condition="{settings.list.paginate.insertAbove}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+								<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+									<f:render partial="List/ItemHome" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+								<f:if condition="{settings.list.paginate.insertBelow}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+							</f:else>
+						</f:if>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="no-news-found">
+						<f:translate key="list_nonewsfound" />
+					</div>
+				</f:else>
+			</f:if>
+			<!-- / News Item HOME -->
+		</f:case>
+
+
+		<!-- News Template Layout News List -->
+		<f:case value="2">
+			<!-- News List -->
+			<f:if condition="{news}">
+				<f:then>
+					<div class="news-list-view news-list-lst" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:render partial="List/ItemList" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:if condition="{settings.list.paginate.insertAbove}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+								<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+									<f:render partial="List/ItemList" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+								<f:if condition="{settings.list.paginate.insertBelow}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+							</f:else>
+						</f:if>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="no-news-found">
+						<f:translate key="list_nonewsfound" />
+					</div>
+				</f:else>
+			</f:if>
+			<!-- / News List -->
+		</f:case>
+
+
+		<!-- News Template Layout News List Stellenausschreibungn-->
+		<f:case value="3">
+			<!-- News List -->
+			<f:if condition="{news}">
+				<f:then>
+					<div class="news-list-view news-list-lst news-list-jobs" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:render partial="List/ItemJobs" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:if condition="{settings.list.paginate.insertAbove}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+								<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+									<f:render partial="List/ItemJobs" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+								<f:if condition="{settings.list.paginate.insertBelow}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+							</f:else>
+						</f:if>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="no-news-found">
+						<f:translate key="list_nonewsfound" />
+					</div>
+				</f:else>
+			</f:if>
+			<!-- / News List -->
+		</f:case>
+
+
+		<!-- News Template Layout News List Schulungen-->
+		<f:case value="5">
+			<!-- News List -->
+			<f:if condition="{news}">
+				<f:then>
+					<div class="news-list-view news-list-lst news-list-schulungen" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:if condition="{currMonth} == {newsItem.datetime -> f:format.date(format:'m.Y')}">
+										<f:else>
+											<f:render section="monthGroupTitle" arguments="{datetime: newsItem.datetime}" />
+										</f:else>
+									</f:if>
+									{newsItem.datetime -> f:format.date(format:'m.Y') -> v:variable.set(name: 'currMonth')}
+									<div class="test">
+										<f:render partial="List/ItemSchulungen" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									</div>
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:if condition="{settings.list.paginate.insertAbove}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+								<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+									<f:if condition="{currMonth} == {newsItem.datetime -> f:format.date(format:'m.Y')}">
+										<f:else>
+											<f:render section="monthGroupTitle" arguments="{datetime: newsItem.datetime}" />
+										</f:else>
+									</f:if>
+									{newsItem.datetime -> f:format.date(format:'m.Y') -> v:variable.set(name: 'currMonth')}
+									<div class="test">
+									<f:render partial="List/ItemSchulungen" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									</div>
+								</f:for>
+								<f:if condition="{settings.list.paginate.insertBelow}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+							</f:else>
+						</f:if>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="no-news-found">
+						<f:translate key="list_nonewsfound" />
+					</div>
+				</f:else>
+			</f:if>
+			<!-- / News List -->
+		</f:case>
+
+
+		<!-- News Template Layout News List Schulungen-->
+		<f:case value="7">
+			<!-- News List -->
+			<f:if condition="{news}">
+				<f:then>
+				<div class="news-list-divider-month">
+					Schulungen - Hamburg - Ganzjährig
+				</div>
+					<div class="news-list-view news-list-lst news-list-schulungen" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+
+									{newsItem.datetime -> f:format.date(format:'m.Y') -> v:variable.set(name: 'currMonth')}
+									<div class="test">
+										<f:render partial="List/ItemSchulungenHamburgGanzj" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									</div>
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:if condition="{settings.list.paginate.insertAbove}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+								<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+									{newsItem.datetime -> f:format.date(format:'m.Y') -> v:variable.set(name: 'currMonth')}
+									<div class="test">
+									<f:render partial="List/ItemSchulungenHamburgGanzj" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									</div>
+								</f:for>
+								<f:if condition="{settings.list.paginate.insertBelow}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+							</f:else>
+						</f:if>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="no-news-found">
+						<f:comment><f:translate key="list_nonewsfound" /></f:comment>
+					</div>
+				</f:else>
+			</f:if>
+			<!-- / News List -->
+		</f:case>
+
+
+		<!-- DEFAULT -->
+		<f:defaultCase>
+			<!-- News Default-->
+			<f:if condition="{news}">
+				<f:then>
+					<div class="news-list-view" id="news-container-{contentObjectData.uid}">
+						<f:if condition="{settings.hidePagination}">
+							<f:then>
+								<f:for each="{news}" as="newsItem" iteration="iterator">
+									<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+							</f:then>
+							<f:else>
+								<f:if condition="{settings.list.paginate.insertAbove}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+								<f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+									<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+								</f:for>
+								<f:if condition="{settings.list.paginate.insertBelow}">
+									<f:render partial="List/Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator}" />
+								</f:if>
+							</f:else>
+						</f:if>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="no-news-found">
+						<f:translate key="list_nonewsfound" />
+					</div>
+				</f:else>
+			</f:if>
+			<!-- / News Default -->
+		</f:defaultCase>
+	</f:switch>
+
+
+
+	<!--TYPO3SEARCH_begin-->
+</f:section>
+
+<f:section name="monthGroupTitle">
+	<!--  List trainings header month and year -->
+	<div class="news-list-divider-month">
+
+		{datetime -> f:format.date(format:'%B %Y')}
+	</div>
+	<!--  / List trainings header month and year -->
+</f:section>
+</html>

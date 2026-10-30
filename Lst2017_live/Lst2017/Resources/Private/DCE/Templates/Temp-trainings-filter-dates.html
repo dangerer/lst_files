@@ -1,0 +1,116 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+
+<f:format.raw>
+<script>
+$(document).ready(function() {
+	
+	// update filter selectbox by real existing options
+	var filterSelectbox = $('#filterByOrt');
+	var orts = [];
+	if ($('.trainings-date[data-courselocation]').length) {
+		$('.trainings-date[data-courselocation]').each(function() {
+			var ort = $(this).attr('data-courselocation');
+			orts.push(ort);			
+		});
+	}
+	orts = Array.from(new Set(orts)); // filter by the same
+	orts.sort();
+
+	if (orts.length > 1) {
+		orts.forEach(function (ort) {
+			filterSelectbox.append('<option value="'+ort+'">'+ort+'</option>');
+		});
+	} else {
+		filterSelectbox.hide(); // we do not need a filter if no any city
+	}
+
+
+	sortCourseDatesList();
+
+	updateCourseList();
+	$('body').on('change', '#filterByOrt', function() {
+		updateCourseList();
+	});
+
+
+	function updateCourseList() {
+		var allCourses = $('.trainings-date');
+
+		// show all first!
+		allCourses.show();
+
+		var filter = $('#filterByOrt');
+		var ort = filter.val();
+
+		if (ort == '--all--') {
+			return true; // show all
+		}
+		
+		// show/hide courses by filter
+		allCourses.each(function() {
+			// hide if does not match
+			if ($(this).attr('data-courselocation') != ort) {
+				$(this).hide(50);
+			}
+			
+		});
+		sortCourseDatesList();
+
+	};
+
+	function sortCourseDatesList() {
+		var courses = $('.trainings-date');
+console.log(courses);
+		// Sort courses: first data-startDate, then data-courseLocation
+		courses.sort(function(a, b) {
+			var [dayA, monthA, yearA] = $(a).attr('data-startDate').split('.');
+		        var [dayB, monthB, yearB] = $(b).attr('data-startDate').split('.');
+		        var dateA = new Date(yearA, monthA - 1, dayA);
+		        var dateB = new Date(yearB, monthB - 1, dayB);
+			var locationA = $(a).attr('data-courseLocation');
+		        var locationB = $(b).attr('data-courseLocation');
+
+		        if (dateA < dateB) return -1;
+		        if (dateA > dateB) return 1;
+		        return locationA.localeCompare(locationB);
+		});
+
+		// Update the DOM
+//		$('.trainings-list').append(courses);
+		courses.detach().insertAfter('.trainings-filter');
+
+		// works, but ... ????
+/*		courses.sort(function(a, b) {
+			var dateA = new Date($(a).attr('data-startDate').split('.').reverse().join('.')); // reverse to correct sorting
+			var dateB = new Date($(b).attr('data-startDate').split('.').reverse().join('.')); // reverse to correct sorting
+			var locationA = $(a).attr('data-courseLocation');
+			var locationB = $(b).attr('data-courseLocation');
+			
+			if (dateA < dateB) return -1;
+			if (dateA > dateB) return 1;
+			if (locationA < locationB) return -1;
+			if (locationA > locationB) return 1;
+			return 0;
+		});    
+		courses.detach().insertAfter('.trainings-filter');
+*/
+	}
+
+});
+</script>
+</f:format.raw>
+
+
+<div class="trainings-filter mt-3 mb-5">
+	<form class="SchulungenForm">
+		<div class="form-row">
+			<div class="col col-lg-6">
+				<label class="sr-only" for="filterByOrt">Niederlassung</label>
+				<select class="form-control" id="filterByOrt">
+				  <option value="--all--">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.location")}</option>
+<f:comment>the list will be filled by html content in JavaScript</f:comment>
+				</select>
+			</div>
+		</div>
+	</form>
+</div>

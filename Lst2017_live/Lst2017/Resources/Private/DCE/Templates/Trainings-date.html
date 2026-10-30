@@ -1,0 +1,87 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+
+{f:cache.disable()}
+<f:variable name="courseUidsArr">{f:cObject(typoscriptObjectPath: 'lib.subCoursesList')}</f:variable>
+
+
+<f:variable name="coursesAccessible" value="no" />
+<f:comment>If the user is logged in, but has not access by group</f:comment>
+<f:security.ifAuthenticated>
+	<f:variable name="coursesAccessible" value="noAccess" />
+</f:security.ifAuthenticated>
+<f:security.ifHasRole role="3">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="4">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="5">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+
+
+<f:if condition="{coursesAccessible} == 'yes'">
+   <f:then>
+
+	<f:for each="{gtnLst:explode(uids:courseUidsArr)}" as="courseUid">
+
+		<f:render section="courseItem" arguments="{courseData: '{gtnLst:CourseData(course: courseUid)}'}" />
+
+	</f:for>
+
+</f:then>
+<f:else>
+
+	<f:if condition="{coursesAccessible} == 'noAccess'">
+		<f:then>
+			<div class="alert alert-danger">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.noGroupAccess")}
+			</div>
+		</f:then>
+		<f:else>			
+			<div class="row justify-content-md-center"> 
+				<div class="col-12 col-sm-8 col-md-8 col-lg-8 maincol">
+				      {f:cObject(typoscriptObjectPath: "lib.loginFormContent")}
+				</div>
+			</div>
+		</f:else>
+	</f:if>
+</f:else>
+</f:if>
+
+
+
+<f:section name="courseItem">
+<div id="dce-{courseData.uid}" class="trainings-date" data-courseLocation="{courseData.location}" data-startDate="{courseData.datebeginn}">
+<f:comment>
+	<f:debug inline="1">{courseData}</f:debug>
+</f:comment>
+		<h2>{courseData.location} - {courseData.datebeginn} {f:if(condition: courseData.dateend, then: ' {f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.till")} {courseData.dateend}')}
+			<gtnLst:ifCourseIsFull course="{courseData.uid}">
+				 <div class="badge badge-primary badge-ausgebucht">Ausgebucht</div>
+			</gtnLst:ifCourseIsFull>
+		</h2>
+		<div class="d-flex flex-row justify-content-between align-items-center">
+			<p class="mb-0">{courseData.course}</p>			
+			<a href="{f:uri.page(pageUid: courseData.pid)}" class="btn btn-lst btn-arrow btn-trainings-details" title="{courseData.location} - {courseData.datebeginn} {f:if(condition: courseData.dateend, then: ' bis {courseData.dateend}')}">
+				Details
+			</a>
+		</div>
+</div>
+</f:section>
+
+
+
+<f:comment>
+original template
+<div id="dce-{contentObject.uid}" class="trainings-date" data-courseLocation="{field.location}">
+
+		<h2>{field.location} - {field.date} <div class="badge badge-primary badge-ausgebucht">Ausgebucht</div></h2>
+		<div class="d-flex flex-row justify-content-between align-items-center">
+			<p class="mb-0">{field.course}</p>
+			<a href="https://www.laborstrauss.com/schulungzentrum/themen-und-termine/bc600-grundlagen-und-feuerwehr-peripherie/moenchengladbach-1492024-bis-1592024" class="btn btn-lst btn-arrow btn-trainings-details" title="{field.location} - {field.date}">
+				Details
+			</a>
+		</div>
+</div>
+</f:comment>

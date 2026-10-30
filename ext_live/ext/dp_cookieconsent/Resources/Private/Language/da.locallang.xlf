@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en"
+	    datatype="plaintext"
+	    original="EXT:cookieconsent/Resources/Private/Language/locallang.xlf"
+	    date="2023-10-26T11:53:14Z"
+		target-language="da"
+        product-name="cookieconsent">
+		<header/>
+		<body>
+			<trans-unit id="message">
+				<source>We use cookies and other tracking technologies to personalize and improve your experience. By continuing to use our website you consent to this.</source>
+				<target>Vi bruger cookies og andre tracking-teknologier for at personificere og forbedre din brugeroplevelse. Ved at forsætte på vores website accepterer du dette.</target>
+			</trans-unit>
+			<trans-unit id="dismiss">
+				<source>allow cookies</source>
+                <target>tillad cookies</target>
+			</trans-unit>
+            <trans-unit id="allow">
+                <source>save</source>
+                <target>gem</target>
+            </trans-unit>
+            <trans-unit id="allowall">
+                <source>allow all!</source>
+                <target>alle accepterer</target>
+            </trans-unit>
+            <trans-unit id="config">
+                <source>customize</source>
+                <target>tilpasse</target>
+            </trans-unit>
+			<trans-unit id="deny">
+				<source>decline</source>
+                <target>afvis</target>
+			</trans-unit>
+			<trans-unit id="policy">
+				<source>Cookie Policy</source>
+                <target>Cookie-politik</target>
+			</trans-unit>
+			<trans-unit id="link">
+				<source>More info</source>
+                <target>Mere info</target>
+			</trans-unit>
+            <trans-unit id="dpRequire">
+                <source>necessary</source>
+                <target>nødvendig</target>
+            </trans-unit>
+            <trans-unit id="dpStatistik">
+                <source>statistics</source>
+                <target>statistik</target>
+            </trans-unit>
+            <trans-unit id="dpMarketing">
+                <source>marketing</source>
+                <target>markedsføring</target>
+            </trans-unit>
+
+            <trans-unit id="media.notice">
+                <source>Cookie Notice</source>
+                <target>Cookie-meddelelse</target>
+            </trans-unit>
+            <trans-unit id="media.desc">
+                <source>Loading this resource will connect to external servers which use cookies and other tracking technologies to personalize and improve experience. Further information can be found in our privacy policy.</source>
+                <target>Indlæsning af denne ressource opretter forbindelse til eksterne servere, der bruger cookies og andre sporingsteknologier til at personalisere og forbedre oplevelsen. Yderligere information findes i vores privatlivspolitik.</target>
+            </trans-unit>
+            <trans-unit id="media.btn">
+                <source>Allow Cookies and load this resource</source>
+                <target>Tillad cookies og indlæs denne ressource</target>
+            </trans-unit>
+            <trans-unit id="config.header">
+                <source>Customize Consent Preferences</source>
+                <target>Tilpas samtykkepræferencer</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

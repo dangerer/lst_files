@@ -1,0 +1,73 @@
+plugin.tx_scriptmerger {
+	css {
+		enable = 1
+		addContentInDocument = 0
+		doNotRemoveInDoc = 0
+		mergedFilePosition =
+		integrityCalculation = 0
+
+		# ignore version number from TYPO3 (timestamp added, can't be removed since TYPO3 v12 anymore)
+		ignore = \?(?!17|18)
+
+		minify {
+			enable = 1
+			ignore = \.min\.
+		}
+
+		compress {
+			enable = 1
+			ignore = \.gz\.
+		}
+
+		merge {
+			enable = 1
+			ignore =
+		}
+
+		uniqueCharset {
+			enable = 1
+			value = @charset "UTF-8";
+		}
+
+		postUrlProcessing {
+			pattern =
+			replacement =
+		}
+	}
+
+	javascript {
+		enable = 1
+		parseBody = 0
+		doNotRemoveInDocInBody = 1
+		doNotRemoveInDocInHead = 0
+		mergedHeadFilePosition = </head>
+		mergedBodyFilePosition = </body>
+		addContentInDocument = 0
+		asyncLoading = 0
+		deferLoadingInHead = 0
+		integrityCalculation = 0
+		scriptType = 1
+
+		# ignore version number from TYPO3 (timestamp added, can't be removed since TYPO3 v12 anymore)
+		ignore = \?(?!17|18)
+
+		minify {
+			enable = 1
+			useJSMinPlus = 1
+			useJShrink = 0
+			ignore = \.min\.
+		}
+
+		compress {
+			enable = 1
+			ignore = \.gz\.
+		}
+
+		merge {
+			enable = 1
+			ignore =
+		}
+	}
+
+	externalFileCacheLifetime = 3600
+}

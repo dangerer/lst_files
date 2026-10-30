@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-08-12T15:28:25Z" product-name="gtn_survey">
+		<header/>
+		<body>
+			<trans-unit id="tx_gtnsurvey_domain_model_answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_answer.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_answer.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_answer.section_name">
+				<source>Section Name</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_question.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_question.question_type">
+				<source>Question Type</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_question.answers">
+				<source>Answers</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiongroup">
+				<source>Question Group</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.group_type">
+				<source>Group Type</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.questions">
+				<source>Questions</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.sections">
+				<source>Sections</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_survey">
+				<source>Survey</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_survey.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_survey.question_groups">
+				<source>Question Groups</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_grouptype">
+				<source>Group Type</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_grouptype.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_grouptype.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiontype">
+				<source>Question Type</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiontype.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_questiontype.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_useranswer">
+				<source>User Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_useranswer.fe_user">
+				<source>Fe User</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_useranswer.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_section">
+				<source>Section</source>
+			</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_section.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_gtn_survey_fesurvey.name">
+				<source>FE Survey</source>
+			</trans-unit>
+			<trans-unit id="tx_gtn_survey_fesurvey.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

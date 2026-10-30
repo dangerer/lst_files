@@ -1,0 +1,22 @@
+## add for fe_manager
+#config.tx_extbase {
+#    persistence {
+#        classes {
+#            In2code\Femanager\Domain\Model\User {
+#                subclasses {
+#                    0 = Gtn\GtnLsthooks\Domain\Model\LstUser
+#                }
+#            }
+#            Gtn\GtnLsthooks\Domain\Model\LstUser {
+#                mapping {
+#                    tableName = fe_users
+#                    recordType = 0
+#                }
+#            }
+#        }
+#    }
+#    objects {
+#        In2code\Femanager\Controller\NewController.className = Gtn\GtnLsthooks\Controller\LstUserNewController
+#        In2code\Femanager\Controller\EditController.className = Gtn\GtnLsthooks\Controller\LstUserEditController
+#    }
+#}

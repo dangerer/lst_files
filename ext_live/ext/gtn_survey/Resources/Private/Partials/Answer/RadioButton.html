@@ -1,0 +1,14 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:if condition="{sectionUid}">
+        <f:then>
+            <f:form.radio name="answer[{questionUid}][{sectionUid}][]"  value="{answer.uid}"/>  <span class="answer-text">{answer.text}</span>
+        </f:then>
+        <f:else>
+
+            <div class="answer-question-{questionUid}">
+                <f:form.radio name="answer[{questionUid}][]"  value="{answer.uid}" />  <span class="answer-text">{answer.text}</span>
+            </div>
+        </f:else>
+    </f:if>
+</html>
+

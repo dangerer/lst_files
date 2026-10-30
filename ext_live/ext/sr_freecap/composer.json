@@ -1,0 +1,37 @@
+{
+  "name": "sjbr/sr-freecap",
+  "description": "A TYPO3 integration of freeCap CAPTCHA.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+  	  "TYPO3",
+  	  "captcha"
+  ],
+  "authors": [
+    {
+      "name": "Stanislas Rolland",
+      "homepage": "https://www.sjbr.ca",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "https://codeberg.org/sjbr/sr-freecap",
+  "support": {
+	"issues": "https://codeberg.org/sjbr/sr-freecap/issues"
+  },
+  "replace": {
+	"typo3-ter/sr-freecap": "self.version"
+  },
+  "require": {
+	"typo3/cms-core": "^12.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "SJBR\\SrFreecap\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "sr_freecap"
+    }
+  }
+}

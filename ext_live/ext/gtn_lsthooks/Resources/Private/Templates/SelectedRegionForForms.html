@@ -1,0 +1,13 @@
+
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+
+<div class="infobox bg-lightgrey2 mt-4">
+	<div class="cf">
+        <span class="align-middle">
+	       {f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.yourBranch")} <b class="lst-regionTitle">{f:if(condition:'{gtnLst:SelectedRegion()} > 0', then:'{gtnLst:SelectedRegionTitle()}', else: '{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.selectRegion")}')}</b>
+        </span>
+		<a class="btn btn-primary btn-lst btn-lstgrey btn-arrow btn-sm float-right" data-target="#selectRegion" data-toggle="modal" href="" data-noPageReload="1">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.branchChange")}</a>
+	</div>
+</div>
+
+

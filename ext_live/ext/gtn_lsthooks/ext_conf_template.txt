@@ -1,0 +1,4 @@
+# cat=basic//10; type=Integer; label=Region categories root. Default: 8
+regionRootCategoryUid = 8
+# cat=basic//10; type=Integer; label=Category for CE if not region selected. Default
+noRegionSelectedCategoryUid = 17

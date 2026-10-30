@@ -1,0 +1,13 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{sectionUid}">
+    <f:then>
+        <f:form.textarea name="answer[{questionUid}][{sectionUid}]" class="form-control" value="" />
+    </f:then>
+    <f:else>
+        <div class="answer-question-{questionUid} form-group">
+            <f:form.textarea name="answer[{questionUid}]" class="form-control" value="" />
+        </div>
+    </f:else>
+</f:if>
+</html>
+

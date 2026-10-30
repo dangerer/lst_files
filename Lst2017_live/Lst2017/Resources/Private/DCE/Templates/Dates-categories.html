@@ -1,0 +1,19 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+				<f:comment>
+					Here are shown double categories. So, let keep which categories are already shown and do not show such double.
+					Use dynamic variable name for that: tc_{tc_uniqueindex}_{category.uid}
+				</f:comment>
+
+				<v:variable.set name="tc_uniqueindex">{v:random.string(length:"5")}</v:variable.set>
+
+
+<div id="dce-{contentObject.uid}" class="training-cat mb-4">
+			<f:for each="{contentObject.categories}" as="category" iteration="categoryIterator">
+				<f:if condition="{v:variable.get(name:\"tc_{tc_uniqueindex}_{category.uid}\")}">
+					<f:else>
+						<span class="badge badge-trainings" data-categoryUid="{category.uid}">{gtnLst:categoryTitleTranslated(categoryUid:"{category.uid}")}</span>
+					</f:else>
+				</f:if>
+					<v:variable.set name="tc_{tc_uniqueindex}_{category.uid}" value="{category.uid}" />
+			</f:for>
+		</div>

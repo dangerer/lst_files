@@ -1,0 +1,69 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+
+<div class="femanager_fieldset femanager_country form-group">
+	<label for="femanager_field_country" class="col-sm-2 control-label">
+		<f:translate key="tx_femanager_domain_model_user.country"/>
+		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'country')}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="col-sm-10">
+		<f:if condition="{useStaticInfoTables}">
+			<f:then>
+				<f:render section="static_info_tables" arguments="{_all}"/>
+			</f:then>
+			<f:else>
+				<f:render section="internal" arguments="{_all}"/>
+			</f:else>
+		</f:if>
+	</div>
+</div>
+
+<f:section name="internal">
+	<femanager:form.select
+			id="femanager_field_country"
+			property="country"
+			options="{femanager:Form.GetCountries()}"
+			prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+			prependOptionValue=""
+			class="form-control"
+			additionalAttributes="{femanager:Validation.FormValidationData(settings: settings, fieldName: 'country')}"/>
+</f:section>
+
+<f:section name="static_info_tables">
+	<femanager:form.select
+			id="femanager_field_country"
+			property="country"
+			prependOptionLabel="{f:translate(key:'pleaseChoose')}"
+			prependOptionValue=""
+			class="form-control"
+			additionalAttributes="{femanager:Validation.FormValidationData(settings: settings, fieldName: 'country')}">
+		<f:for each="{femanager:Form.GetCountriesFromStaticInfoTables()}" as="countryName" key="countryCode">
+			<f:if condition="{countryCode} == '---'">
+				<f:then>
+					<f:form.select.option additionalAttributes="{disabled: 1}">{countryName}</f:form.select.option>
+				</f:then>
+				<f:else>
+					<f:form.select.option value="{countryCode}">{countryName}</f:form.select.option>
+				</f:else>
+			</f:if>
+		</f:for>
+	</femanager:form.select>
+	<f:comment><![CDATA[
+
+		// Example how to add a countryselection from static_info_tables (and _de, _fr, etc...)
+		// Just install static_info_tables, clear cache and use (default values -
+		key:'isoCodeA3',value:'officialNameLocal',sortbyField:'isoCodeA3',sorting:'asc')
+		// {femanager:Form.GetCountriesFromStaticInfoTables()}
+		//
+		// some more examples (if you want to configure key and value or sorting)
+		// {femanager:Form.GetCountriesFromStaticInfoTables(key:'isoCodeA2',value:'shortNameDe')}
+		//
+		{femanager:Form.GetCountriesFromStaticInfoTables(key:'isoCodeA2',value:'shortNameFr',sortbyField:'shortNameFr')}
+		//
+		{femanager:Form.GetCountriesFromStaticInfoTables(key:'isoCodeA3',value:'isoCodeA3',sortbyField:'isoCodeA3',sorting:'asc')}
+		// to fill the options
+
+		]]>
+	</f:comment>
+</f:section>

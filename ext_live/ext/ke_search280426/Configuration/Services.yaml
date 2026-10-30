@@ -1,0 +1,63 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Tpwd\KeSearch\:
+    resource: '../Classes/*'
+
+  Tpwd\KeSearch\Service\:
+    resource: '../Classes/Service/*'
+    public: true
+
+  Tpwd\KeSearch\Controller\:
+    resource: '../Classes/Controller/*'
+    public: true
+
+  connection.tx_kesearch_index:
+    class: 'TYPO3\CMS\Core\Database\Connection'
+    factory: ['@TYPO3\CMS\Core\Database\ConnectionPool', 'getConnectionForTable']
+    arguments: ['tx_kesearch_index']
+
+  Tpwd\KeSearch\Command\StartIndexerCommand:
+    tags:
+      - name: 'console.command'
+        command: 'ke_search:indexing'
+        description: 'Runs the ke_search indexers'
+
+  Tpwd\KeSearch\Command\ClearIndexCommand:
+    tags:
+      - name: 'console.command'
+        command: 'ke_search:clearindex'
+        description: 'Clears the ke_search index'
+
+  Tpwd\KeSearch\Command\RemoveLockCommand:
+    tags:
+      - name: 'console.command'
+        command: 'ke_search:removelock'
+        description: 'Removes the ke_search lock'
+
+  Tpwd\KeSearch\Command\IndexerStatusCommand:
+    tags:
+      - name: 'console.command'
+        command: 'ke_search:indexerstatus'
+        description: 'Shows the status of the indexer'
+
+  Tpwd\KeSearch\Backend\Flexform:
+    public: true
+
+  Tpwd\KeSearch\Domain\Repository\IndexRepository:
+    public: true
+    arguments:
+      $connection: '@connection.tx_kesearch_index'
+
+  Tpwd\KeSearch\Lib\Db:
+    public: true
+    arguments:
+      $eventDispatcher: '@Psr\EventDispatcher\EventDispatcherInterface'
+
+  Tpwd\KeSearch\Indexer\IndexerRunner:
+    public: true
+    arguments:
+      $eventDispatcher: '@Psr\EventDispatcher\EventDispatcherInterface'

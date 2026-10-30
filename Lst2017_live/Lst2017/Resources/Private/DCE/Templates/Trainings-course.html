@@ -1,0 +1,74 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+
+{f:cache.disable()}
+
+<f:variable name="coursesAccessible" value="no" />
+<f:comment>If the user is logged in, but has not access by group</f:comment>
+<f:security.ifAuthenticated>
+	<f:variable name="coursesAccessible" value="noAccess" />
+</f:security.ifAuthenticated>
+<f:security.ifHasRole role="3">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="4">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="5">
+        <f:variable name="coursesAccessible" value="yes" />
+</f:security.ifHasRole>
+
+
+<f:if condition="{coursesAccessible} == 'yes'">
+   <f:then>
+<f:comment> login form shown in the FILTER template </f:comment>
+
+<div id="dce-{contentObject.uid}" class="trainings-course row" data-courseTitle="{field.title}" data-ceSorting="{contentObject.sorting}">
+	<div class="col-12 col-md-3 mb-3 mb-md-0">
+		<f:for each="{contentObject.assets}" as="image" iteration="i">
+			<f:if condition="{i.cycle} == 1">
+				<div class="img-trainings">
+					<f:image image="{image}" width="550c" height="396c" />
+				</div>
+			</f:if>
+		</f:for>
+	</div>
+	<div class="col-12 col-md-9">
+		<h2>
+			{field.title} 
+			<f:if condition="{field.fullybooked}">
+				<div class="badge badge-danger ml-2">{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.fullybooked")}</div>
+			</f:if>
+		</h2>
+		<f:if condition="{contentObject.categories}">
+			<div class="training-cat">
+
+				<f:comment>
+					Here are shown double categories. So, let keep which categories are already shown and do not show such double.
+					Use dynamic variable name for that: tc_{tc_uniqueindex}_{category.uid} 
+				</f:comment>
+
+				<v:variable.set name="tc_uniqueindex">{v:random.string(length:"5")}</v:variable.set>
+
+				<f:for each="{contentObject.categories}" as="category" iteration="categoryIterator">
+
+					<f:if condition="{v:variable.get(name:\"tc_{tc_uniqueindex}_{category.uid}\")}">
+						<f:else>
+							<span class="badge badge-trainings" data-categoryUid="{category.uid}">{gtnLst:categoryTitleTranslated(categoryUid:"{category.uid}")}</span>
+						</f:else>
+					</f:if>
+
+					<v:variable.set name="tc_{tc_uniqueindex}_{category.uid}" value="{category.uid}" />
+
+				</f:for>
+			</div>
+		</f:if>
+		<div class="btn-cnt text-right mt-2 mt-md-1">
+			<f:link.typolink parameter="{field.detaillink}" class="btn btn-lst btn-arrow btn-trainings-details" title="{field.title}">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.dates")}
+			</f:link.typolink>
+		</div>
+	</div>
+</div>
+
+</f:then>
+</f:if>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-27-03T15:09:47Z" product-name="gtn_lsthooks">
+        <header/>
+        <body>
+            <trans-unit id="article" xml:space="preserve">
+				<source>Article</source>
+                <target state="translated">Artikel</target>
+			</trans-unit>
+            <trans-unit id="print" xml:space="preserve">
+				<source>Print</source>
+                <target state="translated">Drucken</target>
+			</trans-unit>
+            <trans-unit id="emailFeUserEnabled.subject" xml:space="preserve">
+                <target state="translated">Ihre Registrierung für den Downloadbereich der LST-Webseite</target>
+			</trans-unit>
+            <trans-unit id="emailFeUserEnabled" xml:space="preserve">
+				<target state="translated"><![CDATA[
+<p>Sehr geehrte/r {user.first_name} {user.last_name},</p>
+<p>Ihr Zugang zum Downloadbereich der LST-Webseite wurde freigeschaltet.<br />
+Die Login-Seite erreichen Sie über den Link <a href="{linkToLogin}">{linkToLogin}</a>.
+</p>
+<p> Ihr Benutzername lautet {user.username}</p>
+<p>
+Mit freundlichen Grüßen<br />
+Labor Strauss Gruppe
+</p>
+]]>
+                </target>
+			</trans-unit>
+            <trans-unit id="news.fullyBooked" xml:space="preserve">
+                <target state="translated">Ausgebucht</target>
+			</trans-unit>
+
+            <trans-unit id="fe_users.lst_newsletter" xml:space="preserve">
+                <target state="translated">LST newsletter</target>
+			</trans-unit>
+            <trans-unit id="fe_users.technical_newsletter" xml:space="preserve">
+                <target state="translated">Technical Newsletter</target>
+			</trans-unit>
+            <trans-unit id="fe_users.marketing_newsletter" xml:space="preserve">
+                <target state="translated">Marketing Newsletter</target>
+			</trans-unit>
+			<trans-unit id="news.trainingyearround" xml:space="preserve">
+				<target state="translated">Schulungen ganzjährig</target>
+			</trans-unit>
+
+            <trans-unit id="participant" xml:space="preserve">
+				<target>Teilnehmer</target>
+			</trans-unit>
+            <trans-unit id="ranForm.approve" xml:space="preserve">
+                <target>Annehmen</target>
+            </trans-unit>
+            <trans-unit id="ranForm.decline" xml:space="preserve">
+                <target>Ablehnen</target>
+            </trans-unit>
+
+            <trans-unit id="ranForm.withAccepting.emailToUser.hello" xml:space="preserve">
+				<target>Sehr geehrte/geehrter</target>
+			</trans-unit>
+            <trans-unit id="ranForm.withAccepting.emailToUser.description1" xml:space="preserve">
+				<target>Ihr Antrag auf eine Retourlieferung wird geprüft. Wir werden uns so bald wie möglich mit weiteren Anweisungen bei Ihnen melden.</target>
+			</trans-unit>
+            <trans-unit id="ranForm.withAccepting.emailToUser.footer" xml:space="preserve">
+				<target><![CDATA[
+                    Mit freundlichen Grüßen<br />
+                    Labor Strauss Gruppe
+					]]>
+                </target>
+			</trans-unit>
+            <trans-unit id="ranForm.withAccepting.emailToUser.decline.description" xml:space="preserve">
+				<target><![CDATA[
+					Ihre Anfrage kann leider <strong>nicht positiv bestätigt</strong> werden. <br>
+	                Falls Sie Fragen haben, wenden Sie sich bitte an die für Sie zuständige Verkaufsniederlassung!
+				]]>
+                </target>
+			</trans-unit>
+            <trans-unit id="ranForm.withAccepting.emailToUser.decline.reason" xml:space="preserve">
+				<target>Grund für die Ablehnung:</target>
+			</trans-unit>
+            <trans-unit id="ranForm.withAccepting.emailToUser.pdf.printDescription" xml:space="preserve">
+				<target><![CDATA[
+					Bitte drucken Sie dieses Formular aus und legen es der Sendung bei. Trennen Sie den oben stehenden
+    Abschnitt ab und kleben ihn zur Adressierung auf die Verpackung.
+				]]>
+                </target>
+			</trans-unit>
+
+            <trans-unit id="internationalRAN.emailToUser.subject">
+                <target>Antrag auf Retourlieferung</target>
+            </trans-unit>
+            <trans-unit id="internationalRAN.emailToUserDeclined.subject">
+                <target>Antrag auf Retourlieferung</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,23 @@
+<div id="dce-{contentObject.uid}" class="pim-detail-header">
+	
+	<div class="d-flex flex-column flex-lg-row  align-items-center my-5">
+		<div class="order-1 order-lg-2">
+			<f:if condition="{field.title}">
+				<h1>{field.title}</h1>
+			</f:if>
+			<f:if condition="{field.content}">
+				<f:format.html>{field.content}</f:format.html>
+			</f:if>
+		</div>
+		<div class="order-2 order-lg-1 mr-4 mt-3 mt-lg-0">
+			<f:for each="{contentObject.assets}" as="image" iteration="i">
+				<f:if condition="{i.cycle} == 1">
+					<div class="img-detail-pim">
+						<f:image image="{image}" width="550m" />
+					</div>
+				</f:if>
+			</f:for>
+		</div>
+		
+	</div>
+</div>

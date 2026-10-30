@@ -1,0 +1,18 @@
+<f:for each="{items}" as="item">
+  <li class="nav-item nav-level-{level}">
+	<f:link.page
+	  pageUid="{item.data.uid}"
+	  id="menu-item-{item.data.uid}"
+	  class="nav-link link-level-{level}{f:if(condition:item.current, then:' active')}{f:if(condition:item.active, then:' active')}"
+	>
+	  {item.title} 1
+	</f:link.page>
+
+	<f:if condition="{item.children}">
+	  <ul class="nav flex-column ul-level-{level}">
+		<f:render partial="PimRecursive/Recursive"
+				  arguments="{items: item.children, level: level + 1}" />
+	  </ul>
+	</f:if>
+  </li>
+</f:for>

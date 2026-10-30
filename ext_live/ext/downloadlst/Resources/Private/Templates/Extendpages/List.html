@@ -1,0 +1,749 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	This Template is responsible for creating a table of domain objects.
+
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
+
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+	<f:section name="content">
+		<f:if condition="{subpages}">
+			<f:then>
+
+				<div class="form-inline">
+					<div class="form-group">
+						<label class="sr-only" for="my-search">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.labelsuchedownloadlist")}</label>
+						<input type="search" id="my-search" placeholder="{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.labelsuchedownloadlist")}" class="form-control mr-sm-2">
+						<button type="submit" class="btn btn-primary btn-lst btn-lstgrey btn-icon btn-icon-lstdList"><i class="icon ion-ios-search-strong"></i></button>
+					</div>
+				</div>
+				<ul id="my-tree" class="lst-dlist list-group">
+					<f:for each="{subpages}" as="subpage">
+
+						<f:if condition="{subpage.hasSubContent}">
+							<li class="list-group-item">
+								<div><i class="icon ion-ios-folder"></i> {subpage.title}  {f:if(condition:'{subpage.new}',then:'<span class="badge badge-lstnew">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}</span>')} </div>
+
+								<f:if condition="{subpage.contentElements}">
+
+									<ul class="list-group">
+										<f:for each="{subpage.contentElements}" as="firstLevelCE">
+											<f:if condition="{firstLevelCE.haveFile}">
+												<f:then>
+													<li class="list-group-item lst-dlitem">
+														<div class="lst-dlist-dlitem">
+															<span class="lst-dlist-dlitemTitle">{firstLevelCE.header}
+															  <br /><span class="lst-dlinfo">
+																		<f:format.date format="%d. %B %Y">{firstLevelCE.tstamp}</f:format.date> | <f:for each="{firstLevelCE.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for>
+																		<span class="badge badge-lstnew">{f:if(condition:'{firstLevelCE.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+																</span>
+															</span>
+															<div class="lst-dlist-links">
+																<f:if condition="{firstLevelCE.forAllLanguage}">
+																	<f:then>
+																		<f:if condition="{firstLevelCE.image}">
+																			<f:for each="{firstLevelCE.image}" as="image">
+																				<a href="{image.originalResource.publicUrl}" target="_blank">
+																					Download
+																				</a>
+																			</f:for>
+																		</f:if>
+																	</f:then>
+																	<f:else>
+																		<f:if condition="{firstLevelCE.image}">
+																			<f:for each="{firstLevelCE.image}" as="image">
+																				<a href="{image.originalResource.publicUrl}" target="_blank">
+																					<f:if condition="{settings.iconFromExt}">
+																						<f:then>
+																							<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+																						</f:then>
+																						<f:else>
+																							<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																							<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																						</f:else>
+																					</f:if>deutsch
+																				</a>
+																			</f:for>
+																		</f:if>
+																		<f:if condition="{firstLevelCE.translatedRecords}">
+
+																			<f:for each="{firstLevelCE.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+																					<f:if condition="{contentElement.imageUrl}">
+																						<f:for each="{contentElement.imageUrl}" as="image">
+																							<a href="{image}" target="_blank">
+																								<f:if condition="{settings.iconFromExt}">
+																									<f:then>
+																										<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																									</f:then>
+																									<f:else>
+																										<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																										<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																									</f:else>
+																								</f:if> english
+																							</a>
+																						</f:for>
+																					</f:if>
+
+																			</f:for>
+																		</f:if>
+																	</f:else>
+																</f:if>
+
+															</div>
+														</div>
+													</li>
+												</f:then>
+												<f:else>
+													<f:if condition="{firstLevelCE.ctype} == 'text'">
+														<f:render section="textContentElement" arguments="{label:firstLevelCE}" />
+													</f:if>
+												</f:else>
+											</f:if>
+										</f:for>
+									</ul>
+								</f:if>
+
+								<f:if condition="{subpage.subpages}">
+									<ul>
+										<f:for each="{subpage.subpages}" as="level2">
+											<f:if condition="{level2.contentElements}">
+												<f:then>
+													<f:render section="subsubpage" arguments="{subsub: level2, currentFlag: currentFlag}"/>
+												</f:then>
+												<f:else>
+													<f:if condition="{level2.subpages}">
+														<f:render section="subsubpage" arguments="{subsub: level2, currentFlag: currentFlag}"/>
+													</f:if>
+												</f:else>
+											</f:if>
+
+											<f:comment>
+											<f:if condition="{level2.subpages}">
+												<ul>
+													<f:for each="{level2.subpages}" as="subsubsub">
+														<f:if condition="{subsubsub.contentElements}">
+															<f:then>
+																-------
+																<f:render section="subsubpage" arguments="{subsub: subsubsub}"/>
+																-------
+															</f:then>
+															<f:else>
+																<f:if condition="{subsubsub.subpages}">
+																	<f:render section="subsubpage" arguments="{subsub: subsubsub}"/>
+																</f:if>
+															</f:else>
+														</f:if>
+													</f:for>
+												</ul>
+											</f:if>
+											</f:comment>
+
+										</f:for>
+									</ul>
+								</f:if>
+							</li>
+						</f:if>
+					</f:for>
+				</ul>
+			</f:then>
+			<f:else>
+
+				<f:if condition="{selectedContentObj}">
+					<ul id="custom-tree" class="lst-dlist lst-dlist-select list-group">
+						<li class="list-group-item lst-fliselect">
+							<ul class="list-group">
+								<f:for each="{selectedContentObj}" as="contentObj">
+									<f:if condition="{contentObj.haveFile}">
+										<f:then>
+											<li class="list-group-item lst-dlitem">
+												<div class="lst-dlist-dlitem">
+													<span class="lst-dlist-dlitemTitle">
+													{contentObj.header}
+													<span class="lst-dlinfo">
+														<f:format.date format="%d. %B %Y">{contentObj.tstamp}</f:format.date> | <f:for each="{contentObj.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for>
+														<span class="badge badge-lstnew">{f:if(condition:'{contentObj.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+													</span>
+													</span>
+													<div class="lst-dlist-links">
+														<f:if condition="{contentObj.forAllLanguage}">
+															<f:then>
+																<f:if condition="{contentObj.image}">
+																	<f:for each="{contentObj.image}" as="image">
+																		<a href="{image.originalResource.publicUrl}" target="_blank">
+																			Download
+																		</a>
+																	</f:for>
+																</f:if>
+															</f:then>
+															<f:else>
+																<f:if condition="{contentObj.image}">
+																	<f:for each="{contentObj.image}" as="image">
+																		<a href="{image.originalResource.publicUrl}" target="_blank">
+																			<f:if condition="{settings.iconFromExt}">
+																				<f:then>
+																					<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+																				</f:then>
+																				<f:else>
+																					<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																					<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																				</f:else>
+																			</f:if> deutsch
+																		</a>
+																	</f:for>
+																</f:if>
+																<f:if condition="{contentObj.translatedRecords}">
+
+																	<f:for each="{contentObj.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+																			<f:if condition="{contentElement.imageUrl}">
+																				<f:for each="{contentElement.imageUrl}" as="image">
+																					<a href="{image}" target="_blank">
+																						<f:if condition="{settings.iconFromExt}">
+																							<f:then>
+																								<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																							</f:then>
+																							<f:else>
+																								<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																								<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																							</f:else>
+																						</f:if> english
+																					</a>
+																				</f:for>
+																			</f:if>
+
+																	</f:for>
+																</f:if>
+															</f:else>
+														</f:if>
+
+													</div>
+												</div>
+											</li>
+										</f:then>
+										<f:else>
+											<f:if condition="{contentObj.ctype} == 'text'">
+												<f:render section="textContentElement" arguments="{label:contentObj}" />
+											</f:if>
+										</f:else>
+									</f:if>
+								</f:for>
+							</ul>
+						</li>
+					</ul>
+				</f:if>
+			</f:else>
+		</f:if>
+
+
+	</f:section>
+
+
+
+	<f:section name="subsubpage">
+
+		<li class="list-group-item lst-dlist-lv2"><div><i class="icon ion-ios-folder"></i> {subsub.title} {f:if(condition:'{subsub.new}',then:'<span class="badge badge-lstnew">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}</span>')}</div>
+			<f:if condition="{subsub.contentElements}">
+				<f:then>
+					<f:render section="subsubcontentelement" arguments="{_all}"/>
+				</f:then>
+				<f:else>
+					<f:if condition="{subsub.subpages}">
+						<f:render section="subsubcontentelement" arguments="{_all}"/>
+					</f:if>
+				</f:else>
+			</f:if>
+		</li>
+	</f:section>
+
+	<f:section name="subsubcontentelement">
+		<ul class="list-group">
+			<f:for each="{subsub.contentElements}" as="label" iteration="itLabel">
+				<f:if condition="{label.haveFile}">
+					<f:then>
+						<li class="list-group-item lst-dlitem">
+							<div class="lst-dlist-dlitem">
+								<span class="lst-dlist-dlitemTitle">{label.header}
+									<br /><span class="lst-dlinfo">
+										<f:format.date format="%d. %B %Y">{label.tstamp}</f:format.date> | <f:for each="{label.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for>
+										<span class="badge badge-lstnew">{f:if(condition:'{label.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+									</span>
+								</span>
+								<div class="lst-dlist-links">
+									<f:if condition="{label.forAllLanguage}">
+										<f:then>
+											<f:if condition="{label.image}">
+												<f:for each="{label.image}" as="image">
+													<a href="{image.originalResource.publicUrl}" target="_blank">
+														Download
+													</a>
+												</f:for>
+											</f:if>
+										</f:then>
+										<f:else>
+											<f:if condition="{label.image}">
+												<f:for each="{label.image}" as="image">
+													<a href="{image.originalResource.publicUrl}" target="_blank">
+														<f:if condition="{settings.iconFromExt}">
+															<f:then>
+																<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+															</f:then>
+															<f:else>
+																<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+															</f:else>
+														</f:if>deutsch
+													</a>
+												</f:for>
+											</f:if>
+											<f:if condition="{label.translatedRecords}">
+
+												<f:for each="{label.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+														<f:if condition="{contentElement.imageUrl}">
+															<f:for each="{contentElement.imageUrl}" as="image">
+																<a href="{image}" target="_blank">
+																	<f:if condition="{settings.iconFromExt}">
+																		<f:then>
+																			<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																		</f:then>
+																		<f:else>
+																			<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																			<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																		</f:else>
+																	</f:if>  english
+																</a>
+															</f:for>
+														</f:if>
+
+												</f:for>
+											</f:if>
+										</f:else>
+									</f:if>
+								</div>
+							</div>
+						</li>
+					</f:then>
+					<f:else>
+						<f:if condition="{label.ctype} == 'text'">
+							<f:render section="textContentElement" arguments="{label:label}" />
+						</f:if>
+					</f:else>
+				</f:if>
+			</f:for>
+
+			<f:render section="recursivecontent" arguments="{subsub: subsub,settings: settings,currentFlag: currentFlag}"/>
+
+			<f:comment>
+			<f:if condition="{subsub.subpages}">
+				<ul class="list-group">
+					<f:for each="{subsub.subpages}" as="subsubpage">
+
+						<f:if condition="{subsubpage.contentElements}">
+							<li class="list-group-item lst-dlist-lv2"><div><i class="icon ion-ios-folder"></i> {subsubpage.title}  {f:if(condition:'{subsubpage.new}',then:'<span class="badge badge-lstnew">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}</span>')} </div>
+							<f:if condition="{subsubpage.contentElements}">
+
+								<ul class="list-group">
+
+									<f:for each="{subsubpage.contentElements}" as="label" iteration="itLabel">
+										<f:if condition="{label.haveFile}">
+											<f:then>
+												<li class="list-group-item lst-dlitem">
+													<div class="lst-dlist-dlitem">
+														<span class="lst-dlist-dlitemTitle">{label.header}
+														<br /><span class="lst-dlinfo"><f:format.date format="%d. %B %Y">{label.tstamp}</f:format.date> | <f:for each="{label.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for></span>
+														<span class="badge badge-lstnew">{f:if(condition:'{label.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+													  	</span>
+														<div class="lst-dlist-links">
+															<f:if condition="{label.forAllLanguage}">
+																<f:then>
+																	<f:if condition="{label.image}">
+																		<f:for each="{label.image}" as="image">
+																			<a href="{image.originalResource.publicUrl}" target="_blank">
+																				Download
+																			</a>
+																		</f:for>
+																	</f:if>
+																</f:then>
+																<f:else>
+																	<f:if condition="{label.image}">
+																		<f:for each="{label.image}" as="image">
+																			<a href="{image.originalResource.publicUrl}" target="_blank">
+																				<f:if condition="{settings.iconFromExt}">
+																					<f:then>
+																						<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+																					</f:then>
+																					<f:else>
+																						<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																						<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																					</f:else>
+																				</f:if>deutsch
+																			</a>
+																		</f:for>
+																	</f:if>
+																	<f:if condition="{label.translatedRecords}">
+
+																		<f:for each="{label.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+																				<f:if condition="{contentElement.imageUrl}">
+																					<f:for each="{contentElement.imageUrl}" as="image">
+																						<a href="{image}" target="_blank">
+																							<f:if condition="{settings.iconFromExt}">
+																								<f:then>
+																									<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																								</f:then>
+																								<f:else>
+																									<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																									<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																								</f:else>
+																							</f:if>  english
+																						</a>
+																					</f:for>
+																				</f:if>
+
+																		</f:for>
+																	</f:if>
+																</f:else>
+															</f:if>
+														</div>
+													</div>
+												</li>
+											</f:then>
+											<f:else>
+												<f:if condition="{label.ctype} == 'text'">
+													<f:render section="textContentElement" arguments="{label:label}" />
+												</f:if>
+											</f:else>
+										</f:if>
+									</f:for>
+								</ul>
+
+							</f:if>
+							</li>
+						</f:if>
+
+					</f:for>
+				</ul>
+			</f:if>
+			</f:comment>
+
+		</ul>
+	</f:section>
+
+	<f:section name="recursivecontent">
+
+		<f:if condition="{subsub.subpages}">
+			<f:then>
+				<ul class="list-group">
+					<f:for each="{subsub.subpages}" as="subsubpage">
+
+						<f:if condition="{subsubpage.contentElements}">
+							<li class="list-group-item lst-dlist-lv2"><div><i class="icon ion-ios-folder"></i> {subsubpage.title}  {f:if(condition:'{subsubpage.new}',then:'<span class="badge badge-lstnew">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}</span>')} </div>
+							<f:if condition="{subsubpage.contentElements}">
+
+								<ul class="list-group">
+
+									<f:for each="{subsubpage.contentElements}" as="label" iteration="itLabel">
+										<f:if condition="{label.haveFile}">
+											<f:then>
+												<li class="list-group-item lst-dlitem">
+													<div class="lst-dlist-dlitem">
+														<span class="lst-dlist-dlitemTitle">{label.header}
+														<br /><span class="lst-dlinfo"><f:format.date format="%d. %B %Y">{label.tstamp}</f:format.date> | <f:for each="{label.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for></span>
+														<span class="badge badge-lstnew">{f:if(condition:'{label.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+													  	</span>
+														<div class="lst-dlist-links">
+															<f:if condition="{label.forAllLanguage}">
+																<f:then>
+																	<f:if condition="{label.image}">
+																		<f:for each="{label.image}" as="image">
+																			<a href="{image.originalResource.publicUrl}" target="_blank">
+																				Download
+																			</a>
+																		</f:for>
+																	</f:if>
+																</f:then>
+																<f:else>
+																	<f:if condition="{label.image}">
+																		<f:for each="{label.image}" as="image">
+																			<a href="{image.originalResource.publicUrl}" target="_blank">
+																				<f:if condition="{settings.iconFromExt}">
+																					<f:then>
+																						<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+																					</f:then>
+																					<f:else>
+																						<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																						<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																					</f:else>
+																				</f:if>deutsch
+																			</a>
+																		</f:for>
+																	</f:if>
+																	<f:if condition="{label.translatedRecords}">
+
+																		<f:for each="{label.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+																				<f:if condition="{contentElement.imageUrl}">
+																					<f:for each="{contentElement.imageUrl}" as="image">
+																						<a href="{image}" target="_blank">
+																							<f:if condition="{settings.iconFromExt}">
+																								<f:then>
+																									<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																								</f:then>
+																								<f:else>
+																									<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																									<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																								</f:else>
+																							</f:if>  english
+																						</a>
+																					</f:for>
+																				</f:if>
+
+																		</f:for>
+																	</f:if>
+																</f:else>
+															</f:if>
+														</div>
+													</div>
+												</li>
+											</f:then>
+											<f:else>
+												<f:if condition="{label.ctype} == 'text'">
+													<f:render section="textContentElement" arguments="{label:label}" />
+												</f:if>
+											</f:else>
+										</f:if>
+									</f:for>
+
+									<f:if condition="{subsubpage.subpages}">
+										<f:then>
+											<f:for each="{subsubpage.subpages}" as="subsubsub">
+												<f:if condition="{subsubsub.subpages}">
+													<f:then>
+
+														<f:if condition="{subsubsub.contentElements}">
+															<li class="list-group-item lst-dlist-lv2"><div><i class="icon ion-ios-folder"></i> {subsubsub.title}  {f:if(condition:'{subsubsub.new}',then:'<span class="badge badge-lstnew">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}</span>')} </div>
+																<f:if condition="{subsubsub.contentElements}">
+
+																	<ul class="list-group">
+
+																		<f:for each="{subsubsub.contentElements}" as="label" iteration="itLabel">
+																			<f:if condition="{label.haveFile}">
+																				<f:then>
+																					<li class="list-group-item lst-dlitem">
+																						<div class="lst-dlist-dlitem">
+																							<span class="lst-dlist-dlitemTitle">{label.header}
+																							<br /><span class="lst-dlinfo"><f:format.date format="%d. %B %Y">{label.tstamp}</f:format.date> | <f:for each="{label.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for></span>
+																							<span class="badge badge-lstnew">{f:if(condition:'{label.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+																						  	</span>
+																							<div class="lst-dlist-links">
+																								<f:if condition="{label.forAllLanguage}">
+																									<f:then>
+																										<f:if condition="{label.image}">
+																											<f:for each="{label.image}" as="image">
+																												<a href="{image.originalResource.publicUrl}" target="_blank">
+																													Download
+																												</a>
+																											</f:for>
+																										</f:if>
+																									</f:then>
+																									<f:else>
+																										<f:if condition="{label.image}">
+																											<f:for each="{label.image}" as="image">
+																												<a href="{image.originalResource.publicUrl}" target="_blank">
+																													<f:if condition="{settings.iconFromExt}">
+																														<f:then>
+																															<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+																														</f:then>
+																														<f:else>
+																															<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																															<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																														</f:else>
+																													</f:if>deutsch
+																												</a>
+																											</f:for>
+																										</f:if>
+																										<f:if condition="{label.translatedRecords}">
+
+																											<f:for each="{label.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+																													<f:if condition="{contentElement.imageUrl}">
+																														<f:for each="{contentElement.imageUrl}" as="image">
+																															<a href="{image}" target="_blank">
+																																<f:if condition="{settings.iconFromExt}">
+																																	<f:then>
+																																		<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																																	</f:then>
+																																	<f:else>
+																																		<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																																		<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																																	</f:else>
+																																</f:if>  english
+																															</a>
+																														</f:for>
+																													</f:if>
+
+																											</f:for>
+																										</f:if>
+																									</f:else>
+																								</f:if>
+																							</div>
+																						</div>
+																					</li>
+																				</f:then>
+																				<f:else>
+																					<f:if condition="{label.ctype} == 'text'">
+																						<f:render section="textContentElement" arguments="{label:label}" />
+																					</f:if>
+																				</f:else>
+																			</f:if>
+																		</f:for>
+
+																	</ul>
+																</f:if>
+																<f:render section="recursivecontent" arguments="{subsub: subsubsub,settings: settings,currentFlag: currentFlag}"/>
+															</li>
+														</f:if>
+
+													</f:then>
+													<f:else>
+														<f:render section="recursivecontent" arguments="{subsubpage: subsubsub,settings: settings,currentFlag: currentFlag}"/>
+													</f:else>
+												</f:if>
+
+											</f:for>
+										</f:then>
+									</f:if>
+
+								</ul>
+
+							</f:if>
+							</li>
+						</f:if>
+
+					</f:for>
+				</ul>
+			</f:then>
+			<f:else>
+				<f:if condition="{subsubpage.contentElements}">
+					<li class="list-group-item lst-dlist-lv2"><div><i class="icon ion-ios-folder"></i> {subsubpage.title}  {f:if(condition:'{subsubpage.new}',then:'<span class="badge badge-lstnew">{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}</span>')} </div>
+					<f:if condition="{subsubpage.contentElements}">
+
+						<ul class="list-group">
+
+							<f:for each="{subsubpage.contentElements}" as="label" iteration="itLabel">
+								<f:if condition="{label.haveFile}">
+									<f:then>
+										<li class="list-group-item lst-dlitem">
+											<div class="lst-dlist-dlitem">
+												<span class="lst-dlist-dlitemTitle">{label.header}
+												<br /><span class="lst-dlinfo"><f:format.date format="%d. %B %Y">{label.tstamp}</f:format.date> | <f:for each="{label.image}" as="image" iteration="itImage"><f:if condition="{itImage.isFirst}">.{image.originalResource.extension}</f:if></f:for></span>
+												<span class="badge badge-lstnew">{f:if(condition:'{label.new}',then:'{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.badgenewdownloadlist")}')}</span>
+											  	</span>
+												<div class="lst-dlist-links">
+													<f:if condition="{label.forAllLanguage}">
+														<f:then>
+															<f:if condition="{label.image}">
+																<f:for each="{label.image}" as="image">
+																	<a href="{image.originalResource.publicUrl}" target="_blank">
+																		Download
+																	</a>
+																</f:for>
+															</f:if>
+														</f:then>
+														<f:else>
+															<f:if condition="{label.image}">
+																<f:for each="{label.image}" as="image">
+																	<a href="{image.originalResource.publicUrl}" target="_blank">
+																		<f:if condition="{settings.iconFromExt}">
+																			<f:then>
+																				<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{currentFlag}.png" width="16px"/>
+																			</f:then>
+																			<f:else>
+																				<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																				<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{currentFlag}.png" width="16px"/></f:if>
+																			</f:else>
+																		</f:if>deutsch
+																	</a>
+																</f:for>
+															</f:if>
+															<f:if condition="{label.translatedRecords}">
+
+																<f:for each="{label.translatedRecords}" as="contentElement" iteration="itContentElement">
+
+																		<f:if condition="{contentElement.imageUrl}">
+																			<f:for each="{contentElement.imageUrl}" as="image">
+																				<a href="{image}" target="_blank">
+																					<f:if condition="{settings.iconFromExt}">
+																						<f:then>
+																							<f:image src="typo3conf/ext/downloadlst/Resources/Public/flag/{contentElement.flag}.png" width="16px"/>
+																						</f:then>
+																						<f:else>
+																							<f:if condition="{TYPO3_VERSION} == '8'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																							<f:if condition="{TYPO3_VERSION} == '7'"><f:image src="typo3/sysext/core/Resources/Public/Icons/Flags/PNG/{contentElement.flag}.png" width="16px"/></f:if>
+																						</f:else>
+																					</f:if>  english
+																				</a>
+																			</f:for>
+																		</f:if>
+
+																</f:for>
+															</f:if>
+														</f:else>
+													</f:if>
+												</div>
+											</div>
+										</li>
+									</f:then>
+									<f:else>
+										<f:if condition="{label.ctype} == 'text'">
+											<f:render section="textContentElement" arguments="{label:label}" />
+										</f:if>
+									</f:else>
+								</f:if>
+							</f:for>
+						</ul>
+
+						<f:if condition="{subsubpage.subpages}">
+							<f:then>
+								<f:for each="{subsubpage.subpages}" as="subsubsub">
+									<f:if condition="{subsubsub.subpages}">
+										<f:then>
+											<f:render section="recursivecontent" arguments="{subsub: subsubsub,settings: settings,currentFlag: currentFlag}"/>
+										</f:then>
+										<f:else>
+											<f:render section="recursivecontent" arguments="{subsubpage: subsubsub,settings: settings,currentFlag: currentFlag}"/>
+										</f:else>
+									</f:if>
+
+								</f:for>
+							</f:then>
+						</f:if>
+
+					</f:if>
+					</li>
+				</f:if>
+			</f:else>
+		</f:if>
+
+	</f:section>
+	<f:section name="textContentElement">
+		<li class="list-group-item lst-dlitem">
+			<div class="lst-dlist-dlitem">
+				<span class="lst-dlist-dlitemTitle">{label.header}
+				  <br /><span class="lst-dlinfo">
+							<f:format.html>{label.bodytext}</f:format.html>
+							{label.rowDescription}
+							<span class="badge badge-lstnew"></span>
+					</span>
+				</span>
+			</div>
+		</li>
+	</f:section>
+</html>

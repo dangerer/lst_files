@@ -1,0 +1,29 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_image form-group">
+	<label for="femanager_field_image" class="col-sm-2 control-label">
+		<f:translate key="tx_femanager_domain_model_user.image" />
+		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'image')}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="col-sm-10">
+		<f:if condition="{user.image}">
+			<f:else>
+				<f:form.upload
+						id="femanager_field_image"
+						property="image.0"
+						class="custom-file-input" />
+			</f:else>
+			<f:then>
+				<div><f:image image="{user.firstImage}" maxWidth="800"/></div>
+				<f:form.hidden property="image.0" value="{user.firstImage}" />
+
+				<f:link.action
+						class="btn btn-danger"
+						action="imageDelete"
+						controller="User"
+						arguments="{user:user}">Delete image</f:link.action>
+			</f:then>
+		</f:if>
+	</div>
+</div>

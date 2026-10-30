@@ -1,0 +1,4 @@
+name: sjbr/sr-feuser-register-css
+label: Frontend User Registration Default Styles
+dependencies:
+  - sjbr/sr-feuser-register

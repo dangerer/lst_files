@@ -1,0 +1,83 @@
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-18T18:20:51Z" product-name="gtn_survey">
+        <header/>
+        <body>
+            <trans-unit id="fe.error.company.isRequired">
+				<source>Company name is required!</source>
+                <target>Bitte Name der Firma angeben!</target>
+            </trans-unit>
+            <trans-unit id="fe.error.address.isRequired">
+				<source>Address is required!</source>
+                <target>Bitte Adresse angeben!</target>
+            </trans-unit>
+            <trans-unit id="fe.error.postal.isNumber">
+				<source>The postal code has to be a number!</source>
+                <target>Für die Postleitzahl sind nur Zahlen zulässig!</target>
+            </trans-unit>
+            <trans-unit id="fe.error.city.isRequired">
+				<source>The city is required!</source>
+                <target>Bitte die Stadt angeben!</target>
+            </trans-unit>
+            <trans-unit id="fe.error.date.isDate">
+				<source>The date has to be a legit date.</source>
+                <target>Das Datum muss einem korrekten Format entsprechen (dd.mm.yyyy)</target>
+            </trans-unit>
+            <trans-unit id="fe.error.mail.isMail">
+			<source>The given mail address is invalid!</source>
+                <target>Bitte eine korrekte E-Mail Adresse eingeben!</target>
+            </trans-unit>
+            <trans-unit id="fe.error.consultant.isRequired">
+				<source>Please enter your contact person of our company!</source>
+                <target>Bitte geben Sie ihre Kontaktperson an!</target>
+            </trans-unit>
+		<trans-unit id="fe.submit">
+			<source>Submit</source>
+			<target>Absenden</target>
+		</trans-unit>
+			<trans-unit id="fe.company">
+			<source>Company</source>
+			<target>Firma</target>
+		</trans-unit>
+			<trans-unit id="fe.address">
+			<source>Address</source>
+			<target>Anschrift</target>
+		</trans-unit>
+			<trans-unit id="fe.zip">
+			<source>Zip code</source>
+			<target>Postleitzahl</target>
+		</trans-unit>
+			<trans-unit id="fe.country_and_location">
+			<source>Country and Location</source>
+			<target>Ort</target>
+		</trans-unit>
+			<trans-unit id="fe.date">
+			<source>Date</source>
+			<target>Datum</target>
+		</trans-unit>
+			<trans-unit id="fe.contact_person">
+			<source>Contact person</source>
+			<target>Ansprechpartner</target>
+		</trans-unit>
+		<trans-unit id="fe.mail">
+			<source>e-mail-address</source>
+			<target>e-Mail-Adresse</target>
+		</trans-unit>
+			<trans-unit id="fe.hashInvalid">
+				<source>Link is no longer valid!</source>
+				<target>Link ist nicht mehr gültig!</target>
+
+			</trans-unit>
+			<trans-unit id="fe.hashMissing">
+				<source>Survey link is invalid!</source>
+				<target>Dieser Umfrage-Link ist nicht mehr gültig!</target>
+
+			</trans-unit>
+
+			<trans-unit id="fe.afterSurveyMessage">
+			<source>Thank you for your participation!</source>
+						<target>Vielen Dank für Ihre Teilnahme an unserer Umfrage!</target>
+
+		</trans-unit>
+		</body>
+    </file>
+</xliff>

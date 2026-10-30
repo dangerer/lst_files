@@ -1,0 +1,16 @@
+<f:for each="{dces}" as="el" iteration="it">
+  <li class="nav-item">
+    <a
+      class="nav-link{f:if(condition: it.isFirst, then:' active')} mx-2"
+      id="tab-{el.contentObject.uid}-tab"
+      data-toggle="tab"
+      data-target="#tab-{el.contentObject.uid}"
+      type="button" role="tab"
+      aria-controls="tab-{el.contentObject.uid}"
+      aria-selected="{f:if(condition: it.isFirst, then:'true', else:'false')}"
+      href="#"
+    >
+      {el.contentObject.header}
+    </a>
+  </li>
+</f:for>

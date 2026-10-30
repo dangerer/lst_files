@@ -1,0 +1,19 @@
+<div class="col mb-4" id="dce-{contentObject.uid}">
+	<div class="card card-css-services h-100 flex-row justify-content-start" >
+		<f:for each="{contentObject.assets}" as="image" iteration="i">
+			<f:if condition="{i.cycle} == 1">
+				<div class="round-icon d-flex justify-content-center align-items-center ml-3 mr-2">
+					<f:image image="{image}" width="25" alt="{image.alternative}" />
+				</div>
+			</f:if>
+		</f:for>
+		<div class="card-body">
+			<f:if condition="{field.title}">
+				<h3>{field.title}</h3>
+			</f:if>
+			<f:if condition="{field.text}">
+				<f:format.html>{field.text}</f:format.html>
+			</f:if>
+		</div>
+	</div>
+</div>

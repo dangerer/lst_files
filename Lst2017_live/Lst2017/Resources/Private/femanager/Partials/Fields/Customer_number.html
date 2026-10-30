@@ -1,0 +1,16 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_customerNumber form-group">
+	<label for="femanager_field_customerNumber" class="control-label">
+		<f:translate key="tx_femanager_domain_model_user.customer_number" />
+		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'customer_number')}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="">
+		<femanager:form.textfield
+				id="femanager_field_customerNumber"
+				property="customerNumber"
+				class="form-control"
+				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'customerNumber')}" />
+	</div>
+</div>

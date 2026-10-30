@@ -1,0 +1,15 @@
+# Configuration/Services.yaml
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Gtn\GtnImpressumlink\:
+    resource: "../Classes/*"
+
+  Gtn\GtnImpressumlink\Middleware\ContentReplaceMiddleware:
+    tags:
+      - name: 'http.middleware'
+        after: 'typo3/cms-frontend/content-length-headers'
+        before: 'typo3/cms-frontend/output-compression'

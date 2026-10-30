@@ -1,0 +1,10 @@
+<config>
+    <type>text</type>
+    <rows>5</rows>
+    <cols>30</cols>
+    <required>1</required>
+    <eval>trim</eval>
+    <enableRichtext>1</enableRichtext>
+    <richtextConfiguration>default</richtextConfiguration>
+    <softref>typolink_tag,email[subst],url</softref>
+</config>

@@ -1,0 +1,46 @@
+{
+  "name": "causal/file_list",
+  "type": "typo3-cms-extension",
+  "description": "This extension provides a frontend plugin which shows a list of files and folders in a specified directory on the file system (comparable to Apache directory listing) or using more advanced FAL selectors (categories, collection of files, ...). This extension may also be used for creating image galleries.",
+  "keywords": [
+    "TYPO3 CMS",
+    "list",
+    "files",
+    "directories",
+    "gallery"
+  ],
+  "support": {
+    "docs": "https://docs.typo3.org/p/causal/file_list/main/en-us/",
+    "issues": "https://github.com/xperseguers/t3ext-file_list/issues",
+    "source": "https://github.com/xperseguers/t3ext-file_list"
+  },
+  "authors": [
+    {
+      "name": "Xavier Perseguers",
+      "email": "xavier@causal.ch",
+      "homepage": "https://www.causal.ch",
+      "role": "Developer"
+    }
+  ],
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">= 7.4.0, <= 8.3.99",
+    "typo3/cms-core": "^10 || ^11 || ^12 || ^13"
+  },
+  "suggest": {
+    "causal/fal-protect": "Used to prevent direct access to protected files"
+  },
+  "autoload": {
+    "psr-4": {
+      "Causal\\FileList\\": "Classes/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.2.x-dev"
+    },
+    "typo3/cms": {
+      "extension-key": "file_list"
+    }
+  }
+}

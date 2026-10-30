@@ -1,0 +1,53 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+			<f:if condition="{files}">
+				<div class="list-group ce-uploads2">
+					<f:for each="{files}" as="file" iteration="fileIterator">
+						<a class="list-group-item list-group-item-action flex-column align-items-start" href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')}{f:if(condition: file.title, then: ' title="{file.title}"')}>
+						
+						<div class="d-flex w-100 justify-content-between">
+						
+							<!--f:if condition="{data.uploads_type} == 1">
+								<i class="icon ion-{file.extension}" aria-hidden="true"></i>
+							
+							</f:if -->
+							
+							<f:if condition="{data.uploads_type} == 2">
+								<f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
+									<f:then>
+											<f:media file="{file}" width="150" alt="{file.properties.alternative}" />
+									</f:then>
+									<f:else>
+										<img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+									</f:else>
+								</f:if>
+							</f:if>
+							
+							
+									
+									<h5>{f:if(condition: file.properties.title, then: file.properties.title, else: file.name) -> f:format.htmlspecialchars()}</h5>
+									
+								<f:if condition="{data.filelink_size}">
+									<small>3 <f:format.bytes value="{file.properties.size}" /> | {file.extension}</small>
+								</f:if>
+							</div>
+								
+								<f:if condition="{file.properties.description}">
+									<f:if condition="{data.uploads_description}">
+										<p class="mb-1">{file.properties.description}</p>
+									</f:if>
+								</f:if>
+								
+							
+							
+							
+						
+						</a>
+					</f:for>
+				</div>
+			</f:if>
+
+</f:section>
+</html>

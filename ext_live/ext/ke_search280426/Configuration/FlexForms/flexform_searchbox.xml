@@ -1,0 +1,558 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <MAIN>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.main
+                </sheetTitle>
+                <type>array</type>
+                <el>
+
+                    <resultPage>
+                        <exclude>1</exclude>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultPage
+                        </label>
+                        <config>
+                            <type>group</type>
+                            <allowed>pages</allowed>
+                            <size>1</size>
+                            <maxitems>1</maxitems>
+                            <minitems>0</minitems>
+                        </config>
+                    </resultPage>
+
+                    <cssFile>
+                        <exclude>1</exclude>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.cssFile</label>
+                        <config>
+                            <type>input</type>
+                            <eval>trim</eval>
+                        </config>
+                    </cssFile>
+
+                    <showTextInsteadOfResults>
+                        <onChange>reload</onChange>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showTextInsteadOfResults
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showTextInsteadOfResults>
+
+                    <textForResults>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.textForResults
+                        </label>
+                        <displayCond>FIELD:showTextInsteadOfResults:=:1</displayCond>
+                        <config>
+                            <type>text</type>
+                            <enableRichtext>1</enableRichtext>
+                        </config>
+                    </textForResults>
+
+                    <showNoResultsText>
+                        <onChange>reload</onChange>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showNoResultsText
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showNoResultsText>
+
+                    <noResultsText>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.noResultsText
+                        </label>
+                        <displayCond>FIELD:showNoResultsText:=:1</displayCond>
+                        <config>
+                            <type>text</type>
+                            <enableRichtext>1</enableRichtext>
+                        </config>
+                    </noResultsText>
+
+                    <countSearchPhrases>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.countSearchPhrases
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </countSearchPhrases>
+
+                </el>
+            </ROOT>
+        </MAIN>
+        <sorting>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.sorting
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <sortByAdmin>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.sortByAdmin
+                        </label>
+                        <displayCond>FIELD:showSortInFrontend:!=:1</displayCond>
+                        <config type="array">
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <maxitems>10</maxitems>
+                            <size>10</size>
+                            <itemsProcFunc>Tpwd\KeSearch\Backend\Flexform->listAvailableOrderingsForAdmin
+                            </itemsProcFunc>
+                            <default>score desc</default>
+                        </config>
+                    </sortByAdmin>
+
+                    <sortWithoutSearchword>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.sortWithoutSearchword
+                        </label>
+                        <config type="array">
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <maxitems>10</maxitems>
+                            <size>10</size>
+                            <relevanceNotAllowed>1</relevanceNotAllowed>
+                            <default>sortdate desc</default>
+                            <itemsProcFunc>Tpwd\KeSearch\Backend\Flexform->listAvailableOrderingsForAdmin
+                            </itemsProcFunc>
+                        </config>
+                    </sortWithoutSearchword>
+
+                    <showSortInFrontend>
+                        <onChange>reload</onChange>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showSortInFrontend
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showSortInFrontend>
+
+                    <sortByVisitor>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.sortByVisitor
+                        </label>
+                        <displayCond>FIELD:showSortInFrontend:=:1</displayCond>
+                        <config type="array">
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <maxitems>100</maxitems>
+                            <size>5</size>
+                            <itemsProcFunc>Tpwd\KeSearch\Backend\Flexform->listAvailableOrderingsForFrontend
+                            </itemsProcFunc>
+                        </config>
+                    </sortByVisitor>
+                </el>
+            </ROOT>
+        </sorting>
+        <view>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.view
+                </sheetTitle>
+                <type>array</type>
+                <el>
+
+                    <templateLayout>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.templateLayout
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.templateLayout.I.0
+                                    </label>
+                                    <value>10</value>
+                                </numIndex>
+                            </items>
+                            <size>1</size>
+                        </config>
+                    </templateLayout>
+
+                    <highlightSword>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.highlightSword
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </highlightSword>
+
+                    <resultLinkTarget>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultLinkTarget
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultLinkTarget.I.1
+                                    </label>
+                                    <value>_self</value>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultLinkTarget.I.0
+                                    </label>
+                                    <value>_blank</value>
+                                </numIndex>
+                            </items>
+                            <size>1</size>
+                            <default>_self</default>
+                        </config>
+                    </resultLinkTarget>
+
+                    <resultLinkTargetFiles>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultLinkTargetFiles
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultLinkTarget.I.1
+                                    </label>
+                                    <value>_self</value>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultLinkTarget.I.0
+                                    </label>
+                                    <value>_blank</value>
+                                </numIndex>
+                            </items>
+                            <size>1</size>
+                            <default>_blank</default>
+                        </config>
+                    </resultLinkTargetFiles>
+
+                    <previewMode>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.previewMode
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.previewMode.I.0
+                                    </label>
+                                    <value>abstract</value>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.previewMode.I.1
+                                    </label>
+                                    <value>hit</value>
+                                </numIndex>
+                            </items>
+                            <size>1</size>
+                            <default>abstract</default>
+                        </config>
+                    </previewMode>
+
+                    <resultChars>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultChars
+                        </label>
+                        <config>
+                            <type>number</type>
+                            <size>4</size>
+                            <range type="array">
+                                <upper>9999</upper>
+                                <lower>0</lower>
+                            </range>
+                            <default>200</default>
+                        </config>
+                    </resultChars>
+
+                    <resultsNumeration>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultsNumeration
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </resultsNumeration>
+
+                    <showQueryTime>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showQueryTime
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showQueryTime>
+
+                    <showResultUrl>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showResultUrl
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showResultUrl>
+
+                    <renderResultUrlAsLink>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.renderResultUrlAsLink
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </renderResultUrlAsLink>
+
+                    <showDate>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showDate</label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showDate>
+
+                </el>
+            </ROOT>
+        </view>
+
+        <images>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.images
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <showTypeIcon>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showTypeIcon
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </showTypeIcon>
+
+                    <showPageImages>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showPageImages
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </showPageImages>
+
+                    <showNewsImages>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showNewsImages
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </showNewsImages>
+
+                    <showFilePreview>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showFilePreview
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </showFilePreview>
+                </el>
+            </ROOT>
+        </images>
+
+        <pagebrowser>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.pagebrowser
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <pagebrowserOnTop>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.pagebrowserOnTop
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </pagebrowserOnTop>
+
+                    <pagebrowserAtBottom>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.pagebrowserAtBottom
+                        </label>
+                        <config>
+                            <type>check</type>
+                            <default>1</default>
+                        </config>
+                    </pagebrowserAtBottom>
+
+                    <resultsPerPage>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.resultsPerPage
+                        </label>
+                        <config>
+                            <type>number</type>
+                            <size>2</size>
+                            <range type="array">
+                                <upper>99</upper>
+                                <lower>1</lower>
+                            </range>
+                            <default>10</default>
+                        </config>
+                    </resultsPerPage>
+
+                    <maxPagesInPagebrowser>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.maxPagesInPagebrowser
+                        </label>
+                        <config>
+                            <type>number</type>
+                            <size>2</size>
+                            <range type="array">
+                                <upper>99</upper>
+                                <lower>1</lower>
+                            </range>
+                            <default>10</default>
+                        </config>
+                    </maxPagesInPagebrowser>
+
+                </el>
+            </ROOT>
+        </pagebrowser>
+
+
+        <filter>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.filter
+                </sheetTitle>
+                <type>array</type>
+                <el>
+
+                    <filters>
+                        <exclude>1</exclude>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.filters</label>
+                        <config type="array">
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <maxitems>100</maxitems>
+                            <size>5</size>
+                            <allownonidvalues>1</allownonidvalues>
+                            <items type="array"></items>
+                            <itemsProcFunc>Tpwd\KeSearch\Backend\Filterlist->getListOfAvailableFiltersForFlexforms
+                            </itemsProcFunc>
+                        </config>
+                    </filters>
+
+                    <hiddenfilters>
+                        <exclude>1</exclude>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.hiddenfilters
+                        </label>
+                        <config type="array">
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <maxitems>100</maxitems>
+                            <size>5</size>
+                            <allownonidvalues>1</allownonidvalues>
+                            <items type="array"></items>
+                            <itemsProcFunc>Tpwd\KeSearch\Backend\Filterlist->getListOfAvailableFiltersForFlexforms
+                            </itemsProcFunc>
+                        </config>
+                    </hiddenfilters>
+
+                    <preselected_filters>
+                        <exclude>1</exclude>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.preselected_filters
+                        </label>
+                        <config type="array">
+                            <type>select</type>
+                            <renderType>selectMultipleSideBySide</renderType>
+                            <maxitems>100</maxitems>
+                            <size>5</size>
+                            <allownonidvalues>1</allownonidvalues>
+                            <items type="array"></items>
+                            <itemsProcFunc>
+                                Tpwd\KeSearch\Backend\Filterlist->getListOfAvailableFilteroptionsForFlexforms
+                            </itemsProcFunc>
+                        </config>
+                    </preselected_filters>
+
+                    <checkFilterCondition>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.checkFilterCondition
+                        </label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.checkFilterCondition.I.0
+                                    </label>
+                                    <value>multi</value>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <label>
+                                        LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.checkFilterCondition.I.1
+                                    </label>
+                                    <value>none</value>
+                                </numIndex>
+                            </items>
+                            <size>1</size>
+                        </config>
+                    </checkFilterCondition>
+
+                </el>
+            </ROOT>
+        </filter>
+
+        <debug>
+            <ROOT>
+                <sheetTitle>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.page.debug
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <showTags>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showTags</label>
+                        <displayCond>HIDE_FOR_NON_ADMINS</displayCond>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showTags>
+
+                    <logQuery>
+                        <label>LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.logQuery</label>
+                        <displayCond>HIDE_FOR_NON_ADMINS</displayCond>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </logQuery>
+
+                    <showTaggedContentOnly>
+                        <label>
+                            LLL:EXT:ke_search/Resources/Private/Language/locallang_searchbox.xlf:ff.showTaggedContentOnly
+                        </label>
+                        <displayCond>HIDE_FOR_NON_ADMINS</displayCond>
+                        <config>
+                            <type>check</type>
+                            <default>0</default>
+                        </config>
+                    </showTaggedContentOnly>
+                </el>
+            </ROOT>
+        </debug>
+
+    </sheets>
+</T3DataStructure>

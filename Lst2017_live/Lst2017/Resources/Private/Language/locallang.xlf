@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-01-11T03:39:38Z" product-name="fe">
+		<header/>
+		<body>
+			<trans-unit id="lstTemplate.selectRegion" xml:space="preserve">
+				<source>Select Region</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.yourBranch" xml:space="preserve">
+				<source>Your responsible branch office:</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.branchChange" xml:space="preserve">
+				<source>Change Region</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.trainingsDate" xml:space="preserve">
+				<source>Begin</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.trainingsTime" xml:space="preserve">
+				<source>End</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.trainingsOrganizer" xml:space="preserve">
+				<source>Organiser</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.trainingsAddress" xml:space="preserve">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.trainingsSubmit" xml:space="preserve">
+				<source>Register</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.labelsuchedownloadlist" xml:space="preserve">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="lstTemplate.badgenewdownloadlist" xml:space="preserve">
+				<source>New</source>
+			</trans-unit>
+			<trans-unit id="fe_user.fe_language" xml:space="preserve">
+				<source>Newsletter language</source>
+			</trans-unit>
+			<trans-unit id="fe_user.fe_language.item0" xml:space="preserve">
+				<source>Deutsch</source>
+			</trans-unit>    
+			<trans-unit id="fe_user.fe_language.item1" xml:space="preserve">
+				<source>English</source>
+			</trans-unit>    
+			<trans-unit id="mainRegion.au" xml:space="preserve">
+				<source>Austria</source>
+			</trans-unit>
+			<trans-unit id="mainRegion.de" xml:space="preserve">
+				<source>Germany</source>
+			</trans-unit>
+			<trans-unit id="mainRegion.inter" xml:space="preserve">
+				<source>International</source>
+			</trans-unit>
+
+			<trans-unit id="course" xml:space="preserve">
+				<source>Training</source>
+			</trans-unit>
+			<trans-unit id="course.organizer" xml:space="preserve">
+				<source>Organizer</source>
+			</trans-unit>
+			<trans-unit id="course.date" xml:space="preserve">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="course.cost" xml:space="preserve">
+				<source>Cost</source>
+			</trans-unit>       
+			<trans-unit id="course.address" xml:space="preserve">
+				<source>Address</source>
+			</trans-unit>       
+			<trans-unit id="courses.testKey" xml:space="preserve">
+				<source>test string (courses.testKey)</source>
+			</trans-unit>
+			<trans-unit id="courses.noOneFound" xml:space="preserve">
+				<source>No course available</source>
+			</trans-unit>
+			<trans-unit id="courses.location" xml:space="preserve">
+				<source>Location/City</source>
+			</trans-unit>
+			<trans-unit id="courses.courseFullyBooked" xml:space="preserve">
+				<source>The course is fully booked!</source>
+			</trans-unit>
+			<trans-unit id="courses.trainingTimes" xml:space="preserve">
+				<source>Training times</source>
+			</trans-unit>
+			<trans-unit id="courses.priorKnowledge" xml:space="preserve">
+				<source>Prior knowledge</source>
+			</trans-unit>
+			<trans-unit id="courses.workEquipment" xml:space="preserve">
+				<source>Work equipment</source>
+			</trans-unit>
+			<trans-unit id="courses.participants" xml:space="preserve">
+				<source>Participants</source>
+			</trans-unit>
+			<trans-unit id="courses.price" xml:space="preserve">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="courses.begin" xml:space="preserve">
+				<source>Start</source>
+			</trans-unit>
+			<trans-unit id="courses.date" xml:space="preserve">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="courses.end" xml:space="preserve">
+				<source>End</source>
+			</trans-unit>
+			<trans-unit id="courses.till" xml:space="preserve">
+				<source>till</source>
+			</trans-unit>
+			<trans-unit id="courses.dates" xml:space="preserve">
+				<source>Read more</source>
+			</trans-unit>
+			<trans-unit id="courses.organizer" xml:space="preserve">
+				<source>Organizer</source>
+			</trans-unit>
+			<trans-unit id="courses.address" xml:space="preserve">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="courses.registerNow" xml:space="preserve">
+				<source>Register for this course now</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoPresenceHeader" xml:space="preserve">
+				<source>Information about registration and cancellation:</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoPresenceText1" xml:space="preserve">
+				<source>Deadline for registration is 2 weeks before the date of the event. The number of participants per training day is limited. After confirmation of participation by LST and payment of the invoice, your registration is binding. (Terms of payment: Receipt of invoice, to be transferred no later than 7 days before the start of the event). Cancellation of your participation is possible in writing until 2 weeks before the date of the event with full refund of costs. Cancellations after this deadline will be charged in full.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoPresenceText2" xml:space="preserve">
+				<source>We reserve the right to cancel an event if the number of participants is too low or the lecturer is ill. In this case you will be informed immediately. A full refund of the course fee will be given. We reserve the right to make changes to the course schedule.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoPresenceText3" xml:space="preserve">
+				<source>LST is not liable for accidents, or loss or theft of or damage to items brought to the course. LST accepts no liability for damage caused by participants.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoOnlineHeader" xml:space="preserve">
+				<source>Information about registration for and deregistration from the online training course:</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoOnlineText1" xml:space="preserve">
+				<source>After the registration has been checked by the Labor Strauss Group, an invoice will be issued – payment due date: immediately and without deductions.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoOnlineText2" xml:space="preserve">
+				<source>Registration for the chosen course and activation of the participant usually takes place one working day after invoicing.</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoOnlineText3" xml:space="preserve">
+				<source>Upon activation of the course, the participant will be informed personally by email. From this point onwards, the participant has 90 days to complete the course successfully and receive his/her certificate</source>
+			</trans-unit>
+			<trans-unit id="courses.addInfoOnlineText4" xml:space="preserve">
+				<source>91 days after registration, the participant can no longer access the course. The acquired certificate remains valid.</source>
+			</trans-unit>
+			<trans-unit id="courses.targetGroup" xml:space="preserve">
+				<source>Target group</source>
+			</trans-unit>
+			<trans-unit id="courses.theme" xml:space="preserve">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="courses.language" xml:space="preserve">
+				<source>Language</source>
+			</trans-unit>
+			<trans-unit id="courses.type" xml:space="preserve">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="courses.fullybooked" xml:space="preserve">
+				<source>Fully booked</source>
+			</trans-unit>
+			<trans-unit id="courses.noGroupAccess" xml:space="preserve">
+				<source>Unfortunately, you do not have permission to view this page.</source>
+			</trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.customerNumber" xml:space="preserve">
+				<source>Customer number</source>
+			</trans-unit>
+			<trans-unit id="courses.vatadd" xml:space="preserve">
+				<source>excl. VAT / day / participant</source>
+			</trans-unit>
+			<trans-unit id="courses.mail.recommendations.lst_firmenzentrale_pockau" xml:space="preserve">
+				<source><![CDATA[
+<p><b>For your stay in Pockau, we recommend the following hotels:</b><br>
+<a href="https://landhotel-pockau.de/">Landhotel Pockau</a><br>
+<a href="https://bergschloesschen-pockau.de/">Erzgebirgshotel Bergschlösschen</a><br>
+<a href="https://www.hotel-waldesruh-lengefeld.de/">Hotel Waldesruh</a></p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.recommendations.lst_verkaufsbuero_erfurt" xml:space="preserve">
+				<source><![CDATA[
+<p><b>For your stay in Erfurt, we recommend the following hotels:</b><br>
+<a href="https://www.hotel-bb.com/de/hotel/erfurt-hbf">B&B Hotel Erfurt Hbf</a><br>
+<a href="https://www.radissonhotels.com/de-de/hotels/prize-by-radisson-erfurt-city">Prize by Radisson, Erfurt City</a><br>
+<a href="https://www.h-hotels.com/de/hplus/hotels/hplus-hotel-erfurt">H+ Hotel Erfurt</a></p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.recommendations.lst_verkaufsbuero_moenchengladbach" xml:space="preserve">
+				<source><![CDATA[
+<p><b>For your stay in Mönchengladbach, we recommend the following hotels:</b><br>
+<a href="https://www.hotel-bb.com/de/hotel/moenchengladbach">B&B Hotel Mönchengladbach</a><br>
+<a href="https://www.leonardo-hotels.de/monchengladbach/leonardo-hotel-monchengladbach">Leonardo Hotel Mönchengladbach</a><br>
+<a href="https://www.novum-hotels.com/hotel-crown-moenchengladbach">Holiday Inn - The Niu, Stream Mönchengladbach</a></p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.recommendations.lst_verkaufsbuero_augsburg" xml:space="preserve">
+				<source><![CDATA[
+<p><b>For your stay in Augsburg, we recommend the following hotels:</b><br>
+<a href="https://www.hotel-bb.com/de/hotel/augsburg-nord?utm_source=gmb&utm_medium=referral&utm_content=augsburg-nordf&utm_campaign=yext">B&B Hotel Augsburg-Nord</a><br>
+<a href="https://www.leonardo-hotels.de/augsburg/leonardo-hotel-augsburg">Leonardo Hotel Augsburg</a><br>
+<a href="https://www.ihg.com/garner-hotels/hotels/de/de/augsburg/agbzt/hoteldetail?cm_mmc=GoogleMaps-_-RN-_-DE-_-AGBZT">Garner Hotel Augsburg Nord by IHG</a></p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.recommendations.lst_verkaufsbuero_hamburg" xml:space="preserve">
+				<source><![CDATA[
+<p><b>For your stay in Hamburg, we recommend the following hotels:</b><br>
+<a href="https://www.hotel-bb.com/de/hotel/hamburg-harburg?utm_source=gmb&utm_medium=referral&utm_content=hamburg&utm_campaign=yext">B&B Hotel Hamburg-Harburg</a><br>
+<a href="https://www.altstadthotel-harburg.de/">Altstadthotel Harburg</a><br>
+<a href="https://panorama-harburg.de/">Hotel Panorama</a></p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.confirmation_info.default" xml:space="preserve">
+				<source><![CDATA[
+<p><b>This email does not constitute a registration confirmation!</b></p>
+<p>A responsible staff member will contact you shortly via email.</p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.confirmation_info.aut_locations" xml:space="preserve">
+				<source><![CDATA[
+<p><b>This email does not constitute a registration confirmation!</b></p>
+<p>A responsible staff member will contact you shortly via email.</p>
+]]></source>
+			</trans-unit>
+			<trans-unit id="courses.mail.confirmation_info.ger_locations" xml:space="preserve">
+				<source><![CDATA[
+<p>You will receive an invoice approximately 4–8 weeks prior to the start of the training.<br>
+Upon receipt, the invoice is payable within the stated payment period, and the registration becomes binding.<br>
+Cancellation of participation is possible up to two weeks before the start of the training with a full refund.<br>
+For cancellations after this deadline (e.g., due to illness), a substitute participant may be nominated. If this is not possible, no refund can be issued.</p>
+<p>We reserve the right to cancel a training session in the event of insufficient participant numbers or illness of the instructor.<br>
+In such cases, you will be informed immediately and the training fee will be refunded.<br>
+We also reserve the right to make changes to the training schedule.</p>
+<p>The details of your booking are as follows:</p>
+]]></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

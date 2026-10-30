@@ -1,0 +1,42 @@
+{
+  "name": "jambagecom/addons-em",
+  "type": "typo3-cms-extension",
+  "description": "Enhancements to the Extension Manager (em).",
+  "keywords": [
+    "TYPO3",
+    "extension"
+  ],
+  "support": {
+    "issues": "https://jambage.com/kontakt/forum.html"
+  },
+  "homepage": "https://jambage.com",
+  "authors": [
+    {
+      "name": "Franz Holzinger",
+      "role": "Developer",
+      "homepage": "https://ttproducts.de"
+    }
+  ],
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "require": {
+    "typo3/cms-core": "^11.5 || ^12.4 || ^13"
+  },
+  "autoload": {
+    "psr-4": {
+      "JambageCom\\AddonsEm\\": "Classes"
+    },
+    "classmap": [
+      "lib"
+    ]
+  },
+  "replace": {
+    "typo3-ter/addons-em": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "addons_em"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="question-container">
+    <f:if condition="{sections}">
+        <f:then>
+            <f:switch expression="{question.questionType.type}">
+                <f:case value="1">
+                    <f:render partial="Question/QuestionType-3-Text" arguments="{question:question, sections:sections}"/>
+                </f:case>
+                <f:case value="2">
+                    <f:render partial="Question/QuestionType-3-MultiSelect" arguments="{question:question, sections:sections}"/>
+                </f:case>
+                <f:case value="3">
+                    <f:render partial="Question/QuestionType-3-SingleSelect" arguments="{question:question, sections:sections}"/>
+                </f:case>
+                <f:defaultCase>
+
+                </f:defaultCase>
+            </f:switch>
+        </f:then>
+        <f:else>
+            <f:if condition="{questionGroup.groupType.type} == 3 || {questionGroup.groupType.type} == 5">
+                <f:then>
+                    <f:switch expression="{question.questionType.type}">
+                        <f:case value="1">
+                            <f:render partial="Question/QuestionType-2-Text" arguments="{question:question, sections:sections}"/>
+                        </f:case>
+                        <f:case value="2">
+                            <f:render partial="Question/QuestionType-2-MultiSelect" arguments="{question:question, sections:sections}"/>
+                        </f:case>
+                        <f:case value="3">
+                            <f:render partial="Question/QuestionType-2-SingleSelect" arguments="{question:question, sections:sections}"/>
+                        </f:case>
+                        <f:defaultCase>
+
+                        </f:defaultCase>
+                    </f:switch>
+                </f:then>
+                <f:else>
+                    <f:switch expression="{question.questionType.type}">
+                        <f:case value="1">
+                            <f:render partial="Question/QuestionType-Text" arguments="{question:question}"/>
+                        </f:case>
+                        <f:case value="2">
+                            <f:render partial="Question/QuestionType-MultiSelect" arguments="{question:question}"/>
+                        </f:case>
+                        <f:case value="3">
+                            <f:render partial="Question/QuestionType-SingleSelect" arguments="{question:question}"/>
+                        </f:case>
+						<f:case value="4">
+                            <f:render partial="Question/QuestionType-Textarea" arguments="{question:question}"/>
+                        </f:case>
+                        <f:defaultCase>
+
+                        </f:defaultCase>
+                    </f:switch>
+                </f:else>
+            </f:if>
+
+        </f:else>
+    </f:if>
+
+</div>
+</html>
+

@@ -1,0 +1,875 @@
+# Überschriften anpassen & default Wrap entfernen
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.tt_content_overwrite_header.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.navigation.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.rootline_arrow.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/headerData.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/image_responsiv.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/media_responsiv.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/powermail.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.FlexSlider.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/news_config.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.tabNavLstProducts.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib_kesearch_searchbox.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.sr_feuserregistration.ts">
+# <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lang_en_US.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/formhandler/ts/ts_setup.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.felogin.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.logo.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.sr_emailsubscribe.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/generic_gallery.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/tx_femanager.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.sr_freecap.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.dp_cookieconsent.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/mindshapeCookieHint.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/mail_activity_check.ts">
+
+[siteLanguage("languageId") == 1]
+	#[Gtn\GtnLstHooks\Condition\FeLanguageSelectedCondition = 1]
+<INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/Lst2017/Configuration/TypoScript/lib.logo-en.ts">
+[end]
+
+# Klasse bodytext vom Text entfernen
+lib.parseFunc_RTE.nonTypoTagStdWrap.encapsLines.addAttributes.P >
+
+config {
+	disablePrefixComment = 0
+	compressBody = 0
+}
+
+page.config {
+    compressBody = 0
+}
+
+plugin {
+	tx_news {
+		settings {
+			facebookLocale = de_DE
+			}
+	}
+}
+
+# Pop-up-Funktion entfernen
+tt_content.image.20.1.imageLinkWrap.directImageLink = 1
+tt_content.image.20.1.imageLinkWrap.JSwindow = 0
+
+lib.parseFunc_RTE.externalBlocks.table.stdWrap.HTMLparser.tags.table.fixAttrib.class >
+
+tt_content.image.20.1.imageLinkWrap.width = 3000
+
+styles.content.imgtext.linkWrap.width = 500m
+
+# Fluid_styled_content
+lib {
+	fluidContent {
+		templateRootPaths.10 = fileadmin/Lst2017/FluidStyledContent/Resources/Private/Templates/
+		partialRootPaths.10 = fileadmin/Lst2017/FluidStyledContent/Resources/Private/Partials/
+		layoutRootPaths.10 = fileadmin/Lst2017/FluidStyledContent/Resources/Private/Layouts/
+	}
+}
+
+lib.contentElement {
+   templateRootPaths {
+      200 = fileadmin/Lst2017/FluidStyledContent/Resources/Private/Templates/
+   }
+   partialRootPaths {
+      200 = fileadmin/Lst2017/FluidStyledContent/Resources/Private/Partials/
+   }
+   layoutRootPaths {
+      200 = fileadmin/Lst2017/FluidStyledContent/Resources/Private/Layouts/
+   }
+}
+
+
+# Cannonical Tag
+tmp.canonical = TEXT
+tmp.canonical {
+	typolink.parameter.data = TSFE:id
+	typolink.returnLast = url
+	wrap = <link rel="canonical" href="https://test.laborstrauss.com|"  />
+}
+page.headerData.3750 < tmp.canonical
+page.headerData.3750.insertData = 1
+
+config {
+	disablePrefixComment = 0
+	locale_all = de_DE.UTF-8
+	sys_language_uid = 0
+	language = de
+	linkVars = L(0-2)
+	uniqueLinkVars = 1
+	defaultGetVars.L = 0
+	locale_all = de_DE
+	htmlTag_langKey = de
+	simulateStaticDocuments = 0
+	sys_language_mode = strict
+}
+
+
+
+	# Deutsche News anzeigen wenn keine Übersetzung
+[page["uid"] in [13,88,34,99,43,122,29,265]] AND [siteLanguage("languageId") == 1]
+config.sys_language_mode = 
+[end]
+
+[siteLanguage("languageId") == 1]
+#[Gtn\GtnLstHooks\Condition\FeLanguageSelectedCondition = 1]
+	config {
+		language = en
+		language_alt = en
+		locale_all = en_US.UTF-8
+		sys_language_uid = 1
+		htmlTag_langKey = en
+		linkVars = L(int)
+		uniqueLinkVars = 1
+		htmlTag_setParams = lang="en"
+	# Nur die Inhalte in der Standardsprache anzeigen wenn Seite nicht übersetzt ist, das Menü wird dann trotzdem in der richtigen Sprache angezeigt
+	# sys_language_mode = content_fallback
+}
+[end]
+
+# Real Url
+config.tx_realurl_enable = 1
+config.absRefPrefix = /
+# If you link across various domains, you also need this:
+# config.typolinkEnableLinksAcrossDomains = 1
+
+config.noPageTitle = 2
+page.headerData.1 = TEXT
+page.headerData.1.field = title // subtitle
+page.headerData.1.wrap = <title>|: Labor Strauss Gruppe</title>
+
+plugin.tx_felogin_pi1 {
+    redirectMode = referer
+    redirectFirstMethod = GET
+}
+#config.typolinkLinkAccessRestrictedPages = 38
+#config.typolinkLinkAccessRestrictedPages_addParams = &referer=###RETURN_URL###&pageId=###PAGE_ID###
+
+page = PAGE
+page {
+	shortcutIcon = fileadmin/Lst2017/Resources/Public/Images/favicon.ico
+	config {
+		htmlTag_langKey = de
+		simulateStaticDocuments = 0
+		baseURL = https://test.laborstrauss.com/
+		tx_realurl_enable = 1
+		#removeDefaultJS = 0
+		# Emails verschlüsseln
+#		sys_language_uid = 0
+		language = de
+		locale_all = de_DE.UTF-8
+		spamProtectEmailAddresses = 6
+		spamProtectEmailAddresses_atSubst = <span>&#064;</span>
+	}
+	
+	# body Tag
+	bodyTag >
+	bodyTagCObject = TEXT
+	bodyTagCObject.field = uid
+	bodyTagCObject.wrap = <body id="page-|" class="lang-de"> 
+	
+	
+	meta {
+		# Description und Keywords aus den Seiten holen
+		description {
+			data = TSFE:page|description
+		}
+		keywords {
+			# data = TSFE:page|keywords
+			value = Brandmeldeanlage, Brandschutz Anlagen, Anlagentechnischer Brandschutz, MEP, LST, Handmelder, Druckknopfmelder, Brandwarnanlage, Brandschutz System, Brandmelder, Wartung Brandmeldeanlage, Löschanlage, Notbeleuchtung, RWA, Errichtung Brandmeldeanlagen, Funkbrandmelder, Alarmanlagen Gewerbe, Vorschriften Brandschutz, Tausch Brandmeldeanlage
+			# Bereinigen Leerzeichen weg und Umbruch = Komma
+			keywords = 1
+		}
+		X-UA-Compatible = IE=edge
+		X-UA-Compatible.httpEquivalent = 1
+		viewport = width=device-width, initial-scale=1
+	} 
+
+	
+	# RSS Feed in den Header eintragen damit der RSS Feed im Browser angezeigt wird
+	headerData {
+
+	
+		
+		15 = TEXT 
+		15.value (
+		<script
+			  src="https://code.jquery.com/jquery-2.2.4.js"
+			  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+			  crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-migrate-1.2.1.js"></script> -->
+			
+			
+
+		    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		    <!--[if lt IE 9]>
+		      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		    <![endif]-->
+		)
+		
+		16 = TEXT
+		16.value (
+
+		)
+		
+		17. = TEXT 
+		17.value (
+			
+			<link rel="apple-touch-icon" sizes="180x180" href="fileadmin/Lst2017/Resources/Public/Images/apple-touch-icon.png" />
+			<link rel="icon" type="image/png" sizes="32x32" href="fileadmin/Lst2017/Resources/Public/Images/favicon-32x32.png" />
+			<link rel="icon" type="image/png" sizes="16x16" href="fileadmin/Lst2017/Resources/Public/Images/favicon-16x16.png" />
+		)
+		
+		997 = TEXT
+		997.value (
+			<script data-ignore="1" data-cookieconsent="statistics" type="text/plain" data-src="fileadmin/Lst2017/Resources/Public/JavaScript/matomo.js"></script>
+		)
+			
+	}
+	
+	includeCSS {
+		file1 = fileadmin/Lst2017/Resources/Public/bootstrap400/css/bootstrap.min.css
+		file3 = fileadmin/Lst2017/Resources/Public/StyleSheets/fonts.css
+		file4 = fileadmin/Lst2017/Resources/Public/StyleSheets/flexslider.css
+		#file4 = fileadmin/Lst2017/Resources/Public/StyleSheets/font-awesome.min.css
+		#file4 = fileadmin/Lst2017/Resources/Public/StyleSheets/glyphicons.css
+		file5 = fileadmin/Lst2017/Resources/Public/StyleSheets/ionicons.css
+		file8 = fileadmin/Lst2017/Resources/Public/StyleSheets/custom.css
+		file9 = fileadmin/Lst2017/Resources/Public/StyleSheets/magnific-popup.css		
+		file10 = fileadmin/Lst2017/Resources/Public/StyleSheets/customPrint.css	
+		file10.media = print
+		# file11 = Landingpage.css
+	
+	}
+	
+	# JS Libary im Footer einfügen
+	includeJSFooterlibs {
+		# file1 = fileadmin/Lst2017/Resources/Public/bootstrap400/js/bootstrap.min.js
+		file1 = fileadmin/Lst2017/Resources/Public/JavaScript/popper.js
+		file2 = fileadmin/Lst2017/Resources/Public/bootstrap400/js/bootstrap.js
+		file3 = fileadmin/Lst2017/Resources/Public/JavaScript/jquery.magnific-popup.js
+		file4 = fileadmin/Lst2017/Resources/Public/JavaScript/jquery.rwdImageMaps.min.js
+	}
+	
+	# JS im Footer einfügen
+	includeJSFooter {
+		file2 = fileadmin/Lst2017/Resources/Public/JavaScript/jquery.flexslider-min.js
+		file6 = fileadmin/Lst2017/Resources/Public/JavaScript/custom.js
+	}
+	
+	# FB include
+	5 = TEXT
+	5.value (
+		<script>
+		  
+		
+		</script>
+	)
+	
+	
+	10 = FLUIDTEMPLATE
+	10 {
+		 file.cObject = CASE
+		 file.cObject {
+		 	key {
+		 		# levelfield: -1 = schaut nach ob es einen Eintrag gibt, durch das ,slide wird nachgesehen ob ein Eintrag zu finden ist
+		 		data = levelfield: -1 , backend_layout_next_level, slide
+		 		# damit wird obriges überschrieben wenn es unter backendlayout einen eintrag gibt überschreibt er data
+		 		override.data = TSFE:page|backend_layout
+		 		# override.field = backend_layout
+		 	}
+		 	default = TEXT
+			default.value = fileadmin/Lst2017/Resources/Private/Templates/1column.html
+		 	
+		 	1 = TEXT
+		 	1.value = fileadmin/Lst2017/Resources/Private/Templates/Homepage.html
+		 	
+		 	2 = TEXT
+		 	2.value = fileadmin/Lst2017/Resources/Private/Templates/1column.html
+		 	
+		 	3 = TEXT
+		 	3.value = fileadmin/Lst2017/Resources/Private/Templates/productList.html
+		 	
+		 	4 = TEXT
+		 	4.value = fileadmin/Lst2017/Resources/Private/Templates/login.html
+		 	
+		 	5 = TEXT
+		 	5.value = fileadmin/Lst2017/Resources/Private/Templates/Kundenbereich.html
+		 	
+		 	6 = TEXT
+		 	6.value = fileadmin/Lst2017/Resources/Private/Templates/productdetail.html
+		 	
+		 	7 = TEXT
+		 	7.value = fileadmin/Lst2017/Resources/Private/Templates/Kontakt.html
+		 	
+		 	8 = TEXT
+		 	8.value = fileadmin/Lst2017/Resources/Private/Templates/test.html
+		 	
+		 	10 = TEXT
+		 	10.value = fileadmin/Lst2017/Resources/Private/Templates/1columnSubmenu.html
+		 	
+		 	11 = TEXT
+		 	11.value = fileadmin/Lst2017/Resources/Private/Templates/1columnSubmenuKachelnFooter.html
+		 	
+		 	12 = TEXT
+		 	12.value = fileadmin/Lst2017/Resources/Private/Templates/1columnSubmenuFooterLightgrey.html
+		 	
+		 	14 = TEXT
+		 	14.value = fileadmin/Lst2017/Resources/Private/Templates/1columnSubmenuJobFilter.html
+		 	
+		 	15 = TEXT
+		 	15.value = fileadmin/Lst2017/Resources/Private/Templates/1column_survey.html
+		 	
+		 	16 = TEXT
+		 	16.value = fileadmin/Lst2017/Resources/Private/Templates/landingpage.html
+		 	
+		 	}
+	
+		
+		partialRootPath = fileadmin/Lst2017/Resources/Private/Partials/
+		layoutRootPath = fileadmin/Lst2017/Resources/Private/Layouts/
+		variables {
+			
+			
+			altlogo = COA
+			altlogo {
+				10 = TEXT
+				10.value (
+					<a class="navbar-brand" target="_top" href="https://www.laborstrauss.com">
+				)
+				20 =< lib.logo
+				30 = TEXT
+				30.value = </a>
+			}
+			
+			logo = IMAGE
+            logo {
+                file = fileadmin/Lst2017/Resources/Public/Images/LST-Logo_de.svg
+                params=id=brand alt="Komet" title="Labor Strauss Gruppe"
+                imageLinkWrap = 1
+                imageLinkWrap.enable = 1
+                imageLinkWrap.typolink.parameter= https://www.laborstrauss.com
+                imageLinkWrap.typolink.ATagParams=class="navbar-brand"
+            }
+			
+			footer_imprint = TEXT
+			footer_imprint.data = date:U
+			footer_imprint.strftime =%Y
+			footer_imprint.wrap= ©&nbsp;|&nbsp;Labor Strauss Gruppe  
+			
+			navigation_main =< lib.navigation_main
+			navigation_service =< lib.navigation_service
+			navigation_footer =< lib.navigation_footer
+			breadcrumb =< lib.rootline
+			navigation_customerarea =< lib.navigation_customerarea
+			navigation_locations =< lib.navigation_locations
+			navigation_locations_at =< lib.navigation_locations_at
+			navigation_locations_de =< lib.navigation_locations_de
+			navigation_locations_ww =< lib.navigation_locations_ww
+			navigation_submenuLevel2 =< lib.navigation_submenuLevel2
+			
+			products_tabnav =< lib.tabNavLstProducts
+			
+			footer_sitemap1 =< lib.footer_sitemap1
+			footer_sitemap2 =< lib.footer_sitemap2
+			footer_sitemap3 =< lib.footer_sitemap3
+			footer_sitemap4 =< lib.footer_sitemap4
+			footer_sitemap5 =< lib.footer_sitemap5
+			footer_sitemap6 =< lib.footer_sitemap6
+			footer_sitemap7 =< lib.footer_sitemap7
+			
+			productlist_title = TEXT
+			productlist_title.data = page : title
+			productlist_title.field = nav_title // title
+			productlist_title.wrap = <h2 class="prodListHeader">|</h2>
+			
+			footer_contact < styles.content.get
+			footer_contact {
+				select.where = colPos = 1
+				select.pidInList=45
+			}
+			
+			footer_social < styles.content.get
+			footer_social {
+				select.where = colPos = 0
+				select.pidInList=45
+			}
+			
+			footer_newsl < styles.content.get
+			footer_newsl {
+				select.where = colPos = 2
+				select.pidInList=45
+			}
+			
+			contact_zip = TEXT
+			contact_zip.value (
+				<div class="card mt-4">
+					<div class="card-body">
+						<h4 class="card-title">PLZ Suchen</h4>
+						<p class="card-text">Anhand Ihrer Postleitzahl können wir feststellen welche Niederlassung für Sie zuständig ist.</p>
+						<form class="form-inline">
+							<label class="sr-only" for="Produktsuche">Produktsuche</label>
+							<input class="form-control mr-sm-2" id="Produktsuche" placeholder="Produktsuche" type="text">
+							<button type="submit" class="btn btn-primary btn-lst btn-lstgrey btn-icon"><i class="icon ion-ios-search-strong"></i></button>
+						</form>
+					</div>
+				</div>
+			)
+			
+			productlist_search = TEXT
+			productlist_search.value (
+							<form class="form-inline justify-content-end" method="get" action="/">
+								<input type="hidden" name="id" value="121" />
+								<label class="sr-only" for="Produktsuche">Produktsuche</label>
+								<input class="form-control form-control-lg mr-sm-2" id="Produktsuche" type="text" placeholder="Produktsuche" name="tx_kesearch_pi1[sword]">
+								<button type="submit" class="btn btn-primary btn-lst btn-lstgrey btn-icon btn-icon-lg"><i class="icon ion-ios-search-strong"></i></button>
+							</form>
+			)
+			
+			contact_zip >
+			
+			# Kontakttexte
+			locations_header_aut = TEXT
+			locations_header_aut.value = Österreich
+			locations_header_ger = TEXT
+			locations_header_ger.value = Deutschland
+			locations_header_int = TEXT
+			locations_header_int.value = International
+			
+			# Pagetitle aus Datenbank auslesen
+			#pagetitle = TEXT
+			#pagetitle.field = title
+			#pagetitle.wrap = <h2>|</h2>
+
+			kesearchbox =< lib.searchbox
+
+
+			# Kopie von content.get erstellen
+			content_0 < styles.content.get
+			#content_1 < styles.content.getLeft
+			#content_2 < styles.content.getRight
+			#content_3 < styles.content.getBorder
+
+			
+			content_1 < styles.content.get
+			content_1 {
+				select.where = colPos = 1
+			}
+			
+			content_2 < styles.content.get
+			content_2 {
+				select.where = colPos = 2
+			}
+			
+			content_3 < styles.content.get
+			content_3 {
+				select.where = colPos = 3
+			}
+			
+			content_4 < styles.content.get
+			content_4 {
+				select.where = colPos = 4
+			}
+			
+			content_5 < styles.content.get
+			content_5 {
+				select.where = colPos = 5
+			}
+			
+			content_6 < styles.content.get
+			content_6 {
+				select.where = colPos = 6
+			}
+			
+			content_7 < styles.content.get
+			content_7 {
+				select.where = colPos = 7
+			}
+			
+			content_8 < styles.content.get
+			content_8 {
+				select.where = colPos = 8
+			}
+			
+			content_9 < styles.content.get
+			content_9 {
+				select.where = colPos = 9
+			}
+			
+			content_10 < styles.content.get
+			content_10 {
+				select.where = colPos = 10
+				#renderObj =< lib.FlexSlider
+			}
+			content_11 < styles.content.get
+			content_11 {
+				select.where = colPos = 11
+			}
+			
+			# Variablen Modal Region
+			mr_selectregion = TEXT
+			mr_selectregion.value = Niederlassung wählen
+			
+			mr_modalInfo = TEXT
+			mr_modalInfo.value = Damit wir Sie best- und schnellstmöglich beraten können, wählen Sie bitte die Ihnen bekannte LST-Niederlassung aus.
+			
+			mr_austria = TEXT
+			mr_austria.value = Österreich
+			
+			mr_germany = TEXT
+			mr_germany.value = Deutschland
+			
+			mr_international = TEXT
+			mr_international.value = International
+			
+			mr_modalInfoZip = TEXT
+			mr_modalInfoZip.value = Alternativ geben Sie bitte die Postleitzahl Ihres Unternehmenssitzes ein.
+			
+			mr_modalInfoBranch = TEXT
+			mr_modalInfoBranch.value = Die richtige Niederlassung finden
+			
+			mr_modalInfoZip2 = TEXT
+			mr_modalInfoZip2.value = Damit Sie rasch die nächstgelegene Niederlassung der Labor Strauss Gruppe finden, geben Sie bitte Ihre Postleitzahl an.
+			
+			mr_confirm = TEXT
+			mr_confirm.value = Bestätigen
+			
+			mr_internSales = TEXT
+			mr_internSales.value = Internationaler Verkauf
+			
+			mr_ziplabel = TEXT
+			mr_ziplabel.value = Ihre PLZ
+			
+			infoPopUp	>
+
+		}
+	}
+	
+	3000 = TEXT
+	3000.value (
+		 <script>
+      $(document).ready(function() {
+
+      if(window.location.href.indexOf('#selectRegion') != -1) {
+      $('#selectRegion').modal('show');
+      }
+
+       });
+    
+    </script>
+	)
+
+}
+
+# Show Info Popup
+[like(request.getNormalizedParams().getHttpHost(), 'https://test.laborstrauss.com')]
+	page.10.variables {
+			infoPopUp < styles.content.get
+			infoPopUp {
+				select.where = colPos = 0
+				select.pidInList=11502
+			}
+}
+[end]
+
+[like(request.getNormalizedParams().getHttpHost(), 'www.lst.at')]
+page.10.variables {
+			infoPopUp < styles.content.get
+			infoPopUp {
+				select.where = colPos = 0
+				select.pidInList=11502
+			}
+}
+[end]
+
+print.csspage.includeCSS.file10.media = print
+
+# lst.at
+[like(request.getNormalizedParams().getHttpHost(), 'lst.at')]
+page.config.baseURL = https://www.lst.at/
+config.baseURL = https://www.lst.at/
+[end]
+
+[like(request.getNormalizedParams().getHttpHost(), 'www.lst.at')]
+page.config.baseURL = https://www.lst.at/
+config.baseURL = https://www.lst.at/
+[end]
+
+# laborstrauss.com
+[like(request.getNormalizedParams().getHttpHost(), 'test.laborstrauss.com')]
+	page.config.baseURL = https://test.laborstrauss.com/
+config.baseURL = https://test.laborstrauss.com/
+[end]
+
+[like(request.getNormalizedParams().getHttpHost(), 'www.laborstrauss.com')]
+page.config.baseURL = https://www.laborstrauss.com/
+config.baseURL = https://www.laborstrauss.com/
+[end]
+
+# laborstrauss.de
+[like(request.getNormalizedParams().getHttpHost(), 'laborstrauss.de')]
+page.config.baseURL = https://www.laborstrauss.de/
+config.baseURL = https://www.laborstrauss.de/
+[end]
+
+[like(request.getNormalizedParams().getHttpHost(), 'www.laborstrauss.de')]
+page.config.baseURL = https://www.laborstrauss.de/
+config.baseURL = https://www.laborstrauss.de/
+[end]
+
+# lst-nord.de
+[like(request.getNormalizedParams().getHttpHost(), 'lst-nord.de')]
+page.config.baseURL = https://www.lst-nord.de/
+config.baseURL = https://www.lst-nord.de/
+[end]
+
+[like(request.getNormalizedParams().getHttpHost(), 'www.lst-nord.de')]
+page.config.baseURL = https://www.lst-nord.de/
+config.baseURL = https://www.lst-nord.de/
+[end]
+
+# mep-pockau.de
+[like(request.getNormalizedParams().getHttpHost(), 'mep-pockau.de')]
+page.config.baseURL = https://www.mep-pockau.de/
+config.baseURL = https://www.mep-pockau.de/
+[end]
+
+[like(request.getNormalizedParams().getHttpHost(), 'www.mep-pockau.de')]
+page.config.baseURL = https://www.mep-pockau.de/
+config.baseURL = https://www.mep-pockau.de/
+[end]
+
+
+
+# enable iFrames
+lib.parseFunc_RTE.allowTags := addToList(object,param,embed,iframe)
+
+# Title Home ändern
+[siteLanguage("languageId") == 1]
+config.noPageTitle = 2
+page.headerData.1 = TEXT
+page.headerData.1.field >
+page.headerData.1.wrap = <title>Labor Strauss Gruppe</title>
+[end]
+
+
+# Produktsuche ausblenden
+[4 in tree.rootLineParentIds]
+page.10.variables.productlist_search >
+[end]
+
+# if User is loggedin hide navigation
+[frontend.user.isLoggedIn]
+
+[end]
+
+[page["uid"] in [38,379]]
+
+page.10.variables.breadcrumb >
+
+[end]
+
+[siteLanguage("languageId") == 1]
+#[Gtn\GtnLstHooks\Condition\FeLanguageSelectedCondition = 1]
+page.10.variables.logo = COA
+page.10.variables.logo {
+	10 = TEXT
+	10.value (
+		<a class="navbar-brand" target="_top" href="https://www.laborstrauss.com/en">
+	)
+	20 =< lib.logo_en
+	30 = TEXT
+	30.value = </a>
+}
+
+page.10.variables {
+	footer_imprint.wrap= ©&nbsp;|&nbsp;Labor Strauss Group
+	# Kontakttexte
+	locations_header_aut = TEXT
+	locations_header_aut.value = Austria
+	locations_header_ger = TEXT
+	locations_header_ger.value = Germany
+	locations_header_int = TEXT
+	locations_header_int.value = International Sales
+	
+	# Variablen Modal Region
+	mr_selectregion.value = Select branch
+	mr_modalInfo.value = In order to offer our best and quickest service, please select your local LST branch.
+	mr_austria.value = Austria
+	mr_germany.value = Germany
+	mr_international.value = International
+	mr_modalInfoZip.value = Alternatively, please enter the postcode of your company.
+	mr_modalInfoBranch.value = Find the right branch
+	mr_modalInfoZip2.value = To help you quickly find the nearest branch of the Labor Strauss Group, please enter your postcode in Austria or Germany.
+	mr_confirm.value = Confirm
+	mr_internSales.value = International Sales
+	mr_ziplabel.value = Your postcode
+
+	productlist_search.value (
+							<form class="form-inline justify-content-end" method="get" action="/">
+								<input type="hidden" name="id" value="121" />
+								<input type="hidden" name="L" value="1" />
+								<label class="sr-only" for="Produktsuche">Produktsuche</label>
+								<input class="form-control form-control-lg mr-sm-2" id="Produktsuche" type="text" placeholder="Product Search" name="tx_kesearch_pi1[sword]">
+								<button type="submit" class="btn btn-primary btn-lst btn-lstgrey btn-icon btn-icon-lg"><i class="icon ion-ios-search-strong"></i></button>
+							</form>
+			)
+}
+
+[end]
+
+
+# Standartmeldung leeres Feld
+plugin.tx_extbase._LOCAL_LANG.de {
+   validator.notempty.empty = Dieses Feld muss ausgefüllt werden!
+   validator.emailaddress.notvalid = Diese Mailadresse ist ungültig!
+}
+# Cache deaktivieren
+
+# config.no_cache = 1
+# page.config.no_cache = 1
+
+config.contentObjectExceptionHandler = 0
+
+# Scriptmerger 	
+plugin.tx_scriptmerger.javascript.parseBody = 1
+plugin.tx_scriptmerger {
+	css.minify.ignore = customPrint
+	css.compress.ignore = customPrint
+	css.merge.ignore = customPrint
+}
+	
+
+
+[siteLanguage("languageId") == 1]
+#[Gtn\GtnLstHooks\Condition\FeLanguageSelectedCondition = 1]
+page.config.language = en
+page.config.locale_all = en_US.UTF-8
+page.bodyTagCObject.wrap = <body id="page-|" class="lang-en"> 
+#plugin.tx_staticinfotables_pi1.settings.languageCode = EN
+#plugin.tx_staticinfotables_pi1.languageCode = EN
+[end]
+
+
+# Condition für LST Regionen 
+[Gtn\GtnLstHooks\Condition\RegionSelectedCondition = 9]
+
+# page.10.variables.footer_imprint.wrap= ©&nbsp;|&nbsp;LST Firmengruppe
+
+[end]
+
+
+# settings for lst hooks
+# redirect to page by selected region
+plugin.lstHooks {
+		# disabled. use TS conditions below
+		pageRedirectsByRegion {
+			# at first - page Id, which must be redirected
+			9411111111 {
+				# rule:  zoneID  =  shortcut to pid
+				# 0 = default
+				0 = 75
+				# Wien
+				9 = 75
+				# Graz
+				10 = 76
+				# Innsbtuck
+				11 = 77
+				# Mönchengladbach
+				12 = 78
+				# Hamburg
+				13 = 79
+				# Pockau-Lengefeld
+				14 = 74
+				# international
+				15 = 80
+			}
+		}
+		pagesForShowSelectRegionModalIfNoRegionSelected = 86,83,67,81,148,32,29
+	}
+
+
+#Wien = 9, Graz = 10, Innsbruck = 11, Mönchengladbach = 12, Hamburg = 13, Pockau = 14, Intern = 15, noRegion = 17
+[Gtn\GtnLstHooks\Condition\RegionSelectedCondition = 9]
+	
+[end]
+
+lib.regionSelectForForms = USER_INT
+lib.regionSelectForForms {
+	userFunc = GTN\GtnLstHooks\Utils\Utils->showRegionSelectForForm
+}
+
+# Powermail allow html in html fields
+
+plugin.tx_powermail.settings.setup.misc.htmlForHtmlFields = 1
+
+plugin.tx_femanager {
+        view {
+                templateRootPath = fileadmin/Lst2017/Resources/Private/femanager/Templates/
+                partialRootPath = fileadmin/Lst2017/Resources/Private/femanager/Partials/
+                layoutRootPath = fileadmin/Lst2017/Resources/Private/femanager/Layouts/
+        }
+}
+
+# for using in Fluid templates
+temp.languageTS = TEXT
+temp.languageTS.value = de
+[siteLanguage("languageId") == 1]
+	temp.languageTS.value = en
+[end]
+lib.languageTS < temp.languageTS
+# get current domain in fluid
+lib.currentDomainTS = TEXT
+lib.currentDomainTS {
+    dataWrap = {getIndpEnv:TYPO3_REQUEST_HOST}|
+    typolink.parameter.current = 1
+    typolink.returnLast = url
+}
+
+# Seiten aus der Suche ausschliessen
+
+[225 in tree.rootLineParentIds] OR [336 in tree.rootLineParentIds] OR [388 in tree.rootLineParentIds] OR [389 in tree.rootLineParentIds] OR [390 in tree.rootLineParentIds] OR [391 in tree.rootLineParentIds]
+	page.meta.robots = noindex, follow
+[end]
+
+
+[page["uid"] == 120]
+#plugin.tx_powermail >
+#tt_content.list.20.tx_powermail >
+[end]
+
+
+plugin.tx_gtnimpressumlink {
+	settings {
+#		replaceMarker = ###GTN_IMPRESSUM_LINK###
+#		impressumPid = 1331
+		# only one word!!
+#		linkClass = 
+#		linkTarget = _blank
+		# only one word!!
+#		linkTitle = Datenschutzerklärung
+#		linkString = Datenschutzerklärung
+		// for many replacers
+		replacers {
+			1 {
+				replaceMarker = Teilnahmebedingungen
+				linkToPid = 11646
+				# change if you need to have another linked string (if empty - will be used replaceMarker parameter)
+				linkString =
+				ignoredPages = 11646
+				# 0 - no inserting space after result link; 1 - insert space;   I do not think that you need this, but maybe...
+				spaceAfter = 0
+				# do not use next options if you do not need them really. They can break html
+				# search substring can be found in tag attributes. So, complex strings can break such html
+				# no any quotes! (" or ')
+				# only one word!!
+				linkClass =
+				linkTarget = _blank
+				# only one word!!
+				linkTitle =
+			}
+		}
+	}
+}
+

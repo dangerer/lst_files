@@ -1,0 +1,116 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+<f:layout name="PowermailAll" />
+
+	Render Powermail All Part
+		Available variables:
+		{mail} 					Complete Mail
+		{settings}				TypoScript and FlexForm values
+		{section}				Contains "web" or "mail"
+		{type}					Caller "createAction", "confirmationAction", "sender", "receiver"
+
+
+Section for Web view
+
+<f:section name="web">
+<f:if condition="{type} == 'createAction'}">
+	<input type="button" value="{f:translate(key:'print',  extensionName:'GtnLsthooks')}" class="btn btn-primary btn-lst btn-sm lst-printButton">
+</f:if>
+
+	<table class="table table-striped table-hover" style="page-break-after: always;">
+		<f:for each="{mail.answers}" as="answer">
+			<f:if condition="{vh:Condition.isNotExcludedFromPowermailAll(answer:answer, type:type, settings:settings)}">
+				<f:if condition="{settings.misc.showOnlyFilledValues}">
+					<f:then>
+						<f:if condition="{vh:Condition.IsNotEmpty(val:'{answer.value}')}">
+							<f:comment>Show here only NOT ARTICLE fields. Article fields will be shown later</f:comment>
+							<f:if condition="{answer.articleField}">
+								<f:else>
+									<f:render partial="PowermailAll/Web" arguments="{_all}" />
+								</f:else>
+							</f:if>
+						</f:if>
+					</f:then>
+					<f:else>
+						<f:render partial="PowermailAll/Web" arguments="{_all}" />
+					</f:else>
+				</f:if>
+			</f:if>
+			<f:comment> show selected region (hidden field) in confirmation form </f:comment>
+			<f:if condition="{type} == 'confirmationAction'}">
+				<f:if condition="{answer.field.marker} == 'region'">
+					<f:render partial="PowermailAll/Web" arguments="{_all}" />
+				</f:if>
+			</f:if>
+		</f:for>
+		<f:for each="{mail.articles}" as="article">
+	</table>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th colspan="2">{article.title}</th>
+			</tr>
+		</thead>
+			<f:for each="{article.answers}" as="answer">
+				<f:if condition="{settings.misc.showOnlyFilledValues}">
+					<f:then>
+						<f:if condition="{vh:Condition.IsNotEmpty(val:'{answer.value}')}">
+							<f:render partial="PowermailAll/Web" arguments="{_all}" />
+						</f:if>
+					</f:then>
+					<f:else>
+						<f:render partial="PowermailAll/Web" arguments="{_all}" />
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:for>
+	</table>
+<f:if condition="{type} == 'createAction'}">
+
+	<input type="button" value="{f:translate(key:'print',  extensionName:'GtnLsthooks')}" class="btn btn-primary btn-lst btn-sm lst-printButton">
+</f:if>
+</f:section>
+
+
+
+Section for Mails
+
+<f:section name="mail">
+	<table class="powermail_all">
+		<f:for each="{mail.answers}" as="answer">
+			<f:if condition="{vh:Condition.isNotExcludedFromPowermailAll(answer:answer, type:type, settings:settings)}">
+				<f:if condition="{settings.misc.showOnlyFilledValues}">
+					<f:then>
+						<f:if condition="{vh:Condition.IsNotEmpty(val:'{answer.value}')}">
+							<f:if condition="{answer.articleField}">
+								<f:else>
+									<f:render partial="PowermailAll/Mail" arguments="{_all}" />
+								</f:else>
+							</f:if>
+						</f:if>
+					</f:then>
+					<f:else>
+						<f:render partial="PowermailAll/Mail" arguments="{_all}" />
+					</f:else>
+				</f:if>
+			</f:if>
+		</f:for>
+		<f:for each="{mail.articles}" as="article">
+	</table>
+	<h3>{article.title}</h3>
+	<table class="table table-striped table-hover">			
+			<f:for each="{article.answers}" as="answer">
+				<f:if condition="{settings.misc.showOnlyFilledValues}">
+					<f:then>
+						<f:if condition="{vh:Condition.IsNotEmpty(val:'{answer.value}')}">
+							<f:render partial="PowermailAll/Mail" arguments="{_all}" />							
+						</f:if>
+					</f:then>
+					<f:else>
+						<f:render partial="PowermailAll/Mail" arguments="{_all}" />
+					</f:else>
+				</f:if>				
+			</f:for>
+		</f:for>
+	</table>
+</f:section>

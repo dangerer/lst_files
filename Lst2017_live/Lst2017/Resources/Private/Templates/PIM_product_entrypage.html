@@ -1,0 +1,66 @@
+<f:layout name="Lst" />
+	
+<f:section name="content">
+<!--TYPO3SEARCH_begin-->
+
+<div id="maincontent" class="ls-1col">
+	
+	<f:render partial="Pim-sidebar" arguments="{_all}" />
+
+	<main id="pim-main" class="main-open">
+
+		<div class="container-fluid NOcontainer-fluid-100 pt-45 pb-4">
+			<div class="row">
+				<div class="col-12 maincol">
+					<div class="navbar-toggle navbar-sidebar-toggle flex-grow-1 mb-3 open">
+						<a href="javascript:void(0);" 
+						   data-activates="slide-out" 
+						   class="button-collapse button-sidebar-collapse"
+						   data-label-open="{f:translate(key:'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:pim.collapse')}"
+						   data-label-close="{f:translate(key:'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:pim.expand')}">
+						   <i class="fas fa-bars icon ion-chevron-right mr-2"></i>
+						   <span class="toggle-text" aria-hidden="true">
+							 {f:translate(key:'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:pim.collapse')} 
+						   </span>
+						</a>
+					</div>
+					<f:format.raw>{content_0}</f:format.raw>
+				</div>
+			</div>
+			
+		</div><!--/.fluid-container-->
+		<div class="">
+			<div class="container-fluid ctn-prod pt-3 pb-4">
+				<div class="row">
+					<div class="col-12">
+						
+						<f:comment>
+						<div class="row">
+							<div class="col-12 col-sm-8 order-sm-12 prod_search ">
+								
+								<f:format.raw>{productlist_search}</f:format.raw>
+								
+								
+							</div>
+							<div class="col-12 col-sm-4 order-sm-1">
+								<f:format.raw>{productlist_title}</f:format.raw>
+							</div>
+						</div>
+						</f:comment>
+		
+						<div class="row">
+								  <f:format.raw>{content_3}</f:format.raw>
+						</div>
+		
+		
+					</div>
+				</div>
+			</div><!--/.fluid-container-->
+		</div>
+	</main>
+
+	
+	<!--TYPO3SEARCH_end-->
+
+</div><!--/.maincontent -->
+</f:section>

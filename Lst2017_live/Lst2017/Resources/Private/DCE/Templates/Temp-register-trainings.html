@@ -1,0 +1,110 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+<gtnLst:ifCourseIsFull course="{f:cObject(typoscriptObjectPath: 'lib.courseUid')}">
+	<f:then>    
+		<div class="alert alert-danger">                                    
+			Der Kurs ist ausgebucht!
+<f:comment>
+			<br>
+			is full: {gtnLst:CourseParticipants(course:"{f:cObject(typoscriptObjectPath: 'lib.courseUid')}", get:"max")}: {f:cObject(typoscriptObjectPath: 'lib.courseUid')}
+			<br>
+			participants: {gtnLst:CourseParticipants(course="{f:cObject(typoscriptObjectPath: 'lib.courseUid')}")}
+</f:comment>
+		</div>
+	</f:then>
+	<f:else>
+<f:comment>
+<div class="alert alert-info">
+Just for example:<br>
+number of registered participants: {gtnLst:CourseParticipants(course:"{f:cObject(typoscriptObjectPath: 'lib.courseUid')}")} <br>
+max prtspnts: {gtnLst:CourseParticipants(course:"{f:cObject(typoscriptObjectPath: 'lib.courseUid')}", get:"max")}
+</div>
+</f:comment>
+	</f:else>
+</gtnLst:ifCourseIsFull>
+
+<f:comment>Setting integral javascript variables</f:comment>
+<f:asset.script identifier="register-training-variables">
+	var maxCourseParticipants = {gtnLst:CourseParticipants(course:"{f:cObject(typoscriptObjectPath: 'lib.courseUid')}", get:"max")};
+	var currentCourseParticipants = {gtnLst:CourseParticipants(course: "{f:cObject(typoscriptObjectPath: 'lib.courseUid')}")};
+
+// hide registration form if the course is full
+$(document).ready(function() {
+	
+	if (currentCourseParticipants >= maxCourseParticipants) {
+		$('.powermail_form_20').hide();
+	}
+
+});
+
+</f:asset.script>
+
+
+
+
+<div class="trainings-register-course-info alert alert-primary mt-2">
+
+	<div class="row">
+		<div class="col-12 col-sm-2 mb-2">
+			{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:course")}:
+		</div>
+		<div class="col-12 col-sm-10 mb-2 col-trainingtitle">
+			<strong><f:cObject typoscriptObjectPath="lib.kurstitel" /></strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-2 mb-2">
+			{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:course.organizer")}:
+		</div>
+		<div class="col-12 col-sm-10 mb-2 col-trainingorganizer">
+			<strong><f:cObject typoscriptObjectPath="lib.kursorganizer" /></strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-2 mb-2">
+			{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:course.address")}:
+		</div>
+		<div class="col-12 col-sm-10 mb-2 col-trainingaddress">
+			<strong><f:cObject typoscriptObjectPath="lib.kursaddress" /></strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-2 mb-2">
+			{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:course.date")}:
+		</div>
+		<div class="col-12 col-sm-10 mb-2 col-trainingtermin">
+			<strong><f:cObject typoscriptObjectPath="lib.termin" /></strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-2 mb-2">
+			{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:course.cost")}:
+		</div>
+		<div class="col-12 col-sm-10 mb-2 col-trainingcost">
+			<strong><f:cObject typoscriptObjectPath="lib.teilnahmegebuehr" /></strong>
+		</div>
+		<f:comment> just for JS info</f:comment>
+		<span id="costAdditionalInfoText" style="display: none;"><f:cObject typoscriptObjectPath="lib.teilnahmegebuehr_additionalinfo" /></span>
+	</div>
+
+<f:comment>
+<hr>
+--- old (delete?):
+
+	<div class="row">
+		<div class="col-12 col-sm-2 mb-2">
+			Ort:
+		</div>
+		<div class="col-12 col-sm-10 mb-2 col-trainingtimes">
+			<strong>Mönchengladbach</strong>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-2">
+			Zeitraum:
+		</div>
+		<div class="col-12 col-sm-10 col-trainingtimes">
+			<strong>14.9.2024 bis 15.9.2024</strong>
+		</div>
+	</div>
+</f:comment>
+</div>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-08-12T15:28:25Z" product-name="gtn_survey">
+		<header/>
+		<body>
+		<trans-unit id="tx_gtnsurvey_domain_model_answer">
+			<source>Answer</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_answer.text">
+			<source>Text</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_answer.eng_text">
+			<source>Text (Englisch)</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_answer.value">
+			<source>Value</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_answer.section_name">
+			<source>Section Name</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_question">
+			<source>Question</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_question.title">
+			<source>Title</source>
+		</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_question.engTitle">
+			<source>Frage (Englisch)</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_question.question_type">
+			<source>Question Type</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_question.answers">
+			<source>Answers</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiongroup">
+			<source>Question Group</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.name">
+			<source>Name</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.group_type">
+			<source>Group Type</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.questions">
+			<source>Questions</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiongroup.sections">
+			<source>Sections</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_survey">
+			<source>Survey</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_survey.name">
+			<source>Name</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_survey.question_groups">
+			<source>Question Groups</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_grouptype">
+			<source>Group Type</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_grouptype.title">
+			<source>Title</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_grouptype.type">
+			<source>Type</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiontype">
+			<source>Question Type</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiontype.title">
+			<source>Title</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_questiontype.type">
+			<source>Type</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_useranswer">
+			<source>User Answer</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_useranswer.fe_user">
+			<source>Fe User</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_useranswer.answer">
+			<source>Answer</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_section">
+			<source>Section</source>
+		</trans-unit>
+		<trans-unit id="tx_gtnsurvey_domain_model_section.title">
+			<source>Title</source>
+		</trans-unit>
+			<trans-unit id="tx_gtnsurvey_domain_model_section.titleEng">
+			<source>Title (Englisch)</source>
+		</trans-unit>
+		<trans-unit id="fe.error.company.isRequired">
+			<source>Company name is required!</source>
+		</trans-unit>
+		<trans-unit id="fe.error.address.isRequired">
+			<source>Address is required!</source>
+		</trans-unit>
+		<trans-unit id="fe.error.postal.isNumber">
+			<source>The postal code has to be a number!</source>
+		</trans-unit>
+		<trans-unit id="fe.error.city.isRequired">
+			<source>The city is required!</source>
+		</trans-unit>
+		<trans-unit id="fe.error.date.isDate">
+			<source>The date has to be a legit date.</source>
+		</trans-unit>
+		<trans-unit id="fe.error.mail.isMail">
+			<source>The given mail address is invalid!</source>
+		</trans-unit>
+		<trans-unit id="fe.error.consultant.isRequired">
+			<source>Please enter your contact person of our company!</source>
+		</trans-unit>
+		<trans-unit id="fe.submit">
+			<source>Submit</source>
+		</trans-unit>
+				<trans-unit id="fe.company">
+			<source>Company</source>
+		</trans-unit>
+			<trans-unit id="fe.address">
+			<source>Address</source>
+		</trans-unit>
+			<trans-unit id="fe.zip">
+			<source>Zip code</source>
+		</trans-unit>
+			<trans-unit id="fe.country_and_location">
+			<source>Country and Location</source>
+		</trans-unit>
+			<trans-unit id="fe.date">
+			<source>Date</source>
+		</trans-unit>
+			<trans-unit id="fe.contact_person">
+			<source>Contact person</source>
+		</trans-unit>
+		<trans-unit id="fe.mail">
+			<source>e-mail-address</source>
+		</trans-unit>
+		<trans-unit id="fe.hashInvalid">
+			<source>Link is no longer valid!</source>
+		</trans-unit>
+		<trans-unit id="fe.hashMissing">
+			<source>Survey link is invalid or no longer valid!</source>
+		</trans-unit>
+		<trans-unit id="fe.afterSurveyMessage">
+			<source>Thank you for your participation!</source>
+		</trans-unit>
+	</body>
+
+	</file>
+</xliff>

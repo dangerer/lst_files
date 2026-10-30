@@ -1,0 +1,50 @@
+<!--
+  ~ Copyright (c) 2021.
+  ~
+  ~ @category   TYPO3
+  ~
+  ~ @copyright  2021 Dirk Persky (https://github.com/DirkPersky)
+  ~ @author     Dirk Persky <info@dp-wired.de>
+  ~ @license    MIT
+  -->
+
+<html data-namespace-typo3-fluid="true"
+      xmlns:dp="http://typo3.org/ns/DirkPersky/DpCookieconsent/ViewHelpers"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:if condition="{cookies}">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <f:for as="groupItem" each="{grouped}" iteration="groupIterator">
+                <thead class="border-top-0">
+                    <tr class="caption">
+                        <th colspan="4" class="{f:if(condition:groupIterator.isFirst, then:'', else:'pt-4')}">
+                            <f:format.raw>{groupItem.category}</f:format.raw>
+                        </th>
+                    </tr>
+                    <tr class="table-dark">
+                        <th width="*">
+                            <f:translate key="cookie.name"/>
+                        </th>
+                        <th width="20%">
+                            <f:translate key="cookie.description"/>
+                        </th>
+                        <th width="10%" class="text-end">
+                            <f:translate key="cookie.duration"/>
+                        </th>
+                        <th  width="20%">
+                            <f:translate key="cookie.vendor"/>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <f:for as="cookieItem" each="{groupItem.items}" iteration="iterator">
+                        <f:render arguments="{cookieItem: cookieItem, settings:settings, iterator:iterator}" partial="Cookie/List/Item"/>
+                    </f:for>
+                </tbody>
+            </f:for>
+        </table>
+    </div>
+</f:if>
+
+</html>

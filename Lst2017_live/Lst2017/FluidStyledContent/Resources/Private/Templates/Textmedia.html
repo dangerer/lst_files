@@ -1,0 +1,593 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	
+	
+	
+		<!-- ##### Element start ##### -->
+		<f:layout name="Default" />
+
+		<f:section name="Header">			
+			<f:render section="Custom_Header{f:if(condition: '{data.layout} > 1', then: '{data.layout}')}" arguments="{_all}" />
+		</f:section>
+		<f:section name="Main">
+			<f:render section="Custom_Main{f:if(condition: '{data.layout} > 1', then: '{data.layout}')}" arguments="{_all}" />
+		</f:section>
+			
+	
+	
+	
+		<!-- ### LAYOUT 1 - DEFAULT LAYOUT ### -->
+		<f:section name="Custom_Header">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main">
+
+			<div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+		
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+			</div>
+		
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 2 - BLANK remove all divs ### -->
+		<f:section name="Custom_Header2">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/AllBlank" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main2">
+		
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+		
+				<f:if condition="{data.bodytext}">
+					<f:then>
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/AllBlank" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+									<f:render partial="Header/AllBlank" arguments="{_all}" />
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+		
+		</f:section>	
+		
+		<!-- ### LAYOUT 3 - Slider Item ### -->
+		<f:section name="Custom_Header3">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/AllBlank" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main3">
+		
+					<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+					<div class="flex-caption {data.subheader}">
+						<div class="container-fluid">
+							<div class="ctn-flexInner">
+								<f:render partial="Header/AllBlank" arguments="{_all}" />
+								<f:format.html>{data.bodytext}</f:format.html>
+							</div>
+						</div>
+					</div>
+		</f:section>	
+		
+		
+		<!-- ### LAYOUT 4 - Produktgruppe ### -->
+		<f:section name="Custom_Header4">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main4">
+				<div class="prod_img">
+					<f:if condition="{gallery.position.vertical} != 'below'">
+						<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+					</f:if>
+				</div>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		</f:section>		
+
+
+		<!-- ### LAYOUT 5 - Headerbild ### -->
+		<f:section name="Custom_Header5">
+
+		
+		
+		</f:section>
+
+		<f:section name="Custom_Main5">
+			<div class="headerimg">
+				<f:render partial="Media/GalleryBlankFig" arguments="{_all}" />
+					<header class="{data.subheader}">
+						<div class="container-fluid">
+							
+								<f:render partial="Header/AllBlank" arguments="{_all}" />
+								<f:format.html>{data.bodytext}</f:format.html>
+							
+						</div>
+					</header>
+			</div>
+		</f:section>
+
+		<!-- ### LAYOUT 6 - Produkt ### -->
+		<f:section name="Custom_Header6">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/AllProduct" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main6">
+				<div class="prod_img">
+					<f:if condition="{gallery.position.vertical} != 'below'">
+						<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+					</f:if>
+				</div>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/AllProduct" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/AllProduct" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 7 - PERSON CARD ### -->
+		<f:section name="Custom_Header7">
+
+			
+		
+		</f:section>
+
+		<f:section name="Custom_Main7">
+
+			<div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<div class="personCardImg">
+					<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+				</div>
+				<f:if condition="{gallery.position.noWrap} != 1">
+					<header><h3><f:format.html>{data.header}</f:format.html></h3></header>
+				</f:if>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+			</div>
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 8 - VERSTECKTER INHALT ### -->
+		<f:section name="Custom_Header8">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main8">
+
+			<div class="hide_contentbu ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+		
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+			</div>
+		
+		</f:section>
+		
+		
+		
+		
+		<!-- ### LAYOUT 9 - HEADER VERSTECKTER INHALT ### -->
+		<f:section name="Custom_Header9">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/AllBlank" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main9">
+
+			<div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+		
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/AllBlank" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+			</div>
+		
+		</f:section>
+		
+		<!-- ### LAYOUT 10 - PERSON CARD Sidebar ### -->
+		<f:section name="Custom_Header10">
+
+			
+		
+		</f:section>
+
+		<f:section name="Custom_Main10">
+
+			<div class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<div class="personCardImg">
+					<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+				</div>
+				<f:if condition="{gallery.position.noWrap} != 1">
+					<f:render partial="Header/All" arguments="{_all}" />
+				</f:if>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+			</div>
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 12 - ALERT DANGER ### -->
+		<f:section name="Custom_Header12">
+
+			
+		
+		</f:section>
+
+		<f:section name="Custom_Main12">
+
+			<div class="alert alert-danger ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<div class="personCardImg">
+					<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+				</div>
+				<f:if condition="{gallery.position.noWrap} != 1">
+					<f:render partial="Header/All" arguments="{_all}" />
+				</f:if>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+			</div>
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 13 - ALERT ### -->
+		<f:section name="Custom_Header13">
+
+			
+		
+		</f:section>
+
+		<f:section name="Custom_Main13">
+
+			<div class="alert alert-primary ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<div class="personCardImg">
+					<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+				</div>
+				<f:if condition="{gallery.position.noWrap} != 1">
+					<f:render partial="Header/All" arguments="{_all}" />
+				</f:if>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+			</div>
+		</f:section>
+		
+		
+		
+		<!-- ### LAYOUT 1 - DEFAULT LAYOUT ### -->
+		<f:section name="Custom_Header14">
+
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+
+		<f:section name="Custom_Main14">
+
+			<div class="ce-printheaderadress ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+		
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/Gallery" arguments="{_all}" />
+				</f:if>
+			</div>
+		
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 1 - DEFAULT LAYOUT ### -->
+		<f:section name="Custom_Header15">
+
+		
+		</f:section>
+
+		<f:section name="Custom_Main15">
+
+
+			<div class="modal" tabindex="-1" id="{data.subheader}">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title">{data.header}</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <f:format.html>{data.bodytext}</f:format.html>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-lst" data-dismiss="modal">OK</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		
+		</f:section>	
+		
+		<!-- ### LAYOUT 16 - VIDEO RESPONSIV ### -->
+		
+		<f:section name="Custom_Header16">
+		
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+		
+		<f:section name="Custom_Main16">
+
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/GalleryVideoResp" arguments="{_all}" />
+				</f:if>
+			
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 21 - Kachel sehr Groß ### -->
+		<f:section name="Custom_Header21">
+		
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+		
+		<f:section name="Custom_Main21">
+				<div class="prod_img">
+					<f:if condition="{gallery.position.vertical} != 'below'">
+						<f:render partial="Media/GalleryBlankImage" arguments="{_all}" />
+					</f:if>
+				</div>
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/AllProductgroup" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+		</f:section>	
+			
+

@@ -1,0 +1,12 @@
+<f:for each="{dces}" as="el" iteration="it">
+
+  <!-- UID sicher bestimmen (je nach Struktur von {el}) -->
+<f:variable name="uid">{el.contentObject.uid -> f:or(alternative: el.data.uid) -> f:or(alternative: el.uid) -> f:or(alternative: el)}</f:variable>
+
+  <div class="tab-pane fade{f:if(condition: it.isFirst, then:' show active')}"
+	   id="tab-{uid}" role="tabpanel" aria-labelledby="tab-{uid}-tab">
+
+	<f:render partial="Container/Dces" arguments="{dces: {0: el}}" />
+
+  </div>
+</f:for>

@@ -1,0 +1,88 @@
+page.headerData.998 {
+    20 = COA
+    20 {
+        if {
+            value = {$plugin.tx_cookieconsent.settings.tracking.googleTagManager.id}
+            equals =
+            negate = 1
+        }
+
+        5 = COA
+        5 = {
+            10 = TEXT
+            10.value = https://www.googletagmanager.com
+            10.wrap = <link rel="dns-prefetch" href="|" />
+
+            20 < .10
+            20.wrap = <link rel="preconnect" href="|" />
+        }
+
+        10 = COA
+        10 {
+            wrap = <script data-ignore="1" >(function(){|})();</script>
+
+            15 = TEXT
+            15.value = {$plugin.tx_cookieconsent.settings.tracking.googleTagManager.id}
+            15.wrap (
+if(typeof window.tx_cookieconsent_init == 'undefined'){
+    window.tx_cookieconsent_init = true;
+
+    window.dataLayer = window.dataLayer || [];
+    if(typeof window.gtag == 'undefined') window.gtag = function() { window.dataLayer.push(arguments); };
+
+    window.gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+    });
+
+    setTimeout(function(){
+        /* Google Tag Manager */
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','#');
+        /* End Google Tag Manager */
+    }, 0);
+}
+            )
+            15.wrap.splitChar = #
+            15.required = 1
+        }
+
+        30 = TEXT
+        30.value (
+/* DP publisch Events to Tag Manager */
+gtag('consent', 'update', {
+  'analytics_storage': 'granted'
+});
+window.dataLayer.push({ 'event': 'dp-cookie-statistics-accept' });
+/* End DP publisch Events to Tag Manager */
+        )
+        30.wrap = <script data-ignore="1" data-cookieconsent="statistics" type="text/plain">|</script>
+        30.if {
+            isInList = statistics
+            value = {$plugin.tx_cookieconsent.settings.tracking.googleTagManager.on}
+        }
+
+        40 = TEXT
+        40.value (
+/* DP publisch Events to Tag Manager */
+gtag('consent', 'update', {
+  'ad_storage': 'granted',
+  'ad_user_data': 'granted',
+  'ad_personalization': 'granted'
+});
+window.dataLayer.push({ 'event': 'dp-cookie-marketing-accept' });
+/* End DP publisch Events to Tag Manager */
+        )
+        40.wrap = <script data-ignore="1" data-cookieconsent="marketing" type="text/plain">|</script>
+        40.if {
+            isInList = marketing
+            value = {$plugin.tx_cookieconsent.settings.tracking.googleTagManager.on}
+        }
+    }
+}

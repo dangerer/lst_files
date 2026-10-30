@@ -1,0 +1,56 @@
+{
+    "name": "georgringer/eventnews",
+    "type": "typo3-cms-extension",
+    "description": "Extend EXT:news with event and calendar functionality",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "event",
+        "news"
+    ],
+    "homepage": "https://ringer.it",
+	"support": {
+		"source": "https://github.com/georgringer/eventnews",
+		"issues": "https://github.com/georgringer/eventnews/issues",
+		"docs": "https://docs.typo3.org/p/georgringer/eventnews/main/en-us/"
+	},
+    "authors": [
+        {
+            "name": "Georg Ringer",
+            "role": "Developer",
+            "homepage": "https://ringer.it"
+        }
+    ],
+    "license": ["GPL-2.0-or-later"],
+    "require": {
+        "georgringer/news": "^11.3",
+        "typo3/cms-core": "^11 || ^12.4"
+    },
+    "require-dev": {
+        "php-coveralls/php-coveralls": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "GeorgRinger\\Eventnews\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GeorgRinger\\Eventnews\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "typo3-ter/eventnews": "self.version"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "eventnews",
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web"
+        }
+    }
+}

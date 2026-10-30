@@ -1,0 +1,73 @@
+{
+	"name": "tpwd/ke_search",
+	"type": "typo3-cms-extension",
+	"description": "Search Extension for TYPO3, including faceting search functions.",
+	"homepage": "https://www.typo3-macher.de/en/facetted-search-ke-search/",
+	"license": "GPL-2.0+",
+	"keywords": [
+		"TYPO3 CMS",
+		"search",
+		"ke_search",
+		"kesearch",
+		"faceting",
+		"faceted search"
+	],
+	"support": {
+		"issues": "https://github.com/tpwd/ke_search/issues"
+	},
+	"require": {
+		"php": "^8.1",
+		"typo3/cms-core": "^12.3 || ^13",
+		"ext-pdo": "*"
+	},
+	"require-dev": {
+		"typo3/cms-dashboard": "^12 || ^13",
+		"typo3/cms-info": "^12 || ^13",
+		"typo3/cms-install": "^12 || ^13",
+		"friendsofphp/php-cs-fixer": "^3",
+		"typo3/coding-standards": "^0.8.0",
+		"phpunit/phpunit": "^10",
+		"phpstan/phpstan": "^1",
+		"ext-zip": "*",
+		"ext-libxml": "*",
+		"ext-dom": "*",
+		"ext-json": "*",
+		"typo3/cms-indexed-search": "^12 || ^13",
+		"typo3/cms-scheduler": "^12 || ^13"
+	},
+	"suggest": {
+		"typo3/cms-dashboard": "Use widgets in dashboard"
+	},
+	"replace": {
+		"typo3-ter/ke_search": "self.version",
+		"teaminmedias-pluswerk/ke_search": "self.version"
+	},
+	"autoload": {
+		"psr-4": {
+			"Tpwd\\KeSearch\\": "Classes"
+		},
+		"classmap": [
+			"Classes"
+		]
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "ke_search",
+			"web-dir": ".Build/web"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"bin-dir": ".Build/bin",
+		"vendor-dir": ".Build/vendor"
+	},
+	"scripts": {
+		"docs:generate": "docker run --rm --pull always -v $(pwd):/project -it ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --fail-on-log --no-progress",
+		"test:unit": ".Build/bin/phpunit -c Tests/phpunit.xml.dist",
+		"test:phpstan": ".Build/bin/phpstan clear-result-cache && .Build/bin/phpstan --configuration=Tests/phpstan.neon > phpstan-report.log",
+		"test:php-cs-fixer": ".Build/bin/php-cs-fixer fix -v --dry-run --using-cache=no > php-cs-fixer-report.log"
+	}
+}

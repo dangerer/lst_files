@@ -1,0 +1,11 @@
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+<div class="typeicon">
+    <f:if condition="{dce.wizardIcon} == 'custom'">
+        <f:then>
+            <core:icon identifier="ext-dce-{dce.identifier}-customwizardicon" size="medium"/>
+        </f:then>
+        <f:else>
+            <core:icon identifier="{dce.selectedWizardIcon}" size="medium"/>
+        </f:else>
+    </f:if>
+</div>

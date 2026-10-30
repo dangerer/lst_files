@@ -1,0 +1,60 @@
+{
+  "name": "sjbr/static-info-tables",
+  "description": "Data and API for countries, languages and currencies for use in TYPO3 CMS.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Stanislas Rolland",
+      "homepage": "https://www.sjbr.ca",
+      "role": "Developer"
+    },
+    {
+      "name": "René Fritz",
+      "role": "Developer"
+    }
+  ],
+  "keywords": [
+    "TYPO3",
+    "Static Info Tables"
+  ],
+  "homepage": "https://codeberg.org/sjbr/static-info-tables",
+  "support": {
+    "issues": "https://codeberg.org/sjbr/static-info-tables/issues"
+  },
+  "replace": {
+    "typo3-ter/static-info-tables": "self.version"
+  },
+  "require": {
+    "typo3/cms-backend": ">=12.4, <13.0",
+    "typo3/cms-core": ">=12.4, <13.0",
+    "typo3/cms-extbase": ">=12.4, <13.0",
+    "typo3/cms-extensionmanager": ">=12.4, <13.0",
+    "typo3/cms-fluid": ">=12.4, <13.0",
+    "typo3/cms-frontend": ">=12.4, <13.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SJBR\\StaticInfoTables\\": "Classes/"
+    },
+    "exclude-from-classmap": [
+      "Classes/Domain/Model/Country",
+      "Classes/Domain/Model/CountryZone",
+      "Classes/Domain/Model/Currency",
+      "Classes/Domain/Model/Language",
+      "Classes/Domain/Model/Territory"
+    ]
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "static_info_tables"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "preferred-install": "dist"
+  }
+}

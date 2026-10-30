@@ -1,0 +1,231 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+
+
+		<!-- Modal -->
+		<div class="modal fade modal_region" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel"><f:format.raw>{mr_selectregion}</f:format.raw></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        	
+		        
+			        	<div class="row">
+			        		<div class="col-md-6">
+								<p class="modalInfo"><f:format.raw>{mr_modalInfo}</f:format.raw></p>
+				        		<div class="card">
+					        		<div class="card-body">
+						        		<h4 class="card-title"><f:format.raw>{mr_austria}</f:format.raw></h4>
+						        		
+					        		</div>
+									<div class="list-group list-group-flush list-group-region" id="list-tab" role="tablist">
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 9', then:'active')}" id="list-region-wien" data-toggle="list" href="#list-wien" role="tab" aria-controls="wien" data-tsCatUid="9" data-mainregion="au">
+										    {gtnLst:SelectedRegionTitle(region: 9)}</a>
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 10', then:'active')}" id="list-region-graz" data-toggle="list" href="#list-graz" role="tab" aria-controls="graz" data-tsCatUid="10" data-mainregion="au">
+										    {gtnLst:SelectedRegionTitle(region: 10)}</a>
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 11', then:'active')}" id="list-region-innsbruck" data-toggle="list" href="#list-innsbruck" role="tab" aria-controls="innsbruck"data-tsCatUid="11" data-mainregion="au">
+										    {gtnLst:SelectedRegionTitle(region: 11)}</a>
+									
+									
+						        		<h4 class="card-title card-title-sub"><f:format.raw>{mr_germany}</f:format.raw></h4>
+						        		
+					        		
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 14', then:'active')}" id="list-region-mep" data-toggle="list" href="#list-mep" role="tab" aria-controls="mep" data-tsCatUid="14" data-mainregion="de">
+										    {gtnLst:SelectedRegionTitle(region: 14)}</a>
+										<f:comment>					        		
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 12', then:'active')}" id="list-region-west" data-toggle="list" href="#list-west" role="tab" aria-controls="west" data-tsCatUid="12" data-mainregion="de">
+										    {gtnLst:SelectedRegionTitle(region: 12)}</a>
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 13', then:'active')}" id="list-region-nord" data-toggle="list" href="#list-nord" role="tab" aria-controls="nord" data-tsCatUid="13" data-mainregion="de">
+										    {gtnLst:SelectedRegionTitle(region: 13)}</a>										
+										<a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 44', then:'active')}" id="list-region-augsburg" data-toggle="list" href="#list-augsburg" role="tab" aria-controls="augsburg" data-tsCatUid="44" data-mainregion="de">
+										{gtnLst:SelectedRegionTitle(region: 44)}</a>
+										</f:comment>
+										
+					        		
+					        		
+									
+						        		<h4 class="card-title card-title-sub"><f:format.raw>{mr_international}</f:format.raw></h4>
+						        		
+					        		
+					        		
+									    <a class="list-group-item list-group-item-action {f:if(condition:'{gtnLst:SelectedRegion()} == 15', then:'active')}" id="list-region-international" data-toggle="list" href="#list-international" role="tab" aria-controls="international" data-tsCatUid="15" data-mainregion="inter">
+										    {gtnLst:SelectedRegionTitle(region: 15)}</a>
+									 </div>
+				        		</div>
+			        		</div>
+			        		<div class="col-md-6">
+				        		<p class="modalInfo"><f:format.raw>{mr_modalInfoZip}</f:format.raw></p>
+				        		<div class="card zipselect">
+					        		<div class="card-body">
+						        		<h4 class="card-title"><f:format.raw>{mr_modalInfoBranch}</f:format.raw></h4>
+						        		<p class="card-text"><f:format.raw>{mr_modalInfoZip2}</f:format.raw></p>
+<div class="">
+  <input class="" type="radio" name="mainregion" id="mainregion_au" value="au" checked>
+  <label class="" for="mainregion_au">
+    {f:translate(key: 'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:mainRegion.au')}
+  </label>
+</div>
+<div class="">
+  <input class="" type="radio" name="mainregion" id="mainregion_de" value="de">
+  <label class="" for="mainregion_de">
+    {f:translate(key: 'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:mainRegion.de')}
+  </label>
+</div>
+<div class="">
+  <input class="" type="radio" name="mainregion" id="mainregion_inter" value="inter">
+  <label class="" for="mainregion_inter">
+    {f:translate(key: 'LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:mainRegion.inter')}
+  </label>
+</div>
+						        		<form class="form-inline" id="zip_search_form">
+											<label class="sr-only" for="regionsuchebyzip" id="regionsuchebyzip_label">{mr_ziplabel}</label>
+											<input class="form-control mr-sm-2" id="regionsuchebyzip" placeholder="{mr_ziplabel}" type="text" autocomplete="off" >
+											<button type="submit" class="btn btn-primary btn-lst btn-lstgrey btn-icon regionsuchebutton"><i class="icon ion-ios-search-strong"></i></button>
+									</form>
+					        		</div>
+				        		</div>
+				        		
+				        		<div class="tab-content" id="nav-tabContent">
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 9', then:'active', else: 'fade')}" id="list-wien" role="tabpanel" aria-labelledby="list-region-wien">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Wien</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_wien.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 10', then:'active', else: 'fade')}" id="list-graz" role="tabpanel" aria-labelledby="list-region-graz">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Graz</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_graz.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 11', then:'active', else: 'fade')}" id="list-innsbruck" role="tabpanel" aria-labelledby="list-region-innsbruck">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Innsbruck</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_innsbruck.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 14', then:'active', else: 'fade')}" id="list-mep" role="tabpanel" aria-labelledby="list-region-mep">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Pockau-Lengefeld</h4>
+								        		
+								        		<div class="card-regionMap">
+									        		<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_pockau.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+									<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 44', then:'active', else: 'fade')}" id="list-augsburg" role="tabpanel" aria-labelledby="list-region-augsburg">
+										<div class="card mt-4 card-map">
+											<div class="card-body">
+												<h4 class="card-title">Augsburg</h4>
+												
+												<div class="card-regionMap">
+													<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_augsburg.png">
+												</div>
+											</div>
+										</div>
+									</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 12', then:'active', else: 'fade')}" id="list-west" role="tabpanel" aria-labelledby="list-region-west">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Mönchengladbach</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_moenchengladbach.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 13', then:'active', else: 'fade')}" id="list-nord" role="tabpanel" aria-labelledby="list-region-nord">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Hamburg</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_hamburg.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 44', then:'active', else: 'fade')}" id="list-augsburg" role="tabpanel" aria-labelledby="list-region-nord">
+									<!--
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Augsburg</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_augsburg.png">
+								        		</div>
+							        		</div>
+						        		</div>
+									-->
+				        			</div>
+				        			<div class="tab-pane {f:if(condition:'{gtnLst:SelectedRegion()} == 15', then:'active', else: 'fade')}" id="list-international" role="tabpanel" aria-labelledby="list-region-international">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title"><f:format.raw>{mr_internSales}</f:format.raw></h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/regiontest_world.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+								<div class="tab-pane fade customPanes" id="list-au" role="tabpanel" aria-labelledby="list-region-au">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Österreich</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_austria.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+								<div class="tab-pane fade customPanes" id="list-de" role="tabpanel" aria-labelledby="list-region-de">
+					        			<div class="card mt-4 card-map">
+							        		<div class="card-body">
+								        		<h4 class="card-title">Deutschland</h4>
+								        		
+								        		<div class="card-regionMap">
+								        			<img src="https://www.laborstrauss.com/fileadmin/Lst2017/Resources/Public/Images/region_de.png">
+								        		</div>
+							        		</div>
+						        		</div>
+				        			</div>
+
+			        			</div>
+				        		
+				        		
+			        		</div>
+			        	</div>
+		      </div>
+		      <div class="modal-footer">
+			      <button type="button" class="btn btn-lst lst-region-save-button"><f:format.raw>{mr_confirm}</f:format.raw></button>
+			    
+		      </div>
+		    </div>
+		  </div>
+		</div><!-- / Modal -->
+		
+		

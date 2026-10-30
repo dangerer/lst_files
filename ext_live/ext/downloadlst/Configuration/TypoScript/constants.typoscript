@@ -1,0 +1,23 @@
+
+plugin.tx_downloadlst_downloadlst {
+    view {
+        # cat=plugin.tx_downloadlst_downloadlst/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:downloadlst/Resources/Private/Templates/
+        # cat=plugin.tx_downloadlst_downloadlst/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:downloadlst/Resources/Private/Partials/
+        # cat=plugin.tx_downloadlst_downloadlst/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:downloadlst/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_downloadlst_downloadlst//a; type=string; label=Default storage PID
+        storagePid =
+    }
+    settings{
+        # cat=plugin.tx_downloadlst_downloadlst//lang; type=string; label=Language Keys (like DE,EN,ES)
+        languageKeys = DE,EN
+        # cat=plugin.tx_downloadlst_downloadlst//lang; type=string; label=Language Ids (like 0,1,2)
+        languageIds = 0,1
+        # cat=plugin.tx_downloadlst_downloadlst//lang; type=boolean; label=Icon from extension (if disable will use from typo3 source)
+        iconFromExt = 1
+    }
+}

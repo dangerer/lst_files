@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:sr_feuser_register/Configuration/Sets/SrfeuserRegister/labels.xlf" date="2018-09-04T12:30:00Z"
+		  product-name="sr_feuser_register">
+		<header/>
+		<body>
+			<trans-unit id="label" resname="label">
+				<source>Frontend User Registration</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister" resname="categories.srfeuserregister">
+				<source>Frontend User Registration</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister.general" resname="categories.srfeuserregister.general">
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister.form" resname="categories.srfeuserregister.form">
+				<source>Registration form</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister.process" resname="categories.srfeuserregister.process">
+				<source>Registration process</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister.pids" resname="categories.srfeuserregister.pids">
+				<source>Pages id's (PID's)</source>
+			</trans-unit>
+		    <trans-unit id="categories.srfeuserregister.usergroups" resname="categories.srfeuserregister.usergroups">
+				<source>User groups</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister.emails" resname="categories.srfeuserregister.emails">
+				<source>Emails</source>
+			</trans-unit>
+			<trans-unit id="categories.srfeuserregister.templates" resname="categories.srfeuserregister.templates">
+				<source>Templates</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.tableName" resname="settings.srfeuserregister.tableName">
+				<source>Name of the table</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.tableName" resname="settings.description.srfeuserregister.tableName">
+				<source>The name is used for the records of frontend users.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.salutation" resname="settings.srfeuserregister.salutation">
+				<source>Type of salutation</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.salutation" resname="settings.description.srfeuserregister.salutation">
+				<source>Type of salutation to use in dialogues and emails. Possible values are 'formal' or 'informal'.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.defaultCODE" resname="settings.srfeuserregister.defaultCODE">
+				<source>Plugin default CODE</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.defaultCODE" resname="settings.description.srfeuserregister.defaultCODE">
+				<source>Default CODE when not specified on the inserted plugin record. May be CREATE or EDIT or empty.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.codeLength" resname="settings.srfeuserregister.codeLength">
+				<source>Authentication code length</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.codeLength" resname="settings.description.srfeuserregister.codeLength">
+				<source>Length of the authentication codes used in mailed links. Direct Mail uses 8.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.formFields" resname="settings.srfeuserregister.formFields">
+				<source>Registration form fields</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.formFields" resname="settings.description.srfeuserregister.formFields">
+				<source>List of fields to be included on the frontend user registration form.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.requiredFields" resname="settings.srfeuserregister.requiredFields">
+				<source>Required fields</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.requiredFields" resname="settings.description.srfeuserregister.requiredFields">
+				<source>List of fields that must be filled in on the frontend user registration form.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.useEmailAsUsername" resname="settings.srfeuserregister.useEmailAsUsername">
+				<source>Use email as username</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.useEmailAsUsername" resname="settings.description.srfeuserregister.useEmailAsUsername">
+				<source>If set, the user email will be used as the username.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.generateUsername" resname="settings.srfeuserregister.generateUsername">
+				<source>Generate the username</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.generateUsername" resname="settings.description.srfeuserregister.generateUsername">
+				<source>If set, the username is assumed to be generated. Appropriate hook must be configured.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.doNotEnforceUsername" resname="settings.srfeuserregister.doNotEnforceUsername">
+				<source>Do not enforce username</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.doNotEnforceUsername" resname="settings.description.srfeuserregister.doNotEnforceUsername">
+				<source>If set, field username is not forced to be part of formFields and requiredFields.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.usernameAtLeast" resname="settings.srfeuserregister.usernameAtLeast">
+				<source>Minimum username length</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.usernameAtLeast" resname="settings.description.srfeuserregister.usernameAtLeast">
+				<source>The minimum number of characters that the username must contain.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.usernameAtMost" resname="settings.srfeuserregister.usernameAtMost">
+				<source>Maximum username length</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.usernameAtMost" resname="settings.description.srfeuserregister.usernameAtMost">
+				<source>The maximum number of characters that the username may contain.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.passwordAtLeast" resname="settings.srfeuserregister.passwordAtLeast">
+				<source>Minimum password length</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.passwordAtLeast" resname="settings.description.srfeuserregister.passwordAtLeast">
+				<source>The minimum number of characters that the password must contain.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.passwordAtMost" resname="settings.srfeuserregister.passwordAtMost">
+				<source>Maximum password length</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.passwordAtMost" resname="settings.description.srfeuserregister.passwordAtMost">
+				<source>The maximum number of characters that the password may contain.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.nameAtMost" resname="settings.srfeuserregister.nameAtMost">
+				<source>Maximum name length</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.nameAtMost" resname="settings.description.srfeuserregister.nameAtMost">
+				<source>The maximum number of characters that the name of the frontend user may contain.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.maxImages" resname="settings.srfeuserregister.maxImages">
+				<source>Number of images</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.maxImages" resname="settings.description.srfeuserregister.maxImages">
+				<source>Number of images that may be uploaded (should be smaller than 7).</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.file.icon_delete" resname="settings.srfeuserregister.file.icon_delete">
+				<source>Icon used for deletion of uploaded files</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.forceFileDelete" resname="settings.srfeuserregister.forceFileDelete">
+				<source>Force file deletion</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.forceFileDelete" resname="settings.description.srfeuserregister.forceFileDelete">
+				<source>On record deletion, related images and files will be deleted even if the record is only marked 'deleted'</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.file.termsFile" resname="settings.srfeuserregister.file.termsFile">
+				<source>Terms file</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.file.termsFile" resname="settings.description.srfeuserregister.file.termsFile">
+				<source>File to be shown as the terms of usage.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.termsUrl" resname="settings.srfeuserregister.termsUrl">
+				<source>Terms url</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.termsUrl" resname="settings.description.srfeuserregister.termsUrl">
+				<source>Page (id or id,type) or url where the terms of usage are shown. If set, overrides terms file.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.useLocalCountry" resname="settings.srfeuserregister.useLocalCountry">
+				<source>Use local country name</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.useLocalCountry" resname="settings.description.srfeuserregister.useLocalCountry">
+				<source>If set, the country names are shown in their local languages.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.onChangeCountryAttribute" resname="settings.srfeuserregister.onChangeCountryAttribute">
+				<source>Country onchange script</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.onChangeCountryAttribute" resname="settings.description.srfeuserregister.onChangeCountryAttribute">
+				<source>Javascript to be executed by the event handler when the selected country is changed in the country selector box.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.dmailCheckedUponRegistration" resname="settings.srfeuserregister.dmailCheckedUponRegistration">
+				<source>Direct Mail checked upon registration</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.dmailCheckedUponRegistration" resname="settings.description.srfeuserregister.dmailCheckedUponRegistration">
+				<source>If set, the checkboxes for Direct Mail categories will be checked by default.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.unsubscribeAllowedFields" resname="settings.srfeuserregister.unsubscribeAllowedFields">
+				<source>Unsubscribe allowed fields</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.unsubscribeAllowedFields" resname="settings.description.srfeuserregister.unsubscribeAllowedFields">
+				<source>List of fields that are allowed to be updated by an UNSUBSCRIBE link without any login.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enablePreviewRegister" resname="settings.srfeuserregister.enablePreviewRegister">
+				<source>Enable preview on registration</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enablePreviewRegister" resname="settings.description.srfeuserregister.enablePreviewRegister">
+				<source>If set, the registration dialogue will include a preview of the frontend user data before it is saved.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enablePreviewEdit" resname="settings.srfeuserregister.enablePreviewEdit">
+				<source>Enable preview on profile update</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enablePreviewEdit" resname="settings.description.srfeuserregister.enablePreviewEdit">
+				<source>If set, the profile update dialogue will include a preview of the frontend user data before it is saved.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowHtmlInLabels" resname="settings.srfeuserregister.allowHtmlInLabels">
+				<source>Enable HTML in labels</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowHtmlInLabels" resname="settings.description.srfeuserregister.allowHtmlInLabels">
+				<source>If set, HTML in labels will not be converted.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminReview" resname="settings.srfeuserregister.enableAdminReview">
+				<source>Enable administrative review</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminReview" resname="settings.description.srfeuserregister.enableAdminReview">
+				<source>If set, the site administration will be asked to accept the registration before it becomes enabled.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailConfirmation" resname="settings.srfeuserregister.enableEmailConfirmation">
+				<source>Enable email confirmation request</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailConfirmation" resname="settings.description.srfeuserregister.enableEmailConfirmation">
+				<source>If set, an email will be sent to the prospective frontend user requesting a confirmation of registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyConfirmation" resname="settings.srfeuserregister.enableAdminNotifyConfirmation">
+				<source>Enable admin notification on confirmation request</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyConfirmation" resname="settings.description.srfeuserregister.enableAdminNotifyConfirmation">
+				<source>If set, an email will be sent to the site administration when a request for confirmation of registration is sent to a user.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnApprove" resname="settings.srfeuserregister.enableEmailOnApprove">
+				<source>Enable email on approval</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnApprove" resname="settings.description.srfeuserregister.enableEmailOnApprove">
+				<source>If set, an email will be sent to the frontend user when he(she) confirms his(her) registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnApprove" resname="settings.srfeuserregister.enableAdminNotifyOnApprove">
+				<source>Enable admin notification on approval</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnApprove" resname="settings.description.srfeuserregister.enableAdminNotifyOnApprove">
+				<source>If set, an email will be sent to the site administration when a user confirms his(her) registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnRefuse" resname="settings.srfeuserregister.enableEmailOnRefuse">
+				<source>Enable email on refusal</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnRefuse" resname="settings.description.srfeuserregister.enableEmailOnRefuse">
+				<source>If set, an email will be sent to the prospective frontend user when he refuses to confirm his(her) registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnRefuse" resname="settings.srfeuserregister.enableAdminNotifyOnRefuse">
+				<source>Enable admin notification on refusal</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnRefuse" resname="settings.description.srfeuserregister.enableAdminNotifyOnRefuse">
+				<source>If set, an email will be sent to the site administration when a user refuses to confirm his(her) registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnAdminRefuse" resname="settings.srfeuserregister.enableEmailOnAdminRefuse">
+				<source>Enable email on denial</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnAdminRefuse" resname="settings.description.srfeuserregister.enableEmailOnAdminRefuse">
+				<source>If set, an email will be sent to the prospective frontend user when the site administration refuses to confirm his(her) registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnAdminAccept" resname="settings.srfeuserregister.enableAdminNotifyOnAdminAccept">
+				<source>Enable admin notification on approval by admin</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnAdminAccept" resname="settings.description.srfeuserregister.enableAdminNotifyOnAdminAccept">
+				<source>If set, an email will be sent to the site administration when a registration is accepted by the administration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnAdminRefuse" resname="settings.srfeuserregister.enableAdminNotifyOnAdminRefuse">
+				<source>Enable admin notification on refusal by admin</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnAdminRefuse" resname="settings.description.srfeuserregister.enableAdminNotifyOnAdminRefuse">
+				<source>If set, an email will be sent to the site administration when a registration is refused by the administration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnRegister" resname="settings.srfeuserregister.enableEmailOnRegister">
+				<source>Enable email on registration</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnRegister" resname="settings.description.srfeuserregister.enableEmailOnRegister">
+				<source>If set, an email will be sent to the frontend user confirming his(her) registration. This is ignored if email confirmation request is enabled.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnRegister" resname="settings.srfeuserregister.enableAdminNotifyOnRegister">
+				<source>Enable admin notification on registration</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnRegister" resname="settings.description.srfeuserregister.enableAdminNotifyOnRegister">
+				<source>If set, an email will be sent to the site administration when a user registers. This is ignored if email confirmation request is enabled.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAutoLoginOnConfirmation" resname="settings.srfeuserregister.enableAutoLoginOnConfirmation">
+				<source>Enable auto-login on confirmation</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAutoLoginOnConfirmation" resname="settings.description.srfeuserregister.enableAutoLoginOnConfirmation">
+				<source>If set, the user will be automatically logged in upon confirmation of his(her) registration.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAutoLoginOnCreate" resname="settings.srfeuserregister.enableAutoLoginOnCreate">
+				<source>Enable auto-login on account creation</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAutoLoginOnCreate" resname="settings.description.srfeuserregister.enableAutoLoginOnCreate">
+				<source>If set and if email confirmation is not set, the user will be automatically logged in upon creation of his(her) account.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.autoLoginRedirect_url" resname="settings.srfeuserregister.autoLoginRedirect_url">
+				<source>Redirect url on login</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.autoLoginRedirect_url" resname="settings.description.srfeuserregister.autoLoginRedirect_url">
+				<source>Url to which the user may be redirected to upon login, when auto login is enabled</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnEnter" resname="settings.srfeuserregister.enableAdminNotifyOnEnter">
+				<source>Enable admin notification on entering</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnEnter" resname="settings.description.srfeuserregister.enableAdminNotifyOnEnter">
+				<source>If set, an email will be sent to the site administration when a user clicks on the link to log in.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnUpdate" resname="settings.srfeuserregister.enableEmailOnUpdate">
+				<source>Enable email on profile update</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnUpdate" resname="settings.description.srfeuserregister.enableEmailOnUpdate">
+				<source>If set, an email will be sent to the frontend user to confirm the update of his(her) profile.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnUpdate" resname="settings.srfeuserregister.enableAdminNotifyOnUpdate">
+				<source>Enable admin notification on update</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnUpdate" resname="settings.description.srfeuserregister.enableAdminNotifyOnUpdate">
+				<source>If set to 1, an email will be sent to the site administration when a user updates his(her) profile. If set to 2, only the changed fields will be sent.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnUnsubscribe" resname="settings.srfeuserregister.enableEmailOnUnsubscribe">
+				<source>Enable email on unsubscribe</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnUnsubscribe" resname="settings.description.srfeuserregister.enableEmailOnUnsubscribe">
+				<source>If set, an email will be sent to the frontend user when he(she) terminates its subscription to newsletters through a link from a mailing application.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailOnDelete" resname="settings.srfeuserregister.enableEmailOnDelete">
+				<source>Enable email on deletion</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailOnDelete" resname="settings.description.srfeuserregister.enableEmailOnDelete">
+				<source>If set, an email will be sent to the frontend user to confirm the deletion of his(her) account.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableAdminNotifyOnDelete" resname="settings.srfeuserregister.enableAdminNotifyOnDelete">
+				<source>Enable admin notification on deletion</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableAdminNotifyOnDelete" resname="settings.description.srfeuserregister.enableAdminNotifyOnDelete">
+				<source>If set, an email will be sent to the site administration when a user deletes his(her) account.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.pid" resname="settings.srfeuserregister.pid">
+				<source>List of pid's for frontend user records</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.pid" resname="settings.description.srfeuserregister.pid">
+				<source>If the records edited/created are located on page(s) other than the current, enter the list of pages here. The first page in the list is used for creation.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.pidTitleOverride" resname="settings.srfeuserregister.pidTitleOverride">
+				<source>PID title override</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.pidTitleOverride" resname="settings.description.srfeuserregister.pidTitleOverride">
+				<source>If set, this will be used as the name of the system folder containing the frontend user records when this name is used in online or email messages.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.userGroupsPidList" resname="settings.srfeuserregister.userGroupsPidList">
+				<source>User groups records PID list</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.userGroupsPidList" resname="settings.description.srfeuserregister.userGroupsPidList">
+				<source>List of page id's on which user groups records may be located.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.module_sys_dmail_category_PIDLIST" resname="settings.srfeuserregister.module_sys_dmail_category_PIDLIST">
+				<source>List of page id's for Direct Mail categories</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.module_sys_dmail_category_PIDLIST" resname="settings.description.srfeuserregister.module_sys_dmail_category_PIDLIST">
+				<source>The Direct mail categories used by the plugin will be restricted to those found in these PID's.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.registerPID" resname="settings.srfeuserregister.registerPID">
+				<source>Registration page PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.registerPID" resname="settings.description.srfeuserregister.registerPID">
+				<source>PID of the page on which the plugin is inserted with the intent of serving as the frontend user registration page.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.registerPID" resname="settings.srfeuserregister.registerPID">
+				<source>Registration page PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.registerPID" resname="settings.description.srfeuserregister.registerPID">
+				<source>PID of the page on which the plugin is inserted with the intent of serving as the frontend user registration page.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.editPID" resname="settings.srfeuserregister.editPID">
+				<source>Profile editing page PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.editPID" resname="settings.description.srfeuserregister.editPID">
+				<source>PID of the page on which the plugin is inserted with the intent of serving as the frontend user profile editing page.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.confirmPID" resname="settings.srfeuserregister.confirmPID">
+				<source>Confirmation page PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.confirmPID" resname="settings.description.srfeuserregister.confirmPID">
+				<source>PID of the page on which the plugin is inserted with the intent of serving as the frontend user confirmation page (or setfixed page!).</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.confirmInvitationPID" resname="settings.srfeuserregister.confirmInvitationPID">
+				<source>Confirmation of invitation page PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.confirmInvitationPID" resname="settings.description.srfeuserregister.confirmInvitationPID">
+				<source>PID of the page on which the plugin is inserted with the intent of serving as the frontend user confirmation page (or setfixed page!) when replying to an invitation.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.confirmType" resname="settings.srfeuserregister.confirmType">
+				<source>Confirmation page Type</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.confirmType" resname="settings.description.srfeuserregister.confirmType">
+				<source>Type (or pageNum) of the confirmation page</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.loginPID" resname="settings.srfeuserregister.loginPID">
+				<source>Login page PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.loginPID" resname="settings.description.srfeuserregister.loginPID">
+				<source>PID of the page on which the login plugin is inserted with the intent of serving as the frontend user login page.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.linkToPID" resname="settings.srfeuserregister.linkToPID">
+				<source>Link to after edit PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.linkToPID" resname="settings.description.srfeuserregister.linkToPID">
+				<source>PID of the page to be linked to after the user has completed the edition of his(her) profile.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.linkToPIDAddButton" resname="settings.srfeuserregister.linkToPIDAddButton">
+				<source>Add a button to link to after edit PID</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.linkToPIDAddButton" resname="settings.description.srfeuserregister.linkToPIDAddButton">
+				<source>If set, an additional button is displayed on the profile editing page to save the changes and link to the page specified by linkToPID.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.userGroupUponRegistration" resname="settings.srfeuserregister.userGroupUponRegistration">
+				<source>User group(s) upon registration</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.userGroupUponRegistration" resname="settings.description.srfeuserregister.userGroupUponRegistration">
+				<source>The value of the user group field. Must be a list of integers WITHOUT spaces between the comma-separated values! Furthermore these integers MUST belong to actual fe_groups records!</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.userGroupAfterConfirmation" resname="settings.srfeuserregister.userGroupAfterConfirmation">
+				<source>User group(s) after confirmation</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.userGroupAfterConfirmation" resname="settings.description.srfeuserregister.userGroupAfterConfirmation">
+				<source>The value of the user group(s) assigned to the frontend user after receipt of his(her) confirmation.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.userGroupAfterAcceptation" resname="settings.srfeuserregister.userGroupAfterAcceptation">
+				<source>User group(s) after acceptation</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.userGroupAfterAcceptation" resname="settings.description.srfeuserregister.userGroupAfterAcceptation">
+				<source>The value of the user group(s) assigned to the frontend user after acceptation of his(her) registration when the administrative review is enabled.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowUserGroupSelection" resname="settings.srfeuserregister.allowUserGroupSelection">
+				<source>User group(s) after acceptation</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowUserGroupSelection" resname="settings.description.srfeuserregister.allowUserGroupSelection">
+				<source>The value of the user group(s) assigned to the frontend user after acceptation of his(her) registration when the administrative review is enabled.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowUserGroupSelection" resname="settings.srfeuserregister.allowUserGroupSelection">
+				<source>Allow selection of user group on registration</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowUserGroupSelection" resname="settings.description.srfeuserregister.allowUserGroupSelection">
+				<source>If set, the user may select to adhere to user group(s) when registrating.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowMultipleUserGroupSelection" resname="settings.srfeuserregister.allowMultipleUserGroupSelection">
+				<source>Allow selection of multiple user groups</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowMultipleUserGroupSelection" resname="settings.description.srfeuserregister.allowMultipleUserGroupSelection">
+				<source>If set, the user may select to adhere to multiple user groups.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowUserGroupUpdate" resname="settings.srfeuserregister.allowUserGroupUpdate">
+				<source>Allow selection of user group on edition</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowUserGroupUpdate" resname="settings.description.srfeuserregister.allowUserGroupUpdate">
+				<source>If set, the user may edit the list of user groups to which he(she) belongs.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.keepUnselectableUserGroups" resname="settings.srfeuserregister.keepUnselectableUserGroups">
+				<source>Keep unselectable user groups</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.keepUnselectableUserGroups" resname="settings.description.srfeuserregister.keepUnselectableUserGroups">
+				<source>If set then the user groups that the administration has assigned are not removed after editing. Also applies to any allowed user groups when the field is not editable.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowedUserGroups" resname="settings.srfeuserregister.allowedUserGroups">
+				<source>Allowed user groups</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowedUserGroups" resname="settings.description.srfeuserregister.allowedUserGroups">
+				<source>Comma-separated list of user groups to be selectable. If 'ALL', then all groups are allowed.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.allowedSubgroups" resname="settings.srfeuserregister.allowedSubgroups">
+				<source>Allowed user subgroups</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.allowedSubgroups" resname="settings.description.srfeuserregister.allowedSubgroups">
+				<source>Comma-separated list of subgroups from which all user groups shall be selectable. The user groups from allowed user groups shall be added also.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.deniedUserGroups" resname="settings.srfeuserregister.deniedUserGroups">
+				<source>Denied user groups</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.deniedUserGroups" resname="settings.description.srfeuserregister.deniedUserGroups">
+				<source>Comma-separated list of user groups to be never selectable. These user groups supersede the user groups resulting from allowed user groups and allowed subgroups.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.useLocalization" resname="settings.srfeuserregister.useLocalization">
+				<source>Enable localization</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.useLocalization" resname="settings.description.srfeuserregister.useLocalization">
+				<source>If set, only localized records of user groups or Direct mail categories are shown.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.email" resname="settings.srfeuserregister.email">
+				<source>Administration email address</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.email" resname="settings.description.srfeuserregister.email">
+				<source>This email address will be the sender email and also receive administration notifications.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.siteName" resname="settings.srfeuserregister.siteName">
+				<source>Registration site name</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.siteName" resname="settings.description.srfeuserregister.siteName">
+				<source>Tthis will be used as the email address name in the mails sent as well as signature on the mails.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableHTMLMail" resname="settings.srfeuserregister.enableHTMLMail">
+				<source>Enable HTML emails</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableHTMLMail" resname="settings.description.srfeuserregister.enableHTMLMail">
+				<source>If set, emails sent to the frontend user will be sent in HTML format.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.HTMLMailCSS" resname="settings.srfeuserregister.HTMLMailCSS">
+				<source>HTML emails stylesheet</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.HTMLMailCSS" resname="settings.description.srfeuserregister.HTMLMailCSS">
+				<source>If HTML emails are enabled, this file contains the CSS stylesheet to be incorporated in these mails.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.enableEmailAttachment" resname="settings.srfeuserregister.enableEmailAttachment">
+				<source>Enable HTML email attachment</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.enableEmailAttachment" resname="settings.description.srfeuserregister.enableEmailAttachment">
+				<source>If set, the specified attachment file will be attached to the confirmation HTML email.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.file.attachmentFile" resname="settings.srfeuserregister.file.attachmentFile">
+				<source>Attachment file</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.file.attachmentFile" resname="settings.description.srfeuserregister.file.attachmentFile">
+				<source>File to be attached to the confirmation email.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.useShortUrls" resname="settings.srfeuserregister.useShortUrls">
+				<source>Use short URL's</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.useShortUrls" resname="settings.description.srfeuserregister.useShortUrls">
+				<source>If set, the use of short URL's in email messages sent to users is enabled.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.shortUrlLife" resname="settings.srfeuserregister.shortUrlLife">
+				<source>Short URL cache lifespan</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.shortUrlLife" resname="settings.description.srfeuserregister.shortUrlLife">
+				<source>Number of days that short URL's will be kept in the DB. After this delay, the short URL's will be removed. Confirmation URL's included in email messages older than this number of days will not work.</source>
+			</trans-unit>
+			<trans-unit id="settings.srfeuserregister.file.templateFile" resname="settings.srfeuserregister.file.templateFile">
+				<source>Template File</source>
+			</trans-unit>
+			<trans-unit id="settings.description.srfeuserregister.file.templateFile" resname="settings.description.srfeuserregister.file.templateFile">
+				<source>HTML-template file</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

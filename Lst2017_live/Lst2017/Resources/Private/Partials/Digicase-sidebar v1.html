@@ -1,0 +1,136 @@
+<!-- Sidebar navigation -->
+<div id="slide-out" class="side-nav sn-bg-4 mdb-sidenav fixed bg-lightgrey2">
+	<ul class="custom-scrollbar list-unstyled ps ps--active-y gtnsolutions-lake-nav-scroll-container" style="max-height: 100vh;padding-bottom: 90px;position: relative;">
+		<li class="logo-sn d-block nwaves-effect">
+			<div class="text-center d-flex justify-content-center">
+				<f:comment>
+				<f:link.page pageUid="1" class="brandlink px-4 d-block" title="Startseite Digicase">
+					<img id="digicase-logo" src="{logo}" alt="MDB Logo">
+				  </f:link.page>
+				</f:comment>
+				<div class="brandlink px-4 d-block">
+					<f:link.page pageUid="1" class="brand-link">
+		
+					</f:link.page>
+				</div>
+			</div>
+		  </li>
+		<!--/. Logo -->
+		<!--Search Form-->
+
+		<li class="sidebar-search">
+			<f:format.raw>{kesearchbox}</f:format.raw>
+		</li>
+
+		<f:comment>
+		<li>
+			<form class="search-form" role="search" method="GET" autocomplete="off">
+				  <div class="form-group md-form mt-0 d-block waves-light waves-effect waves-light">
+					<input type="text" class="form-control pb-1 pt-2 mb-0" name="mdw_serach" placeholder="Suche" id="mdb_main_search">
+					<label for="mdb_main_search" class="sr-only active">Suche</label>
+				  </div>
+				  <div class="dropdown-wrapper"></div>
+			</form>
+		</li>
+		</f:comment>
+
+		<!--/.Search Form-->
+		<!-- Side navigation links -->
+		<li>
+			<ul id="side-menu" class="collapsible collapsible-accordion">
+				<f:for each="{headerMenu}" as="mainnavigationItem">
+					<f:if condition="{mainnavigationItem.children}">
+						<f:then>
+							<li class="menu-item menu-item-first-level menu-item-type-custom menu-item-object-custom menu-item-has-children {f:if(condition: mainnavigationItem.active, then:'active')} has-sub menu-item-{mainnavigationItem.data.uid}">
+								<a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" data-title="{mainnavigationItem.title}" title="{mainnavigationItem.title}" class="collapsible-header mainnavigation-title waves-effect arrow-r d-flex justify-content-between menu-link-{mainnavigationItem.data.uid}">
+									<f:if condition="{mainnavigationItem.data.tx_gtnsolutions_icon}">
+										<f:then>
+											<i class="mainnavigation-title-icon fa icons {mainnavigationItem.data.tx_gtnsolutions_icon}"></i>
+										</f:then>
+									</f:if>
+									<span class="flex-grow-1">{mainnavigationItem.title}</span>
+									<i class="fa icon fa icon-angle-down ion-chevron-down rotate-icon"></i>
+								</a>
+								<!--href="{mainnavigationItem.link}"-->
+
+								<div class="collapsible-body" style="display: none;">
+									<ul class="sk-nav-menu sk-mobile-menu menu-main-menu">
+
+										<f:for each="{mainnavigationItem.children}" as="children">
+											 <f:if condition="{children.children}">
+												<f:then>
+													<li class="menu-item-has-children menu-item menu-item-second-level menu-item-type-post_type menu-item-object-page {f:if(condition: children.active, then:'active')} has-sub"><a href="{children.link}" target="{children.target}" title="{children.title}">{children.title}</a>
+														<!--href="{children.link}"-->
+
+														<ul class="sub-menu sub-menu-third-level">
+															<f:for each="{children.children}" as="child">
+
+																<f:if condition="{child.children}">
+																	<f:then>
+																		<li class="menu-item-has-children menu-item menu-item-third-level menu-item-type-post_type menu-item-object-page {f:if(condition: child.active, then:'active')} has-sub"><a href="{child.link}" target="{child.target}" title="{child.title}">{child.title}</a>
+																			<!--href="{children.link}"-->
+
+																			<ul class="sub-menu sub-menu-fourth-level">
+																				<f:for each="{child.children}" as="subchild">
+																					<li class="{f:if(condition: subchild.active, then:'active')}" class="menu-item menu-item-fourth-level">
+																						<a href="{subchild.link}" target="{subchild.target}" title="{subchild.title}" class="d-flex justify-content-start align-items-center">
+																							<span class="cat-level cat-id-9 dotcolor-{subchild.data.reddot} mr-2"></span>
+																							<span class="flex-grow-1">{subchild.title}</span>
+																						</a>
+																					</li>
+																				</f:for>
+																			</ul>
+
+																		</li>
+																	</f:then>
+																	<f:else>
+
+																		<li class="{f:if(condition: child.active, then:'active')}" class="menu-item">
+																			<a href="{child.link}" target="{child.target}" title="{child.title}" class="d-flex justify-content-start align-items-center">
+																				<span class="cat-level cat-id-8 dotcolor-{child.data.reddot} mr-2"></span>
+																				<span class="flex-grow-1">{child.title}</span>
+																			</a>
+																		</li>
+
+																	</f:else>
+																</f:if>
+
+
+															</f:for>
+														</ul>
+
+													</li>
+												</f:then>
+												<f:else>
+													<li class="menu-item menu-item-type-post_type menu-item-object-page {f:if(condition: children.active, then:'active')}"><a href="{children.link}" target="{children.target}" title="{children.title}" class="collapsible-header waves-effect">{children.title}</a></li>
+												</f:else>
+											</f:if>
+
+										</f:for>
+
+									</ul>
+								</div>
+
+							</li>
+						</f:then>
+						<f:else>
+							<li class="menu-item menu-item-type-post_type menu-item-object-page {f:if(condition: mainnavigationItem.active, then:'active')}"><a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}" data-title="{mainnavigationItem.title}" class="collapsible-header waves-effect">
+							<f:if condition="{mainnavigationItem.data.tx_gtnsolutions_icon}">
+								<f:then>
+									<i class="fa icons {mainnavigationItem.data.tx_gtnsolutions_icon}"></i>
+								</f:then>
+							</f:if>
+							{mainnavigationItem.title}</a></li>
+						</f:else>
+					</f:if>
+				</f:for>
+			</ul>
+
+
+		</li>
+		<!-- /. Side navigation links -->
+	</ul>
+	<div class="sidenav-bg mask-strong"></div>
+</div>
+<!--/. Sidebar navigation -->
+<!--/.SideNav-->

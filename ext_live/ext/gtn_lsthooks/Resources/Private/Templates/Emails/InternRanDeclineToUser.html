@@ -1,0 +1,55 @@
+<p>{f:translate(key: 'ranForm.withAccepting.emailToUser.hello', extensionName: 'gtn_lsthooks')}&nbsp;{anrede.value} {vorname.value}&nbsp;{nachname.value}!</p>
+
+<p>
+	{f:translate(key: 'ranForm.withAccepting.emailToUser.decline.description', extensionName: 'gtn_lsthooks') -> f:format.raw()}
+</p>
+
+<f:if condition="{declineReason}">
+	<p>
+		<b>{f:translate(key: 'ranForm.withAccepting.emailToUser.decline.reason', extensionName: 'gtn_lsthooks')}</b><br>
+		{declineReason}
+	</p>
+</f:if>
+
+<br>
+
+<table class="powermail_all" border="0">
+	{f:render(section: 'item', arguments: '{item: kundennummer}')}
+	{f:render(section: 'item', arguments: '{item: kundenreferenz}')}
+	{f:render(section: 'item', arguments: '{item: anrede}')}
+	{f:render(section: 'item', arguments: '{item: vorname}')}
+	{f:render(section: 'item', arguments: '{item: nachname}')}
+	{f:render(section: 'item', arguments: '{item: email}')}
+	{f:render(section: 'item', arguments: '{item: telefon}')}
+	{f:render(section: 'item', arguments: '{item: firma}')}
+	{f:render(section: 'item', arguments: '{item: plz}')}
+	{f:render(section: 'item', arguments: '{item: marker}')} <f:comment>city</f:comment>
+	{f:render(section: 'item', arguments: '{item: marker_02}')} <f:comment>address</f:comment>
+	{f:render(section: 'item', arguments: '{item: land2}')}
+</table>
+<f:for as="article" each="{articles}" iteration="articleIterator">
+	<h3>{f:translate(key: 'article', extensionName: 'gtn_lsthooks')} {articleIterator.cycle}:</h3>
+	<table class="table table-striped table-hover" border="0">
+		{f:render(section: 'item', arguments: '{item: article.anzahl}')}
+		{f:render(section: 'item', arguments: '{item: article.type}')}
+		{f:render(section: 'item', arguments: '{item: article.artikelnummer}')}
+		{f:render(section: 'item', arguments: '{item: article.auftragsnummer}')}
+		{f:render(section: 'item', arguments: '{item: article.deliverynumber}')}
+		{f:render(section: 'item', arguments: '{item: article.seriennummer}')}
+		{f:render(section: 'item', arguments: '{item: article.returnreason}')}
+		{f:render(section: 'item', arguments: '{item: article.beschreibung}')}
+	</table>
+</f:for>
+
+<p>{f:translate(key: 'ranForm.withAccepting.emailToUser.footer', extensionName: 'gtn_lsthooks') -> f:format.raw()}</p>
+
+<f:section name="item">
+	<tr>
+		<td valign="top">
+			<b>{item.title}:</b>
+		</td>
+		<td valign="top">
+			<f:format.nl2br>{item.value}</f:format.nl2br>
+		</td>
+	</tr>
+</f:section>

@@ -1,0 +1,88 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+#  Gtn\GtnLsthooks\:
+#    resource: '../Classes/*'
+#    exclude: '../Classes/Domain/Model/*'
+
+  Gtn\GtnLsthooks\EventListeners\FilterMenuItemsEventListener:
+    tags:
+      - name: event.listener
+        method: 'onFilterMenuItemsEvent'
+        identifier: 'gtnlsthooks/onFilterMenuItems'
+        event: TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent
+  
+  Gtn\GtnLsthooks\EventListeners\PowermailEventListener:
+    tags:
+      - name: event.listener
+        method: 'afterSaveDB'
+        identifier: 'gtnlsthooks/powermailAfterSaveDB'
+        event: In2code\Powermail\Events\FormControllerCreateActionAfterMailDbSavedEvent
+      - name: event.listener
+        method: 'createBeforePreviewRender'
+        identifier: 'gtnlsthooks/powermailCreateActionBeforePreviewRender'
+        event: In2code\Powermail\Events\FormControllerCreateActionBeforeRenderViewEvent
+      - name: event.listener
+        method: 'getFilesForAttach'
+        identifier: 'gtnlsthooks/powermailGetFilesForAttach'
+        event: In2code\Powermail\Events\SendMailServicePrepareAndSendEvent
+      - name: event.listener
+        method: 'getSenderEmail'
+        identifier: 'gtnlsthooks/powermailGetSenderEmail'
+        event: In2code\Powermail\Events\ReceiverMailSenderPropertiesGetSenderEmailEvent
+      - name: event.listener
+        method: 'getSenderName'
+        identifier: 'gtnlsthooks/powermailGetSenderName'
+        event: In2code\Powermail\Events\ReceiverMailSenderPropertiesGetSenderNameEvent
+      - name: event.listener
+        method: 'formBeforeRender'
+        identifier: 'gtnlsthooks/powermailFormBeforeRender'
+        event: In2code\Powermail\Events\FormControllerFormActionEvent
+      - name: event.listener
+        method: 'formBeforePreviewRender'
+        identifier: 'gtnlsthooks/powermailFormBeforePreviewRender'
+        event: In2code\Powermail\Events\FormControllerConfirmationActionEvent
+
+  Gtn\GtnLsthooks\EventListeners\LoginConfirmedRegionListener:
+    tags:
+      - name: event.listener
+        method: 'onLoginConfirmed'
+        identifier: 'gtnlsthooks/loginConfirmedRegion'
+        event: TYPO3\CMS\FrontendLogin\Event\LoginConfirmedEvent
+
+  Gtn\GtnLsthooks\EventListeners\ModifyRecordListRecordActionsEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'gtnlsthooks/modify-recordlist'
+        event: TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent
+        method: 'modifyRecordActions'
+
+  Gtn\GtnLsthooks\Domain\Repository\CategoryRepository:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Gtn\GtnLsthooks\Controller\LstUserNewController:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Gtn\GtnLsthooks\Controller\LstUserEditController:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Gtn\GtnLsthooks\Controller\AjaxController:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+#  XClasses used
+#  In2code\Femanager\Controller\NewController:
+#    alias: Gtn\GtnLsthooks\Controller\LstUserNewController
+#
+#  In2code\Femanager\Controller\EditController:
+#    alias: Gtn\GtnLsthooks\Controller\LstUserEditController

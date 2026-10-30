@@ -1,0 +1,12 @@
+
+<div class="pim-products-tabs mt-4">
+	<nav class="mb-5">
+		<ul class="nav nav-pills nav-fill" id="nav-tab" role="tablist">
+			<f:render partial="Container/TabNav" arguments="{dces:dces}" />
+		</ul>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+			<f:render partial="Container/Pim-detail-tabs" arguments="{dces:dces}" />
+			<f:comment><f:render partial="Container/Dces" arguments="{dces:dces}" /></f:comment>
+	</div>
+</div>

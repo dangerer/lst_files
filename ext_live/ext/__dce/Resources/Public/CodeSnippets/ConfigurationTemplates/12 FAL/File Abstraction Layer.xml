@@ -1,0 +1,8 @@
+<config>
+    <type>file</type>
+    <minitems>0</minitems>
+    <maxitems>99</maxitems>
+
+    <dce_load_schema>1</dce_load_schema>
+    <dce_get_fal_objects>1</dce_get_fal_objects>
+</config>

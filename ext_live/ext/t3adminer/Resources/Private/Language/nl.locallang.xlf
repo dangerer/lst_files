@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="nl" datatype="plaintext" original="EXT:t3adminer/Resources/Private/Language/locallang.xlf" date="2023-09-03T09:26:12Z" product-name="t3adminer">
+		<header/>
+		<body>
+			<trans-unit id="title" resname="title" approved="yes">
+				<source>Adminer</source>
+				<target>Adminer</target>
+			</trans-unit>
+			<trans-unit id="mlang_notindevipmask" resname="mlang-notindevipmask" approved="yes">
+				<source><![CDATA[<h3>Access Denied</h3><p>This Adminer-Module was configured with IP-based access restrictions and your REMOTE_ADDR (%s) is not in TYPO3 devIPmask.</p>]]></source>
+				<target><![CDATA[<h3>Toegang geweigerd</h3><p>Dez Adminer-module is geconfigureerd met beperkte toegang op basis van IP-adressen en uw REMOTE_ADDR (%s) zit niet in de TYPO3 devIPmask.</p>]]></target>
+			</trans-unit>
+			<trans-unit id="mlang_notinipaccess" resname="mlang_notinipaccess" approved="yes">
+				<source><![CDATA[<h3>Access Denied</h3><p>This Adminer-Module was configured with IP-based access restrictions and your REMOTE_ADDR (%s) is not in the list of allowed IPs.</p>]]></source>
+				<target><![CDATA[<h3>Toegang geweigerd</h3><p>Deze Adminer-module is geconfigureerd met beperkte toegang op basis van IP-adressen  en uw REMOTE_ADDR (%s) staat niet in de lijst met toegestane adressen.</p>]]></target>
+			</trans-unit>
+			<trans-unit id="mlang_notinstalled" resname="mlang_notinstalled" approved="yes">
+				<source>Adminer module was not installed?</source>
+				<target>Adminer module is niet aanwezig?</target>
+			</trans-unit>
+			<trans-unit id="mlang_dirnotfound" resname="mlang_dirnotfound" approved="yes">
+				<source>FOUT: De directory, "%s" is NIET gevonden!</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

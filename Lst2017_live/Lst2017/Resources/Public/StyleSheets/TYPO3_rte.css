@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+
+table, tr, td {
+  border: 1px dotted #ccc;
+}
+
+a.link-extern {
+  
+}
+
+ul.zebraliste {
+  
+}
+
+table.eedu-table {
+  
+}
+
+table.eedu-koord-table {
+  
+}
+
+a.btn-default {
+  background-color: #01a565;
+  padding: 7px 20px;
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+}
+
+p.zentriert{
+  text-align: center;
+}
+
+p.rechtsbuendig {
+  text-align: right;
+}
+
+p.infobox {
+  background-color: #eaeaea;
+}
+
+p.bg-lightgrey2 {
+  background-color: #eaeaea;
+}
+
+p.infobox.bg-lightgrey2 {
+  background-color: #eaeaea;
+}
+
+p.alert-test.alert-primary-test {
+  background-color: #e8eded;
+  border-color: #d3d6d6;
+  color: #000;
+}
+
+
+
+p.text-teaser {
+	font-size: 110%;
+	text-align: center;
+}

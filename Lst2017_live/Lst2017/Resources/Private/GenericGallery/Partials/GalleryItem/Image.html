@@ -1,0 +1,9 @@
+<f:link.typolink parameter="{item.link}">
+	<f:image
+		width="295c"
+		height="221c"
+		image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+		title="{item.imageData.title}"
+		rel="lightbox"
+		alt="{item.imageData.alternative}" />
+</f:link.typolink>

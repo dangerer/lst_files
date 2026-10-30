@@ -1,0 +1,104 @@
+
+<style>
+  .pdfContent {
+    font-family: Sans-Serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  table.header {
+    font-size: 16px;
+    width: 100%;
+    table-layout: fixed;
+  }
+  table.mainData {
+    font-size: 11px;
+    width: 100%;
+    table-layout: fixed;
+  }
+  table.mainData td {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .article-title {
+    font-size: 14px;
+    /*font-weight: bold;*/
+  }
+  table.articlesData {
+    font-size: 11px;
+    width: 100%;
+    table-layout: fixed;
+  }
+  table.articlesData td {
+    border-top: 1px solid #e0e0e0;
+  }
+  td.item-title {
+    font-weight: bold;
+  }
+  td.item-value {
+
+  }
+
+</style>
+
+<div class="pdfContent">
+
+  <table class="header">
+    <tr>
+      <td colspan="5">&nbsp;</td>
+      <td colspan="5">
+        <p>
+        <b>Labor Strauss Sicherungsanlagenbau GmbH</b><br>
+          Wiegelestraße 36<br>
+          A-1230 Wien
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+
+  <hr>
+
+  <p>{f:translate(key: 'ranForm.withAccepting.emailToUser.pdf.printDescription', extensionName: 'gtn_lsthooks') -> f:format.raw()}</p>
+
+  <table border="0" class="mainData">
+    {f:render(section: 'item', arguments: '{item: rmanr}')}
+    {f:render(section: 'item', arguments: '{item: kundennummer}')}
+    {f:render(section: 'item', arguments: '{item: kundenreferenz}')}
+    {f:render(section: 'item', arguments: '{item: anrede}')}
+    {f:render(section: 'item', arguments: '{item: vorname}')}
+    {f:render(section: 'item', arguments: '{item: nachname}')}
+    {f:render(section: 'item', arguments: '{item: email}')}
+    {f:render(section: 'item', arguments: '{item: telefon}')}
+    {f:render(section: 'item', arguments: '{item: firma}')}
+    {f:render(section: 'item', arguments: '{item: plz}')}
+    {f:render(section: 'item', arguments: '{item: marker}')} <f:comment>city</f:comment>
+    {f:render(section: 'item', arguments: '{item: marker_02}')} <f:comment>address</f:comment>
+    {f:render(section: 'item', arguments: '{item: land2}')}
+    {f:render(section: 'item', arguments: '{item: region}')}
+  </table>
+
+  <f:for as="article" each="{articles}" iteration="articleIterator">
+    <br>
+    <span class="article-title">{f:translate(key: 'article', extensionName: 'gtn_lsthooks')} {articleIterator.cycle}:</span>
+    <table border="0" class="articlesData">
+      {f:render(section: 'item', arguments: '{item: article.anzahl}')}
+      {f:render(section: 'item', arguments: '{item: article.type}')}
+      {f:render(section: 'item', arguments: '{item: article.artikelnummer}')}
+      {f:render(section: 'item', arguments: '{item: article.auftragsnummer}')}
+      {f:render(section: 'item', arguments: '{item: article.deliverynumber}')}
+      {f:render(section: 'item', arguments: '{item: article.seriennummer}')}
+      {f:render(section: 'item', arguments: '{item: article.returnreason}')}
+      {f:render(section: 'item', arguments: '{item: article.beschreibung}')}
+    </table>
+  </f:for>
+
+</div>
+
+
+<f:section name="item">
+  <tr>
+    <td colspan="3" class="item-title">{item.title}</td>
+    <td colspan="7" class="item-value">{item.value}</td>
+  </tr>
+</f:section>

@@ -1,0 +1,7 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+<li class="nav-item">
+	<a href="" class="nav-link" data-toggle="modal" data-target="#selectRegion">
+		<i class="icon ion-android-globe"></i><span class="nav-servTxt lst-regionTitle">
+			{f:if(condition:'{gtnLst:SelectedRegion()} > 0', then:'{gtnLst:SelectedRegionTitle()}', else: '{f:translate(key: "LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:lstTemplate.selectRegion")}')}</span>
+	</a>
+</li>

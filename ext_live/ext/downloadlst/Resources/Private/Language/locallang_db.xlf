@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2018-03-12T17:56:04Z" product-name="downloadlst">
+		<header/>
+		<body>
+			<trans-unit id="tx_downloadlst_domain_model_extendpages">
+				<source>Extendpages</source>
+			</trans-unit>
+			<trans-unit id="tx_downloadlst_domain_model_extendpages.new">
+				<source>New</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_extbase_type.Tx_Downloadlst_Extendpages">
+				<source>Download list Extendpages</source>
+			</trans-unit>
+			<trans-unit id="tx_downloadlst_domain_model_ttcontent">
+				<source>Tt Content</source>
+			</trans-unit>
+			<trans-unit id="tx_downloadlst_domain_model_ttcontent.new">
+				<source>New</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_extbase_type.Tx_Downloadlst_TtContent">
+				<source>Download list TtContent</source>
+			</trans-unit>
+			<trans-unit id="tx_downloadlst_downloadlst.name">
+				<source>Download List</source>
+			</trans-unit>
+			<trans-unit id="tx_downloadlst_downloadlst.description">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_downloadlst_domain_model_syscategory.feuserpage">
+				<source>fe_users storage page</source>
+			</trans-unit>
+			<trans-unit id="flexform.Settings">
+				<source>Settings</source>
+			</trans-unit>
+			<trans-unit id="flexform.selectedContent">
+				<source>Select Content Elements</source>
+			</trans-unit>			
+			<trans-unit id="tx_downloadlst_domain_model_ttcontent.for_all_language">
+				<source>Download ohne Sprache</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

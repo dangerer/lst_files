@@ -1,0 +1,129 @@
+{namespace gtnLst=Gtn\GtnLsthooks\ViewHelpers}
+<html xmlns:gtnLst="/Gtn/GtnLsthooks/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+
+<header class="header clearfix">
+	<div class="container-fluid">
+		<nav class="navbar-service">
+			<ul class="nav justify-content-end">
+				<f:format.raw>{navigation_service}</f:format.raw>
+				<span class="navbar-text">
+					<f:format.raw>{kesearchbox}</f:format.raw>
+				</span>
+			</ul>
+		</nav>
+
+		<script>
+			var gtnSelectedRegion = {gtnLst:SelectedRegion()};
+			var showModalonEmptyRegion = {gtnLst:ShowModalOnEmptyRegion()};
+			var reloadPageForRegionSave = true;
+		</script>
+
+		<f:render partial="RegionSelectModal" arguments="{_all}" />
+
+		<f:format.raw>{infoPopUp}</f:format.raw>
+
+		<nav class="navbar navbar-expand-lg navbar-light navbar-lst">
+		  	<f:format.raw>{logo}</f:format.raw>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLstMain" aria-controls="navbarLstMain" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			 </button>
+			 <div class="collapse navbar-collapse" id="navbarLstMain">
+				 <ul class="nav navbar-nav ml-auto">
+	              	<f:format.raw>{navigation_main}</f:format.raw>
+	            </ul>
+			 </div>
+	    </nav>
+	</div><!--/.container-fluid -->
+</header>
+
+
+				<f:render section="content" />
+
+<f:comment> use correct domain for this !!!!!!! </f:comment>
+<f:switch expression="{f:cObject(typoscriptObjectPath: 'lib.currentDomainTS')}">
+	<f:case value="http://mep-pockau.de">
+		<f:render partial="StartModal" />
+	</f:case>
+	<f:case value="https://mep-pockau.de">
+		<f:render partial="StartModal" />
+	</f:case>
+	<f:case value="http://www.mep-pockau.de">
+		<f:render partial="StartModal" />
+	</f:case>
+	<f:case value="https://www.mep-pockau.de">
+		<f:render partial="StartModal" />
+	</f:case>
+	<f:defaultCase>
+		<f:comment> !!!!!! show for all now, with debug !!!!!! </f:comment>
+		<f:comment><f:render partial="StartModal" arguments="{debug: '0'}" /> </f:comment>
+	</f:defaultCase>
+</f:switch>
+
+
+
+<footer id="Footer">
+	<div class="bg-pagepad">
+		<div class="container-fluid pt-4 pb-4 fo-info">
+			<div class="row">
+				<div class="col-12 col-md-7 col-lg-4 fo-cont">
+					<f:format.raw>{footer_contact}</f:format.raw>
+				</div>
+				<div class="col-12 col-md-5 col-lg-5 fo-social">
+					<f:format.raw>{footer_social}</f:format.raw>
+				</div>
+				<div class="col-12 col-md-12 col-lg-3 fo-newsl">
+					<f:format.raw>{footer_newsl}</f:format.raw>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-lightgrey2 pt-4 pb-4 fo-sitemap bg-pagepad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-sm-4 col-md-4 col-lg-2 foSi1">
+					<f:format.raw>{footer_sitemap1}</f:format.raw>
+				</div>
+				<div class="col-12 col-sm-4 col-md-4 col-lg-2 foSi1">
+					<f:format.raw>{footer_sitemap2}</f:format.raw>
+				</div>
+				<div class="col-12 col-sm-4 col-md-4 col-lg-2 foSi1">
+					<f:format.raw>{footer_sitemap3}</f:format.raw>
+				</div>
+				<div class="col-12 col-sm-4 col-md-4 col-lg-2 foSi2">
+					<f:format.raw>{footer_sitemap4}</f:format.raw>
+				</div>
+				<div class="col-12 col-sm-4 col-md-4 col-lg-2 foSi2">
+					<f:format.raw>{footer_sitemap5}</f:format.raw>
+					<f:format.raw>{footer_sitemap6}</f:format.raw>
+				</div>
+				<div class="col-12 col-sm-4 col-md-4 col-lg-2 foSi2">
+					<f:format.raw>{footer_sitemap7}</f:format.raw>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-white bg-pagepad">
+		<div class="container-fluid fo-cp">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-footer">
+
+						<ul class="nav">
+							<span class="navbar-text">
+						    <f:format.raw>{footer_imprint}</f:format.raw>
+						    </span>
+							<f:format.raw>{navigation_footer}</f:format.raw>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+

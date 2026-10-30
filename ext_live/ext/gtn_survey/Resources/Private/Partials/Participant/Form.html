@@ -1,0 +1,49 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="participant-company row form-group">
+	<div class="col-12">
+	    <label for="participantCompany">{f:translate(key: 'fe.company')}</label>
+	    <f:form.textfield class="form-control" id="participantCompany" name="participant[company]"/>
+	</div>
+</div>
+<div class="participant-address row form-group">
+	<div class="col-12">
+	    <label for="participantAddress">{f:translate(key: 'fe.address')}</label>
+	
+	    <f:form.textfield class="form-control" id="participantAddress" name="participant[address]"/>
+	</div>
+</div>
+<div class="participant-city row form-group">
+    <div class="col-xl-3">
+        <label for="participantPostal">{f:translate(key: 'fe.zip')}</label>
+
+        <f:form.textfield class="form-control" id="participantPostal" name="participant[postal]"/>
+    </div>
+    <div class="col-xl-9">
+        <label for="participantCity">{f:translate(key: 'fe.country_and_location')}</label>
+
+        <f:form.textfield class="form-control" id="participantCity" name="participant[city]"/>
+    </div>
+
+</div>
+<div class="participant-date-consultant row form-group">
+    <f:comment><div class="col-xl-3">
+        <label for="participantDate">{f:translate(key: 'fe.date')}</label>
+
+        <f:form.textfield class="form-control" id="participantDate" name="participant[date]"/>
+    </div>
+  </f:comment>
+    <div class="col-12">
+        <label for="participantConsultant">{f:translate(key: 'fe.contact_person')}</label>
+
+        <f:form.textfield class="form-control" id="participantConsultant" name="participant[consultant]"/>
+    </div>
+</div>
+<div class="participant-mail row form-group">
+	<div class="col-12">
+	    <label for="participantMail">{f:translate(key: 'fe.mail')}</label>
+	
+	    <f:form.textfield class="form-control" id="participantMail" name="participant[mail]"/>
+	</div>
+</div>
+
+</html>

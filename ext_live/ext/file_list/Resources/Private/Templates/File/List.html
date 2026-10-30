@@ -1,0 +1,14 @@
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+	<f:if condition="{isEmpty}">
+		<f:then>
+			<f:translate key="no_files" />
+		</f:then>
+		<f:else>
+			<f:render partial="{settings.templateLayout}" arguments="{_all}" />
+		</f:else>
+	</f:if>
+
+</f:section>

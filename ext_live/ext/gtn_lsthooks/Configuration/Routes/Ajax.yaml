@@ -1,0 +1,6 @@
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      'zipsearch.json': 98374812

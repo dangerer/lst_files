@@ -1,0 +1,30 @@
+<div class="trainings-course pim-product-list-item row align-items-center" id="dce-{contentObject.uid}">
+	<div class="col-12 col-md-3 col-xl-2 mb-3 mb-md-0">
+		<f:for each="{contentObject.assets}" as="image" iteration="i">
+			<f:if condition="{i.cycle} == 1">
+				<div class="img-trainings">
+					<f:image image="{image}" width="550c" height="396c" />
+				</div>
+			</f:if>
+		</f:for>
+	</div>
+	<div class="col-12 col-md-6 col-xl-7">
+		<f:if condition="{field.title}">
+			<h2>
+				<f:link.typolink parameter="{field.link}">
+					{field.title} 
+				</f:link.typolink>
+			</h2>
+		</f:if>
+		<f:if condition="{field.text}">
+			<f:format.html>{field.text}</f:format.html>
+		</f:if>
+	</div>
+	<div class="col-12 col-md-3 align-self-end">
+		<div class="btn-cnt text-right mt-1">
+			<f:link.typolink parameter="{field.link}" class="btn btn-lst btn-arrow btn-trainings-details" title="{field.title}">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:pim.toproduct")}
+			</f:link.typolink>
+		</div>
+	</div>
+</div>

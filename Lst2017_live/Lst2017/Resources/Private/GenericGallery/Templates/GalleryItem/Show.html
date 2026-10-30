@@ -1,0 +1,55 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+	<div class="row">
+		<div class="col-xs-12">
+			<figure class="thumbnail">
+				<f:image
+					width="1024m"
+					height="800m"
+					image="{f:if(condition: '{item.imageReference}', then: '{item.imageReference}', else: '{item.image}')}"
+					alt="{item.imageData.alternative}" />
+
+				<figcaption class="caption">
+					<p class="small muted pull-right">
+						<f:render partial="GalleryItem/Copyright" arguments="{_all}" />
+					</p>
+					<p>
+						<strong>
+							<f:link.typolink parameter="{item.image.publicUrl}">
+								<i class="icon icon-cloud-download glyphicon glyphicon-download"></i>
+								<span class="sr-only">Download original image</span>
+							</f:link.typolink>
+							<f:if condition="{item.title}">
+								<f:then>
+									{item.title}
+								</f:then>
+								<f:else>
+									{item.imageData.title}
+								</f:else>
+							</f:if>
+						</strong>
+					</p>
+					<f:if condition="{item.imageData.description}">
+						<br>
+						<p>
+							{item.image.properties.description}
+						</p>
+					</f:if>
+				</figcaption>
+			</figure>
+
+			<f:if condition="{item.textItems}">
+				<ul class="list-group">
+					<f:for each="{item.textItems}" as="textItem">
+						<li class="list-group-item">
+							<f:format.html>{textItem.bodytext}</f:format.html>
+						</li>
+					</f:for>
+				</ul>
+			</f:if>
+		</div>
+	</div>
+
+</f:section>

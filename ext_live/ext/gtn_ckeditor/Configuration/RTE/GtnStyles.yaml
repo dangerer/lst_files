@@ -1,0 +1,34 @@
+
+
+editor:
+    config:
+
+        stylesSet:
+            # block level styles           
+            #- { name: "button default", element: "a", attributes: { class: "btn-default" } }
+            - { name: "Btn rot", element: "a", attributes: { class: "btn btn-lst btn-primary" } }
+            - { name: "Btn rot m. Pfeil", element: "a", attributes: { class: "btn btn-arrow btn-lst btn-primary" } }
+            - { name: "Btn rot small", element: "a", attributes: { class: "btn btn-lst btn-primary btn-sm" } }
+            - { name: "Btn rot m. Pfeil small", element: "a", attributes: { class: "btn btn-arrow btn-lst btn-primary btn-sm" } }
+            - { name: "Btn grau", element: "a", attributes: { class: "btn btn-lst btn-lstgrey btn-primary" } }
+            - { name: "Btn grau m. Pfeil", element: "a", attributes: { class: "btn btn-arrow btn-lst btn-lstgrey btn-primary" } }
+            - { name: "Btn grau small", element: "a", attributes: { class: "btn btn-lst btn-lstgrey btn-primary btn-sm" } }
+            - { name: "Btn grau m. Pfeil small", element: "a", attributes: { class: "btn btn-arrow btn-lst btn-lstgrey btn-primary btn-sm" } }
+            - { name: "Btn Email", element: "a", attributes: { class: "btn btn-email btn-lst btn-lstlightgrey btn-primary btn-sm" } }
+            - { name: "Link Email", element: "a", attributes: { class: "linkicon-email" } }
+            - { name: "zentriert", element: "p", attributes: { class: "text-center" } }
+            - { name: "small", element: "p", attributes: { class: "small" } }
+            - { name: "rechtsbuendig", element: "p", attributes: { class: "text-right" } }
+            - { name: "Text Big", element: "p", attributes: { class: "text-big" } }
+            - { name: "Infobox", element: "p", attributes: { class: "bg-lightgrey2 infobox" } }
+            - { name: "Text White", element: "p", attributes: { class: "text-white" } }
+            - { name: "Zebra Table", element: "table", attributes: { class: "zebra-table table" } }
+            - { name: "Hide", element: "div", attributes: { class: "hide_contentbu" } }
+            - { name: "Alert", element: "div", attributes: { class: "alert alert-danger alert-img" } }
+            # Inline styles
+            # - { name: "Öffnungz. Uhrzeit", element: "span", attributes: { class: "op-time" } }
+            - { name: "Open", element: "span", attributes: { class: "openLayerBu" } }
+            # List styles
+            - { name: "Benefits List", element: "ul", attributes: { class: "ul-benefits" } }
+            - { name: "Featured List", element: "ul", attributes: { class: "ul-featured" } }
+            

@@ -1,0 +1,52 @@
+{
+  "name": "dirkpersky/typo3-dp_cookieconsent",
+  "type": "typo3-cms-extension",
+  "description": "Enable a cookie consent box. Let you visitors control the usage of cookies and load script or content after a consent. (ePrivacy, TTDSG)",
+  "keywords": [
+    "TYPO3",
+    "cookieconsent",
+    "DSGVO",
+    "cookie",
+    "consent",
+    "ePrivacy"
+  ],
+  "homepage": "https://github.com/DirkPersky/typo3-dp_cookieconsent",
+  "support": {
+    "issues": "https://github.com/DirkPersky/typo3-dp_cookieconsent/issues"
+  },
+  "authors": [
+    {
+      "name": "Dirk Persky",
+      "role": "Developer",
+      "homepage": "http://dp-wired.de"
+    }
+  ],
+  "license": [
+    "AGPL-3.0-or-later"
+  ],
+  "require": {
+    "typo3/cms-core": "^12.4.0||^13.4.0||dev-main"
+  },
+  "replace": {
+    "typo3-ter/dp_cookieconsent": "self.version"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "DirkPersky\\DpCookieconsent\\": "Classes"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "dp_cookieconsent",
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  },
+  "scripts": {
+    "zip": "grep -Po \"(?<='version' => ')([0-9]+.[0-9]+.[0-9]+)\" ext_emconf.php | xargs -I {version} sh -c 'git archive -v -o \"dp_cookieconsent_version.zip\" version'"
+  }
+}

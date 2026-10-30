@@ -1,0 +1,60 @@
+<div class="full-width-text-image {field.bgcolor}">
+	<f:for each="{contentObject.assets}" as="fileReference" iteration="i">
+		<f:if condition="{i.cycle} == 1">
+			<div class="full-width-content-bgimage {f:if(condition: '{field.contentposition} == 1', then: 'fwc-image-right')}" style="background-image: url('https://www.laborstrauss.com/{f:uri.image(src:'{fileReference.uid}',treatIdAsReference:'1',width: '1095c')}')"></div>
+		</f:if>
+	</f:for>
+	<div class="full-width-content h-100">
+		<div class="container-fluid h-100">
+			<div class="row align-items-center h-100">
+
+				<div class="col-12 col-md-6 {f:if(condition: '{field.contentposition} == 1', then: 'order-md-2')} ">
+					
+				</div>
+				<div class="col-12 col-md-6 col-fwc-content {f:if(condition: '{field.contentposition} == 1', then: 'fcw-text-left order-md-1')} ">
+					<f:if condition="{field.title}">
+						<h3>{field.title}</h3>
+					</f:if>
+					<f:if condition="{field.subtitle}">
+						<p class="fwc-subtitle">{field.subtitle}</p>
+					</f:if>
+					<f:format.html>{field.text}</f:format.html>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<f:comment>
+<!-- TEMPALTE -->
+<div class="full-width-text-image {field.bgcolor}">
+	<f:for each="{contentObject.assets}" as="fileReference" iteration="i">
+		<f:if condition="{i.cycle} == 1">
+			<div class="full-width-content-bgimage" style="background-image: url('https://www.laborstrauss.com/{f:uri.image(src:'{fileReference.uid}',treatIdAsReference:'1',width: '1400c')}')"></div>
+		</f:if>
+	</f:for>
+	<div class="full-width-content h-100">
+		<div class="container-fluid h-100">
+			<div class="row align-items-center h-100">
+
+				<div class="col-12 col-md-6">
+					
+				</div>
+				<div class="col-12 col-md-6 col-fwc-content">
+					<f:if condition="{field.title}">
+						<h3>{field.title}</h3>
+					</f:if>
+					<f:if condition="{field.subtitle}">
+						<p class="fwc-subtitle">{field.subtitle}</p>
+					</f:if>
+					<f:format.html>{field.text}</f:format.html>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</f:comment>

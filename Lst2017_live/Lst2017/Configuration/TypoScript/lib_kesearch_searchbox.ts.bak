@@ -1,0 +1,51 @@
+
+
+########################################
+# searchbox
+########################################
+lib.searchbox = COA_INT
+lib.searchbox {
+  10 < plugin.tx_kesearch_pi1
+ 
+  # result page 
+  10.resultPage = 41
+ 
+  # static or ajax mode
+  10.renderMethod = ajax mode
+ 
+  # HTML template and CSS file
+	10.templateRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Templates/
+	10.partialRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Partials/
+	10.layoutRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Layouts/
+	10.cssFile = fileadmin/Lst2017/Resources/Public/StyleSheets/ke_search_pi1.css
+	
+}
+
+plugin.tx_kesearch_pi1.resultsPerPage = 10
+
+plugin.tx_kesearch_pi1 {
+	templateRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Templates/
+	partialRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Partials/
+	layoutRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Layouts/
+}
+plugin.tx_kesearch_pi2 {
+	showTextInsteadOfResults = 1
+	textForResults = Bitte geben Sie ein Suchwort ein.
+	templateRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Templates/
+	partialRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Partials/
+	layoutRootPaths.5 = fileadmin/Lst2017/Resources/Private/ke_search/Layouts/
+}
+
+
+
+plugin.tx_kesearch_pi1._LOCAL_LANG.default.searchbox_default_value = Suche..
+plugin.tx_kesearch_pi1._LOCAL_LANG.de.searchbox_default_value = Suchen ...
+plugin.tx_kesearch_pi1._LOCAL_LANG.default.submit = Suchen
+plugin.tx_kesearch_pi1._LOCAL_LANG.de.submit = Suchen
+
+plugin.tx_kesearch_pi2._LOCAL_LANG.default.searchbox_default_value = Suche..
+plugin.tx_kesearch_pi2._LOCAL_LANG.de.searchbox_default_value = Suchen
+
+plugin.tx_kesearch_pi3._LOCAL_LANG.default.searchbox_default_value = Suche..
+plugin.tx_kesearch_pi3._LOCAL_LANG.de.searchbox_default_value = Suchen
+

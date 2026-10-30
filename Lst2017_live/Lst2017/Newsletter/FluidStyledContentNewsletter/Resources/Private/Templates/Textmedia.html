@@ -1,0 +1,217 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	
+	
+		<!-- ##### Element start ##### -->
+		<f:layout name="Default" />
+		
+		<f:section name="Header">			
+			<f:render section="Custom_Header{f:if(condition: '{data.layout} > 1', then: '{data.layout}')}" arguments="{_all}" />
+		</f:section>
+		<f:section name="Main">
+			<f:render section="Custom_Main{f:if(condition: '{data.layout} > 1', then: '{data.layout}')}" arguments="{_all}" />
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 1 - DEFAULT LAYOUT ### -->
+		
+		<f:section name="Custom_Header">
+		
+		</f:section>
+		
+		<f:section name="Custom_Main">
+		
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+					
+								<f:render partial="Header/All" arguments="{_all}" />
+					
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+				<f:render partial="Header/AllButton" arguments="{_all}" />
+		
+		</f:section>
+	
+	
+		<!-- ### LAYOUT 17 - Newsletter zwei Spalten ### -->
+		
+		<f:section name="Custom_Header17">
+		
+
+		
+		</f:section>
+		
+		<f:section name="Custom_Main17">
+		
+		<table class="" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+			<tbody>
+				<tr style="padding: 0; text-align: left; vertical-align: top;">
+					<td style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word; width:550px;">
+						
+						<f:render partial="Header/All" arguments="{_all}" />
+						
+						<div class="ce-bodytext">
+						
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+						<f:render partial="Header/AllButton" arguments="{_all}" />
+					</td>
+					<td class="last" valign="top" style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word; width:290px;padding-left: 15px;text-align: center;vertical-align: top;">
+						
+							<f:render partial="Media/GallerySpalten" arguments="{_all}" />
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+		
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 18 - Image Bottom center ### -->
+		
+		<f:section name="Custom_Header18">
+		
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+		
+		<f:section name="Custom_Main18">
+				
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+				<f:render partial="Header/AllButton" arguments="{_all}" />
+				<table class="spacer" style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                                      <tbody>
+                                        <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                          <td style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 30px; font-weight: normal; hyphens: auto; line-height: 30px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word;"
+                                            height="30">&nbsp;</td>
+                                        </tr>
+                                      </tbody>
+                </table>
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/GalleryImageBottom" arguments="{_all}" />
+				</f:if>
+				
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/GalleryImageBottom" arguments="{_all}" />
+				</f:if>
+		
+		</f:section>
+	
+		
+		<!-- ### LAYOUT 19 - Image TOP center ### -->
+		
+		<f:section name="Custom_Header19">
+		
+				<f:if condition="{gallery.position.vertical} == 'below'">
+					<f:render partial="Media/GalleryImageTop" arguments="{_all}" />
+				</f:if>
+				
+				<f:if condition="{gallery.position.vertical} != 'below'">
+					<f:render partial="Media/GalleryImageTop" arguments="{_all}" />
+				</f:if>
+		
+			<f:if condition="{gallery.position.noWrap} != 1">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:if>
+		
+		</f:section>
+		
+		<f:section name="Custom_Main19">
+				
+
+				
+				<f:if condition="{data.bodytext}">
+					<f:then>
+						<div class="ce-bodytext">
+							<f:if condition="{gallery.position.noWrap}">
+								<f:render partial="Header/All" arguments="{_all}" />
+							</f:if>
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+					</f:then>
+					
+					<f:else>
+						<f:if condition="{gallery.position.noWrap}">
+							<f:if condition="{data.header}">
+								<div class="ce-bodytext">
+									<f:render partial="Header/All" arguments="{_all}" />
+								</div>
+							</f:if>
+						</f:if>
+					</f:else>
+				</f:if>
+				<f:render partial="Header/AllButton" arguments="{_all}" />
+
+		</f:section>
+		
+		
+		<!-- ### LAYOUT 20 - Newsletter zwei Spalten ### -->
+		
+		<f:section name="Custom_Header20">
+		
+
+		
+		</f:section>
+		
+		<f:section name="Custom_Main20">
+		
+		<table class="" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+			<tbody>
+				<tr style="padding: 0; text-align: left; vertical-align: top;">
+					<td class="last" valign="top" style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word; width:100px;padding-right: 15px;text-align: center;vertical-align: top;">
+						
+							<f:render partial="Media/GallerySpaltenSmall" arguments="{_all}" />
+						
+					</td>
+					<td style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word; width:740px;">
+						
+						<f:render partial="Header/All" arguments="{_all}" />
+						
+						<div class="ce-bodytext">
+						
+							<f:format.html>{data.bodytext}</f:format.html>
+						</div>
+						<f:render partial="Header/AllButton" arguments="{_all}" />
+					</td>
+
+				</tr>
+			</tbody>
+		</table>	
+		
+		</f:section>
+				
+		
+</html>

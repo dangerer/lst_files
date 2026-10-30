@@ -1,0 +1,6 @@
+# Include this route enhancer config into global site configuration:
+# imports:
+#  - { resource: "EXT:gtn_lsthooks/Configuration/Routes/Ajax.yaml" }
+
+imports:
+- { resource: "EXT:gtn_lsthooks/Configuration/Routes/Ajax.yaml" }
