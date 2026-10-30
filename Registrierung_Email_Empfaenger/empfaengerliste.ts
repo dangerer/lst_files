@@ -10,6 +10,15 @@ empfaenger_augsburg = office@lst-sued.de
 empfaenger_pockau = anfragen@laborstrauss.de
 empfaenger_international = dagmar.stefanoff@lst.at
 
+# Test:
+# empfaenger_wien = cas2andra@gmail.com
+# empfaenger_graz = cas2andra@gmail.com
+# empfaenger_innsbruck = cas2andra@gmail.com
+# empfaenger_moenchengladbach = cas2andra@gmail.com
+# empfaenger_hamburg = cas2andra@gmail.com
+# empfaenger_augsburg = cas2andra@gmail.com
+# empfaenger_pockau = cas2andra@gmail.com
+# empfaenger_international = cas2andra@gmail.com
 
 ########## RAN - Retourlieferungen ##########
 
@@ -17,6 +26,7 @@ empfaenger_international = dagmar.stefanoff@lst.at
 ran_empfaenger_wien = erelief@lst.at
 ran_empfaenger_graz = erelief@lst.at
 ran_empfaenger_innsbruck = erelief@lst.at
+# ran_empfaenger_innsbruck = cas2andra@gmail.com
 ran_empfaenger_moenchengladbach = erelief@laborstrauss.de
 ran_empfaenger_moenchengladbach_confirmation = harald.lappe@laborstrauss.de, martin.mueller@laborstrauss.de, christian.van-grinsven@laborstrauss.de
 ran_empfaenger_hamburg = erelief@lst-nord.de
@@ -142,6 +152,7 @@ tech_supp_subjectAdmin_international = Web-Formular - Technischer Support - Inte
 
 # Empfänger (Admin) von Allgemeine Anfragen > Admin (Mehrere Einträge möglich, trennen mit Beistrich) 
 allgem_anfragen_empfaenger_wien = office@lst.at
+allgem_anfragen_empfaenger_wien = cas2andra@gmail.com
 allgem_anfragen_empfaenger_graz = office-graz@lst.at
 allgem_anfragen_empfaenger_innsbruck = office-ibk@lst.at
 allgem_anfragen_empfaenger_moenchengladbach = office@laborstrauss.de
