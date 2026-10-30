@@ -2545,16 +2545,56 @@ p.printinfo {
 }
 
 .ce-printheaderadress {
-  min-height: 240px;
+  min-height: 250px;
+  min-height: 322px; /* Fix height für Falzmarke Fensterkuvert */
+  min-height: 371px; /* Fix height für Falzmarke Fensterkuvert */
   border-bottom: 1px dashed #000; 
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .ce-printheaderadress .ce-bodytext {
   bottom: 20px;
-  right: 0;
+  bottom: 85px; /* fix height für Fensterkuvert */
+
+  left: 0;
   position: absolute;
+}
+
+.powermail_print_page .printinfo,
+.powermail_print_page table {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#maincontent .printinfo {
+  font-size: 1.15rem;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  background-color: rgba(218,37,39,0.10);
+  color: #a80f08;
+  border-radius: 0;
+  border-color: #f5c6cb;
+}
+
+#maincontent .printinfo .printinfo-erfasst {
+  display: block; 
+  margin-bottom: 1rem;
+}
+
+#maincontent .UserAdress-ran {
+  display: none !important;
+}
+
+.powermail_print_page .UserAdress-ran {
+  
+}
+
+.powermail_print_page .printinfo . printinfo-erfasst {
+  display: none;
 }
 
 /* ### Cookie Hint ### */
@@ -3238,8 +3278,7 @@ p.text-teaser {
 }
 
 table tr td:first-child {
-  font-family: "source_sans_prosemibold", Arial, sans-serif;
-
+  No-font-family: "source_sans_prosemibold", Arial, sans-serif;
 }
 
 .trainings-agenda h4 {

@@ -104,8 +104,30 @@ plugin.tx_srfeuserregister_pi1 {
 			15 {
 				shortPath = International
 			}
-
 		}
+
+		adminEmailsByRegion {
+			9 = {$empfaenger_wien}
+			10 = {$empfaenger_graz}
+			11 = {$empfaenger_innsbruck}
+			12 = {$empfaenger_moenchengladbach}
+			13 = {$empfaenger_hamburg}
+			14 = {$empfaenger_pockau}
+			44 = {$empfaenger_augsburg}
+			15 = {$empfaenger_international}
+		}
+
+		userPidsByRegion {
+			9 = 49
+			10 = 50
+			11 = 54
+			12 = 52
+			13 = 53
+			14 = 55
+			44 = 12101
+			15 = 56
+		}
+
 		# link to Impressum
 		agbPid = 11
 		kontaktPid = 8

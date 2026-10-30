@@ -57,3 +57,5 @@ plugin.tx_sremailsubscribe.enableAdminNotifyOnUpdate = 0
 # plugin.tx_mindshapecookiehint.view.layoutRootPath = fileadmin/Lst2017/Resources/Private/mindshape_cookie_hint/Templates/
 # plugin.tx_mindshapecookiehint.view.partialRootPath = fileadmin/Lst2017/Resources/Private/mindshape_cookie_hint/Templates/
 
+plugin.tx_powermail.settings.misc.randomizeFileName = 1
+plugin.tx_powermail.settings.misc.randomizePrependOriginalFileName = 1

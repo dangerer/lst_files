@@ -696,3 +696,7 @@ plugin.tx_powermail.settings.setup.receiver.predefinedReceiver {
 plugin.tx_powermail.settings.setup.misc.file.extension = jpg,jpeg,gif,png,tif,txt,doc,docx,xls,xlsx,ppt,pptx,pdf,mpg,mpeg,avi,mp3,zip,rar,ace,csv,svg,mp4
 plugin.tx_powermail.settings.setup.misc.file = jpg,jpeg,gif,png,tif,txt,doc,docx,xls,xlsx,ppt,pptx,pdf,mpg,mpeg,avi,mp3,zip,rar,ace,csv,svg,mp4
 plugin.tx_powermail.settings.Pi2.misc.file.extension = jpg,jpeg,gif,png,tif,txt,doc,docx,xls,xlsx,ppt,pptx,pdf,mpg,mpeg,avi,mp3,zip,rar,ace,csv,svg,mp4
+
+
+plugin.tx_powermail.settings.misc.randomizeFileName = 1
+plugin.tx_powermail.settings.misc.randomizePrependOriginalFileName = 1

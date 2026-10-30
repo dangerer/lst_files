@@ -21,6 +21,15 @@ table.eedu-koord-table {
   
 }
 
+.table > tbody > tr > td, .table > tfoot > tr > td, .table > thead > tr > td,
+.table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > th {
+  vertical-align: top;
+}
+
+.table > tbody > tr > td.td-v-align, .table > tfoot > tr > td.td-v-align, .table > thead > tr > td.td-v-align {
+  vertical-align: middle;
+}
+
 a.btn-default {
   background-color: #01a565;
   padding: 7px 20px;

@@ -65,6 +65,22 @@ Section for Web view
 			</f:for>
 		</f:for>
 	</table>
+	<div class="UserAdress-ran">
+		<f:if condition="{mail.answersByFieldMarker.firma.value}">
+			<strong>{mail.answersByFieldMarker.firma.value}</strong><br>
+		</f:if>
+	
+		{mail.answersByFieldMarker.vorname.value}
+		{mail.answersByFieldMarker.nachname.value}<br>
+	
+		{mail.answersByFieldMarker.marker_02.value}<br>
+	
+		{mail.answersByFieldMarker.plz.value}
+		{mail.answersByFieldMarker.marker.value}
+		<f:if condition="{mail.answersByFieldMarker.land2.value}">
+			– {mail.answersByFieldMarker.land2.value}
+		</f:if>
+	</div>
 <f:if condition="{type} == 'createAction'}">
 
 	<input type="button" value="{f:translate(key:'print',  extensionName:'GtnLsthooks')}" class="btn btn-primary btn-lst btn-sm lst-printButton">

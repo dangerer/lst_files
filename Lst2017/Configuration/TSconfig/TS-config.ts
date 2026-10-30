@@ -1,5 +1,11 @@
 # <INCLUDE_TYPOSCRIPT: source="FILE: fileadmin/phooe/Configuration/TSconfig/TS-config_oldPHOOE.ts">
 
+TCEFORM.tt_content.CType {
+  removeItems = textpic, image, text
+#  removeItems = header, text, textpic, textmedia, image, bullets, table, uploads, multimedia, media,mailform, search, login, menu, shortcut, html, script, splash, div, list
+#  removeItems = header, text, textpic, textmedia, image, bullets, table, uploads, multimedia, media,mailform, search, login, menu, shortcut, html, script, splash, div, list
+} 
+
 TCAdefaults.tx_news_domain_model_news.hidden=1
 
 # Rahmen unter Indention and Frames entfernen

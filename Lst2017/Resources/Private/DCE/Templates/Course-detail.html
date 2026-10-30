@@ -214,6 +214,26 @@
 		</div>
 	</f:if>
 	
+	<f:if condition="{field.infofooterliveonline}">
+		<div class="info-footer mt-5">
+			<h4 class="mb-2">
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoLiveOnlineHeader")}
+			</h4>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoLiveOnlineText1")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoLiveOnlineText2")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoLiveOnlineText3")}
+			</p>
+			<p>
+				{f:translate(key="LLL:EXT:gtn_lsthooks/Resources/Private/Language/fileadmin/locallang.xlf:courses.addInfoLiveOnlineText4")}
+			</p>
+		</div>
+	</f:if>
+	
 </div>
 	   <script>
 		   var maxCourseParticipants = {gtnLst:courseParticipants(course: '{courseUid}', get: 'max')};
